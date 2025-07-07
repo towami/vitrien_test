@@ -1,1 +1,146 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kunstenaars – Vitrien</title>
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'IM Fell English', serif;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: white;
+      z-index: 10;
+      border-bottom: none;
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .left, .right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .home-button {
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-decoration: none;
+      color: black;
+    }
+
+    .top-button, .language-select {
+      font-size: 1rem;
+      text-decoration: none;
+      color: black;
+      background: none;
+      border: none;
+    }
+
+    main {
+      margin-top: 100px;
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      justify-items: center;
+    }
+
+    .kunstenaar-vak {
+      aspect-ratio: 2 / 3;
+      width: 100%;
+      border: 1px solid black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 1.1rem;
+      background-color: #fdfdfd;
+    }
+
+    .bottom-nav {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 40px 20px;
+      border-top: 1px solid black;
+      margin-top: 80px;
+      flex-wrap: wrap;
+    }
+
+    .bottom-nav a {
+      text-decoration: none;
+      color: black;
+      font-size: 1rem;
+      padding: 8px 12px;
+      border: 1px solid black;
+      transition: background-color 0.3s ease;
+    }
+
+    .bottom-nav a:hover {
+      background-color: #e50a06;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-container">
+      <div class="left">
+        <a href="../index.html" class="home-button">VITRIEN</a>
+      </div>
+      <div class="right">
+        <a href="#contact" class="top-button">Contact</a>
+        <select class="language-select">
+          <option value="nl">NL</option>
+          <option value="en">EN</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <h1>Kunstenaars</h1>
+    <div class="grid">
+      <div class="kunstenaar-vak">Naam 1</div>
+      <div class="kunstenaar-vak">Naam 2</div>
+      <div class="kunstenaar-vak">Naam 3</div>
+      <div class="kunstenaar-vak">Naam 4</div>
+      <div class="kunstenaar-vak">Naam 5</div>
+      <div class="kunstenaar-vak">Naam 6</div>
+    </div>
+  </main>
+
+  <!-- Navigatie onderaan -->
+  <nav class="bottom-nav">
+    <a href="open-call.html">Open Call</a>
+    <a href="kunstenaars.html">Kunstenaars</a>
+    <a href="over-vitrien.html">Over Vitrien</a>
+    <a href="datas-locaties.html">Data's + Locaties</a>
+    <a href="team.html">Team</a>
+  </nav>
+
+</body>
+</html>
 
