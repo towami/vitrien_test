@@ -65,3 +65,15 @@ main {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+@media (max-width: 768px) {
+  main {
+    flex-direction: column;
+    height: auto; /* zodat de content mag scrollen */
+  }
+
+  .vak {
+    width: 100%;
+    height: 100vh; /* elk vak vult het volledige scherm op mobiel */
+  }
+}
+
