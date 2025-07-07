@@ -1,3 +1,151 @@
+kan je deze css aanvullen? /* ========== BASISINSTELLINGEN ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  font-family: 'IM Fell English', serif;
+  overflow-x: auto;
+}
+
+/* ========== HEADER EN NAVIGATIE ========== */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 20px 20px; /* ← voeg horizontale padding toe */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  z-index: 10;
+  border-bottom: 1px solid black;
+}
+
+
+/* Linkerkant van de header: VITRIEN homeknop */
+.left {
+  display: flex;
+  align-items: center;
+}
+
+/* Rechterkant van de header: Contact + taalkeuze */
+.right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.right select {
+  margin-left: 10px;
+}
+
+/* Stijlen voor knoppen in de header */
+.home-button {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.top-button {
+  text-decoration: none;
+  color: black;
+  margin-right: 15px;
+}
+
+.language-select {
+  border: none;
+  background: none;
+  font-size: 1rem;
+}
+
+/* ========== MAIN SECTIE (5 VAKKEN) ========== */
+main {
+  display: flex;
+  height: calc(100vh - 80px); /* volledige schermhoogte - headerhoogte */
+  margin-top: 80px;
+}
+
+.vak {
+  flex: 1; /* elk vak neemt evenveel ruimte */
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  text-align: center;
+  text-decoration: none; /* geen onderlijning */
+  color: black;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hover- en klik-effecten op vakken */
+.vak:hover,
+.vak:active {
+  background-color: #e50a06;
+  color: white;
+  cursor: pointer;
+}
+
+/* ========== RESPONSIVE STIJL VOOR MOBIEL ========== */
+@media (max-width: 768px) {
+  main {
+    flex-direction: column;
+    height: auto; /* laat de content scrollen */
+  }
+
+  .vak {
+    width: 100%;
+    height: 100vh; /* elk vak vult volledig mobiel scherm */
+  }
+}
+
+@media (max-width: 480px) {
+  .top-button {
+    font-size: 0.9rem;
+  }
+
+  .language-select {
+    font-size: 0.9rem;
+  }
+
+  header {
+    padding: 15px;
+  }
+}
+
+
+/* ========== VIDEO INTRO ========== */
+.intro-video-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #e50a06;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.intro-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ========== FOOTER ========== */
+footer {
+  margin-top: 80px;
+  padding: 20px;
+  text-align: center;
+  font-size: 0.9rem;
+  border-top: 1px solid black;
+}
+
 /* ========== ALGEMENE LINKSTIJL ========== */
 a {
   color: black;
