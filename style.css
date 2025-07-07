@@ -123,12 +123,12 @@ main {
   display: flex;
   flex-direction: row;
   width: 100vw;
-  height: calc(100vh - 80px); /* ← trek hoogte van header af */
-  margin-top: 80px; /* ← om niet onder header te vallen */
+  height: calc(100vh - 80px); /* Alleen dit gebruiken */
   padding: 0;
   position: relative;
   z-index: 1;
 }
+
 
 .vak {
   flex: 1;
