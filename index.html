@@ -37,22 +37,24 @@
       display: none;
     }
 
-    header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background-color: white;
-      z-index: 10;
-      border-bottom: 1px solid black;
-      left: 0;
-      right: 0;
-    }
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: white;
+  z-index: 10;
+  border-bottom: none; /* geen lijn */
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 
     .home-button {
       text-decoration: none;
@@ -77,7 +79,6 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      margin-right: 10px;
     }
 
     main {
