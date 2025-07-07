@@ -1,1 +1,135 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Team – Vitrien</title>
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'IM Fell English', serif;
+    }
 
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: white;
+      z-index: 10;
+      border-bottom: none;
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .left, .right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .home-button {
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-decoration: none;
+      color: black;
+    }
+
+    .top-button, .language-select {
+      font-size: 1rem;
+      text-decoration: none;
+      color: black;
+      background: none;
+      border: none;
+    }
+
+    main {
+      margin-top: 100px;
+      padding: 40px 20px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      margin-bottom: 1em;
+    }
+
+    .bottom-nav {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 40px 20px;
+      border-top: 1px solid black;
+      margin-top: 80px;
+      flex-wrap: wrap;
+    }
+
+    .bottom-nav a {
+      text-decoration: none;
+      color: black;
+      font-size: 1rem;
+      padding: 8px 12px;
+      border: 1px solid black;
+      transition: background-color 0.3s ease;
+    }
+
+    .bottom-nav a:hover {
+      background-color: #e50a06;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-container">
+      <div class="left">
+        <a href="../index.html" class="home-button">VITRIEN</a>
+      </div>
+      <div class="right">
+        <a href="#contact" class="top-button">Contact</a>
+        <select class="language-select">
+          <option value="nl">NL</option>
+          <option value="en">EN</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <h1>Team</h1>
+    <p>
+      Vitrien is een initiatief van Judith Caeyers en Thomas De Paepe, met ondersteuning van een wisselende groep kunstenaars, ontwerpers en denkers.
+    </p>
+    <p>
+      We geloven in de kracht van kleine ontmoetingen, ongewone plekken, en tijdelijke transformaties. Heb je zin om mee te doen of heb je ideeën? Laat het ons weten!
+    </p>
+  </main>
+
+  <!-- Navigatie onderaan -->
+  <nav class="bottom-nav">
+    <a href="open-call.html">Open Call</a>
+    <a href="kunstenaars.html">Kunstenaars</a>
+    <a href="over-vitrien.html">Over Vitrien</a>
+    <a href="datas-locaties.html">Data's + Locaties</a>
+    <a href="team.html">Team</a>
+  </nav>
+
+</body>
+</html>
