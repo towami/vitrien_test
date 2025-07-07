@@ -9,7 +9,7 @@ html, body {
   height: 100%;
   font-family: 'IM Fell English', serif;
   scroll-behavior: smooth;
-  overflow-x: hidden;
+  overflow: hidden; /* voorkomt scrollbars */
 }
 
 a {
@@ -33,6 +33,7 @@ img {
 header {
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
   background-color: white;
   z-index: 10;
@@ -117,15 +118,22 @@ header {
 }
 
 
-/* ========== MAIN ========== */
+/* ========== MAIN: 5 VAKKEN VOLLEDIGE BREEDTE EN HOOGTE ========== */
 main {
   display: flex;
-  height: calc(100vh - 80px); /* ruimte voor header */
-  margin-top: 80px;
+  flex-direction: row;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  z-index: 1; /* onder de header */
 }
 
 .vak {
   flex: 1;
+  height: 100%;
+  width: 100%;
   border: 1px solid black;
   display: flex;
   justify-content: center;
@@ -145,37 +153,18 @@ main {
 }
 
 
-/* ========== CONTENT PAGINA'S ========== */
-.content {
-  max-width: 800px;
-  margin: 100px auto 40px auto;
-  padding: 0 20px;
-}
-
-h1 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-}
-
-h2 {
-  font-size: 1.8rem;
-  margin-top: 40px;
-  margin-bottom: 10px;
-}
-
-p {
-  font-size: 1.2rem;
-  line-height: 1.6;
-  margin-bottom: 1em;
-}
-
-
-/* ========== FOOTER ========== */
+/* ========== OPTIONELE FOOTER (zwevend) ========== */
 footer {
-  margin-top: 80px;
-  padding: 20px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: white;
   text-align: center;
+  padding: 10px;
   font-size: 0.9rem;
+  border-top: 1px solid black;
+  z-index: 10;
 }
 
 
@@ -183,6 +172,7 @@ footer {
 @media (max-width: 768px) {
   main {
     flex-direction: column;
+    overflow-y: auto;
     height: auto;
   }
 
