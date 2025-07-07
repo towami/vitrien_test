@@ -16,15 +16,20 @@ header {
   position: fixed;
   top: 0;
   width: 100%;
-  padding: 20px 20px; /* ← voeg horizontale padding toe */
+  background-color: white;
+  z-index: 10;
+  border-bottom: none; /* geen lijn */
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: white;
-  z-index: 10;
-  max-width: 1200px;
-  margin: 0 auto;
 }
+
 
 
 /* Linkerkant van de header: VITRIEN homeknop */
