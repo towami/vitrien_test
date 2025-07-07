@@ -1,59 +1,64 @@
-kan je deze css aanvullen? /* ========== BASISINSTELLINGEN ========== */
+/* ========== BASISINSTELLINGEN ========== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body, html {
+html, body {
   height: 100%;
   font-family: 'IM Fell English', serif;
-  overflow-x: auto;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
-/* ========== HEADER EN NAVIGATIE ========== */
+a {
+  color: black;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #e50a06;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+/* ========== HEADER ========== */
 header {
   position: fixed;
   top: 0;
   width: 100%;
-  padding: 20px 20px; /* ← voeg horizontale padding toe */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   background-color: white;
   z-index: 10;
-  border-bottom: none; /* geen lijn */
+  border-bottom: none;
 }
 
 .header-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 20px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-
-
-/* Linkerkant van de header: VITRIEN homeknop */
 .left {
   display: flex;
   align-items: center;
 }
 
-/* Rechterkant van de header: Contact + taalkeuze */
 .right {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.right select {
-  margin-left: 10px;
-}
-
-/* Stijlen voor knoppen in de header */
 .home-button {
   text-decoration: none;
   color: black;
@@ -64,68 +69,23 @@ header {
 .top-button {
   text-decoration: none;
   color: black;
-  margin-right: 15px;
+  font-size: 1.1rem;
+  padding: 10px 16px;
+  border: 1px solid black;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.top-button:hover {
+  background-color: #e50a06;
+  color: white;
 }
 
 .language-select {
   border: none;
   background: none;
   font-size: 1rem;
-}
-
-/* ========== MAIN SECTIE (5 VAKKEN) ========== */
-main {
-  display: flex;
-  height: calc(100vh - 80px); /* volledige schermhoogte - headerhoogte */
-  margin-top: 80px;
-}
-
-.vak {
-  flex: 1; /* elk vak neemt evenveel ruimte */
-  border: 1px solid black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 2rem;
-  text-align: center;
-  text-decoration: none; /* geen onderlijning */
-  color: black;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-/* Hover- en klik-effecten op vakken */
-.vak:hover,
-.vak:active {
-  background-color: #e50a06;
-  color: white;
   cursor: pointer;
-}
-
-/* ========== RESPONSIVE STIJL VOOR MOBIEL ========== */
-@media (max-width: 768px) {
-  main {
-    flex-direction: column;
-    height: auto; /* laat de content scrollen */
-  }
-
-  .vak {
-    width: 100%;
-    height: 100vh; /* elk vak vult volledig mobiel scherm */
-  }
-}
-
-@media (max-width: 480px) {
-  .top-button {
-    font-size: 0.9rem;
-  }
-
-  .language-select {
-    font-size: 0.9rem;
-  }
-
-  header {
-    padding: 15px;
-  }
 }
 
 
@@ -137,7 +97,10 @@ main {
   width: 100vw;
   height: 100vh;
   background-color: #e50a06;
-  z-index: 1000;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   overflow: hidden;
 }
 
@@ -147,26 +110,48 @@ main {
   object-fit: cover;
 }
 
-/* ========== FOOTER ========== */
-footer {
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+}
+
+
+/* ========== MAIN ========== */
+main {
+  display: flex;
+  height: calc(100vh - 80px); /* ruimte voor header */
   margin-top: 80px;
-  padding: 20px;
+}
+
+.vak {
+  flex: 1;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
   text-align: center;
-  font-size: 0.9rem;
-  border-top: 1px solid black;
-}
-
-/* ========== ALGEMENE LINKSTIJL ========== */
-a {
+  text-decoration: none;
   color: black;
-  text-decoration: underline;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-a:hover {
-  color: #e50a06;
+.vak:hover,
+.vak:active {
+  background-color: #e50a06;
+  color: white;
+  cursor: pointer;
 }
 
-/* ========== STANDAARD TEKSTOPMAAK ========== */
+
+/* ========== CONTENT PAGINA'S ========== */
+.content {
+  max-width: 800px;
+  margin: 100px auto 40px auto;
+  padding: 0 20px;
+}
+
 h1 {
   font-size: 2.5rem;
   margin-bottom: 20px;
@@ -184,28 +169,56 @@ p {
   margin-bottom: 1em;
 }
 
-/* ========== RESPONSIVE AFBEELDINGEN ========== */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
+
+/* ========== FOOTER ========== */
+footer {
+  margin-top: 80px;
+  padding: 20px;
+  text-align: center;
+  font-size: 0.9rem;
+  border-top: 1px solid black;
 }
 
-/* ========== CONTENTCONTAINER VOOR SUBPAGINA'S ========== */
-.content {
-  max-width: 800px;
-  margin: 100px auto 40px auto; /* bovenruimte voor header */
-  padding: 0 20px;
+
+/* ========== RESPONSIVE STIJLEN ========== */
+@media (max-width: 768px) {
+  main {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .vak {
+    width: 100%;
+    height: 100vh;
+  }
+
+  .top-button {
+    font-size: 1rem;
+    padding: 8px 14px;
+  }
+
+  .language-select {
+    font-size: 0.95rem;
+  }
+
+  .header-container {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
 }
 
-/* ========== SCROLLGEDRAG VOOR HELE PAGINA ========== */
-body {
-  scroll-behavior: smooth;
-}
+@media (max-width: 480px) {
+  .top-button {
+    font-size: 0.9rem;
+    padding: 6px 12px;
+  }
 
-/* ========== ZACHTE OVERGANG VOOR INTRO VIDEO VERDWIJNING ========== */
-.hidden {
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+  .language-select {
+    font-size: 0.9rem;
+  }
+
+  .header-container {
+    padding: 15px;
+  }
 }
