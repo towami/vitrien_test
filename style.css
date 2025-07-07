@@ -7,6 +7,7 @@
 body, html {
   height: 100%;
   font-family: 'IM Fell English', serif;
+  overflow: hidden;
 }
 
 header {
@@ -42,14 +43,17 @@ header {
 }
 
 main {
+  display: flex;
+  height: 100vh;
   margin-top: 80px; /* ruimte voor de header */
 }
 
 .vak {
-  height: 100vh;
+  flex: 1;
   border: 1px solid black;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 2rem;
+  text-align: center;
 }
