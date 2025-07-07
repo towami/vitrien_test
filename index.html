@@ -41,6 +41,8 @@
       position: fixed;
       top: 0;
       width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
       padding: 20px;
       display: flex;
       justify-content: space-between;
@@ -48,6 +50,8 @@
       background-color: white;
       z-index: 10;
       border-bottom: 1px solid black;
+      left: 0;
+      right: 0;
     }
 
     .home-button {
@@ -67,6 +71,13 @@
       border: none;
       background: none;
       font-size: 1rem;
+    }
+
+    .right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-right: 10px;
     }
 
     main {
@@ -108,6 +119,7 @@
     }
   </style>
 </head>
+
 <body>
 
   <!-- Intro video -->
@@ -134,11 +146,11 @@
 
   <!-- Vakken -->
   <main>
-<a href="paginas/open-call.html" class="vak">Open Call</a>
-<a href="paginas/kunstenaars.html" class="vak">Kunstenaars</a>
-<a href="paginas/over-vitrien.html" class="vak">Over Vitrien</a>
-<a href="paginas/datas-locaties.html" class="vak">Data's + Locaties</a>
-<a href="paginas/team.html" class="vak">Team</a>
+    <a href="paginas/open-call.html" class="vak">Open Call</a>
+    <a href="paginas/kunstenaars.html" class="vak">Kunstenaars</a>
+    <a href="paginas/over-vitrien.html" class="vak">Over Vitrien</a>
+    <a href="paginas/datas-locaties.html" class="vak">Data's + Locaties</a>
+    <a href="paginas/team.html" class="vak">Team</a>
   </main>
 
   <!-- Script to auto-hide intro -->
@@ -158,11 +170,10 @@
     });
   </script>
 
+  <!-- Footer -->
+  <footer>
+    © Thomas De Paepe & Judith Caeyers 2025
+  </footer>
+
 </body>
-
-<footer>
-  © Thomas De Paepe & Judith Caeyers 2025
-</footer>
-
-  
 </html>
