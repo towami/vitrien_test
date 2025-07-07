@@ -37,24 +37,22 @@
       display: none;
     }
 
-header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background-color: white;
-  z-index: 10;
-  border-bottom: none; /* geen lijn */
-}
-
-.header-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: white;
+      z-index: 10;
+      border-bottom: 1px solid black;
+      left: 0;
+      right: 0;
+    }
 
     .home-button {
       text-decoration: none;
@@ -79,6 +77,7 @@ header {
       display: flex;
       align-items: center;
       gap: 10px;
+      margin-right: 10px;
     }
 
     main {
@@ -147,6 +146,11 @@ header {
 
   <!-- Vakken -->
   <main>
+<a href="paginas/open-call.html" class="vak">Open Call</a>
+<a href="paginas/kunstenaars.html" class="vak">Kunstenaars</a>
+<a href="paginas/over-vitrien.html" class="vak">Over Vitrien</a>
+<a href="paginas/datas-locaties.html" class="vak">Data's + Locaties</a>
+<a href="paginas/team.html" class="vak">Team</a>
     <a href="paginas/open-call.html" class="vak">Open Call</a>
     <a href="paginas/kunstenaars.html" class="vak">Kunstenaars</a>
     <a href="paginas/over-vitrien.html" class="vak">Over Vitrien</a>
@@ -171,10 +175,16 @@ header {
     });
   </script>
 
+</body>
+
+<footer>
+  © Thomas De Paepe & Judith Caeyers 2025
+</footer>
   <!-- Footer -->
   <footer>
     © Thomas De Paepe & Judith Caeyers 2025
   </footer>
 
+  
 </body>
 </html>
