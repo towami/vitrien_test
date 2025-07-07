@@ -56,3 +56,12 @@ main {
   align-items: center;
   font-size: 2rem;
 }
+
+.vak:hover,
+.vak:active {
+  background-color: #e50a06;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
