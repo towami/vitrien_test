@@ -16,6 +16,10 @@ header {
   position: fixed;
   top: 0;
   width: 100%;
+  padding: 20px 20px; /* ← voeg horizontale padding toe */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background-color: white;
   z-index: 10;
   border-bottom: none; /* geen lijn */
@@ -60,16 +64,7 @@ header {
 .top-button {
   text-decoration: none;
   color: black;
-  font-size: 1.1rem; /* groter lettertype */
-  padding: 10px 16px; /* extra ruimte rond de tekst */
-  border: 1px solid black; /* optioneel, voor meer visuele kracht */
-  border-radius: 4px;       /* afgeronde hoeken */
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.top-button:hover {
-  background-color: #e50a06;
-  color: white;
+  margin-right: 15px;
 }
 
 .language-select {
