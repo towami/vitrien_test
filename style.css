@@ -1,4 +1,4 @@
-* {
+{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -55,6 +55,10 @@ main {
   justify-content: center;
   align-items: center;
   font-size: 2rem;
+  text-align: center;
+  text-decoration: none; /* geen onderlijning */
+  color: black;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .vak:hover,
@@ -62,7 +66,6 @@ main {
   background-color: #e50a06;
   color: white;
   cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 @media (max-width: 768px) {
