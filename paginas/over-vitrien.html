@@ -6,23 +6,84 @@
   <title>Over Vitrien – VITRIEN</title>
   <link rel="stylesheet" href="../style.css" />
   <style>
-    .content {
-      margin-top: 100px; /* ruimte onder vaste header */
+    body {
+      font-family: 'IM Fell English', serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: white;
+      z-index: 10;
+      border-bottom: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .home-button {
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    .top-button {
+      text-decoration: none;
+      color: black;
+      font-size: 1rem;
+      padding: 8px 12px;
+      border: 1px solid black;
+    }
+
+    .language-select {
+      background: none;
+      border: none;
+      font-size: 1rem;
+      margin-left: 10px;
+    }
+
+    main {
+      margin-top: 100px;
       padding: 40px 20px;
-      max-width: 800px;
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+      column-gap: 40px; /* hier voeg je extra ruimte toe tussen kolommen */
+      max-width: 1200px;
       margin-left: auto;
       margin-right: auto;
-      font-size: 1.2rem;
-      line-height: 1.6;
     }
 
     h1 {
       font-size: 2.5rem;
-      margin-bottom: 20px;
+      margin: 0;
     }
 
-    p + p {
-      margin-top: 1em;
+    .text-columns {
+      column-count: 3;
+      column-gap: 40px; /* extra ruimte tussen tekstkolommen */
+      font-size: 1.2rem;
+      line-height: 1.6;
+    }
+
+    .text-columns p {
+      break-inside: avoid;
+      margin-bottom: 1em;
+    }
+
+    @media (max-width: 768px) {
+      main {
+        display: block;
+        padding: 20px;
+      }
+
+      .text-columns {
+        column-count: 1;
+      }
     }
   </style>
 </head>
@@ -43,19 +104,20 @@
   </header>
 
   <!-- Inhoud -->
-  <main class="content">
+  <main>
     <h1>Over Vitrien</h1>
-    <p>
-      Vitrien is een initiatief dat kunst, ruimte en ontmoeting samenbrengt. We gebruiken bestaande winkelvitrines en stadsplekken als tijdelijke tentoonstellingsruimtes, met als doel het straatbeeld te transformeren in een open en toegankelijke kunstroute.
-    </p>
-    <p>
-      Als collectief zijn we nieuwsgierig naar het raakvlak tussen kunst en dagelijkse context. We geloven dat kunst niet alleen in musea thuishoort, maar ook midden in het leven, in de etalage van je lokale slager, in een verlaten pand of in de inkomhal van een theater.
-    </p>
-    <p>
-      Vitrien kadert in LOV2030, de kandidatuur van Leuven voor Europese Culturele Hoofdstad. Onze projecten dragen bij aan een stad waar cultuur zichtbaar, levendig en verrassend is.
-    </p>
+    <div class="text-columns">
+      <p>
+        Vitrien is een initiatief dat kunst, ruimte en ontmoeting samenbrengt. We gebruiken bestaande winkelvitrines en stadsplekken als tijdelijke tentoonstellingsruimtes, met als doel het straatbeeld te transformeren in een open en toegankelijke kunstroute.
+      </p>
+      <p>
+        Als collectief zijn we nieuwsgierig naar het raakvlak tussen kunst en dagelijkse context. We geloven dat kunst niet alleen in musea thuishoort, maar ook midden in het leven, in de etalage van je lokale slager, in een verlaten pand of in de inkomhal van een theater.
+      </p>
+      <p>
+        Vitrien kadert in LOV2030, de kandidatuur van Leuven voor Europese Culturele Hoofdstad. Onze projecten dragen bij aan een stad waar cultuur zichtbaar, levendig en verrassend is.
+      </p>
+    </div>
   </main>
 
 </body>
 </html>
-
