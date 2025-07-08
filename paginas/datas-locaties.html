@@ -1,1 +1,76 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grid Pagina</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'IM Fell English', serif;
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: repeat(4, 1fr);
+      gap: 15px;
+      padding: 40px;
+      height: 100vh;
+      box-sizing: border-box;
+    }
+
+    .vak {
+      border: 1px solid black;
+      background-color: #f9f9f9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .vak:hover {
+      background-color: #e50a06;
+      color: white;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      main {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+        height: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <main>
+    <div class="vak">1</div>
+    <div class="vak">2</div>
+    <div class="vak">3</div>
+    <div class="vak">4</div>
+    <div class="vak">5</div>
+    <div class="vak">6</div>
+    <div class="vak">7</div>
+    <div class="vak">8</div>
+    <div class="vak">9</div>
+    <div class="vak">10</div>
+    <div class="vak">11</div>
+    <div class="vak">12</div>
+    <div class="vak">13</div>
+    <div class="vak">14</div>
+    <div class="vak">15</div>
+    <div class="vak">16</div>
+    <div class="vak">17</div>
+    <div class="vak">18</div>
+    <div class="vak">19</div>
+    <div class="vak">20</div>
+  </main>
+
+</body>
+</html>
 
