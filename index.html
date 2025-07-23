@@ -47,20 +47,17 @@
   </footer>
 
   <!-- Script -->
-  <script>
-    window.addEventListener('load', () => {
-      const intro = document.getElementById('intro');
-      const video = intro.querySelector('video');
+<script>
+  window.addEventListener('load', () => {
+    const intro = document.getElementById('intro');
 
-      video.addEventListener('ended', () => {
-        intro.classList.add('hidden');
-      });
+    // Verberg de introtekst na 5 seconden
+    setTimeout(() => {
+      intro.classList.add('hidden');
+    }, 5000);
+  });
+</script>
 
-      setTimeout(() => {
-        intro.classList.add('hidden');
-      }, 5000);
-    });
-  </script>
 
 </body>
 </html>
