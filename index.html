@@ -2,62 +2,300 @@
 <html lang="nl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>VITRIEN</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VITRIEN — Home</title>
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===== CSS Variabelen ===== */
+    :root {
+      --bg: #fffaf1;
+      --text: #111111;
+      --muted: #6b6b6b;
+      --accent: #c11c1c; /* warm rood voor hover */
+      --border: #1a1a1a;
+      --card: #fff;
+      --shadow: 0 10px 30px rgba(0,0,0,0.07);
+      --maxw: 1200px;
+    }
+
+    /* ===== Reset / Basis ===== */
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: "IM Fell English", serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.35;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; height: auto; display: block; }
+    section { scroll-margin-top: 92px; }
+
+    /* ===== Header & Navigatie ===== */
+    header {
+      position: sticky; top: 0; z-index: 50;
+      backdrop-filter: saturate(180%) blur(10px);
+      border-bottom: 1px solid var(--border);
+      background: color-mix(in srgb, var(--bg) 80%, white 20%);
+    }
+    .nav {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 16px 20px;
+      display: flex; gap: 16px; align-items: center; justify-content: space-between;
+    }
+    .brand { font-size: 28px; letter-spacing: 0.06em; }
+    .brand strong { font-weight: 400; }
+
+    .menu { display: flex; gap: 18px; align-items: center; }
+    .menu a { opacity: 0.85; transition: opacity .2s ease, color .2s ease; }
+    .menu a:hover { opacity: 1; color: var(--accent); }
+
+    .cta { border: 1px solid var(--border); padding: 10px 14px; border-radius: 999px; transition: all .15s ease; }
+    .cta:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+    /* Mobile menu */
+    .burger { display: none; border: 1px solid var(--border); padding: 8px 10px; border-radius: 10px; background: transparent; }
+    .burger span { display: block; width: 22px; height: 2px; background: var(--text); margin: 4px 0; }
+
+    @media (max-width: 860px) {
+      .menu { display: none; }
+      .burger { display: block; }
+      .drawer { position: fixed; inset: 64px 16px auto 16px; background: var(--card); border: 1px solid var(--border); border-radius: 16px; box-shadow: var(--shadow); padding: 16px; display: none; }
+      .drawer a { display: block; padding: 12px; border-radius: 10px; }
+      .drawer a:hover { background: #f5f0e6; color: var(--accent); }
+      .drawer .cta { display: inline-block; margin: 8px 12px; }
+      .drawer.open { display: block; }
+    }
+
+    /* ===== Hero ===== */
+    .hero { min-height: calc(100vh - 92px); display: grid; place-items: center; padding: 80px 20px; }
+    .hero-inner { max-width: var(--maxw); width: 100%; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 36px; align-items: center; }
+    .kicker { color: var(--muted); letter-spacing: 0.08em; margin-bottom: 10px; }
+    h1 { font-size: clamp(38px, 6.5vw, 86px); font-weight: 400; letter-spacing: 0.03em; line-height: 1.02; margin: 0 0 22px; }
+    .lead { font-size: clamp(16px, 2.4vw, 22px); color: #222; max-width: 42ch; }
+    .hero-cta { margin-top: 26px; display: flex; gap: 12px; flex-wrap: wrap; }
+
+    .hero-card { background: var(--card); border: 1px solid var(--border); border-radius: 22px; padding: 18px; box-shadow: var(--shadow); display: grid; grid-template-rows: auto 1fr auto; min-height: 380px; }
+    .hero-card img { border-radius: 14px; border: 1px solid var(--border); }
+    .hero-card small { display: block; color: var(--muted); margin-top: 10px; }
+
+    @media (max-width: 980px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-card { min-height: 320px; }
+    }
+
+    /* ===== Secties ===== */
+    .section { padding: 90px 20px; }
+    .container { max-width: var(--maxw); margin: 0 auto; }
+    .section h2 { font-size: clamp(28px, 4.2vw, 54px); font-weight: 400; margin: 0 0 16px; letter-spacing: 0.03em; }
+    .section p { max-width: 65ch; font-size: clamp(16px, 2.2vw, 20px); color: #222; }
+
+    /* Cards grid */
+    .grid { display: grid; gap: 16px; grid-template-columns: repeat(12, 1fr); }
+    .card { grid-column: span 4; background: var(--card); border: 1px solid var(--border); border-radius: 18px; padding: 18px; box-shadow: var(--shadow); transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease; }
+    .card:hover { transform: translateY(-2px); border-color: var(--accent); box-shadow: 0 12px 36px rgba(0,0,0,0.12); }
+    .card h3 { margin: 8px 0 8px; font-weight: 400; }
+    .card p { font-size: 16px; color: #2a2a2a; }
+    @media (max-width: 1080px) { .card { grid-column: span 6; } }
+    @media (max-width: 680px)  { .card { grid-column: span 12; } }
+
+    /* ===== Badge / meta ===== */
+    .meta { display: inline-flex; align-items: center; gap: 8px; padding: 8px 10px; border: 1px dashed var(--border); border-radius: 999px; font-size: 14px; color: var(--muted); }
+
+    /* ===== Footer ===== */
+    footer { border-top: 1px solid var(--border); margin-top: 90px; }
+    .footer-inner { max-width: var(--maxw); margin: 0 auto; padding: 24px 20px 40px; display: grid; gap: 16px; grid-template-columns: 1fr auto; align-items: end; }
+    .fine { color: var(--muted); font-size: 14px; }
+
+    /* ===== Smooth scroll ===== */
+    html { scroll-behavior: smooth; }
+  </style>
 </head>
 <body>
-
-  <!-- Intro video -->
-<div class="intro-tekst-container" id="intro">
-  <div class="typewriter">
-    Welkom bij Vitrien, wij zijn een kunstenaarscollectief die bestaande winkelvitrines en stadsplekken gebruiken als tijdelijke tentoonstellingsruimtes.
-  </div>
-</div>
-
-
   <!-- Header -->
   <header>
-    <div class="header-container">
-      <div class="left">
-        <a href="index.html" class="home-button">VITRIEN</a>
+    <nav class="nav" aria-label="Hoofdnavigatie">
+      <a href="#top" class="brand" title="Terug naar boven"><strong>VITRIEN</strong></a>
+      <div class="menu" role="menubar">
+        <a href="#over">Over</a>
+        <a href="#praktisch">Data & locaties</a>
+        <a href="#opencall">Open call</a>
+        <a href="#kunstenaars">Kunstenaars</a>
+        <a href="#lov">LOV2030</a>
+        <a href="#team">Team</a>
+        <a href="#contact" class="cta">Contact</a>
       </div>
-      <div class="right">
-        <a href="#contact" class="top-button">Contact</a>
-        <select class="language-select">
-          <option value="nl">NL</option>
-          <option value="en">EN</option>
-        </select>
-      </div>
+      <button class="burger" aria-label="Open menu" onclick="toggleDrawer()">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+    <div class="drawer" id="drawer" aria-hidden="true">
+      <a href="#over" onclick="toggleDrawer()">Over</a>
+      <a href="#praktisch" onclick="toggleDrawer()">Data & locaties</a>
+      <a href="#opencall" onclick="toggleDrawer()">Open call</a>
+      <a href="#kunstenaars" onclick="toggleDrawer()">Kunstenaars</a>
+      <a href="#lov" onclick="toggleDrawer()">LOV2030</a>
+      <a href="#team" onclick="toggleDrawer()">Team</a>
+      <a href="#contact" class="cta" onclick="toggleDrawer()">Contact</a>
     </div>
   </header>
 
-  <!-- Vakken -->
-  <main>
-    <a href="paginas/open-call.html" class="vak">Open Call</a>
-    <a href="paginas/kunstenaars.html" class="vak">Kunstenaars</a>
-    <a href="paginas/over-vitrien.html" class="vak">Over Vitrien</a>
-    <a href="paginas/datas-locaties.html" class="vak">Data's + Locaties</a>
-    <a href="paginas/team.html" class="vak">Team</a>
+  <!-- Hero -->
+  <main id="top">
+    <section class="hero">
+      <div class="hero-inner">
+        <div>
+          <div class="kicker">Kunst in de etalage • Leuven</div>
+          <h1>Vitrien transformeert winkelramen tot tijdelijke tentoonstellingen.</h1>
+          <p class="lead">Een wandelroute langs bestaande vitrines op de Bondgenotenlaan. Kunstenaars en winkels worden aan elkaar gekoppeld — zo ontstaat er een speelse dialoog tussen kunst, stad en passanten.</p>
+          <div class="hero-cta">
+            <a class="cta" href="#opencall">Doe mee — open call</a>
+            <a class="cta" href="#praktisch">Plan je bezoek</a>
+          </div>
+        </div>
+        <aside class="hero-card" aria-label="Preview">
+          <img src="https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?q=80&w=1400&auto=format&fit=crop" alt="Etalage met kunstwerk (placeholder)"/>
+          <small>Beeld ter illustratie • Voeg hier later eigen foto of visual toe.</small>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Over -->
+    <section class="section" id="over">
+      <div class="container">
+        <span class="meta">Wat • Waar • Waarom</span>
+        <h2>Over Vitrien</h2>
+        <p>Vitrien is een artistieke route die bestaande winkelvitrines tijdelijk herdenkt als publieke tentoonstellingsplekken. We matchen lokale ondernemers met kunstenaars, geven bestaand werk een nieuw podium en nodigen het publiek uit om de stad anders te lezen.</p>
+      </div>
+    </section>
+
+    <!-- Praktisch: Data & Locaties -->
+    <section class="section" id="praktisch">
+      <div class="container">
+        <span class="meta">Praktisch</span>
+        <h2>Data & Locaties</h2>
+        <div class="grid" style="margin-top: 12px;">
+          <div class="card">
+            <h3>Data</h3>
+            <p><strong>Opening:</strong> 13 september, 15:00 — 20:00<br>
+               <strong>Expo:</strong> 13 september — 5 oktober<br>
+               <strong>Rondleidingen:</strong> 16:30 & 18:00 (op openingsdag)</p>
+          </div>
+          <div class="card">
+            <h3>Locaties</h3>
+            <p>Bondgenotenlaan en zijstraten, Leuven. Een gedetailleerde lijst met deelnemende winkels volgt. Tip: kom te voet of met de fiets.</p>
+          </div>
+          <div class="card">
+            <h3>Wandelroute</h3>
+            <p>We publiceren hier een kaart met aanbevolen route. Voor nu staat hier een placeholder.</p>
+            <div style="aspect-ratio: 16/10; border:1px solid var(--border); border-radius: 12px; display:grid; place-items:center; color:var(--muted);">
+              <span>Google Maps embed / kaart komt hier</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Open Call -->
+    <section class="section" id="opencall">
+      <div class="container">
+        <span class="meta">Voor makers</span>
+        <h2>Open call</h2>
+        <p>We focussen op <em>bestaand werk</em> dat goed tot zijn recht komt in een vitrine-context. Technische ondersteuning voorzien we in overleg met de winkel. Interesse om deel te nemen? Dien je dossier in via onze form en voeg 3–5 beelden toe.</p>
+        <div class="hero-cta" style="margin-top: 18px;">
+          <a class="cta" href="#">Dien in</a>
+          <a class="cta" href="#">Richtlijnen voor kunstenaars (PDF)</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kunstenaars (preview grid) -->
+    <section class="section" id="kunstenaars">
+      <div class="container">
+        <span class="meta">Deelnemers</span>
+        <h2>Kunstenaars</h2>
+        <div class="grid" style="margin-top: 12px;">
+          <article class="card">
+            <img src="https://images.unsplash.com/photo-1545235617-9465d2a55698?q=80&w=1200&auto=format&fit=crop" alt="Kunstvoorbeeld 1" style="border-radius: 10px; border: 1px solid var(--border);">
+            <h3>Naam kunstenaar</h3>
+            <p>Korte bio of type werk. Link naar portfolio.</p>
+          </article>
+          <article class="card">
+            <img src="https://images.unsplash.com/photo-1520697222861-e17a49d0b3af?q=80&w=1200&auto=format&fit=crop" alt="Kunstvoorbeeld 2" style="border-radius: 10px; border: 1px solid var(--border);">
+            <h3>Naam kunstenaar</h3>
+            <p>Korte bio of type werk. Link naar portfolio.</p>
+          </article>
+          <article class="card">
+            <img src="https://images.unsplash.com/photo-1487956382158-bb926046304a?q=80&w=1200&auto=format&fit=crop" alt="Kunstvoorbeeld 3" style="border-radius: 10px; border: 1px solid var(--border);">
+            <h3>Naam kunstenaar</h3>
+            <p>Korte bio of type werk. Link naar portfolio.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOV2030 -->
+    <section class="section" id="lov">
+      <div class="container">
+        <span class="meta">Context</span>
+        <h2>LOV2030</h2>
+        <p>Vitrien kadert binnen LOV2030, de kandidatuur van Leuven & Beyond als Europese Culturele Hoofdstad. Met deze expo testen we samenwerking tussen kunstenaars, lokale handel en publiek domein.</p>
+        <div class="hero-cta" style="margin-top: 18px;">
+          <a class="cta" href="https://www.lov2030.be" target="_blank" rel="noopener">Meer over LOV2030</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team -->
+    <section class="section" id="team">
+      <div class="container">
+        <span class="meta">Wie zit erachter?</span>
+        <h2>Team</h2>
+        <div class="grid" style="margin-top: 12px;">
+          <div class="card"><h3>Judith Caeyers</h3><p>Architect & organisator. Coördinatie locaties & communicatie.</p></div>
+          <div class="card"><h3>Joseph Thabang Palframan</h3><p>Curator & productie. Kunstenaarscontact & planning.</p></div>
+          <div class="card"><h3>Georgy / Arthur / Thomas</h3><p>Productie, vormgeving & partners.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section" id="contact">
+      <div class="container">
+        <span class="meta">Praktisch</span>
+        <h2>Contact</h2>
+        <p>Vragen, meedoen of samenwerken? Mail ons op <a href="mailto:hallo@vitrien.be">hallo@vitrien.be</a>.</p>
+        <div class="hero-cta" style="margin-top: 18px;">
+          <a class="cta" href="mailto:hallo@vitrien.be?subject=Vitrien%20—%20Vraag">Stuur een mail</a>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <!-- Footer -->
   <footer>
-    © Thomas De Paepe & Judith Caeyers 2025
+    <div class="footer-inner">
+      <div class="fine">© <span id="year"></span> Vitrien • Leuven</div>
+      <div><a class="cta" href="#top">Naar boven</a></div>
+    </div>
   </footer>
 
-  <!-- Script -->
-<script>
-  window.addEventListener('load', () => {
-    const intro = document.getElementById('intro');
-
-    // Verberg de introtekst na 5 seconden
-    setTimeout(() => {
-      intro.classList.add('hidden');
-    }, 5000);
-  });
-</script>
-
-
+  <script>
+    // Mobile drawer toggle
+    function toggleDrawer(){
+      const d = document.getElementById('drawer');
+      const open = d.classList.toggle('open');
+      d.setAttribute('aria-hidden', open ? 'false' : 'true');
+    }
+    // Current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
