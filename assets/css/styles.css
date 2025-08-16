@@ -11,6 +11,65 @@
   --ff-mono: 'IBM Plex Mono', ui-monospace, monospace; /* accent */
 }
 
+/* === Kunstenaarsgrid (figures) === */
+.modules.artists-grid {
+  display: grid;
+  gap: 40px;
+  grid-template-columns: 1fr;           /* mobiel: 1 kolom */
+}
+
+@media (min-width: 900px){
+  .modules.artists-grid { grid-template-columns: 1fr 1fr; }  /* tablet/desktop: 2 kolommen */
+}
+
+@media (min-width: 1200px){
+  .modules.artists-grid { grid-template-columns: 1fr 1fr 1fr; } /* brede desktop: 3 kolommen */
+}
+
+.module {
+  display: grid;
+  gap: 12px;
+}
+
+.module img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid var(--line);
+  transition: transform .28s ease, box-shadow .28s ease;
+}
+
+.module:hover img {
+  transform: scale(1.02);
+  box-shadow: 0 8px 22px rgba(0,0,0,.12);
+}
+
+.caption {
+  color: var(--fg);
+  font-size: 14px;
+  line-height: 1.55;
+  letter-spacing: .01em;
+}
+
+.caption strong {
+  display:block;
+  font-family: var(--ff-serif);
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+
+.mono-link {
+  display: inline-block;
+  margin-left: 6px;
+  font-family: var(--ff-mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
+
 /* ===============================
    2) RESET / BASIS
 ================================ */
