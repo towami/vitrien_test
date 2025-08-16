@@ -126,7 +126,6 @@ header{position:sticky; top:0; z-index:50; background:rgba(255,255,255,.95); bor
 .tile img{border:1px solid var(--line)}
 .caption{font-size:14px; line-height:1.5; margin-top:10px}
 .caption strong{font-family:var(--ff-serif); font-size:18px; display:block; margin-bottom:4px}
-.mono-link{font-family:var(--ff-mono); font-size:12px; text-transform:uppercase; text-decoration:underline; text-underline-offset:3px}
 
 /* ===============================
    6) FOOTER
