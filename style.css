@@ -1,295 +1,72 @@
-/* ========== BASISINSTELLINGEN ========== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* ===============================
+   1) DESIGN TOKENS
+================================ */
+:root {
+  --fg: #111;           /* primaire tekstkleur */
+  --muted: #6f6f6f;     /* secundaire tekstkleur */
+  --line: #e9e9e9;      /* hairline borders */
+  --max: 1200px;        /* max content breedte */
+  --ff-sans: Inter, system-ui, sans-serif;         /* body */
+  --ff-serif: 'EB Garamond', serif;                /* headings */
+  --ff-mono: 'IBM Plex Mono', ui-monospace, monospace; /* accent */
 }
 
-html, body {
-  height: 100%;
-  font-family: 'IM Fell English', serif;
-  scroll-behavior: smooth;
-  overflow: hidden; /* voorkomt scrollbars */
+/* ===============================
+   2) RESET / BASIS
+================================ */
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0; color:var(--fg); background:#fff; font-family:var(--ff-sans)}
+img{display:block; max-width:100%; height:auto}
+a{color:inherit; text-decoration:none}
+h1,h2{font-family:var(--ff-serif); font-weight:400}
+h1{font-size:clamp(40px,6vw,72px); line-height:1.05; margin:0 0 20px}
+h2{font-size:clamp(26px,3.6vw,42px); line-height:1.15; margin:0 0 12px}
+.container{max-width:var(--max); margin:0 auto; padding:0 20px}
+section{padding:80px 0}
+.meta{font-family:var(--ff-mono); font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin-bottom:12px}
+
+/* ===============================
+   3) HEADER + NAV
+================================ */
+header{position:sticky; top:0; z-index:50; background:rgba(255,255,255,.95); border-bottom:1px solid var(--line); backdrop-filter:saturate(160%) blur(8px)}
+.nav{max-width:var(--max); margin:0 auto; padding:16px 20px; display:flex; align-items:center; justify-content:space-between}
+.brand{font-family:var(--ff-serif); font-size:24px; letter-spacing:.04em}
+.menu{display:flex; gap:22px; align-items:center}
+.menu a{font-size:13px; text-transform:uppercase; letter-spacing:.14em; opacity:.9}
+.menu a:hover{text-decoration:underline; text-underline-offset:4px}
+.lang-switch{margin-left:12px; font-family:var(--ff-mono); font-size:12px}
+.lang-switch button{background:none; border:none; cursor:pointer; padding:4px 6px; text-transform:uppercase}
+.lang-switch button.active{text-decoration:underline}
+
+/* ===============================
+   4) MOBIELE MENUDRAWER
+================================ */
+.burger{display:none; border:1px solid var(--line); background:transparent; padding:8px 10px}
+.burger span{display:block; width:22px; height:1.5px; background:var(--fg); margin:4px 0}
+@media (max-width:860px){
+  .menu{display:none}
+  .burger{display:block}
+  .drawer{position:fixed; inset:64px 16px auto 16px; background:#fff; border:1px solid var(--line); padding:8px}
+  .drawer a{display:block; padding:14px 10px; border-bottom:1px solid var(--line); text-transform:uppercase; font-size:13px; letter-spacing:.11em}
+  .drawer a:last-child{border-bottom:none}
+  .drawer{display:none}
+  .drawer.open{display:block}
 }
 
-a {
-  color: black;
-  text-decoration: underline;
-  transition: color 0.3s ease;
-}
+/* ===============================
+   5) LAYOUT HELPERS
+================================ */
+.grid{display:grid; gap:40px}
+.two-col{grid-template-columns:1fr}
+@media (min-width:900px){ .two-col{grid-template-columns:1fr 1fr} }
+.tile img{border:1px solid var(--line)}
+.caption{font-size:14px; line-height:1.5; margin-top:10px}
+.caption strong{font-family:var(--ff-serif); font-size:18px; display:block; margin-bottom:4px}
+.mono-link{font-family:var(--ff-mono); font-size:12px; text-transform:uppercase; text-decoration:underline; text-underline-offset:3px}
 
-a:hover {
-  color: #e50a06;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-
-/* ========== HEADER ========== */
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: white;
-  z-index: 10;
-  border-bottom: none;
-}
-
-.header-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.left {
-  display: flex;
-  align-items: center;
-}
-
-.right {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.home-button {
-  text-decoration: none;
-  color: black;
-  font-weight: bold;
-  font-size: 1.2rem;
-}
-
-.top-button {
-  text-decoration: none;
-  color: black;
-  font-size: 1.1rem;
-  padding: 10px 16px;
-  border: 1px solid black;
-  border-radius: 4px;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.top-button:hover {
-  background-color: #e50a06;
-  color: white;
-}
-
-.language-select {
-  border: none;
-  background: none;
-  font-size: 1rem;
-  cursor: pointer;
-}
-
-
-/* ========== VIDEO INTRO ========== */
-.intro-video-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: #e50a06;
-  z-index: 9999;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-}
-
-.intro-video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.hidden {
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
-}
-
-
-/* ========== MAIN: 5 VAKKEN VOLLEDIGE BREEDTE EN HOOGTE ========== */
-main {
-  display: flex;
-  width: 100vw;
-  height: 100vh;
-  padding-top: 80px; /* ruimte voor de header */
-  padding-bottom: 40px; /* ruimte voor de footer */
-  box-sizing: border-box;
-}
-
-.vak {
-  flex: 1;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 2rem;
-  text-align: center;
-  text-decoration: none;
-  color: black;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-
-.vak:hover,
-.vak:active {
-  background-color: #e50a06;
-  color: white;
-  cursor: pointer;
-}
-
-
-/* ========== OPTIONELE FOOTER (zwevend) ========== */
-footer {
-  width: 100%;
-  background: white;
-  text-align: center;
-  padding: 10px;
-  font-size: 0.9rem;
-  border-top: 1px solid black;
-}
-
-
-/* ========== RESPONSIVE STIJLEN ========== */
-@media (max-width: 768px) {
-  main {
-    flex-direction: column;
-    overflow-y: auto;
-    height: auto;
-  }
-
-  .vak {
-    width: 100%;
-    height: 100vh;
-  }
-
-  .top-button {
-    font-size: 1rem;
-    padding: 8px 14px;
-  }
-
-  .language-select {
-    font-size: 0.95rem;
-  }
-
-  .header-container {
-    flex-direction: column;
-    gap: 10px;
-    align-items: flex-start;
-  }
-}
-
-@media (max-width: 480px) {
-  .top-button {
-    font-size: 0.9rem;
-    padding: 6px 12px;
-  }
-
-  .language-select {
-    font-size: 0.9rem;
-  }
-
-  .header-container {
-    padding: 15px;
-  }
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-  justify-items: center;
-}
-
-.kunstenaar-vak {
-  aspect-ratio: 3 / 2;
-  width: 100%;
-  position: relative;
-  background-color: #fdfdfd;
-  border: 1px solid black;
-  overflow: hidden;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.kunstenaar-vak:hover {
-  transform: scale(1.01);
-}
-
-.kunstenaar-vak .naam {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background-color: rgba(229, 10, 6, 0.9); /* rood transparant */
-  color: white;
-  text-align: center;
-  padding: 10px;
-  font-size: 1.1rem;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.kunstenaar-vak:hover .naam {
-  opacity: 1;
-}
-
-.kunstenaar-vak img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.intro-tekst-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: #e50a06;
-  z-index: 9999;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  color: white;
-  padding: 20px;
-  text-align: center;
-}
-
-.typewriter {
-  max-width: 800px;
-  font-size: 1.5rem;
-  white-space: nowrap;
-  overflow: hidden;
-  border-right: 2px solid white;
-  animation: typing 6s steps(100, end), blink 0.75s step-end infinite;
-}
-
-@keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
-}
-
-@keyframes blink {
-  50% { border-color: transparent }
-}
-
-.hidden {
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
-}
-
+/* ===============================
+   6) FOOTER
+================================ */
+footer{border-top:1px solid var(--line)}
+.footer-inner{max-width:var(--max); margin:0 auto; padding:22px 20px; display:flex; justify-content:space-between; color:#777; font-size:12px}
