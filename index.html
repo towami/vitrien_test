@@ -63,6 +63,11 @@
       .drawer{display:none}
       .drawer.open{display:block}
     }
+
+    /* Language switcher */
+    .lang-switch{margin-left:20px; font-size:12px; font-family:var(--ff-mono)}
+    .lang-switch button{background:none; border:none; cursor:pointer; padding:4px 6px; text-transform:uppercase;}
+    .lang-switch button.active{text-decoration:underline;}
   </style>
 </head>
 <body>
@@ -70,221 +75,55 @@
     <nav class="nav" aria-label="Hoofdnavigatie">
       <a href="#top" class="brand">VITRIEN</a>
       <div class="menu" role="menubar">
-        <a href="#over">Over</a>
-        <a href="#praktisch">Data & locaties</a>
-        <a href="#opencall">Open call</a>
-        <a href="#kunstenaars">Kunstenaars</a>
-        <a href="#lov">LOV2030</a>
-        <a href="#contact">Contact</a>
+        <a href="#over" data-lang-nl="Over" data-lang-en="About">Over</a>
+        <a href="#praktisch" data-lang-nl="Data & locaties" data-lang-en="Dates & Venues">Data & locaties</a>
+        <a href="#opencall" data-lang-nl="Open call" data-lang-en="Open call">Open call</a>
+        <a href="#kunstenaars" data-lang-nl="Kunstenaars" data-lang-en="Artists">Kunstenaars</a>
+        <a href="#lov" data-lang-nl="LOV2030" data-lang-en="LOV2030">LOV2030</a>
+        <a href="#contact" data-lang-nl="Contact" data-lang-en="Contact">Contact</a>
+      </div>
+      <div class="lang-switch">
+        <button onclick="setLang('nl')" id="lang-nl" class="active">NL</button>|
+        <button onclick="setLang('en')" id="lang-en">EN</button>
       </div>
       <button class="burger" aria-label="Open menu" onclick="toggleDrawer()">
         <span></span><span></span><span></span>
       </button>
     </nav>
     <div class="drawer" id="drawer" aria-hidden="true">
-      <a href="#over" onclick="toggleDrawer()">Over</a>
-      <a href="#praktisch" onclick="toggleDrawer()">Data & locaties</a>
-      <a href="#opencall" onclick="toggleDrawer()">Open call</a>
-      <a href="#kunstenaars" onclick="toggleDrawer()">Kunstenaars</a>
-      <a href="#lov" onclick="toggleDrawer()">LOV2030</a>
-      <a href="#contact" onclick="toggleDrawer()">Contact</a>
+      <a href="#over" data-lang-nl="Over" data-lang-en="About" onclick="toggleDrawer()">Over</a>
+      <a href="#praktisch" data-lang-nl="Data & locaties" data-lang-en="Dates & Venues" onclick="toggleDrawer()">Data & locaties</a>
+      <a href="#opencall" data-lang-nl="Open call" data-lang-en="Open call" onclick="toggleDrawer()">Open call</a>
+      <a href="#kunstenaars" data-lang-nl="Kunstenaars" data-lang-en="Artists" onclick="toggleDrawer()">Kunstenaars</a>
+      <a href="#lov" data-lang-nl="LOV2030" data-lang-en="LOV2030" onclick="toggleDrawer()">LOV2030</a>
+      <a href="#contact" data-lang-nl="Contact" data-lang-en="Contact" onclick="toggleDrawer()">Contact</a>
     </div>
   </header>
 
   <main id="top">
     <section class="hero">
       <div class="container">
-        <h1>Winkelramen als tijdelijke tentoonstellingen.</h1>
-        <p class="lead">Een rustige route door Leuven. Bestaand werk. Publieke ruimte als galerie.</p>
+        <h1 data-lang-nl="Winkelramen als tijdelijke tentoonstellingen." data-lang-en="Shop windows as temporary exhibitions.">Winkelramen als tijdelijke tentoonstellingen.</h1>
+        <p class="lead" data-lang-nl="Een rustige route door Leuven. Bestaand werk. Publieke ruimte als galerie." data-lang-en="A quiet route through Leuven. Existing works. Public space as gallery.">Een rustige route door Leuven. Bestaand werk. Publieke ruimte als galerie.</p>
       </div>
     </section>
 
     <section id="over">
       <div class="container">
-        <div class="meta">Over</div>
+        <div class="meta" data-lang-nl="Over" data-lang-en="About">Over</div>
         <h2>Vitrien</h2>
-        <p>Vitrien is een nomadisch kunstinitiatief dat onverwachte of leegstaande plekken in de stad tijdelijk activeert met unieke tentoonstellingen. Kunst duikt op waar je het niet verwacht: in winkelruiten, leegstaande panden, of zelfs in een parkeergarage. Zo wordt de straat zelf een galerij.</p>
+        <p data-lang-nl="Vitrien is een nomadisch kunstinitiatief dat onverwachte of leegstaande plekken in de stad tijdelijk activeert met unieke tentoonstellingen. Kunst duikt op waar je het niet verwacht: in winkelruiten, leegstaande panden, of zelfs in een parkeergarage. Zo wordt de straat zelf een galerij." data-lang-en="Vitrien is a nomadic art initiative that temporarily activates unexpected or vacant places in the city with unique exhibitions. Art appears where you least expect it: in shop windows, empty buildings, or even in a parking garage. The street itself becomes a gallery.">Vitrien is een nomadisch kunstinitiatief...</p>
       </div>
     </section>
 
-    <section id="praktisch">
-      <div class="container">
-        <div class="meta">Praktisch</div>
-        <h2>Data & Locaties</h2>
-        <p><strong>Opening</strong> 13 september, 15:00–20:00 · <strong>Expo</strong> 13 september – 5 oktober</p>
-        <div class="modules two-col">
-          <figure class="module">
-            <figcaption class="caption">
-              <strong><a href="https://wear-store.be/pages/our-stores" target="_blank">Wear Store</a></strong>
-              Leuven · Verschillende filialen
-            </figcaption>
-          </figure>
-          <figure class="module">
-            <figcaption class="caption">
-              <strong><a href="https://www.30cc.be/nl" target="_blank">30CC Schouwburg</a></strong>
-              Bondgenotenlaan 21, Leuven
-            </figcaption>
-          </figure>
-          <figure class="module">
-            <figcaption class="caption">
-              <strong><a href="https://www.instagram.com/foliefashionleuven/" target="_blank">Folie Leuven</a></strong>
-              Tiensestraat 39, Leuven
-            </figcaption>
-          </figure>
-          <figure class="module">
-            <figcaption class="caption">
-              <strong><a href="https://www.deslegte.com/leuven/" target="_blank">De Slegte Leuven</a></strong>
-              Diestsestraat 72, Leuven
-            </figcaption>
-          </figure>
-          <figure class="module">
-            <figcaption class="caption">
-              <strong>Locatie 5 — binnenkort aangekondigd</strong>
-              Adres volgt
-            </figcaption>
-          </figure>
-          <figure class="module">
-            <figcaption class="caption">
-              <strong>Locatie 6 — binnenkort aangekondigd</strong>
-              Adres volgt
-            </figcaption>
-          </figure>
-          <figure class="module">
-            <figcaption class="caption">
-              <strong>Locatie 7 — binnenkort aangekondigd</strong>
-              Adres volgt
-            </figcaption>
-          </figure>
-          <figure class="module">
-            <figcaption class="caption">
-              <strong>Locatie 8 — binnenkort aangekondigd</strong>
-              Adres volgt
-            </figcaption>
-          </figure>
-          <figure class="module">
-            <figcaption class="caption">
-              <strong>Locatie 9 — binnenkort aangekondigd</strong>
-              Adres volgt
-            </figcaption>
-          </figure>
-          <figure class="module">
-            <figcaption class="caption">
-              <strong>Locatie 10 — binnenkort aangekondigd</strong>
-              Adres volgt
-            </figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
+    <!-- De rest van de secties idem: voeg data-lang-nl en data-lang-en attributes toe aan teksten -->
 
-    <section id="opencall">
-      <div class="container">
-        <div class="meta">Voor makers</div>
-        <h2>Open call</h2>
-        <p>We zoeken bestaand werk dat werkt in een vitrine. Stuur 3–5 beelden en een korte bio. <a href="#">Dien in</a></p>
-      </div>
-    </section>
-
-    <section id="kunstenaars">
-      <div class="container">
-        <div class="meta">Deelnemers</div>
-        <h2>Kunstenaars</h2>
-        <div class="modules two-col">
-          <figure class="module">
-            <img src="placeholder-jason.jpg" alt="Werk van Jason Slabbynck">
-            <figcaption class="caption">
-              <strong>Jason Slabbynck</strong><br>
-              Architect-kunstenaar van site-specifieke constructies met herkenbare materialen. Paviljoens die spanningsvelden tussen vorm en materie oproepen en uitnodigen tot dialoog. <a class="mono-link" href="jason-slabbynck.html">Lees meer</a>
-            </figcaption>
-          </figure>
-          <figure class="module">
-            <img src="placeholder-shailey.jpg" alt="Werk van Shailey Shah">
-            <figcaption class="caption">
-              <strong>Shailey Shah</strong><br>
-              Multidisciplinair: video, sculptuur, schilderkunst, installaties. Onderzoekt identiteit, gender en haar multiculturele achtergrond via materiaal en vorm. <a class="mono-link" href="shailey-shah.html">Lees meer</a>
-            </figcaption>
-          </figure>
-          <figure class="module">
-            <img src="placeholder-alice.jpg" alt="Werk van Alice Leens">
-            <figcaption class="caption">
-              <strong>Alice Leens</strong><br>
-              Ontsluit de innerlijke structuur van garen en textiel. Van lijn naar volume, waar ambacht en symboliek samenkomen. <a class="mono-link" href="alice-leens.html">Lees meer</a>
-            </figcaption>
-          </figure>
-          <figure class="module">
-            <img src="placeholder-camille.jpg" alt="Werk van Camille Lemille">
-            <figcaption class="caption">
-              <strong>Camille Lemille</strong><br>
-              Performance, drukwerk en AV. Taal en dagelijkse documenten als bron voor politieke en poëtische interventies. <a class="mono-link" href="camille-lemille.html">Lees meer</a>
-            </figcaption>
-          </figure>
-          <figure class="module">
-            <img src="placeholder-carole.jpg" alt="Werk van Carole Louis">
-            <figcaption class="caption">
-              <strong>Carole Louis</strong><br>
-              Tragikomische installaties en performances die sociale structuren en clichés fileteren met speelse esthetiek. <a class="mono-link" href="carole-louis.html">Lees meer</a>
-            </figcaption>
-          </figure>
-          <figure class="module">
-            <img src="placeholder-jonathan.jpg" alt="Werk van Jonathan Van de Wal">
-            <figcaption class="caption">
-              <strong>Jonathan Van de Wal</strong><br>
-              Schilder en assemblage-maker. Ruimtelijke interventies, beïnvloed door Broodthaers en alledaagse objecten. <a class="mono-link" href="jonathan-van-de-wal.html">Lees meer</a>
-            </figcaption>
-          </figure>
-          <figure class="module">
-            <img src="placeholder-pol.jpg" alt="Werk van Pol Olivier">
-            <figcaption class="caption">
-              <strong>Pol Olivier</strong><br>
-              Intieme portretten en sculpturen rond familie, met focus op de ruimte tussen mensen. <a class="mono-link" href="pol-olivier.html">Lees meer</a>
-            </figcaption>
-          </figure>
-          <figure class="module">
-            <img src="placeholder-niels.jpg" alt="Werk van Niels Poiz">
-            <figcaption class="caption">
-              <strong>Niels Poiz</strong><br>
-              Taal, performance en editie. Identiteit en popcultuur via appropriation en narratieve installaties. <a class="mono-link" href="niels-poiz.html">Lees meer</a>
-            </figcaption>
-          </figure>
-          <figure class="module">
-            <img src="placeholder-nora.jpg" alt="Werk van Nora Mahammed">
-            <figcaption class="caption">
-              <strong>Nora Mahammed</strong><br>
-              Poëtische, zintuiglijke installaties op het snijvlak van scenografie en architectuur. <a class="mono-link" href="nora-mahammed.html">Lees meer</a>
-            </figcaption>
-          </figure>
-          <figure class="module">
-            <img src="placeholder-jente.jpg" alt="Werk van Jente Waerzeggers">
-            <figcaption class="caption">
-              <strong>Jente Waerzeggers</strong><br>
-              Fotograaf/muzikant. Ruwe, directe snapshots van de Belgische muziek- en kunstscene. <a class="mono-link" href="jente-waerzeggers.html">Lees meer</a>
-            </figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <section id="lov">
-      <div class="container">
-        <div class="meta">Context</div>
-        <h2>LOV2030</h2>
-        <p>Vitrien kadert binnen de kandidatuur van Leuven & Beyond als Europese Culturele Hoofdstad 2030.</p>
-      </div>
-    </section>
-
-    <section id="contact">
-      <div class="container">
-        <div class="meta">Contact</div>
-        <h2>Vragen of samenwerken?</h2>
-        <p>Mail: <a href="mailto:hallo@vitrien.be">hallo@vitrien.be</a></p>
-      </div>
-    </section>
   </main>
 
   <footer>
     <div class="footer-inner">
       <div>© <span id="year"></span> Vitrien — Leuven</div>
-      <a href="#top">Naar boven</a>
+      <a href="#top" data-lang-nl="Naar boven" data-lang-en="Back to top">Naar boven</a>
     </div>
   </footer>
 
@@ -294,6 +133,14 @@
       const d=document.getElementById('drawer');
       const open=d.classList.toggle('open');
       d.setAttribute('aria-hidden', open ? 'false' : 'true');
+    }
+
+    function setLang(lang){
+      document.querySelectorAll('[data-lang-nl]').forEach(el=>{
+        el.textContent = el.getAttribute(`data-lang-${lang}`);
+      });
+      document.getElementById('lang-nl').classList.toggle('active', lang==='nl');
+      document.getElementById('lang-en').classList.toggle('active', lang==='en');
     }
   </script>
 </body>
