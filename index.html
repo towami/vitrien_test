@@ -42,6 +42,10 @@
     .two-col{grid-template-columns:1fr;}
     @media(min-width:900px){.two-col{grid-template-columns:1fr 1fr;}}
 
+    .location-list{display:grid; gap:30px; margin-top:30px;}
+    .location-item h3{font-family:var(--ff-serif); font-size:20px; margin:0 0 6px;}
+    .location-item p{margin:0; font-size:14px; color:var(--muted);}
+
     footer{border-top:1px solid var(--line); margin-top:40px}
     .footer-inner{max-width:var(--max); margin:0 auto; padding:22px 20px; display:flex; justify-content:space-between; font-size:12px; color:#777}
   </style>
@@ -82,18 +86,48 @@
         <div class="meta">Praktisch</div>
         <h2>Data & Locaties</h2>
         <p><strong>Opening</strong> 13 september, 15:00–20:00 · <strong>Expo</strong> 13 september – 5 oktober</p>
-        <ul>
-          <li><a href="https://wear-store.be/pages/our-stores" target="_blank">Wear Store</a></li>
-          <li><a href="https://www.30cc.be/nl" target="_blank">30CC Schouwburg</a></li>
-          <li><a href="https://www.instagram.com/foliefashionleuven/" target="_blank">Folie Leuven</a></li>
-          <li><a href="https://www.deslegte.com/leuven/" target="_blank">De Slegte Leuven</a></li>
-          <li><a href="#" target="_blank">Locatie 5 — binnenkort aangekondigd</a></li>
-          <li><a href="#" target="_blank">Locatie 6 — binnenkort aangekondigd</a></li>
-          <li><a href="#" target="_blank">Locatie 7 — binnenkort aangekondigd</a></li>
-          <li><a href="#" target="_blank">Locatie 8 — binnenkort aangekondigd</a></li>
-          <li><a href="#" target="_blank">Locatie 9 — binnenkort aangekondigd</a></li>
-          <li><a href="#" target="_blank">Locatie 10 — binnenkort aangekondigd</a></li>
-        </ul>
+        <div class="location-list">
+          <div class="location-item">
+            <h3><a href="https://wear-store.be/pages/our-stores" target="_blank">Wear Store</a></h3>
+            <p>Leuven · Verschillende filialen</p>
+          </div>
+          <div class="location-item">
+            <h3><a href="https://www.30cc.be/nl" target="_blank">30CC Schouwburg</a></h3>
+            <p>Bondgenotenlaan 21, Leuven</p>
+          </div>
+          <div class="location-item">
+            <h3><a href="https://www.instagram.com/foliefashionleuven/" target="_blank">Folie Leuven</a></h3>
+            <p>Tiensestraat 39, Leuven</p>
+          </div>
+          <div class="location-item">
+            <h3><a href="https://www.deslegte.com/leuven/" target="_blank">De Slegte Leuven</a></h3>
+            <p>Diestsestraat 72, Leuven</p>
+          </div>
+          <div class="location-item">
+            <h3>Locatie 5 — binnenkort aangekondigd</h3>
+            <p>Adres volgt</p>
+          </div>
+          <div class="location-item">
+            <h3>Locatie 6 — binnenkort aangekondigd</h3>
+            <p>Adres volgt</p>
+          </div>
+          <div class="location-item">
+            <h3>Locatie 7 — binnenkort aangekondigd</h3>
+            <p>Adres volgt</p>
+          </div>
+          <div class="location-item">
+            <h3>Locatie 8 — binnenkort aangekondigd</h3>
+            <p>Adres volgt</p>
+          </div>
+          <div class="location-item">
+            <h3>Locatie 9 — binnenkort aangekondigd</h3>
+            <p>Adres volgt</p>
+          </div>
+          <div class="location-item">
+            <h3>Locatie 10 — binnenkort aangekondigd</h3>
+            <p>Adres volgt</p>
+          </div>
+        </div>
       </div>
     </section>
 
