@@ -59,15 +59,15 @@
 }
 
 .mono-link {
-  display: inline-block;
-  margin-left: 6px;
+  display: inline-block;        /* zorgt dat hij op eigen regel staat */
+  margin-top: 10px;             /* beetje ruimte boven de link */
   font-family: var(--ff-mono);
   font-size: 12px;
   text-transform: uppercase;
   text-decoration: underline;
   text-underline-offset: 3px;
-  text-decoration-thickness: 1px;
 }
+
 
 
 /* ===============================
