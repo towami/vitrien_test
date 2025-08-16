@@ -10,16 +10,47 @@
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <style>
+    /* ===== Base ===== */
     :root {
+      --fg: #111111;
       --fg: #111;
       --muted: #6f6f6f;
       --line: #e9e9e9;
       --max: 1200px;
+      --ff-sans: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
       --ff-sans: Inter, system-ui, sans-serif;
       --ff-serif: 'EB Garamond', serif;
+      --ff-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; /* accent */
       --ff-mono: 'IBM Plex Mono', monospace;
     }
     *,*::before,*::after{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      color:var(--fg);
+      background:#ffffff;
+      font-family: var(--ff-sans);
+      font-size:16px; line-height:1.7; letter-spacing:0.01em;
+    }
+    img{display:block; max-width:100%; height:auto}
+    a{color:inherit; text-decoration:none}
+    h1,h2{font-family:var(--ff-serif); font-weight:400; letter-spacing:.01em;}
+    h1{font-size:clamp(40px,6vw,72px); line-height:1.05; margin:0}
+    h2{font-size:clamp(26px,3.6vw,42px); line-height:1.15; margin:0 0 12px}
+    p{margin:0}
+
+    /* ===== Header ===== */
+    header{position:sticky; top:0; z-index:40; background:#fff; border-bottom:1px solid var(--line)}
+    .nav{max-width:var(--max); margin:0 auto; padding:14px 20px; display:flex; align-items:center; justify-content:space-between}
+    .brand{font-family:var(--ff-serif); font-size:22px; font-weight:400; letter-spacing:.04em}
+    .menu{display:flex; gap:22px; align-items:center}
+    .menu a{font-size:12px; text-transform:uppercase; letter-spacing:.16em; opacity:.9}
+    .menu a:hover{ text-decoration: underline; text-decoration-thickness:1px; text-underline-offset:4px; }
+
+    /* ===== Hero ===== */
+    .hero{min-height:72vh; display:grid; place-items:center; padding:10vh 20px}
+    .hero-inner{max-width:900px; text-align:center}
+    .lead{margin-top:16px; color:var(--muted)}
     body{margin:0; font-family:var(--ff-sans); color:var(--fg); background:#fff;}
     img{display:block; max-width:100%}
     a{text-decoration:none; color:inherit}
@@ -34,20 +65,41 @@
     .menu a{font-size:12px; text-transform:uppercase; letter-spacing:.16em;}
     .menu a:hover{text-decoration:underline;}
 
+    /* ===== Sections ===== */
     section{padding:80px 20px}
     .container{max-width:var(--max); margin:0 auto}
     .meta{font-family:var(--ff-mono); font-size:12px; color:var(--muted); margin-bottom:12px; text-transform:uppercase;}
 
+    /* Editorial modules (image-forward, no borders/shadows) */
+    .modules{display:grid; grid-template-columns:1fr; gap:80px;}
+    .module{display:grid; gap:12px}
+    .caption{color:var(--muted); font-size:14px; letter-spacing:.02em; font-family: var(--ff-mono);}
+
+    @media (min-width: 900px){
+      .modules.two-col{grid-template-columns:1fr 1fr; gap:60px}
+      .module.align-bottom{align-self:end}
+    }
+
+    /* ===== Accent (code-looking) usage ===== */
+    .meta{color:var(--muted); font-size:12px; letter-spacing:.12em; text-transform:uppercase; margin-bottom:12px; font-family: var(--ff-mono);} /* accent font */
+    .mono-link{font-family: var(--ff-mono); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px;}
     .modules{display:grid; gap:40px}
     .two-col{grid-template-columns:1fr;}
     @media(min-width:900px){.two-col{grid-template-columns:1fr 1fr;}}
 
+    /* ===== Footer ===== */
     footer{border-top:1px solid var(--line); margin-top:40px}
+    .footer-inner{max-width:var(--max); margin:0 auto; padding:22px 20px; display:flex; justify-content:space-between; color:#777; font-size:12px}
+
+    /* ===== Smooth scroll ===== */
+    html{scroll-behavior:smooth}
     .footer-inner{max-width:var(--max); margin:0 auto; padding:22px 20px; display:flex; justify-content:space-between; font-size:12px; color:#777}
   </style>
 </head>
 <body>
+  <!-- Header -->
   <header>
+    <nav class="nav" aria-label="Hoofdnavigatie">
     <nav class="nav">
       <a href="#top" class="brand">VITRIEN</a>
       <div class="menu">
@@ -62,21 +114,41 @@
   </header>
 
   <main id="top">
+    <!-- HERO -->
     <section class="hero">
+      <div class="hero-inner">
       <div class="container">
         <h1>Winkelramen als tijdelijke tentoonstellingen.</h1>
+        <p class="lead">Een rustige route door Leuven. Bestaand werk. Veel licht. Publieke ruimte als galerie.</p>
         <p class="lead">Een rustige route door Leuven. Bestaand werk. Publieke ruimte als galerie.</p>
       </div>
     </section>
 
+    <!-- OVER -->
     <section id="over">
       <div class="container">
         <div class="meta">Over</div>
         <h2>Vitrien</h2>
+        <p>We koppelen kunstenaars aan winkels en laten vitrines spreken. Geen poespas: enkel goed werk, helder gepresenteerd, in dialoog met de straat.</p>
+      </div>
+    </section>
+
+    <!-- EDITORIAL BLOKKEN -->
+    <section>
+      <div class="container modules two-col">
+        <figure class="module">
+          <img src="https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?q=80&w=1600&auto=format&fit=crop" alt="Etalage met kunst (placeholder)">
+          <figcaption class="caption">Beeld ter illustratie • vervang door eigen foto</figcaption>
+        </figure>
+        <figure class="module align-bottom">
+          <img src="https://images.unsplash.com/photo-1520697222861-e17a49d0b3af?q=80&w=1600&auto=format&fit=crop" alt="Detail werk (placeholder)">
+          <figcaption class="caption">Detail • vervang door eigen foto</figcaption>
+        </figure>
         <p>Kunstenaars worden gekoppeld aan winkels en laten vitrines spreken. Publieke ruimte wordt galerie, in dialoog met de straat.</p>
       </div>
     </section>
 
+    <!-- PRAKTISCH -->
     <section id="praktisch">
       <div class="container">
         <div class="meta">Praktisch</div>
@@ -93,32 +165,102 @@
           <li>Locatie 8</li>
           <li>Locatie 9</li>
           <li>Locatie 10</li>
-          <li><a href="#" target="_blank">Locatie 5 — binnenkort aangekondigd</a></li>
-          <li><a href="#" target="_blank">Locatie 6 — binnenkort aangekondigd</a></li>
-          <li><a href="#" target="_blank">Locatie 7 — binnenkort aangekondigd</a></li>
-          <li><a href="#" target="_blank">Locatie 8 — binnenkort aangekondigd</a></li>
-          <li><a href="#" target="_blank">Locatie 9 — binnenkort aangekondigd</a></li>
-          <li><a href="#" target="_blank">Locatie 10 — binnenkort aangekondigd</a></li>
         </ul>
       </div>
     </section>
 
+    <!-- OPEN CALL -->
     <section id="opencall">
       <div class="container">
         <div class="meta">Voor makers</div>
         <h2>Open call</h2>
+        <p>We zoeken bestaand werk dat werkt in een vitrine. Stuur 3–5 beelden en een korte bio. <a class="mono-link" href="#">Dien in</a></p>
         <p>We zoeken bestaand werk dat werkt in een vitrine. Stuur 3–5 beelden en een korte bio. <a href="#">Dien in</a></p>
       </div>
     </section>
 
+    <!-- KUNSTENAARS (samengevatte tegels) -->
     <section id="kunstenaars">
       <div class="container">
         <div class="meta">Deelnemers</div>
         <h2>Kunstenaars</h2>
+        <div class="modules two-col">
+          <figure class="module">
+            <img src="placeholder-jason.jpg" alt="Werk van Jason Slabbynck">
+            <figcaption class="caption">
+              <strong>Jason Slabbynck</strong><br>
+              Architect-kunstenaar van site-specifieke constructies met herkenbare materialen. Paviljoens die spanningsvelden tussen vorm en materie oproepen en uitnodigen tot dialoog. <a class="mono-link" href="jason-slabbynck.html">Lees meer</a>
+            </figcaption>
+          </figure>
+          <figure class="module">
+            <img src="placeholder-shailey.jpg" alt="Werk van Shailey Shah">
+            <figcaption class="caption">
+              <strong>Shailey Shah</strong><br>
+              Multidisciplinair: video, sculptuur, schilderkunst, installaties. Onderzoekt identiteit, gender en haar multiculturele achtergrond via materiaal en vorm. <a class="mono-link" href="shailey-shah.html">Lees meer</a>
+            </figcaption>
+          </figure>
+          <figure class="module">
+            <img src="placeholder-alice.jpg" alt="Werk van Alice Leens">
+            <figcaption class="caption">
+              <strong>Alice Leens</strong><br>
+              Ontsluit de innerlijke structuur van garen en textiel. Van lijn naar volume, waar ambacht en symboliek samenkomen. <a class="mono-link" href="alice-leens.html">Lees meer</a>
+            </figcaption>
+          </figure>
+          <figure class="module">
+            <img src="placeholder-camille.jpg" alt="Werk van Camille Lemille">
+            <figcaption class="caption">
+              <strong>Camille Lemille</strong><br>
+              Performance, drukwerk en AV. Taal en dagelijkse documenten als bron voor politieke en poëtische interventies. <a class="mono-link" href="camille-lemille.html">Lees meer</a>
+            </figcaption>
+          </figure>
+          <figure class="module">
+            <img src="placeholder-carole.jpg" alt="Werk van Carole Louis">
+            <figcaption class="caption">
+              <strong>Carole Louis</strong><br>
+              Tragikomische installaties en performances die sociale structuren en clichés fileteren met speelse esthetiek. <a class="mono-link" href="carole-louis.html">Lees meer</a>
+            </figcaption>
+          </figure>
+          <figure class="module">
+            <img src="placeholder-jonathan.jpg" alt="Werk van Jonathan Van de Wal">
+            <figcaption class="caption">
+              <strong>Jonathan Van de Wal</strong><br>
+              Schilder en assemblage-maker. Ruimtelijke interventies, beïnvloed door Broodthaers en alledaagse objecten. <a class="mono-link" href="jonathan-van-de-wal.html">Lees meer</a>
+            </figcaption>
+          </figure>
+          <figure class="module">
+            <img src="placeholder-pol.jpg" alt="Werk van Pol Olivier">
+            <figcaption class="caption">
+              <strong>Pol Olivier</strong><br>
+              Intieme portretten en sculpturen rond familie, met focus op de ruimte tussen mensen. <a class="mono-link" href="pol-olivier.html">Lees meer</a>
+            </figcaption>
+          </figure>
+          <figure class="module">
+            <img src="placeholder-niels.jpg" alt="Werk van Niels Poiz">
+            <figcaption class="caption">
+              <strong>Niels Poiz</strong><br>
+              Taal, performance en editie. Identiteit en popcultuur via appropriation en narratieve installaties. <a class="mono-link" href="niels-poiz.html">Lees meer</a>
+            </figcaption>
+          </figure>
+          <figure class="module">
+            <img src="placeholder-nora.jpg" alt="Werk van Nora Mahammed">
+            <figcaption class="caption">
+              <strong>Nora Mahammed</strong><br>
+              Poëtische, zintuiglijke installaties op het snijvlak van scenografie en architectuur. <a class="mono-link" href="nora-mahammed.html">Lees meer</a>
+            </figcaption>
+          </figure>
+          <figure class="module">
+            <img src="placeholder-jente.jpg" alt="Werk van Jente Waerzeggers">
+            <figcaption class="caption">
+              <strong>Jente Waerzeggers</strong><br>
+              Fotograaf/muzikant. Ruwe, directe snapshots van de Belgische muziek- en kunstscene. <a class="mono-link" href="jente-waerzeggers.html">Lees meer</a>
+            </figcaption>
+          </figure>
+        </div>
         <p>Zie overzicht van kunstenaars met korte samenvatting en “lees meer” links.</p>
       </div>
     </section>
 
+    <!-- LOV2030 -->
     <section id="lov">
       <div class="container">
         <div class="meta">Context</div>
@@ -127,10 +269,12 @@
       </div>
     </section>
 
+    <!-- CONTACT -->
     <section id="contact">
       <div class="container">
         <div class="meta">Contact</div>
         <h2>Vragen of samenwerken?</h2>
+        <p>Mail: <a class="mono-link" href="mailto:hallo@vitrien.be">hallo@vitrien.be</a></p>
         <p>Mail: <a href="mailto:hallo@vitrien.be">hallo@vitrien.be</a></p>
       </div>
     </section>
@@ -139,10 +283,14 @@
   <footer>
     <div class="footer-inner">
       <div>© <span id="year"></span> Vitrien — Leuven</div>
+      <a class="mono-link" href="#top">Naar boven</a>
       <a href="#top">Naar boven</a>
     </div>
   </footer>
 
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
   <script>document.getElementById('year').textContent=new Date().getFullYear()</script>
 </body>
 </html>
