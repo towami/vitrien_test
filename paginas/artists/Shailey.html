@@ -1,1 +1,166 @@
 
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shailey Shah — VITRIEN</title>
+
+  <!-- Fonts (zelfde als home) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet (let op: relatief pad vanuit /paginas/artists/) -->
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+</head>
+<body>
+  <!-- ============ HEADER (zelfde component als home) ============ -->
+  <header>
+    <nav class="nav" aria-label="Hoofdnavigatie">
+      <a href="../../" class="brand">VITRIEN</a>
+      <div class="menu" role="menubar">
+        <a href="../../index.html#over" data-lang-nl="Over" data-lang-en="About">Over</a>
+        <a href="../../index.html#locaties" data-lang-nl="Data & locaties" data-lang-en="Dates & Venues">Data & locaties</a>
+        <a href="../../index.html#opencall" data-lang-nl="Open call" data-lang-en="Open call">Open call</a>
+        <a href="../../index.html#kunstenaars" data-lang-nl="Kunstenaars" data-lang-en="Artists">Kunstenaars</a>
+        <a href="../../index.html#lov" data-lang-nl="LOV2030" data-lang-en="LOV2030">LOV2030</a>
+        <a href="../../index.html#contact" data-lang-nl="Contact" data-lang-en="Contact">Contact</a>
+      </div>
+      <div class="lang-switch" aria-label="Taalwissel">
+        <button onclick="setLang('nl')" id="lang-nl" class="active">NL</button>|
+        <button onclick="setLang('en')" id="lang-en">EN</button>
+      </div>
+      <button class="burger" aria-label="Open menu" onclick="toggleDrawer()">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+    <div class="drawer" id="drawer" aria-hidden="true">
+      <a href="../../index.html#over" data-lang-nl="Over" data-lang-en="About" onclick="toggleDrawer()">Over</a>
+      <a href="../../index.html#locaties" data-lang-nl="Data & locaties" data-lang-en="Dates & Venues" onclick="toggleDrawer()">Data & locaties</a>
+      <a href="../../index.html#opencall" data-lang-nl="Open call" data-lang-en="Open call" onclick="toggleDrawer()">Open call</a>
+      <a href="../../index.html#kunstenaars" data-lang-nl="Kunstenaars" data-lang-en="Artists" onclick="toggleDrawer()">Kunstenaars</a>
+      <a href="../../index.html#lov" data-lang-nl="LOV2030" data-lang-en="LOV2030" onclick="toggleDrawer()">LOV2030</a>
+      <a href="../../index.html#contact" data-lang-nl="Contact" data-lang-en="Contact" onclick="toggleDrawer()">Contact</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- ============ ARTIST HERO ============ -->
+    <section class="hero" style="min-height:auto; padding:60px 0 20px">
+      <div class="container">
+        <div class="meta" data-lang-nl="Kunstenaar" data-lang-en="Artist">Kunstenaar</div>
+        <h1>Shailey Shah</h1>
+        <p class="lead" data-lang-nl="Video • Sculptuur • Schilderkunst • Installatie" data-lang-en="Video • Sculpture • Painting • Installation">
+          Video • Sculptuur • Schilderkunst • Installatie
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ BREADCRUMB / TERUG ============ -->
+    <section>
+      <div class="container">
+        <p class="meta" style="margin-top:-8px">
+          <a class="mono-link" href="../../index.html#kunstenaars" data-lang-nl="← terug naar overzicht" data-lang-en="← back to overview">← terug naar overzicht</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ BIO + STATEMENT (2 kolommen) ============ -->
+    <section>
+      <div class="container grid two-col">
+        <!-- BIO -->
+        <article>
+          <div class="meta" data-lang-nl="Biografie" data-lang-en="Biography">Biografie</div>
+          <p data-lang-nl="Shailey Shah is een multidisciplinaire kunstenaar die video, sculptuur, schilderkunst en installaties inzet om materiaal, vorm, genderrollen en haar multiculturele achtergrond te onderzoeken. Ze studeerde onder meer beeldhouwkunst aan de KASK Antwerpen en NABA Milaan."
+             data-lang-en="Shailey Shah is a multidisciplinary artist working across video, sculpture, painting and installation to explore materiality, form, gender roles and her multicultural background. She studied sculpture at the Royal Academy in Antwerp and NABA Milan.">
+            Shailey Shah is een multidisciplinaire kunstenaar…
+          </p>
+
+          <p data-lang-nl="Haar praktijk vertrekt vanuit persoonlijke ervaringen en sociaal-politieke thema’s, waarbij ze graag experimenteert met niet-traditionele toepassingen van materiaal."
+             data-lang-en="Her practice draws on personal experiences and socio-political issues, often experimenting with non-traditional uses of materials.">
+            Haar praktijk vertrekt vanuit persoonlijke ervaringen…
+          </p>
+
+          <div class="meta" style="margin-top:20px" data-lang-nl="Praktisch" data-lang-en="Practical">Praktisch</div>
+          <p>
+            <span data-lang-nl="Website" data-lang-en="Website">Website</span>:
+            <a class="mono-link" href="#" target="_blank" rel="noopener">link</a><br>
+            <span data-lang-nl="Contact" data-lang-en="Contact">Contact</span>:
+            <a class="mono-link" href="mailto:hallo@vitrien.be">hallo@vitrien.be</a>
+          </p>
+        </article>
+
+        <!-- STATEMENT -->
+        <article>
+          <div class="meta" data-lang-nl="Artist statement" data-lang-en="Artist statement">Artist statement</div>
+          <p data-lang-nl="Ik onderzoek hoe taal, symbolen en alledaagse objecten identiteiten vormen en fricties blootleggen. Door te schakelen tussen beeld, object en ruimte, wil ik alternatieve lezingen van dagelijkse narratieven activeren."
+             data-lang-en="I investigate how language, symbols and everyday objects construct identities and expose frictions. By moving between image, object and space, I aim to activate alternative readings of daily narratives.">
+            Ik onderzoek hoe taal, symbolen en alledaagse objecten…
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ FEITEN / CV (optioneel) ============ -->
+    <section>
+      <div class="container grid two-col">
+        <article>
+          <div class="meta" data-lang-nl="Opleiding" data-lang-en="Education">Opleiding</div>
+          <ul>
+            <li data-lang-nl="KASK Antwerpen — Beeldhouwkunst" data-lang-en="Royal Academy Antwerp — Sculpture">KASK Antwerpen — Beeldhouwkunst</li>
+            <li data-lang-nl="NABA Milaan — Fine Arts" data-lang-en="NABA Milan — Fine Arts">NABA Milaan — Fine Arts</li>
+          </ul>
+        </article>
+        <article>
+          <div class="meta" data-lang-nl="Selectie tentoonstellingen" data-lang-en="Selected exhibitions">Selectie tentoonstellingen</div>
+          <ul>
+            <li data-lang-nl="2024 — Titel, Plaats" data-lang-en="2024 — Title, Place">2024 — Titel, Plaats</li>
+            <li data-lang-nl="2023 — Titel, Plaats" data-lang-en="2023 — Title, Place">2023 — Titel, Plaats</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ GALLERY (3–6 beelden) ============ -->
+    <section>
+      <div class="container">
+        <div class="meta" data-lang-nl="Werk" data-lang-en="Works">Werk</div>
+        <div class="grid gallery">
+          <!-- Zorg dat deze bestanden bestaan; vervang namen naar wens -->
+          <figure class="module">
+            <img src="../../assets/img/artists/Shailey-01.jpg" alt="Werk 1 — Shailey Shah">
+            <figcaption class="caption">Titel werk 1 — jaar</figcaption>
+          </figure>
+          <figure class="module">
+            <img src="../../assets/img/artists/Shailey-02.jpg" alt="Werk 2 — Shailey Shah">
+            <figcaption class="caption">Titel werk 2 — jaar</figcaption>
+          </figure>
+          <figure class="module">
+            <img src="../../assets/img/artists/Shailey-03.jpg" alt="Werk 3 — Shailey Shah">
+            <figcaption class="caption">Titel werk 3 — jaar</figcaption>
+          </figure>
+          <!-- voeg gerust meer figuren toe -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TERUGLINK ============ -->
+    <section>
+      <div class="container">
+        <a class="mono-link" href="../../index.html#kunstenaars" data-lang-nl="← terug naar alle kunstenaars" data-lang-en="← back to all artists">← terug naar alle kunstenaars</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>© <span id="year"></span> Vitrien — Leuven</div>
+      <a class="mono-link" href="#top" data-lang-nl="Naar boven" data-lang-en="Back to top">Naar boven</a>
+    </div>
+  </footer>
+
+  <!-- Scripts (relatief pad!) -->
+  <script src="../../assets/js/app.js" defer></script>
+</body>
+</html>
