@@ -39,9 +39,12 @@ header{position:sticky; top:0; z-index:50; background:rgba(255,255,255,.95); bor
 .lang-switch button{background:none; border:none; cursor:pointer; padding:4px 6px; text-transform:uppercase}
 .lang-switch button.active{text-decoration:underline}
 
+
 /* ===============================
    4) MOBIELE MENUDRAWER
 ================================ */
+.drawer{display:none;}   /* <<— voeg deze toe, verbergt drawer op desktop */
+
 .burger{display:none; border:1px solid var(--line); background:transparent; padding:8px 10px}
 .burger span{display:block; width:22px; height:1.5px; background:var(--fg); margin:4px 0}
 @media (max-width:860px){
@@ -53,6 +56,7 @@ header{position:sticky; top:0; z-index:50; background:rgba(255,255,255,.95); bor
   .drawer{display:none}
   .drawer.open{display:block}
 }
+
 
 /* ===============================
    5) LAYOUT HELPERS
