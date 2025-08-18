@@ -1,1 +1,135 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jason Slabbynck — VITRIEN</title>
 
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+</head>
+<body>
+  <!-- ============ HEADER ============ -->
+  <header>
+    <nav class="nav" aria-label="Hoofdnavigatie">
+      <a href="../../" class="brand">VITRIEN</a>
+      <div class="menu" role="menubar">
+        <a href="../../index.html#over" data-lang-nl="Over" data-lang-en="About">Over</a>
+        <a href="../../index.html#locaties" data-lang-nl="Data & locaties" data-lang-en="Dates & Venues">Data & locaties</a>
+        <a href="../../index.html#opencall" data-lang-nl="Open call" data-lang-en="Open call">Open call</a>
+        <a href="../../index.html#kunstenaars" data-lang-nl="Kunstenaars" data-lang-en="Artists">Kunstenaars</a>
+        <a href="../../index.html#lov" data-lang-nl="LOV2030" data-lang-en="LOV2030">LOV2030</a>
+        <a href="../../index.html#contact" data-lang-nl="Contact" data-lang-en="Contact">Contact</a>
+      </div>
+      <div class="lang-switch" aria-label="Taalwissel">
+        <button onclick="setLang('nl')" id="lang-nl" class="active">NL</button>|
+        <button onclick="setLang('en')" id="lang-en">EN</button>
+      </div>
+      <button class="burger" aria-label="Open menu" onclick="toggleDrawer()">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+    <div class="drawer" id="drawer" aria-hidden="true">
+      <a href="../../index.html#over" onclick="toggleDrawer()">Over</a>
+      <a href="../../index.html#locaties" onclick="toggleDrawer()">Data & locaties</a>
+      <a href="../../index.html#opencall" onclick="toggleDrawer()">Open call</a>
+      <a href="../../index.html#kunstenaars" onclick="toggleDrawer()">Kunstenaars</a>
+      <a href="../../index.html#lov" onclick="toggleDrawer()">LOV2030</a>
+      <a href="../../index.html#contact" onclick="toggleDrawer()">Contact</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- ============ HERO ============ -->
+    <section class="hero" style="min-height:auto; padding:60px 0 20px">
+      <div class="container">
+        <div class="meta" data-lang-nl="Kunstenaar" data-lang-en="Artist">Kunstenaar</div>
+        <h1>Jason Slabbynck</h1>
+        <p class="lead" data-lang-nl="Architectuur • Installatie • Site-specifiek" data-lang-en="Architecture • Installation • Site-specific">Architectuur • Installatie • Site-specifiek</p>
+      </div>
+    </section>
+
+    <!-- ============ BREADCRUMB ============ -->
+    <section>
+      <div class="container">
+        <p class="meta" style="margin-top:-8px">
+          <a class="mono-link" href="../../index.html#kunstenaars" data-lang-nl="← terug naar overzicht" data-lang-en="← back to overview">← terug naar overzicht</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ BIO + STATEMENT ============ -->
+    <section>
+      <div class="container grid two-col">
+        <article>
+          <div class="meta" data-lang-nl="Biografie" data-lang-en="Biography">Biografie</div>
+          <p data-lang-nl="Jason Slabbynck (°1989) creëert site-specifieke bouwwerken die opvallen door hun ingenieuze constructie en herkenbare materialen. Zijn sculpturen, vaak kleine paviljoenen, fungeren als visuele bakens in de openbare ruimte en nodigen uit tot reflectie en ontmoeting. Hoewel de vormen en materialen vertrouwd lijken, ontstaat er een intrigerende spanning doordat ze toch vreemd aanvoelen. Slabbynck speelt met architectuur, geometrie, ritme en herhaling, geïnspireerd door zijn achtergrond als architect. Centraal staat het knooppunt: de zichtbare verbinding. Zijn werken maken complexe, vaak onzichtbare structuren tastbaar en stimuleren bewustwording, dialoog en poëzie via een zorgvuldig en intens maakproces."
+             data-lang-en="Jason Slabbynck (°1989) creates site-specific buildings that stand out for their ingenious construction and recognizable materials. His sculptures, often small pavilions, function as visual beacons in public space and invite reflection and encounter. Although the shapes and materials seem familiar, an intriguing tension arises because they still feel strange. Slabbynck plays with architecture, geometry, rhythm and repetition, inspired by his background as an architect. Central is the node: the visible connection. His works make complex, often invisible structures tangible and stimulate awareness, dialogue and poetry through a careful and intense creative process.">
+            Jason Slabbynck (°1989) creëert site-specifieke bouwwerken...
+          </p>
+          <div class="meta" style="margin-top:20px" data-lang-nl="Praktisch" data-lang-en="Practical">Praktisch</div>
+          <p>
+            Website: <a class="mono-link" href="#" target="_blank" rel="noopener">https://jasonslabbynck.be/</a><br>
+            Contact: <a class="mono-link" href="mailto:jason.slabbynck@gmail.com">jason.slabbynck@gmail.com</a>
+          </p>
+        </article>
+
+        <article>
+          <div class="meta" data-lang-nl="Artist statement" data-lang-en="Artist statement">Artist statement</div>
+          <p data-lang-nl="Mijn werk onderzoekt de spanning tussen architectuur en sculptuur. Door vertrouwde materialen en structuren in nieuwe constellaties te plaatsen, ontstaan ruimtelijke ingrepen die zowel constructief als poëtisch zijn. Elke installatie legt nadruk op het knooppunt, de zichtbare verbinding, als plek waar spanning, dialoog en betekenis samenkomen."
+             data-lang-en="My work explores the tension between architecture and sculpture. By placing familiar materials and structures in new constellations, I create spatial interventions that are both constructive and poetic. Each installation emphasizes the node, the visible connection, as a place where tension, dialogue and meaning converge.">
+            Mijn werk onderzoekt de spanning tussen architectuur en sculptuur...
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ GALLERY ============ -->
+
+    <section>
+      <div class="container">
+        <div class="meta" data-lang-nl="Werk" data-lang-en="Work">Werk</div>
+        <div class="grid gallery">
+          <figure class="module">
+            <img src="../../assets/img/artists/Jason1.jpg" alt="Werk — Jason Slabbynck">
+          </figure>
+          <figure class="module">
+            <img src="../../assets/img/artists/Jason2.jpg" alt="Werk — Jason Slabbynck">
+          </figure>
+          <figure class="module">
+            <img src="../../assets/img/artists/Jason3.jpg" alt="Werk — Jason Slabbynck">
+          </figure>
+          <figure class="module">
+            <img src="../../assets/img/artists/Jason4.jpg" alt="Werk — Jason Slabbynck">
+          </figure>
+          <figure class="module">
+            <img src="../../assets/img/artists/Jason5.jpg" alt="Werk — Jason Slabbynck">
+          </figure>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============ TERUGLINK ============ -->
+    <section>
+      <div class="container">
+        <a class="mono-link" href="../../index.html#kunstenaars" data-lang-nl="← terug naar alle kunstenaars" data-lang-en="← back to all artists">← terug naar alle kunstenaars</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>© <span id="year"></span> Vitrien — Leuven</div>
+      <a class="mono-link" href="#top" data-lang-nl="Naar boven" data-lang-en="Back to top">Naar boven</a>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/app.js" defer></script>
+</body>
+</html>
