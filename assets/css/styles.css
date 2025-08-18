@@ -48,8 +48,8 @@ header {
 }
 
 .brand img {
-  height: 30px; /* pas dit aan naar gewenste hoogte */
-  width: 70px;
+  height: 25px; /* pas dit aan naar gewenste hoogte */
+  width: auto;
   display: block;
 }
 
