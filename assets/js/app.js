@@ -1,39 +1,40 @@
-// ==============================
-// VITRIEN – APP.JS
-// ==============================
-// Dit bestand bevat de JavaScript logica voor de website
-// - Burger menu toggle
-// - Mobiele drawer menu open/dicht
-// - Taal switch functionaliteit
-// ==============================
+// === VITRIEN — app.js ===
+(function () {
+  // ---------- Drawer / hamburger ----------
+  window.toggleDrawer = function () {
+    const d = document.getElementById('drawer');
+    if (d) d.classList.toggle('open');
+  };
 
-// BURGER MENU + DRAWER
-const burger = document.querySelector('.burger');
-const drawer = document.querySelector('.drawer');
+  // ---------- Taal wissel ----------
+  function applyLang(lang) {
+    // Vervang alle teksten op basis van data-lang-nl / data-lang-en
+    document.querySelectorAll('[data-lang-nl],[data-lang-en]').forEach(el => {
+      const txt = el.getAttribute(`data-lang-${lang}`);
+      if (txt !== null) el.textContent = txt;
+    });
 
-if (burger && drawer) {
-  burger.addEventListener('click', () => {
-    drawer.classList.toggle('open');
-    burger.classList.toggle('active');
+    // Active state op alle NL/EN knoppen (desktop + mobile)
+    document.querySelectorAll('.lang-switch button').forEach(btn => {
+      const isActive = btn.textContent.trim().toLowerCase() === lang;
+      btn.classList.toggle('active', isActive);
+    });
+
+    // Onthoud keuze
+    try { localStorage.setItem('vitrien_lang', lang); } catch {}
+  }
+
+  // Maak setLang globaal voor inline onclick="setLang('nl')"
+  window.setLang = function (lang) {
+    lang = (lang || 'nl').toLowerCase();
+    if (lang !== 'nl' && lang !== 'en') lang = 'nl';
+    applyLang(lang);
+  };
+
+  // Init bij paginalaad (gebruik bewaarde taal of NL)
+  document.addEventListener('DOMContentLoaded', () => {
+    let lang = 'nl';
+    try { lang = (localStorage.getItem('vitrien_lang') || 'nl').toLowerCase(); } catch {}
+    window.setLang(lang);
   });
-}
-
-// TAAL SWITCH
-const langButtons = document.querySelectorAll('.lang-switch button');
-
-langButtons.forEach(btn => {
-  btn.addEventListener('click', () => {
-    // Active state wisselen
-    langButtons.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-
-    // Hier kan je logica toevoegen om content te vervangen met NL/EN
-    const selectedLang = btn.dataset.lang;
-    console.log('Selected language:', selectedLang);
-    // TODO: dynamisch content wisselen (optioneel met JSON of HTML attributen)
-  });
-});
-
-// SCROLL EFFECTS (optioneel)
-// bv. fade in sections on scroll
-// Je kan hier later IntersectionObserver toevoegen
+})();
