@@ -32,10 +32,12 @@
         <a href="#lov" data-lang-nl="LOV2030" data-lang-en="LOV2030">LOV2030</a>
         <a href="#contact" data-lang-nl="Contact" data-lang-en="Contact">Contact</a>
       </div>
-      <div class="lang-switch" aria-label="Taalwissel">
-        <button onclick="setLang('nl')" id="lang-nl" class="active">NL</button>|
-        <button onclick="setLang('en')" id="lang-en">EN</button>
-      </div>
+      
+<div class="lang-switch desktop-only" aria-label="Taalwissel">
+  <button onclick="setLang('nl')" id="lang-nl" class="active">NL</button>|
+  <button onclick="setLang('en')" id="lang-en">EN</button>
+</div>
+
       <button class="burger" aria-label="Open menu" onclick="toggleDrawer()">
         <span></span><span></span><span></span>
       </button>
@@ -47,6 +49,9 @@
       <a href="#kunstenaars" data-lang-nl="Kunstenaars" data-lang-en="Artists" onclick="toggleDrawer()">Kunstenaars</a>
       <a href="#lov" data-lang-nl="LOV2030" data-lang-en="LOV2030" onclick="toggleDrawer()">LOV2030</a>
       <a href="#contact" data-lang-nl="Contact" data-lang-en="Contact" onclick="toggleDrawer()">Contact</a>
+      <div class="lang-switch desktop-only" aria-label="Taalwissel">
+  <button onclick="setLang('nl')" id="lang-nl" class="active">NL</button>|
+  <button onclick="setLang('en')" id="lang-en">EN</button>
     </div>
   </header>
 
