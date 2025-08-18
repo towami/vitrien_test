@@ -11,19 +11,170 @@
   --ff-mono: 'IBM Plex Mono', ui-monospace, monospace; /* accent */
 }
 
-/* === Kunstenaarsgrid (figures) === */
+
+/* ===============================
+   2) RESET / BASIS
+================================ */
+*, *::before, *::after { box-sizing: border-box }
+html { scroll-behavior: smooth }
+body { margin:0; color:var(--fg); background:#fff; font-family:var(--ff-sans) }
+img { display:block; max-width:100%; height:auto }
+a { color:inherit; text-decoration:none }
+h1, h2 { font-family:var(--ff-serif); font-weight:400 }
+h1 { font-size:clamp(40px,6vw,72px); line-height:1.05; margin:0 0 20px }
+h2 { font-size:clamp(26px,3.6vw,42px); line-height:1.15; margin:0 0 12px }
+.container { max-width:var(--max); margin:0 auto; padding:0 20px }
+section { padding:80px 0 }
+.meta {
+  font-family:var(--ff-mono);
+  font-size:12px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin-bottom:12px;
+}
+
+
+/* ===============================
+   3) HEADER + NAV
+================================ */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255,255,255,.95);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: saturate(160%) blur(8px);
+}
+
+.nav {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  font-family: var(--ff-serif);
+  font-size: 24px;
+  letter-spacing: .04em;
+}
+
+.menu {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+}
+
+.menu a {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  opacity: .9;
+}
+
+.menu a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+
+/* ===============================
+   4) LANGUAGE SWITCH
+================================ */
+.lang-switch {
+  font-family: var(--ff-mono);
+  font-size: 0.9rem;
+  margin-left: 1rem;
+}
+
+.lang-switch button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 2px 4px;
+  text-transform: uppercase;
+}
+
+.lang-switch button.active {
+  text-decoration: underline;
+}
+
+/* Desktop/Mobile toggles */
+.desktop-only { display: inline-block; }
+.mobile-only  { display: none; }
+
+@media (max-width: 860px) {
+  .desktop-only { display: none; }
+  .mobile-only  {
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+  }
+  .mobile-only button { font-size: 1rem; }
+}
+
+
+/* ===============================
+   5) MOBIELE MENUDRAWER
+================================ */
+.drawer { display: none; }
+
+.burger {
+  display: none;
+  border: 1px solid var(--line);
+  background: transparent;
+  padding: 8px 10px;
+}
+
+.burger span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--fg);
+  margin: 4px 0;
+}
+
+@media (max-width: 860px) {
+  .menu { display: none; }
+  .burger { display: block; }
+  .drawer {
+    position: fixed;
+    inset: 64px 16px auto 16px;
+    background:#fff;
+    border:1px solid var(--line);
+    padding:8px;
+  }
+  .drawer a {
+    display:block;
+    padding:14px 10px;
+    border-bottom:1px solid var(--line);
+    text-transform:uppercase;
+    font-size:13px;
+    letter-spacing:.11em;
+  }
+  .drawer a:last-child { border-bottom:none }
+  .drawer.open { display:block }
+}
+
+
+/* ===============================
+   6) KUNSTENAARSGRID
+================================ */
 .modules.artists-grid {
   display: grid;
   gap: 40px;
-  grid-template-columns: 1fr;           /* mobiel: 1 kolom */
+  grid-template-columns: 1fr; /* mobiel: 1 kolom */
 }
 
-@media (min-width: 900px){
-  .modules.artists-grid { grid-template-columns: 1fr 1fr; }  /* tablet/desktop: 2 kolommen */
+@media (min-width: 900px) {
+  .modules.artists-grid { grid-template-columns: 1fr 1fr; }
 }
 
-@media (min-width: 1200px){
-  .modules.artists-grid { grid-template-columns: 1fr 1fr 1fr; } /* brede desktop: 3 kolommen */
+@media (min-width: 1200px) {
+  .modules.artists-grid { grid-template-columns: 1fr 1fr 1fr; }
 }
 
 .module {
@@ -49,6 +200,7 @@
   font-size: 14px;
   line-height: 1.55;
   letter-spacing: .01em;
+  margin-top: 10px;
 }
 
 .caption strong {
@@ -59,8 +211,8 @@
 }
 
 .mono-link {
-  display: inline-block;        /* zorgt dat hij op eigen regel staat */
-  margin-top: 10px;             /* beetje ruimte boven de link */
+  display: inline-block;  /* zorgt dat hij op eigen regel staat */
+  margin-top: 10px;
   font-family: var(--ff-mono);
   font-size: 12px;
   text-transform: uppercase;
@@ -69,107 +221,26 @@
 }
 
 
-
 /* ===============================
-   2) RESET / BASIS
+   7) LAYOUT HELPERS
 ================================ */
-*,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0; color:var(--fg); background:#fff; font-family:var(--ff-sans)}
-img{display:block; max-width:100%; height:auto}
-a{color:inherit; text-decoration:none}
-h1,h2{font-family:var(--ff-serif); font-weight:400}
-h1{font-size:clamp(40px,6vw,72px); line-height:1.05; margin:0 0 20px}
-h2{font-size:clamp(26px,3.6vw,42px); line-height:1.15; margin:0 0 12px}
-.container{max-width:var(--max); margin:0 auto; padding:0 20px}
-section{padding:80px 0}
-.meta{font-family:var(--ff-mono); font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin-bottom:12px}
+.grid { display:grid; gap:40px }
+.two-col { grid-template-columns:1fr }
+@media (min-width:900px){ .two-col { grid-template-columns:1fr 1fr } }
 
-/* ===============================
-   3) HEADER + NAV
-================================ */
-header{position:sticky; top:0; z-index:50; background:rgba(255,255,255,.95); border-bottom:1px solid var(--line); backdrop-filter:saturate(160%) blur(8px)}
-.nav{max-width:var(--max); margin:0 auto; padding:16px 20px; display:flex; align-items:center; justify-content:space-between}
-.brand{font-family:var(--ff-serif); font-size:24px; letter-spacing:.04em}
-.menu{display:flex; gap:22px; align-items:center}
-.menu a{font-size:13px; text-transform:uppercase; letter-spacing:.14em; opacity:.9}
-.menu a:hover{text-decoration:underline; text-underline-offset:4px}
-.lang-switch{margin-left:12px; font-family:var(--ff-mono); font-size:12px}
-.lang-switch button{background:none; border:none; cursor:pointer; padding:4px 6px; text-transform:uppercase}
-.lang-switch button.active{text-decoration:underline}
+.tile img { border:1px solid var(--line) }
 
 
 /* ===============================
-   4) MOBIELE MENUDRAWER
+   8) FOOTER
 ================================ */
-.drawer{display:none;}   /* <<— voeg deze toe, verbergt drawer op desktop */
-
-.burger{display:none; border:1px solid var(--line); background:transparent; padding:8px 10px}
-.burger span{display:block; width:22px; height:1.5px; background:var(--fg); margin:4px 0}
-@media (max-width:860px){
-  .menu{display:none}
-  .burger{display:block}
-  .drawer{position:fixed; inset:64px 16px auto 16px; background:#fff; border:1px solid var(--line); padding:8px}
-  .drawer a{display:block; padding:14px 10px; border-bottom:1px solid var(--line); text-transform:uppercase; font-size:13px; letter-spacing:.11em}
-  .drawer a:last-child{border-bottom:none}
-  .drawer{display:none}
-  .drawer.open{display:block}
+footer { border-top:1px solid var(--line) }
+.footer-inner {
+  max-width:var(--max);
+  margin:0 auto;
+  padding:22px 20px;
+  display:flex;
+  justify-content:space-between;
+  color:#777;
+  font-size:12px;
 }
-
-/* Language switch standaard */
-.lang-switch {
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 0.9rem;
-  margin-left: 1rem;
-}
-
-.lang-switch button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 2px 4px;
-}
-
-.lang-switch button.active {
-  text-decoration: underline;
-}
-
-/* Desktop only */
-.desktop-only {
-  display: inline-block;
-}
-.mobile-only {
-  display: none;
-}
-
-/* Mobile view: hide desktop, show inside drawer */
-@media (max-width: 768px) {
-  .desktop-only {
-    display: none;
-  }
-  .mobile-only {
-    display: block;
-    margin-top: 20px;
-    text-align: center;
-  }
-  .mobile-only button {
-    font-size: 1rem;
-  }
-}
-
-
-/* ===============================
-   5) LAYOUT HELPERS
-================================ */
-.grid{display:grid; gap:40px}
-.two-col{grid-template-columns:1fr}
-@media (min-width:900px){ .two-col{grid-template-columns:1fr 1fr} }
-.tile img{border:1px solid var(--line)}
-.caption{font-size:14px; line-height:1.5; margin-top:10px}
-.caption strong{font-family:var(--ff-serif); font-size:18px; display:block; margin-bottom:4px}
-
-/* ===============================
-   6) FOOTER
-================================ */
-footer{border-top:1px solid var(--line)}
-.footer-inner{max-width:var(--max); margin:0 auto; padding:22px 20px; display:flex; justify-content:space-between; color:#777; font-size:12px}
