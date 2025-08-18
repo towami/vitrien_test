@@ -16,35 +16,50 @@
 <body>
   <!-- ============ HEADER ============ -->
   <header>
-    <nav class="nav" aria-label="Hoofdnavigatie">
-        <a href="#top" class="brand">
-  <img src="assets/img/logo.png" alt="Vitrien logo">
-</a>
-      <div class="menu" role="menubar">
-        <a href="../../index.html#over" data-lang-nl="Over" data-lang-en="About">Over</a>
-        <a href="../../index.html#locaties" data-lang-nl="Data & locaties" data-lang-en="Dates & Venues">Data & locaties</a>
-        <a href="../../index.html#opencall" data-lang-nl="Open call" data-lang-en="Open call">Open call</a>
-        <a href="../../index.html#kunstenaars" data-lang-nl="Kunstenaars" data-lang-en="Artists">Kunstenaars</a>
-        <a href="../../index.html#lov" data-lang-nl="LOV2030" data-lang-en="LOV2030">LOV2030</a>
-        <a href="../../index.html#contact" data-lang-nl="Contact" data-lang-en="Contact">Contact</a>
-      </div>
-      <div class="lang-switch" aria-label="Taalwissel">
-        <button onclick="setLang('nl')" id="lang-nl" class="active">NL</button>|
-        <button onclick="setLang('en')" id="lang-en">EN</button>
-      </div>
-      <button class="burger" aria-label="Open menu" onclick="toggleDrawer()">
-        <span></span><span></span><span></span>
-      </button>
-    </nav>
-    <div class="drawer" id="drawer" aria-hidden="true">
-      <a href="../../index.html#over" onclick="toggleDrawer()">Over</a>
-      <a href="../../index.html#locaties" onclick="toggleDrawer()">Data & locaties</a>
-      <a href="../../index.html#opencall" onclick="toggleDrawer()">Open call</a>
-      <a href="../../index.html#kunstenaars" onclick="toggleDrawer()">Kunstenaars</a>
-      <a href="../../index.html#lov" onclick="toggleDrawer()">LOV2030</a>
-      <a href="../../index.html#contact" onclick="toggleDrawer()">Contact</a>
+  <nav class="nav" aria-label="Hoofdnavigatie">
+    <!-- Logo -->
+    <a href="../../" class="brand" aria-label="VITRIEN — Home">
+      <img src="../../assets/img/logo.png" alt="Vitrien logo">
+    </a>
+
+    <!-- Desktop menu -->
+    <div class="menu" role="menubar">
+      <a href="../../index.html#over" data-lang-nl="Over" data-lang-en="About">Over</a>
+      <a href="../../index.html#locaties" data-lang-nl="Data & locaties" data-lang-en="Dates & Venues">Data & locaties</a>
+      <a href="../../index.html#opencall" data-lang-nl="Open call" data-lang-en="Open call">Open call</a>
+      <a href="../../index.html#kunstenaars" data-lang-nl="Kunstenaars" data-lang-en="Artists">Kunstenaars</a>
+      <a href="../../index.html#lov" data-lang-nl="LOV2030" data-lang-en="LOV2030">LOV2030</a>
+      <a href="../../index.html#contact" data-lang-nl="Contact" data-lang-en="Contact">Contact</a>
     </div>
-  </header>
+
+    <!-- Desktop taal-switch -->
+    <div class="lang-switch desktop-only" aria-label="Taalwissel">
+      <button onclick="setLang('nl')" class="active" data-lang="nl">NL</button> |
+      <button onclick="setLang('en')" data-lang="en">EN</button>
+    </div>
+
+    <!-- Hamburger -->
+    <button class="burger" aria-label="Open menu" onclick="toggleDrawer()">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile drawer -->
+  <div class="drawer" id="drawer" aria-hidden="true">
+    <a href="../../index.html#over" data-lang-nl="Over" data-lang-en="About" onclick="toggleDrawer()">Over</a>
+    <a href="../../index.html#locaties" data-lang-nl="Data & locaties" data-lang-en="Dates & Venues" onclick="toggleDrawer()">Data & locaties</a>
+    <a href="../../index.html#opencall" data-lang-nl="Open call" data-lang-en="Open call" onclick="toggleDrawer()">Open call</a>
+    <a href="../../index.html#kunstenaars" data-lang-nl="Kunstenaars" data-lang-en="Artists" onclick="toggleDrawer()">Kunstenaars</a>
+    <a href="../../index.html#lov" data-lang-nl="LOV2030" data-lang-en="LOV2030" onclick="toggleDrawer()">LOV2030</a>
+    <a href="../../index.html#contact" data-lang-nl="Contact" data-lang-en="Contact" onclick="toggleDrawer()">Contact</a>
+
+    <!-- Mobile taal-switch -->
+    <div class="lang-switch mobile-only" aria-label="Taalwissel">
+      <button onclick="setLang('nl')" class="active" data-lang="nl">NL</button> |
+      <button onclick="setLang('en')" data-lang="en">EN</button>
+    </div>
+  </div>
+</header>
 
   <main id="top">
     <!-- ============ HERO ============ -->
