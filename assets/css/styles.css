@@ -166,6 +166,52 @@ header {
   .drawer.open { display:block }
 }
 
+/* ===== LOCATIEGRID (zonder beeld) ===== */
+.locations-grid{
+  display:grid;
+  gap:40px;
+  grid-template-columns:1fr;           /* mobiel: 1 kolom */
+}
+
+@media (min-width: 900px){
+  .locations-grid{ grid-template-columns: 1fr 1fr; }   /* tablet/desktop: 2 kolommen */
+}
+
+@media (min-width: 1200px){
+  .locations-grid{ grid-template-columns: 1fr 1fr 1fr; } /* brede desktop: 3 kolommen */
+}
+
+.location-card{
+  border:1px solid var(--line);
+  padding:18px;
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+
+.location-card:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 22px rgba(0,0,0,.06);
+}
+
+.location-name{
+  font-family:var(--ff-serif);
+  font-weight:400;
+  font-size:20px;
+  margin:0 0 6px;
+}
+
+.location-address,
+.location-city{
+  margin:0;
+  font-size:14px;
+  line-height:1.5;
+  color:var(--fg);
+}
+
+.location-card .mono-link{
+  display:inline-block;
+  margin-top:10px;
+}
+
 
 /* ===============================
    6) KUNSTENAARSGRID
