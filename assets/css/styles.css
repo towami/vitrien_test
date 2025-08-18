@@ -106,15 +106,22 @@ header {
 .desktop-only { display: inline-block; }
 .mobile-only  { display: none; }
 
+/* Mobile view: toon NL/EN in de drawer vanaf hetzelfde breakpoint als de burger */
 @media (max-width: 860px) {
   .desktop-only { display: none; }
-  .mobile-only  {
+
+  .mobile-only {
     display: block;
-    margin-top: 20px;
+    margin-top: 16px;
+    padding-top: 10px;
     text-align: center;
+    border-top: 1px solid var(--line);
   }
-  .mobile-only button { font-size: 1rem; }
+  .mobile-only button {
+    font-size: 13px;
+  }
 }
+
 
 
 /* ===============================
