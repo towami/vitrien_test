@@ -48,14 +48,14 @@ header {
 }
 
 .brand img {
-  height: 40px; /* pas dit aan naar gewenste hoogte */
+  height: 30px; /* pas dit aan naar gewenste hoogte */
   width: auto;
   display: block;
 }
 
 @media (max-width: 768px) {
   .brand img {
-    height: 28px;
+    height: 20px;
   }
 }
 
