@@ -48,7 +48,7 @@ header {
 }
 
 .brand img {
-  height: 25px; /* pas dit aan naar gewenste hoogte */
+  height: 32px; /* pas dit aan naar gewenste hoogte */
   width: auto;
   display: block;
 }
