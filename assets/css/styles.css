@@ -47,6 +47,19 @@ header {
   backdrop-filter: saturate(160%) blur(8px);
 }
 
+.brand img {
+  height: 40px; /* pas dit aan naar gewenste hoogte */
+  width: auto;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .brand img {
+    height: 28px;
+  }
+}
+
+
 .nav {
   max-width: var(--max);
   margin: 0 auto;
@@ -79,6 +92,7 @@ header {
   text-decoration: underline;
   text-underline-offset: 4px;
 }
+
 
 
 /* ===============================
