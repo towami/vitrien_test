@@ -49,13 +49,13 @@ header {
 
 .brand img {
   height: 30px; /* pas dit aan naar gewenste hoogte */
-  width: auto;
+  width: 70px;
   display: block;
 }
 
 @media (max-width: 768px) {
   .brand img {
-    height: 20px;
+    height: 30px;
   }
 }
 
