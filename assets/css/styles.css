@@ -116,6 +116,47 @@ header{position:sticky; top:0; z-index:50; background:rgba(255,255,255,.95); bor
   .drawer.open{display:block}
 }
 
+/* Language switch standaard */
+.lang-switch {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.9rem;
+  margin-left: 1rem;
+}
+
+.lang-switch button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 2px 4px;
+}
+
+.lang-switch button.active {
+  text-decoration: underline;
+}
+
+/* Desktop only */
+.desktop-only {
+  display: inline-block;
+}
+.mobile-only {
+  display: none;
+}
+
+/* Mobile view: hide desktop, show inside drawer */
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none;
+  }
+  .mobile-only {
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+  }
+  .mobile-only button {
+    font-size: 1rem;
+  }
+}
+
 
 /* ===============================
    5) LAYOUT HELPERS
