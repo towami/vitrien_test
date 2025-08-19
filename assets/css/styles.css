@@ -226,6 +226,27 @@ header {
   margin-top:10px;
 }
 
+/* ===============================
+   Data & locaties grid
+================================ */
+
+.dates-list { list-style:none; padding:0; margin:0 0 14px; display:grid; gap:6px; }
+.dates-list strong { font-family: var(--ff-mono); font-size:12px; text-transform:uppercase; color:var(--muted); margin-right:8px; }
+.lead-small { margin:10px 0 14px; }
+
+.btn-row { display:flex; gap:10px; flex-wrap:wrap; }
+.btn { display:inline-block; padding:8px 12px; border-radius:10px; font-family:var(--ff-mono); font-size:12px; letter-spacing:.06em; text-transform:uppercase; border:1px solid var(--line); cursor:pointer; background:#fff; }
+.btn:hover { text-decoration:underline; text-underline-offset:3px; }
+.btn-primary { background:#fff; }
+.btn-outline { background:#fff; }
+
+.program-details { margin-top:12px; }
+.program-details > summary { cursor:pointer; list-style:none; margin-bottom:10px; display:inline-block; padding:6px 10px; border:1px solid var(--line); border-radius:8px; font-family:var(--ff-mono); font-size:12px; text-transform:uppercase; }
+.program-details[open] > summary { background:#fafafa; }
+.program-schedule { display:grid; gap:12px; margin-top:6px; }
+.program-block { display:grid; grid-template-columns:80px 1fr; gap:14px; }
+.program-block time { font-family:var(--ff-mono); font-size:12px; color:var(--muted); padding-top:2px; }
+
 
 /* ===============================
    6) KUNSTENAARSGRID
