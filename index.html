@@ -103,85 +103,105 @@
 ================================= -->
       
 
-    <section id="locaties">
+   <section id="data">
   <div class="container">
     <div class="meta" data-lang-nl="Data & locaties" data-lang-en="Dates & Venues">Data & locaties</div>
-    <h2 data-lang-nl="Data" data-lang-en="Dates">Locaties</h2>
+    <h2 data-lang-nl="Data" data-lang-en="Dates">Data</h2>
 
- <!-- OPENING PROGRAMMA -->
-<article class="tile opening-program">
-  <h3 class="meta" data-lang-nl="Opening — vr 13/9" data-lang-en="Opening — Fri 13/9">
-    Opening — vr 13/9
-  </h3>
+    <ul class="dates-list">
+      <li>
+        <strong data-lang-nl="Opening:" data-lang-en="Opening:">Opening:</strong>
+        <span data-lang-nl="vrijdag 13 september" data-lang-en="Friday 13 September">vrijdag 13 september</span>
+      </li>
+      <li>
+        <strong data-lang-nl="Tentoonstelling:" data-lang-en="Exhibition:">Tentoonstelling:</strong>
+        <span data-lang-nl="13/9 – 5/10, doorlopend zichtbaar in de vitrines"
+              data-lang-en="13/9 – 5/10, continuously on view in shop windows">
+          13/9 – 5/10, doorlopend zichtbaar in de vitrines
+        </span>
+      </li>
+    </ul>
 
-  <p data-lang-nl="Iedereen is welkom bij de feestelijke opening. RSVP en we zetten je op de guestlist: je krijgt een gratis drankje."
-     data-lang-en="Everyone is welcome at the festive opening. RSVP and we’ll add you to the guestlist: you’ll get a free drink.">
-    Iedereen is welkom bij de feestelijke opening. RSVP en we zetten je op de guestlist: je krijgt een gratis drankje.
-  </p>
+    <p class="lead-small"
+       data-lang-nl="Kom naar onze feestelijke opening. RSVP en we zetten je op de guestlist voor een gratis drankje."
+       data-lang-en="Join our festive opening. RSVP to be added to the guestlist and enjoy a free drink.">
+      Kom naar onze feestelijke opening. RSVP en we zetten je op de guestlist voor een gratis drankje.
+    </p>
 
-  <div class="program-schedule">
-    <div class="program-block">
-      <time>15:00</time>
-      <div>
-        <strong data-lang-nl="De deuren gaan open" data-lang-en="Doors open">De deuren gaan open</strong><br>
-        <span data-lang-nl="Start van de expo in de vitrines" data-lang-en="Exhibition starts in the shop windows">Start van de expo in de vitrines</span>
-      </div>
+    <div class="btn-row">
+      <button class="btn btn-primary"
+              onclick="openProgram()"
+              data-lang-nl="Programma opening"
+              data-lang-en="Opening programme">
+        Programma opening
+      </button>
+
+      <a class="btn btn-outline"
+         href="mailto:hallo@vitrien.be?subject=RSVP%20Vitrien%20Opening%2013%2F9&body=Hallo%20Vitrien%2C%0A%0AIk%20RSVP%20voor%20de%20opening%20op%2013%2F9.%20Naam%3A%20_____%0AAantal%20personen%3A%20_____%0A%0ABedankt!"
+         data-lang-nl="RSVP"
+         data-lang-en="RSVP">
+        RSVP
+      </a>
     </div>
 
-    <div class="program-block">
-      <time>15:30</time>
-      <div>
-        <strong data-lang-nl="Welkom & speeches" data-lang-en="Welcome & speeches">Welkom & speeches</strong><br>
-        <span data-lang-nl="Introductie van de kunstenaars en performances" data-lang-en="Introduction of artists and performances">Introductie van de kunstenaars en performances</span>
-      </div>
-    </div>
+    <!-- Verborgen programma (klapt open via de knop) -->
+    <details id="opening-program" class="program-details">
+      <summary data-lang-nl="Programma (13/9)" data-lang-en="Programme (13/9)">Programma (13/9)</summary>
+      <div class="program-schedule">
+        <div class="program-block">
+          <time>15:00</time>
+          <div>
+            <strong data-lang-nl="Deuren open" data-lang-en="Doors open">Deuren open</strong><br>
+            <span data-lang-nl="Expo start in de vitrines" data-lang-en="Exhibition starts in the windows">Expo start in de vitrines</span>
+          </div>
+        </div>
 
-    <div class="program-block">
-      <time>15:50</time>
-      <div>
-        <strong>Performance — Niels Poiz</strong><br>
-        <span data-lang-nl="Taal, muziek en performance" data-lang-en="Language, music and performance">Taal, muziek en performance</span>
-      </div>
-    </div>
+        <div class="program-block">
+          <time>15:30</time>
+          <div>
+            <strong data-lang-nl="Welkom & speeches" data-lang-en="Welcome & speeches">Welkom & speeches</strong><br>
+            <span data-lang-nl="Intro kunstenaars & performances" data-lang-en="Intro to artists & performances">Intro kunstenaars & performances</span>
+          </div>
+        </div>
 
-    <div class="program-block">
-      <time>16:30 & 18:00</time>
-      <div>
-        <strong data-lang-nl="Rondleidingen" data-lang-en="Guided tours">Rondleidingen</strong><br>
-        <span data-lang-nl="Ontdek de werken samen met gids" data-lang-en="Discover the works with a guide">Ontdek de werken samen met gids</span>
-      </div>
-    </div>
+        <div class="program-block">
+          <time>15:50</time>
+          <div>
+            <strong>Performance — Niels Poiz</strong>
+          </div>
+        </div>
 
-    <div class="program-block">
-      <time>19:30</time>
-      <div>
-        <strong data-lang-nl="Tweede reeks speeches" data-lang-en="Second round of speeches">Tweede reeks speeches</strong><br>
-        <span data-lang-nl="Opnieuw introductie van de avondperformances" data-lang-en="Introduction of the evening performances">Opnieuw introductie van de avondperformances</span>
-      </div>
-    </div>
+        <div class="program-block">
+          <time>16:30 & 18:00</time>
+          <div>
+            <strong data-lang-nl="Rondleidingen" data-lang-en="Guided tours">Rondleidingen</strong>
+          </div>
+        </div>
 
-    <div class="program-block">
-      <time>19:50</time>
-      <div>
-        <strong>Performance — Camille Lemille</strong><br>
-        <span data-lang-nl="Performance rond taal en bureaucratie" data-lang-en="Performance on language and bureaucracy">Performance rond taal en bureaucratie</span>
-      </div>
-    </div>
+        <div class="program-block">
+          <time>19:30</time>
+          <div>
+            <strong data-lang-nl="Speeches" data-lang-en="Speeches">Speeches</strong>
+          </div>
+        </div>
 
-    <div class="program-block">
-      <time>20:30</time>
-      <div>
-        <strong data-lang-nl="Avondtour & DJ" data-lang-en="Evening tour & DJ">Avondtour & DJ</strong><br>
-        <span data-lang-nl="Sluit de avond feestelijk af" data-lang-en="End the evening in style">Sluit de avond feestelijk af</span>
+        <div class="program-block">
+          <time>19:50</time>
+          <div>
+            <strong>Performance — Camille Lemille</strong>
+          </div>
+        </div>
+
+        <div class="program-block">
+          <time>20:30</time>
+          <div>
+            <strong data-lang-nl="Avondtour & DJ" data-lang-en="Evening tour & DJ">Avondtour & DJ</strong>
+          </div>
+        </div>
       </div>
-    </div>
+    </details>
   </div>
-
-  <p data-lang-nl="De werken blijven zichtbaar in de vitrines tot en met 5 oktober."
-     data-lang-en="The works remain visible in the shop windows until October 5th.">
-    De werken blijven zichtbaar in de vitrines tot en met 5 oktober.
-  </p>
-</article>
+</section>
 
 
 <!-- ===============================
