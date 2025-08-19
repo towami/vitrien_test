@@ -53,5 +53,14 @@
         if (d && d.classList.contains('open')) d.classList.remove('open');
       });
     });
+
+    // Open het details-blok en scroll ernaartoe
+window.openProgram = function () {
+  const d = document.getElementById('opening-program');
+  if (!d) return;
+  d.setAttribute('open','');
+  d.scrollIntoView({ behavior: 'smooth', block: 'start' });
+};
+
   });
 })();
