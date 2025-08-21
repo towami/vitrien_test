@@ -1,1 +1,153 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jente Waerzeggers — VITRIEN</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+</head>
+<body>
+  <!-- ============ HEADER ============ -->
+  <header>
+  <nav class="nav" aria-label="Hoofdnavigatie">
+    <!-- Logo -->
+    <a href="../../" class="brand" aria-label="VITRIEN — Home">
+      <img src="../../assets/img/logo.png" alt="Vitrien logo">
+    </a>
+
+    <!-- Desktop menu -->
+    <div class="menu" role="menubar">
+      <a href="../../index.html#over" data-lang-nl="Over" data-lang-en="About">Over</a>
+      <a href="../../index.html#locaties" data-lang-nl="Data & locaties" data-lang-en="Dates & Venues">Data & locaties</a>
+      <a href="../../index.html#opencall" data-lang-nl="Open call" data-lang-en="Open call">Open call</a>
+      <a href="../../index.html#kunstenaars" data-lang-nl="Kunstenaars" data-lang-en="Artists">Kunstenaars</a>
+      <a href="../../index.html#lov" data-lang-nl="LOV2030" data-lang-en="LOV2030">LOV2030</a>
+      <a href="../../index.html#contact" data-lang-nl="Contact" data-lang-en="Contact">Contact</a>
+    </div>
+
+    <!-- Desktop taal-switch -->
+    <div class="lang-switch desktop-only" aria-label="Taalwissel">
+      <button onclick="setLang('nl')" class="active" data-lang="nl">NL</button> |
+      <button onclick="setLang('en')" data-lang="en">EN</button>
+    </div>
+
+    <!-- Hamburger -->
+    <button class="burger" aria-label="Open menu" onclick="toggleDrawer()">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile drawer -->
+  <div class="drawer" id="drawer" aria-hidden="true">
+    <a href="../../index.html#over" data-lang-nl="Over" data-lang-en="About" onclick="toggleDrawer()">Over</a>
+    <a href="../../index.html#locaties" data-lang-nl="Data & locaties" data-lang-en="Dates & Venues" onclick="toggleDrawer()">Data & locaties</a>
+    <a href="../../index.html#opencall" data-lang-nl="Open call" data-lang-en="Open call" onclick="toggleDrawer()">Open call</a>
+    <a href="../../index.html#kunstenaars" data-lang-nl="Kunstenaars" data-lang-en="Artists" onclick="toggleDrawer()">Kunstenaars</a>
+    <a href="../../index.html#lov" data-lang-nl="LOV2030" data-lang-en="LOV2030" onclick="toggleDrawer()">LOV2030</a>
+    <a href="../../index.html#contact" data-lang-nl="Contact" data-lang-en="Contact" onclick="toggleDrawer()">Contact</a>
+
+    <!-- Mobile taal-switch -->
+    <div class="lang-switch mobile-only" aria-label="Taalwissel">
+      <button onclick="setLang('nl')" class="active" data-lang="nl">NL</button> |
+      <button onclick="setLang('en')" data-lang="en">EN</button>
+    </div>
+  </div>
+</header>
+
+  <main id="top">
+    <!-- ============ HERO ============ -->
+    <section class="hero" style="min-height:auto; padding:60px 0 20px">
+      <div class="container">
+        <div class="meta" data-lang-nl="Kunstenaar" data-lang-en="Artist">Kunstenaar</div>
+        <h1>Jente Waerzeggers</h1>
+        <p class="lead" data-lang-nl="Beeldende kunst • Performance • Installatie" data-lang-en="Visual arts • Performance • Installation">
+          Beeldende kunst • Performance • Installatie
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ BREADCRUMB ============ -->
+    <section>
+      <div class="container">
+        <p class="meta" style="margin-top:-8px">
+          <a class="mono-link" href="../../index.html#kunstenaars" data-lang-nl="← terug naar overzicht" data-lang-en="← back to overview">← terug naar overzicht</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ BIO + STATEMENT ============ -->
+    <section>
+      <div class="container grid two-col">
+        <article>
+          <div class="meta" data-lang-nl="Biografie" data-lang-en="Biography">Biografie</div>
+          <p data-lang-nl="Jente Waerzeggers (°1993) ontwikkelt een praktijk waarin beeldende kunst, performance en installaties elkaar kruisen. Hij onderzoekt hoe lichamen, objecten en ruimtes met elkaar in interactie treden en zo nieuwe betekenissen genereren. Zijn werk balanceert tussen intieme gebaren en publieke interventies."
+             data-lang-en="Jente Waerzeggers (b. 1993) develops a practice at the intersection of visual arts, performance and installation. He investigates how bodies, objects and spaces interact with each other to generate new meanings. His work balances between intimate gestures and public interventions.">
+            Jente Waerzeggers (°1993) ontwikkelt een praktijk waarin beeldende kunst, performance en installaties elkaar kruisen...
+          </p>
+          <div class="meta" style="margin-top:20px" data-lang-nl="Praktisch" data-lang-en="Practical">Praktisch</div>
+          <p>
+            Website: <a class="mono-link" href="#" target="_blank" rel="noopener">https://jentewaerzeggers.com/</a><br>
+            Contact: <a class="mono-link" href="mailto:jente@email.com">jente@email.com</a>
+          </p>
+        </article>
+
+        <article>
+          <div class="meta" data-lang-nl="Artist statement" data-lang-en="Artist statement">Artist statement</div>
+          <p data-lang-nl="Mijn werk vertrekt vanuit de lichamelijke ervaring van ruimte. Door performatieve en sculpturale elementen te verweven, wil ik situaties creëren waarin de toeschouwer zich bewust wordt van eigen aanwezigheid en beweging. Het gaat mij om de fragiele balans tussen controle en overgave."
+             data-lang-en="My work originates from the bodily experience of space. By intertwining performative and sculptural elements, I create situations that make the viewer aware of their own presence and movement. My practice revolves around the fragile balance between control and surrender.">
+            Mijn werk vertrekt vanuit de lichamelijke ervaring van ruimte...
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ GALLERY ============ -->
+    <section>
+      <div class="container">
+        <div class="meta" data-lang-nl="Werk" data-lang-en="Work">Werk</div>
+        <div class="grid gallery">
+          <figure class="module">
+            <img src="../../assets/img/artists/Jente1.jpg" alt="Werk — Jente Waerzeggers">
+          </figure>
+          <figure class="module">
+            <img src="../../assets/img/artists/Jente2.jpg" alt="Werk — Jente Waerzeggers">
+          </figure>
+          <figure class="module">
+            <img src="../../assets/img/artists/Jente3.jpg" alt="Werk — Jente Waerzeggers">
+          </figure>
+          <figure class="module">
+            <img src="../../assets/img/artists/Jente4.jpg" alt="Werk — Jente Waerzeggers">
+          </figure>
+          <figure class="module">
+            <img src="../../assets/img/artists/Jente5.jpg" alt="Werk — Jente Waerzeggers">
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TERUGLINK ============ -->
+    <section>
+      <div class="container">
+        <a class="mono-link" href="../../index.html#kunstenaars" data-lang-nl="← terug naar alle kunstenaars" data-lang-en="← back to all artists">← terug naar alle kunstenaars</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>© <span id="year"></span> Vitrien — Leuven</div>
+      <a class="mono-link" href="#top" data-lang-nl="Naar boven" data-lang-en="Back to top">Naar boven</a>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/app.js" defer></script>
+</body>
+</html>
 
