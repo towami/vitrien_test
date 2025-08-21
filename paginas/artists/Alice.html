@@ -5,58 +5,75 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Alice Leens — VITRIEN</title>
 
-  <!-- Fonts (zelfde als home) -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-  <!-- Stylesheet (relatief pad vanuit /paginas/artists/) -->
+  <!-- Stylesheet -->
   <link rel="stylesheet" href="../../assets/css/styles.css">
 </head>
 <body>
-  <!-- ============ HEADER (zelfde component als home) ============ -->
+  <!-- ============ HEADER ============ -->
   <header>
-    <nav class="nav" aria-label="Hoofdnavigatie">
-      <a href="../../" class="brand">VITRIEN</a>
-      <div class="menu" role="menubar">
-        <a href="../../index.html#over" data-lang-nl="Over" data-lang-en="About">Over</a>
-        <a href="../../index.html#locaties" data-lang-nl="Data & locaties" data-lang-en="Dates & Venues">Data & locaties</a>
-        <a href="../../index.html#opencall" data-lang-nl="Open call" data-lang-en="Open call">Open call</a>
-        <a href="../../index.html#kunstenaars" data-lang-nl="Kunstenaars" data-lang-en="Artists">Kunstenaars</a>
-        <a href="../../index.html#lov" data-lang-nl="LOV2030" data-lang-en="LOV2030">LOV2030</a>
-        <a href="../../index.html#contact" data-lang-nl="Contact" data-lang-en="Contact">Contact</a>
-      </div>
-      <div class="lang-switch" aria-label="Taalwissel">
-        <button onclick="setLang('nl')" id="lang-nl" class="active">NL</button>|
-        <button onclick="setLang('en')" id="lang-en">EN</button>
-      </div>
-      <button class="burger" aria-label="Open menu" onclick="toggleDrawer()">
-        <span></span><span></span><span></span>
-      </button>
-    </nav>
-    <div class="drawer" id="drawer" aria-hidden="true">
-      <a href="../../index.html#over" data-lang-nl="Over" data-lang-en="About" onclick="toggleDrawer()">Over</a>
-      <a href="../../index.html#locaties" data-lang-nl="Data & locaties" data-lang-en="Dates & Venues" onclick="toggleDrawer()">Data & locaties</a>
-      <a href="../../index.html#opencall" data-lang-nl="Open call" data-lang-en="Open call" onclick="toggleDrawer()">Open call</a>
-      <a href="../../index.html#kunstenaars" data-lang-nl="Kunstenaars" data-lang-en="Artists" onclick="toggleDrawer()">Kunstenaars</a>
-      <a href="../../index.html#lov" data-lang-nl="LOV2030" data-lang-en="LOV2030" onclick="toggleDrawer()">LOV2030</a>
-      <a href="../../index.html#contact" data-lang-nl="Contact" data-lang-en="Contact" onclick="toggleDrawer()">Contact</a>
+  <nav class="nav" aria-label="Hoofdnavigatie">
+    <!-- Logo -->
+    <a href="../../" class="brand" aria-label="VITRIEN — Home">
+      <img src="../../assets/img/logo.png" alt="Vitrien logo">
+    </a>
+
+    <!-- Desktop menu -->
+    <div class="menu" role="menubar">
+      <a href="../../index.html#over" data-lang-nl="Over" data-lang-en="About">Over</a>
+      <a href="../../index.html#locaties" data-lang-nl="Data & locaties" data-lang-en="Dates & Venues">Data & locaties</a>
+      <a href="../../index.html#opencall" data-lang-nl="Open call" data-lang-en="Open call">Open call</a>
+      <a href="../../index.html#kunstenaars" data-lang-nl="Kunstenaars" data-lang-en="Artists">Kunstenaars</a>
+      <a href="../../index.html#lov" data-lang-nl="LOV2030" data-lang-en="LOV2030">LOV2030</a>
+      <a href="../../index.html#contact" data-lang-nl="Contact" data-lang-en="Contact">Contact</a>
     </div>
-  </header>
+
+    <!-- Desktop taal-switch -->
+    <div class="lang-switch desktop-only" aria-label="Taalwissel">
+      <button onclick="setLang('nl')" class="active" data-lang="nl">NL</button> |
+      <button onclick="setLang('en')" data-lang="en">EN</button>
+    </div>
+
+    <!-- Hamburger -->
+    <button class="burger" aria-label="Open menu" onclick="toggleDrawer()">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile drawer -->
+  <div class="drawer" id="drawer" aria-hidden="true">
+    <a href="../../index.html#over" data-lang-nl="Over" data-lang-en="About" onclick="toggleDrawer()">Over</a>
+    <a href="../../index.html#locaties" data-lang-nl="Data & locaties" data-lang-en="Dates & Venues" onclick="toggleDrawer()">Data & locaties</a>
+    <a href="../../index.html#opencall" data-lang-nl="Open call" data-lang-en="Open call" onclick="toggleDrawer()">Open call</a>
+    <a href="../../index.html#kunstenaars" data-lang-nl="Kunstenaars" data-lang-en="Artists" onclick="toggleDrawer()">Kunstenaars</a>
+    <a href="../../index.html#lov" data-lang-nl="LOV2030" data-lang-en="LOV2030" onclick="toggleDrawer()">LOV2030</a>
+    <a href="../../index.html#contact" data-lang-nl="Contact" data-lang-en="Contact" onclick="toggleDrawer()">Contact</a>
+
+    <!-- Mobile taal-switch -->
+    <div class="lang-switch mobile-only" aria-label="Taalwissel">
+      <button onclick="setLang('nl')" class="active" data-lang="nl">NL</button> |
+      <button onclick="setLang('en')" data-lang="en">EN</button>
+    </div>
+  </div>
+</header>
 
   <main id="top">
-    <!-- ============ ARTIST HERO ============ -->
+    <!-- ============ HERO ============ -->
     <section class="hero" style="min-height:auto; padding:60px 0 20px">
       <div class="container">
         <div class="meta" data-lang-nl="Kunstenaar" data-lang-en="Artist">Kunstenaar</div>
         <h1>Alice Leens</h1>
-        <p class="lead" data-lang-nl="Textiel • Garen • Ruimtelijke composities" data-lang-en="Textiles • Yarn • Spatial compositions">
-          Textiel • Garen • Ruimtelijke composities
+        <p class="lead" data-lang-nl="Beeldend kunstenaar • Mixed media • Installatie" data-lang-en="Visual artist • Mixed media • Installation">
+          Beeldend kunstenaar • Mixed media • Installatie
         </p>
       </div>
     </section>
 
-    <!-- ============ BREADCRUMB / TERUG ============ -->
+    <!-- ============ BREADCRUMB ============ -->
     <section>
       <div class="container">
         <p class="meta" style="margin-top:-8px">
@@ -65,83 +82,51 @@
       </div>
     </section>
 
-    <!-- ============ BIO + STATEMENT (2 kolommen) ============ -->
+    <!-- ============ BIO + STATEMENT ============ -->
     <section>
       <div class="container grid two-col">
-        <!-- BIO -->
         <article>
           <div class="meta" data-lang-nl="Biografie" data-lang-en="Biography">Biografie</div>
-          <p
-            data-lang-nl="Alice Leens verkent textiel vanuit zijn meest elementaire bouwsteen: de draad. Door garens te ontrafelen en opnieuw te componeren, groepeert ze vezels tot volumes die de lineaire draad ruimtelijk maken. Haar werk ontsluiert een verborgen architectuur van vlechtingen en knopen, en trekt parallellen tussen textiel en de structuren die onze samenleving weven."
-            data-lang-en="Alice Leens explores textiles from their most elemental constituent: the thread. By unravelling and recomposing yarn, she groups fibres into volumes that transform the linear thread into space. Her work reveals a hidden architecture of braids and joints, drawing parallels between textiles and the structures that weave our societies."
-          >
-            Alice Leens verkent textiel vanuit zijn meest elementaire bouwsteen: de draad…
+          <p data-lang-nl="Alice Leens (°1990) werkt met gelaagde beeldtalen waarin materiaalonderzoek en narratief een centrale rol spelen. Ze combineert found objects, textiel en verf tot installaties die balanceren tussen intimiteit en publieke ruimte. In haar praktijk onderzoekt ze hoe herinnering, tactiliteit en tijd zich vertalen naar vorm en ritme."
+             data-lang-en="Alice Leens (b. 1990) develops layered visual languages where material research and narrative take center stage. Combining found objects, textiles and paint, she creates installations that balance intimacy and public space. Her practice explores how memory, tactility and time translate into form and rhythm.">
+            Alice Leens (°1990) werkt met gelaagde beeldtalen...
           </p>
-          <p
-            data-lang-nl="Ze werkt vaak met materiaal uit Belgische familiebedrijven, dat ze een nieuwe waardigheid geeft. De resulterende ‘yarn shapes’ en ‘string volumes’ functioneren als poëtische codes: recomposities die muren en vloeren een tactiele, bijna metafysische laag geven."
-            data-lang-en="She often works with materials sourced from Belgian family businesses, granting them renewed dignity. The resulting ‘yarn shapes’ and ‘string volumes’ act as poetic codes: recompositions that lend walls and floors a tactile, almost metaphysical layer."
-          >
-            Ze werkt vaak met materiaal uit Belgische familiebedrijven…
-          </p>
-
           <div class="meta" style="margin-top:20px" data-lang-nl="Praktisch" data-lang-en="Practical">Praktisch</div>
           <p>
-            <span data-lang-nl="Website" data-lang-en="Website">Website</span>:
-            <a class="mono-link" href="#" target="_blank" rel="noopener">link</a><br>
-            <span data-lang-nl="Contact" data-lang-en="Contact">Contact</span>:
-            <a class="mono-link" href="mailto:hallo@vitrien.be">hallo@vitrien.be</a>
+            Website: <a class="mono-link" href="#" target="_blank" rel="noopener">https://aliceleens.com/</a><br>
+            Contact: <a class="mono-link" href="mailto:alice.leens@email.com">alice.leens@email.com</a>
           </p>
         </article>
 
-        <!-- STATEMENT -->
         <article>
           <div class="meta" data-lang-nl="Artist statement" data-lang-en="Artist statement">Artist statement</div>
-          <p
-            data-lang-nl="Ik peil naar de ‘binnenkant’ van textiel. Door de draad te benoemen, te kleuren en in kaart te brengen, maak ik de onzichtbare samenstelling zichtbaar. De fragiele vezel wordt sterkte door herhaling en vlecht, zoals individuele verhalen samen een collectief vormen."
-            data-lang-en="I probe the ‘inside’ of textiles. By naming, colouring and mapping the thread, I make its invisible composition visible. The fragile fibre becomes strength through repetition and braid—much like individual stories forming a collective."
-          >
-            Ik peil naar de ‘binnenkant’ van textiel…
+          <p data-lang-nl="Mijn werk onderzoekt hoe materialen verhalen dragen. Door fragmenten te hergebruiken en te herordenen ontstaan constellaties die de toeschouwer uitnodigen om trager te kijken en eigen associaties te maken. Het spanningsveld tussen orde en toeval, kwetsbaarheid en stevigheid, vormt de kern van mijn installaties."
+             data-lang-en="My work examines how materials carry stories. By reusing and reordering fragments, I create constellations that invite slow looking and personal associations. The tension between order and chance, fragility and sturdiness, forms the core of my installations.">
+            Mijn werk onderzoekt hoe materialen verhalen dragen...
           </p>
         </article>
       </div>
     </section>
 
-    <!-- ============ FEITEN / CV (optioneel) ============ -->
-    <section>
-      <div class="container grid two-col">
-        <article>
-          <div class="meta" data-lang-nl="Methodiek" data-lang-en="Method">Methodiek</div>
-          <ul>
-            <li data-lang-nl="Van lijn naar volume: garen als ruimtelijke drager" data-lang-en="From line to volume: yarn as spatial carrier">Van lijn naar volume: garen als ruimtelijke drager</li>
-            <li data-lang-nl="Axonometrische ordening en kleurcodering" data-lang-en="Axonometric ordering and colour-coding">Axonometrische ordening en kleurcodering</li>
-          </ul>
-        </article>
-        <article>
-          <div class="meta" data-lang-nl="Thema’s" data-lang-en="Themes">Thema’s</div>
-          <ul>
-            <li data-lang-nl="Ambacht & symboliek" data-lang-en="Craft & symbolism">Ambacht & symboliek</li>
-            <li data-lang-nl="Materiële genealogie van textiel" data-lang-en="Material genealogy of textiles">Materiële genealogie van textiel</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <!-- ============ GALLERY (3–6 beelden) ============ -->
+    <!-- ============ GALLERY ============ -->
     <section>
       <div class="container">
-        <div class="meta" data-lang-nl="Werk" data-lang-en="Works">Werk</div>
+        <div class="meta" data-lang-nl="Werk" data-lang-en="Work">Werk</div>
         <div class="grid gallery">
           <figure class="module">
-            <img src="../../assets/img/artists/Alice-01.jpg" alt="Werk 1 — Alice Leens">
-            <figcaption class="caption">Titel werk 1 — jaar</figcaption>
+            <img src="../../assets/img/artists/Alice1.jpg" alt="Werk — Alice Leens">
           </figure>
           <figure class="module">
-            <img src="../../assets/img/artists/Alice-02.jpg" alt="Werk 2 — Alice Leens">
-            <figcaption class="caption">Titel werk 2 — jaar</figcaption>
+            <img src="../../assets/img/artists/Alice2.jpg" alt="Werk — Alice Leens">
           </figure>
           <figure class="module">
-            <img src="../../assets/img/artists/Alice-03.jpg" alt="Werk 3 — Alice Leens">
-            <figcaption class="caption">Titel werk 3 — jaar</figcaption>
+            <img src="../../assets/img/artists/Alice3.jpg" alt="Werk — Alice Leens">
+          </figure>
+          <figure class="module">
+            <img src="../../assets/img/artists/Alice4.jpg" alt="Werk — Alice Leens">
+          </figure>
+          <figure class="module">
+            <img src="../../assets/img/artists/Alice5.jpg" alt="Werk — Alice Leens">
           </figure>
         </div>
       </div>
@@ -162,8 +147,6 @@
     </div>
   </footer>
 
-  <!-- Scripts (relatief pad!) -->
   <script src="../../assets/js/app.js" defer></script>
 </body>
 </html>
-
