@@ -1,1 +1,153 @@
 
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pol Olivier — VITRIEN</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+</head>
+<body>
+  <!-- ============ HEADER ============ -->
+  <header>
+  <nav class="nav" aria-label="Hoofdnavigatie">
+    <!-- Logo -->
+    <a href="../../" class="brand" aria-label="VITRIEN — Home">
+      <img src="../../assets/img/logo.png" alt="Vitrien logo">
+    </a>
+
+    <!-- Desktop menu -->
+    <div class="menu" role="menubar">
+      <a href="../../index.html#over" data-lang-nl="Over" data-lang-en="About">Over</a>
+      <a href="../../index.html#locaties" data-lang-nl="Data & locaties" data-lang-en="Dates & Venues">Data & locaties</a>
+      <a href="../../index.html#opencall" data-lang-nl="Open call" data-lang-en="Open call">Open call</a>
+      <a href="../../index.html#kunstenaars" data-lang-nl="Kunstenaars" data-lang-en="Artists">Kunstenaars</a>
+      <a href="../../index.html#lov" data-lang-nl="LOV2030" data-lang-en="LOV2030">LOV2030</a>
+      <a href="../../index.html#contact" data-lang-nl="Contact" data-lang-en="Contact">Contact</a>
+    </div>
+
+    <!-- Desktop taal-switch -->
+    <div class="lang-switch desktop-only" aria-label="Taalwissel">
+      <button onclick="setLang('nl')" class="active" data-lang="nl">NL</button> |
+      <button onclick="setLang('en')" data-lang="en">EN</button>
+    </div>
+
+    <!-- Hamburger -->
+    <button class="burger" aria-label="Open menu" onclick="toggleDrawer()">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile drawer -->
+  <div class="drawer" id="drawer" aria-hidden="true">
+    <a href="../../index.html#over" data-lang-nl="Over" data-lang-en="About" onclick="toggleDrawer()">Over</a>
+    <a href="../../index.html#locaties" data-lang-nl="Data & locaties" data-lang-en="Dates & Venues" onclick="toggleDrawer()">Data & locaties</a>
+    <a href="../../index.html#opencall" data-lang-nl="Open call" data-lang-en="Open call" onclick="toggleDrawer()">Open call</a>
+    <a href="../../index.html#kunstenaars" data-lang-nl="Kunstenaars" data-lang-en="Artists" onclick="toggleDrawer()">Kunstenaars</a>
+    <a href="../../index.html#lov" data-lang-nl="LOV2030" data-lang-en="LOV2030" onclick="toggleDrawer()">LOV2030</a>
+    <a href="../../index.html#contact" data-lang-nl="Contact" data-lang-en="Contact" onclick="toggleDrawer()">Contact</a>
+
+    <!-- Mobile taal-switch -->
+    <div class="lang-switch mobile-only" aria-label="Taalwissel">
+      <button onclick="setLang('nl')" class="active" data-lang="nl">NL</button> |
+      <button onclick="setLang('en')" data-lang="en">EN</button>
+    </div>
+  </div>
+</header>
+
+  <main id="top">
+    <!-- ============ HERO ============ -->
+    <section class="hero" style="min-height:auto; padding:60px 0 20px">
+      <div class="container">
+        <div class="meta" data-lang-nl="Kunstenaar" data-lang-en="Artist">Kunstenaar</div>
+        <h1>Pol Olivier</h1>
+        <p class="lead" data-lang-nl="Schilderkunst • Beeldhouwkunst • Installatie" data-lang-en="Painting • Sculpture • Installation">
+          Schilderkunst • Beeldhouwkunst • Installatie
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ BREADCRUMB ============ -->
+    <section>
+      <div class="container">
+        <p class="meta" style="margin-top:-8px">
+          <a class="mono-link" href="../../index.html#kunstenaars" data-lang-nl="← terug naar overzicht" data-lang-en="← back to overview">← terug naar overzicht</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ BIO + STATEMENT ============ -->
+    <section>
+      <div class="container grid two-col">
+        <article>
+          <div class="meta" data-lang-nl="Biografie" data-lang-en="Biography">Biografie</div>
+          <p data-lang-nl="Pol Olivier (°1985) ontwikkelt een praktijk die balanceert tussen schilderkunst, sculptuur en installatie. Zijn werk is geworteld in materiaalonderzoek en experimenteert met hoe oppervlak, structuur en ruimte een verhaal kunnen dragen. Door te spelen met schaal en contrasten creëert hij werelden waarin kwetsbaarheid en monumentaliteit samenkomen."
+             data-lang-en="Pol Olivier (b. 1985) develops a practice that balances between painting, sculpture and installation. His work is rooted in material research and experiments with how surface, structure and space can carry meaning. By playing with scale and contrasts, he creates worlds where fragility and monumentality converge.">
+            Pol Olivier (°1985) ontwikkelt een praktijk die balanceert tussen schilderkunst, sculptuur en installatie...
+          </p>
+          <div class="meta" style="margin-top:20px" data-lang-nl="Praktisch" data-lang-en="Practical">Praktisch</div>
+          <p>
+            Website: <a class="mono-link" href="#" target="_blank" rel="noopener">https://pololivier.com/</a><br>
+            Contact: <a class="mono-link" href="mailto:pol.olivier@email.com">pol.olivier@email.com</a>
+          </p>
+        </article>
+
+        <article>
+          <div class="meta" data-lang-nl="Artist statement" data-lang-en="Artist statement">Artist statement</div>
+          <p data-lang-nl="Mijn werk onderzoekt hoe materialen een emotionele lading kunnen dragen. Door verf, steen en metaal in dialoog te brengen, ontstaan installaties die de toeschouwer uitnodigen om traag te kijken en zich te verhouden tot de fysieke aanwezigheid van het object. Ik wil de grens tussen tastbaarheid en betekenis verkennen."
+             data-lang-en="My work investigates how materials can carry an emotional charge. By bringing paint, stone and metal into dialogue, I create installations that invite viewers to look slowly and engage with the physical presence of the object. I aim to explore the boundary between tangibility and meaning.">
+            Mijn werk onderzoekt hoe materialen een emotionele lading kunnen dragen...
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ GALLERY ============ -->
+    <section>
+      <div class="container">
+        <div class="meta" data-lang-nl="Werk" data-lang-en="Work">Werk</div>
+        <div class="grid gallery">
+          <figure class="module">
+            <img src="../../assets/img/artists/Pol1.jpg" alt="Werk — Pol Olivier">
+          </figure>
+          <figure class="module">
+            <img src="../../assets/img/artists/Pol2.jpg" alt="Werk — Pol Olivier">
+          </figure>
+          <figure class="module">
+            <img src="../../assets/img/artists/Pol3.jpg" alt="Werk — Pol Olivier">
+          </figure>
+          <figure class="module">
+            <img src="../../assets/img/artists/Pol4.jpg" alt="Werk — Pol Olivier">
+          </figure>
+          <figure class="module">
+            <img src="../../assets/img/artists/Pol5.jpg" alt="Werk — Pol Olivier">
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TERUGLINK ============ -->
+    <section>
+      <div class="container">
+        <a class="mono-link" href="../../index.html#kunstenaars" data-lang-nl="← terug naar alle kunstenaars" data-lang-en="← back to all artists">← terug naar alle kunstenaars</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>© <span id="year"></span> Vitrien — Leuven</div>
+      <a class="mono-link" href="#top" data-lang-nl="Naar boven" data-lang-en="Back to top">Naar boven</a>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/app.js" defer></script>
+</body>
+</html>
