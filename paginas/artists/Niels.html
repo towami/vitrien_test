@@ -1,1 +1,153 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Niels Pioz — VITRIEN</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+</head>
+<body>
+  <!-- ============ HEADER ============ -->
+  <header>
+  <nav class="nav" aria-label="Hoofdnavigatie">
+    <!-- Logo -->
+    <a href="../../" class="brand" aria-label="VITRIEN — Home">
+      <img src="../../assets/img/logo.png" alt="Vitrien logo">
+    </a>
+
+    <!-- Desktop menu -->
+    <div class="menu" role="menubar">
+      <a href="../../index.html#over" data-lang-nl="Over" data-lang-en="About">Over</a>
+      <a href="../../index.html#locaties" data-lang-nl="Data & locaties" data-lang-en="Dates & Venues">Data & locaties</a>
+      <a href="../../index.html#opencall" data-lang-nl="Open call" data-lang-en="Open call">Open call</a>
+      <a href="../../index.html#kunstenaars" data-lang-nl="Kunstenaars" data-lang-en="Artists">Kunstenaars</a>
+      <a href="../../index.html#lov" data-lang-nl="LOV2030" data-lang-en="LOV2030">LOV2030</a>
+      <a href="../../index.html#contact" data-lang-nl="Contact" data-lang-en="Contact">Contact</a>
+    </div>
+
+    <!-- Desktop taal-switch -->
+    <div class="lang-switch desktop-only" aria-label="Taalwissel">
+      <button onclick="setLang('nl')" class="active" data-lang="nl">NL</button> |
+      <button onclick="setLang('en')" data-lang="en">EN</button>
+    </div>
+
+    <!-- Hamburger -->
+    <button class="burger" aria-label="Open menu" onclick="toggleDrawer()">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile drawer -->
+  <div class="drawer" id="drawer" aria-hidden="true">
+    <a href="../../index.html#over" data-lang-nl="Over" data-lang-en="About" onclick="toggleDrawer()">Over</a>
+    <a href="../../index.html#locaties" data-lang-nl="Data & locaties" data-lang-en="Dates & Venues" onclick="toggleDrawer()">Data & locaties</a>
+    <a href="../../index.html#opencall" data-lang-nl="Open call" data-lang-en="Open call" onclick="toggleDrawer()">Open call</a>
+    <a href="../../index.html#kunstenaars" data-lang-nl="Kunstenaars" data-lang-en="Artists" onclick="toggleDrawer()">Kunstenaars</a>
+    <a href="../../index.html#lov" data-lang-nl="LOV2030" data-lang-en="LOV2030" onclick="toggleDrawer()">LOV2030</a>
+    <a href="../../index.html#contact" data-lang-nl="Contact" data-lang-en="Contact" onclick="toggleDrawer()">Contact</a>
+
+    <!-- Mobile taal-switch -->
+    <div class="lang-switch mobile-only" aria-label="Taalwissel">
+      <button onclick="setLang('nl')" class="active" data-lang="nl">NL</button> |
+      <button onclick="setLang('en')" data-lang="en">EN</button>
+    </div>
+  </div>
+</header>
+
+  <main id="top">
+    <!-- ============ HERO ============ -->
+    <section class="hero" style="min-height:auto; padding:60px 0 20px">
+      <div class="container">
+        <div class="meta" data-lang-nl="Kunstenaar" data-lang-en="Artist">Kunstenaar</div>
+        <h1>Niels Pioz</h1>
+        <p class="lead" data-lang-nl="Performance • Muziek • Installatie" data-lang-en="Performance • Music • Installation">
+          Performance • Muziek • Installatie
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ BREADCRUMB ============ -->
+    <section>
+      <div class="container">
+        <p class="meta" style="margin-top:-8px">
+          <a class="mono-link" href="../../index.html#kunstenaars" data-lang-nl="← terug naar overzicht" data-lang-en="← back to overview">← terug naar overzicht</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ BIO + STATEMENT ============ -->
+    <section>
+      <div class="container grid two-col">
+        <article>
+          <div class="meta" data-lang-nl="Biografie" data-lang-en="Biography">Biografie</div>
+          <p data-lang-nl="Niels Pioz (°1990) beweegt zich op het kruispunt van performance, muziek en beeldende kunst. Zijn werk onderzoekt hoe geluid, lichaam en ruimte met elkaar resoneren en zo nieuwe ervaringen oproepen. Met improvisatie en samenwerking als uitgangspunt creëert hij telkens unieke situaties waarin publiek en performer gelijkwaardig deel uitmaken."
+             data-lang-en="Niels Pioz (b. 1990) works at the intersection of performance, music and visual art. His practice explores how sound, body and space resonate with each other to evoke new experiences. With improvisation and collaboration as a starting point, he creates unique situations in which audience and performer participate on equal footing.">
+            Niels Pioz (°1990) beweegt zich op het kruispunt van performance, muziek en beeldende kunst...
+          </p>
+          <div class="meta" style="margin-top:20px" data-lang-nl="Praktisch" data-lang-en="Practical">Praktisch</div>
+          <p>
+            Website: <a class="mono-link" href="#" target="_blank" rel="noopener">https://nielspioz.com/</a><br>
+            Contact: <a class="mono-link" href="mailto:niels@email.com">niels@email.com</a>
+          </p>
+        </article>
+
+        <article>
+          <div class="meta" data-lang-nl="Artist statement" data-lang-en="Artist statement">Artist statement</div>
+          <p data-lang-nl="Mijn werk vertrekt vanuit de lichamelijke ervaring van geluid. Ik onderzoek hoe stem, ritme en stilte ruimtelijke en emotionele landschappen vormen. Elke performance is een uitnodiging om samen een tijdelijke wereld te betreden waar grenzen tussen muziek, kunst en publiek vervagen."
+             data-lang-en="My work originates from the bodily experience of sound. I explore how voice, rhythm and silence shape spatial and emotional landscapes. Each performance invites us to enter a temporary world where the boundaries between music, art and audience dissolve.">
+            Mijn werk vertrekt vanuit de lichamelijke ervaring van geluid...
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ GALLERY ============ -->
+    <section>
+      <div class="container">
+        <div class="meta" data-lang-nl="Werk" data-lang-en="Work">Werk</div>
+        <div class="grid gallery">
+          <figure class="module">
+            <img src="../../assets/img/artists/Niels1.jpg" alt="Werk — Niels Pioz">
+          </figure>
+          <figure class="module">
+            <img src="../../assets/img/artists/Niels2.jpg" alt="Werk — Niels Pioz">
+          </figure>
+          <figure class="module">
+            <img src="../../assets/img/artists/Niels3.jpg" alt="Werk — Niels Pioz">
+          </figure>
+          <figure class="module">
+            <img src="../../assets/img/artists/Niels4.jpg" alt="Werk — Niels Pioz">
+          </figure>
+          <figure class="module">
+            <img src="../../assets/img/artists/Niels5.jpg" alt="Werk — Niels Pioz">
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TERUGLINK ============ -->
+    <section>
+      <div class="container">
+        <a class="mono-link" href="../../index.html#kunstenaars" data-lang-nl="← terug naar alle kunstenaars" data-lang-en="← back to all artists">← terug naar alle kunstenaars</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>© <span id="year"></span> Vitrien — Leuven</div>
+      <a class="mono-link" href="#top" data-lang-nl="Naar boven" data-lang-en="Back to top">Naar boven</a>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/app.js" defer></script>
+</body>
+</html>
 
