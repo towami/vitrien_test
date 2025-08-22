@@ -1,263 +1,104 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title data-lang-nl="Audioguide — VITRIEN" data-lang-en="Audio guide — VITRIEN">Audioguide — VITRIEN</title>
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-
-  <!-- Global styles -->
-  <link rel="stylesheet" href="../assets/css/styles.css">
-
-  <!-- Minimal extra styles for the audio list -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Audioguide Vitrien</title>
+  <link rel="stylesheet" href="../style.css">
   <style>
-    .audio-hero { padding: 48px 0 16px; }
-    .audio-list {
-      display: grid;
-      gap: 16px;
-      margin-top: 12px;
+    body {
+      font-family: 'EB Garamond', serif;
+      margin: 0;
+      padding: 0;
+      background: #fdfdfb;
     }
-    .stop-card {
-      display: grid;
-      grid-template-columns: 88px 1fr auto;
-      gap: 12px;
-      align-items: center;
-      padding: 12px;
-      border: 1px solid var(--border, #e6e6e6);
-      border-radius: 12px;
-      background: #fff;
+    .audioguide-container {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 1rem;
     }
-    .stop-card img {
-      width: 88px; height: 88px; object-fit: cover; border-radius: 8px;
-      background: #f2f2f2;
+    h1 {
+      font-family: 'Roboto', sans-serif;
+      font-size: 2rem;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+      text-align: center;
     }
-    .stop-meta { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: .85rem; opacity: .7; }
-    .stop-title { font-weight: 600; }
-    .stop-desc { margin-top: 4px; }
-    .play-btn {
-      appearance: none; border: 1px solid #111; background: #fff; border-radius: 999px;
-      padding: 8px 14px; font-family: "IBM Plex Mono", ui-monospace, monospace; cursor: pointer;
+    .stop {
+      margin-bottom: 2rem;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 1.5rem;
     }
-    .play-btn[aria-pressed="true"] { background: #111; color: #fff; }
-    .now-playing {
-      font-family: "IBM Plex Mono", ui-monospace, monospace;
-      font-size: .75rem; opacity: .7; margin-top: 4px;
+    .stop img {
+      width: 100%;
+      max-height: 250px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 0.8rem;
     }
-    /* Small screens first; enhance layout on wider screens */
-    @media (min-width: 720px) {
-      .stop-card { grid-template-columns: 120px 1fr auto; padding: 16px; }
-      .stop-card img { width: 120px; height: 120px; }
+    .stop h2 {
+      font-family: 'Roboto', sans-serif;
+      font-size: 1.2rem;
+      margin: 0.2rem 0;
+    }
+    .stop p {
+      margin: 0.5rem 0 1rem;
+      font-size: 1rem;
+    }
+    audio {
+      width: 100%;
+      margin-top: 0.5rem;
     }
   </style>
 </head>
 <body>
-  <!-- Header (zelfde structuur als de site) -->
-  <header>
-    <nav class="nav" aria-label="Hoofdnavigatie">
-      <a href="../index.html#top" class="brand">
-        <img src="../assets/img/logo.png" alt="Vitrien logo" />
-      </a>
+  <div class="audioguide-container">
+    <h1>Audioguide</h1>
 
-      <div class="menu" role="menubar">
-        <a href="../index.html#over" data-lang-nl="Over" data-lang-en="About">Over</a>
-        <a href="../index.html#data" data-lang-nl="Data & locaties" data-lang-en="Dates & Venues">Data & locaties</a>
-        <a href="../index.html#opencall" data-lang-nl="Open call" data-lang-en="Open call">Open call</a>
-        <a href="../index.html#kunstenaars" data-lang-nl="Kunstenaars" data-lang-en="Artists">Kunstenaars</a>
-        <a href="../index.html#lov" data-lang-nl="LOV2030" data-lang-en="LOV2030">LOV2030</a>
-        <a href="../index.html#contact" data-lang-nl="Contact" data-lang-en="Contact">Contact</a>
-      </div>
-
-      <div class="lang-switch desktop-only" aria-label="Taalwissel">
-        <button onclick="setLang('nl')" class="active">NL</button> |
-        <button onclick="setLang('en')">EN</button>
-      </div>
-
-      <button class="burger" aria-label="Open menu" onclick="toggleDrawer()">
-        <span></span><span></span><span></span>
-      </button>
-    </nav>
-
-    <div class="drawer" id="drawer" aria-hidden="true">
-      <a href="../index.html#over" onclick="toggleDrawer()" data-lang-nl="Over" data-lang-en="About">Over</a>
-      <a href="../index.html#data" onclick="toggleDrawer()" data-lang-nl="Data & locaties" data-lang-en="Dates & Venues">Data & locaties</a>
-      <a href="../index.html#opencall" onclick="toggleDrawer()" data-lang-nl="Open call" data-lang-en="Open call">Open call</a>
-      <a href="../index.html#kunstenaars" onclick="toggleDrawer()" data-lang-nl="Kunstenaars" data-lang-en="Artists">Kunstenaars</a>
-      <a href="../index.html#lov" onclick="toggleDrawer()" data-lang-nl="LOV2030" data-lang-en="LOV2030">LOV2030</a>
-      <a href="../index.html#contact" onclick="toggleDrawer()" data-lang-nl="Contact" data-lang-en="Contact">Contact</a>
-      <div class="lang-switch mobile-only" aria-label="Taalwissel">
-        <button onclick="setLang('nl')" class="active">NL</button> |
-        <button onclick="setLang('en')">EN</button>
-      </div>
+    <!-- Stop 1 -->
+    <div class="stop">
+      <h2>Stop 1 — 30CC Schouwburg (Nora Mahammed)</h2>
+      <img src="../assets/img/artists/Nora.jpg" alt="Werk van Nora Mahammed">
+      <p>Poëtische, zintuiglijke installaties op het snijvlak van scenografie en architectuur.</p>
+      <audio controls>
+        <source src="../assets/audio/nora.mp3" type="audio/mpeg">
+        Je browser ondersteunt geen audio.
+      </audio>
     </div>
-  </header>
 
-  <main id="top">
-    <!-- Hero -->
-    <section class="audio-hero">
-      <div class="container">
-        <div class="meta" data-lang-nl="Audioguide" data-lang-en="Audio guide">Audioguide</div>
-        <h1 data-lang-nl="Luister en wandel" data-lang-en="Listen & walk">Luister en wandel</h1>
-        <p class="lead" data-lang-nl="Gebruik je telefoon als gids. Elke stop: 1 foto, 1 zin, 1 play."
-           data-lang-en="Use your phone as a guide. Each stop: 1 image, 1 line, 1 play.">
-          Gebruik je telefoon als gids. Elke stop: 1 foto, 1 zin, 1 play.
-        </p>
-      </div>
-    </section>
-
-    <!-- Lijst met stops -->
-    <section>
-      <div class="container">
-        <ol class="audio-list">
-          <!-- STOP 1 -->
-          <li class="stop-card">
-            <img src="../assets/img/audioguide/stop1.jpg" alt="Stop 1 — werkbeeld" loading="lazy">
-            <div>
-              <div class="stop-meta" data-lang-nl="Stop 1" data-lang-en="Stop 1">Stop 1</div>
-              <div class="stop-title">Wear Store — Vitrine</div>
-              <p class="stop-desc"
-                 data-lang-nl="Een paviljoenachtig knooppunt dat de straat ritme geeft."
-                 data-lang-en="A pavilion-like node that sets a rhythm to the street.">
-                Een paviljoenachtig knooppunt dat de straat ritme geeft.
-              </p>
-              <audio preload="none" src="../assets/audio/stop1.mp3"></audio>
-              <div class="now-playing" hidden data-lang-nl="Afspelen..." data-lang-en="Playing...">Afspelen...</div>
-            </div>
-            <button class="play-btn" aria-pressed="false" aria-label="Play stop 1"
-                    data-lang-nl="Play" data-lang-en="Play">Play</button>
-          </li>
-
-          <!-- STOP 2 -->
-          <li class="stop-card">
-            <img src="../assets/img/audioguide/stop2.jpg" alt="Stop 2 — werkbeeld" loading="lazy">
-            <div>
-              <div class="stop-meta" data-lang-nl="Stop 2" data-lang-en="Stop 2">Stop 2</div>
-              <div class="stop-title">30CC Schouwburg</div>
-              <p class="stop-desc"
-                 data-lang-nl="Een zichtbare verbinding die de logica van het gebouw openvouwt."
-                 data-lang-en="A visible joint that unfolds the building’s logic.">
-                Een zichtbare verbinding die de logica van het gebouw openvouwt.
-              </p>
-              <audio preload="none" src="../assets/audio/stop2.mp3"></audio>
-              <div class="now-playing" hidden data-lang-nl="Afspelen..." data-lang-en="Playing...">Afspelen...</div>
-            </div>
-            <button class="play-btn" aria-pressed="false" aria-label="Play stop 2"
-                    data-lang-nl="Play" data-lang-en="Play">Play</button>
-          </li>
-
-          <!-- STOP 3 -->
-          <li class="stop-card">
-            <img src="../assets/img/audioguide/stop3.jpg" alt="Stop 3 — werkbeeld" loading="lazy">
-            <div>
-              <div class="stop-meta" data-lang-nl="Stop 3" data-lang-en="Stop 3">Stop 3</div>
-              <div class="stop-title">Folie Leuven</div>
-              <p class="stop-desc"
-                 data-lang-nl="Een ritmische herhaling die de winkelruit tot podium maakt."
-                 data-lang-en="A rhythmic repetition turning the shop window into a stage.">
-                Een ritmische herhaling die de winkelruit tot podium maakt.
-              </p>
-              <audio preload="none" src="../assets/audio/stop3.mp3"></audio>
-              <div class="now-playing" hidden data-lang-nl="Afspelen..." data-lang-en="Playing...">Afspelen...</div>
-            </div>
-            <button class="play-btn" aria-pressed="false" aria-label="Play stop 3"
-                    data-lang-nl="Play" data-lang-en="Play">Play</button>
-          </li>
-        </ol>
-
-        <!-- Optioneel: link naar route & booklet, klein en niet dominant -->
-        <p class="meta" style="margin-top:16px">
-          <a class="mono-link" href="https://www.google.com/maps/dir/?api=1&origin=Leuven%20Station&destination=Bondgenotenlaan%20145%2C%203000%20Leuven"
-             target="_blank" rel="noopener"
-             data-lang-nl="↗ Route op Google Maps" data-lang-en="↗ Route on Google Maps">↗ Route op Google Maps</a>
-          &nbsp;•&nbsp;
-          <a class="mono-link" href="../assets/booklet/vitrien-boekje.pdf" target="_blank" rel="noopener"
-             data-lang-nl="↗ Boekje (PDF)" data-lang-en="↗ Booklet (PDF)">↗ Boekje (PDF)</a>
-        </p>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="footer-inner">
-      <div>© <span id="year"></span> Vitrien — Leuven</div>
-      <a class="mono-link" href="#top" data-lang-nl="Naar boven" data-lang-en="Back to top">Naar boven</a>
+    <!-- Stop 2 -->
+    <div class="stop">
+      <h2>Stop 2 — Huis Delsart (Alice Leens)</h2>
+      <img src="../assets/img/artists/Alice.jpg" alt="Werk van Alice Leens">
+      <p>Ontsluit de innerlijke structuur van garen en textiel, waar ambacht en symboliek samenkomen.</p>
+      <audio controls>
+        <source src="../assets/audio/alice.mp3" type="audio/mpeg">
+        Je browser ondersteunt geen audio.
+      </audio>
     </div>
-  </footer>
 
-  <!-- Site scripts -->
-  <script src="../assets/js/app.js" defer></script>
+    <!-- Stop 3 -->
+    <div class="stop">
+      <h2>Stop 3 — Vip Concept (Jente Waerzeggers)</h2>
+      <img src="../assets/img/artists/Jente.jpg" alt="Werk van Jente Waerzeggers">
+      <p>Fotograaf/muzikant. Ruwe snapshots van de Belgische muziek- en kunstscene.</p>
+      <audio controls>
+        <source src="../assets/audio/jente.mp3" type="audio/mpeg">
+        Je browser ondersteunt geen audio.
+      </audio>
+    </div>
 
-  <!-- Tiny player logic: één track tegelijk, duidelijke play/pause -->
-  <script>
-    (function() {
-      function setBtnText(btn, key) {
-        const t = btn.getAttribute('data-lang-' + (localStorage.getItem('vitrien_lang') || 'nl'));
-        btn.textContent = (key === 'play') ? (btn.dataset.langPlay || t || 'Play')
-                                           : (btn.dataset.langPause || (btn.getAttribute('data-lang-' + (localStorage.getItem('vitrien_lang') || 'nl')) === 'Play' ? 'Pause' : 'Pauze'));
-      }
+    <!-- Stop 4 -->
+    <div class="stop">
+      <h2>Stop 4 — Juttu (Pol Olivier)</h2>
+      <img src="../assets/img/artists/Pol.jpg" alt="Werk van Pol Olivier">
+      <p>Intieme portretten en sculpturen rond familie, met focus op de ruimte tussen mensen.</p>
+      <audio controls>
+        <source src="../assets/audio/pol.mp3" type="audio/mpeg">
+        Je browser ondersteunt geen audio.
+      </audio>
+    </div>
 
-      const cards = document.querySelectorAll('.stop-card');
-      let current = null;
-
-      cards.forEach(card => {
-        const audio = card.querySelector('audio');
-        const btn   = card.querySelector('.play-btn');
-        const flag  = card.querySelector('.now-playing');
-
-        // init label per taal
-        btn.dataset.langPlay = btn.getAttribute('data-lang-nl') || 'Play';
-        btn.dataset.langPause = (btn.getAttribute('data-lang-nl') === 'Play') ? 'Pauze' : 'Pauze';
-
-        btn.addEventListener('click', () => {
-          // pauzeer ander
-          if (current && current !== audio) {
-            current.pause();
-          }
-
-          if (audio.paused) {
-            audio.play().catch(()=>{});
-          } else {
-            audio.pause();
-          }
-        });
-
-        audio.addEventListener('play', () => {
-          // reset andere kaarten
-          document.querySelectorAll('.stop-card').forEach(c => {
-            if (c !== card) {
-              const a = c.querySelector('audio');
-              const b = c.querySelector('.play-btn');
-              const f = c.querySelector('.now-playing');
-              if (!a.paused) a.pause();
-              if (b) { b.setAttribute('aria-pressed', 'false'); b.textContent = b.dataset.langPlay || 'Play'; }
-              if (f) f.hidden = true;
-            }
-          });
-
-          current = audio;
-          btn.setAttribute('aria-pressed','true');
-          btn.textContent = btn.dataset.langPause || 'Pauze';
-          flag.hidden = false;
-        });
-
-        audio.addEventListener('pause', () => {
-          if (current === audio) current = null;
-          btn.setAttribute('aria-pressed','false');
-          btn.textContent = btn.dataset.langPlay || 'Play';
-          flag.hidden = true;
-        });
-
-        audio.addEventListener('ended', () => {
-          btn.setAttribute('aria-pressed','false');
-          btn.textContent = btn.dataset.langPlay || 'Play';
-          flag.hidden = true;
-          current = null;
-        });
-      });
-    })();
-  </script>
+  </div>
 </body>
 </html>
