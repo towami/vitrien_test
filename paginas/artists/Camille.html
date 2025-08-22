@@ -16,50 +16,39 @@
 <body>
   <!-- ============ HEADER ============ -->
   <header>
-  <nav class="nav" aria-label="Hoofdnavigatie">
-    <!-- Logo -->
-    <a href="../../" class="brand" aria-label="VITRIEN — Home">
-      <img src="../../assets/img/logo.png" alt="Vitrien logo">
-    </a>
-
-    <!-- Desktop menu -->
-    <div class="menu" role="menubar">
-      <a href="../../index.html#over" data-lang-nl="Over" data-lang-en="About">Over</a>
-      <a href="../../index.html#locaties" data-lang-nl="Data & locaties" data-lang-en="Dates & Venues">Data & locaties</a>
-      <a href="../../index.html#opencall" data-lang-nl="Open call" data-lang-en="Open call">Open call</a>
-      <a href="../../index.html#kunstenaars" data-lang-nl="Kunstenaars" data-lang-en="Artists">Kunstenaars</a>
-      <a href="../../index.html#lov" data-lang-nl="LOV2030" data-lang-en="LOV2030">LOV2030</a>
-      <a href="../../index.html#contact" data-lang-nl="Contact" data-lang-en="Contact">Contact</a>
+    <nav class="nav" aria-label="Hoofdnavigatie">
+      <a href="../../" class="brand" aria-label="VITRIEN — Home">
+        <img src="../../assets/img/logo.png" alt="Vitrien logo">
+      </a>
+      <div class="menu" role="menubar">
+        <a href="../../index.html#over" data-lang-nl="Over" data-lang-en="About">Over</a>
+        <a href="../../index.html#locaties" data-lang-nl="Data & locaties" data-lang-en="Dates & Venues">Data & locaties</a>
+        <a href="../../index.html#opencall" data-lang-nl="Open call" data-lang-en="Open call">Open call</a>
+        <a href="../../index.html#kunstenaars" data-lang-nl="Kunstenaars" data-lang-en="Artists">Kunstenaars</a>
+        <a href="../../index.html#lov" data-lang-nl="LOV2030" data-lang-en="LOV2030">LOV2030</a>
+        <a href="../../index.html#contact" data-lang-nl="Contact" data-lang-en="Contact">Contact</a>
+      </div>
+      <div class="lang-switch desktop-only" aria-label="Taalwissel">
+        <button onclick="setLang('nl')" class="active" data-lang="nl">NL</button> |
+        <button onclick="setLang('en')" data-lang="en">EN</button>
+      </div>
+      <button class="burger" aria-label="Open menu" onclick="toggleDrawer()">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+    <div class="drawer" id="drawer" aria-hidden="true">
+      <a href="../../index.html#over" data-lang-nl="Over" data-lang-en="About" onclick="toggleDrawer()">Over</a>
+      <a href="../../index.html#locaties" data-lang-nl="Data & locaties" data-lang-en="Dates & Venues" onclick="toggleDrawer()">Data & locaties</a>
+      <a href="../../index.html#opencall" data-lang-nl="Open call" data-lang-en="Open call" onclick="toggleDrawer()">Open call</a>
+      <a href="../../index.html#kunstenaars" data-lang-nl="Kunstenaars" data-lang-en="Artists" onclick="toggleDrawer()">Kunstenaars</a>
+      <a href="../../index.html#lov" data-lang-nl="LOV2030" data-lang-en="LOV2030" onclick="toggleDrawer()">LOV2030</a>
+      <a href="../../index.html#contact" data-lang-nl="Contact" data-lang-en="Contact" onclick="toggleDrawer()">Contact</a>
+      <div class="lang-switch mobile-only" aria-label="Taalwissel">
+        <button onclick="setLang('nl')" class="active" data-lang="nl">NL</button> |
+        <button onclick="setLang('en')" data-lang="en">EN</button>
+      </div>
     </div>
-
-    <!-- Desktop taal-switch -->
-    <div class="lang-switch desktop-only" aria-label="Taalwissel">
-      <button onclick="setLang('nl')" class="active" data-lang="nl">NL</button> |
-      <button onclick="setLang('en')" data-lang="en">EN</button>
-    </div>
-
-    <!-- Hamburger -->
-    <button class="burger" aria-label="Open menu" onclick="toggleDrawer()">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
-
-  <!-- Mobile drawer -->
-  <div class="drawer" id="drawer" aria-hidden="true">
-    <a href="../../index.html#over" data-lang-nl="Over" data-lang-en="About" onclick="toggleDrawer()">Over</a>
-    <a href="../../index.html#locaties" data-lang-nl="Data & locaties" data-lang-en="Dates & Venues" onclick="toggleDrawer()">Data & locaties</a>
-    <a href="../../index.html#opencall" data-lang-nl="Open call" data-lang-en="Open call" onclick="toggleDrawer()">Open call</a>
-    <a href="../../index.html#kunstenaars" data-lang-nl="Kunstenaars" data-lang-en="Artists" onclick="toggleDrawer()">Kunstenaars</a>
-    <a href="../../index.html#lov" data-lang-nl="LOV2030" data-lang-en="LOV2030" onclick="toggleDrawer()">LOV2030</a>
-    <a href="../../index.html#contact" data-lang-nl="Contact" data-lang-en="Contact" onclick="toggleDrawer()">Contact</a>
-
-    <!-- Mobile taal-switch -->
-    <div class="lang-switch mobile-only" aria-label="Taalwissel">
-      <button onclick="setLang('nl')" class="active" data-lang="nl">NL</button> |
-      <button onclick="setLang('en')" data-lang="en">EN</button>
-    </div>
-  </div>
-</header>
+  </header>
 
   <main id="top">
     <!-- ============ HERO ============ -->
@@ -67,8 +56,10 @@
       <div class="container">
         <div class="meta" data-lang-nl="Kunstenaar" data-lang-en="Artist">Kunstenaar</div>
         <h1>Camille Lemille</h1>
-        <p class="lead" data-lang-nl="Illustratie • Tekenkunst • Installatie" data-lang-en="Illustration • Drawing • Installation">
-          Illustratie • Tekenkunst • Installatie
+        <p class="lead"
+           data-lang-nl="Schilderkunst • Installatie • Mixed media"
+           data-lang-en="Painting • Installation • Mixed media">
+          Schilderkunst • Installatie • Mixed media
         </p>
       </div>
     </section>
@@ -77,7 +68,9 @@
     <section>
       <div class="container">
         <p class="meta" style="margin-top:-8px">
-          <a class="mono-link" href="../../index.html#kunstenaars" data-lang-nl="← terug naar overzicht" data-lang-en="← back to overview">← terug naar overzicht</a>
+          <a class="mono-link" href="../../index.html#kunstenaars"
+             data-lang-nl="← terug naar overzicht"
+             data-lang-en="← back to overview">← terug naar overzicht</a>
         </p>
       </div>
     </section>
@@ -87,22 +80,23 @@
       <div class="container grid two-col">
         <article>
           <div class="meta" data-lang-nl="Biografie" data-lang-en="Biography">Biografie</div>
-          <p data-lang-nl="Camille Lemille (°1992) onderzoekt in haar werk de grenzen tussen beeld en ruimte. Ze combineert illustratie, tekenen en installaties tot werelden die balanceren tussen speelsheid en ernst. Haar beeldtaal is herkenbaar door het gebruik van zachte lijnen en poëtische composities, waarin persoonlijke verhalen en universele thema’s elkaar kruisen."
-             data-lang-en="Camille Lemille (b. 1992) explores the boundaries between image and space. She combines illustration, drawing and installations into worlds that balance between playfulness and seriousness. Her visual language is recognizable by soft lines and poetic compositions, where personal stories intersect with universal themes.">
-            Camille Lemille (°1992) onderzoekt in haar werk de grenzen tussen beeld en ruimte...
+          <p
+            data-lang-nl="Camille Lemille is een Belgische beeldend kunstenaar die werkt met schilderijen en installaties. Haar werk onderzoekt de wisselwerking tussen kwetsbaarheid en kracht, en zoekt vaak de grens op tussen figuratie en abstractie. Met gelaagde beelden die vertrekken uit persoonlijke observaties en verhalen, creëert ze een intiem maar universeel visueel vocabulaire."
+            data-lang-en="Camille Lemille is a Belgian visual artist working with paintings and installations. Her work explores the interplay between vulnerability and strength, often at the edge of figuration and abstraction. Through layered images rooted in personal stories and observations, she creates a visual language that is both intimate and universal.">
+            Camille Lemille is een Belgische beeldend kunstenaar...
           </p>
           <div class="meta" style="margin-top:20px" data-lang-nl="Praktisch" data-lang-en="Practical">Praktisch</div>
           <p>
-            Website: <a class="mono-link" href="#" target="_blank" rel="noopener">https://camillelemille.com/</a><br>
-            Contact: <a class="mono-link" href="mailto:camille.lemille@email.com">camille.lemille@email.com</a>
+            Contact: <a class="mono-link" href="mailto:camille@example.com">camille@example.com</a>
           </p>
         </article>
 
         <article>
           <div class="meta" data-lang-nl="Artist statement" data-lang-en="Artist statement">Artist statement</div>
-          <p data-lang-nl="Mijn werk ontstaat vanuit een fascinatie voor alledaagse details en hun poëtische potentieel. Ik vertaal observaties in tekeningen en installaties die de kijker uitnodigen om stil te staan en opnieuw te kijken. Zo probeer ik een intieme ruimte te scheppen waarin het kleine groots wordt."
-             data-lang-en="My work stems from a fascination with everyday details and their poetic potential. I translate observations into drawings and installations that invite viewers to pause and look again. In doing so, I aim to create an intimate space where the small becomes significant.">
-            Mijn werk ontstaat vanuit een fascinatie voor alledaagse details...
+          <p
+            data-lang-nl="Mijn werk ontstaat uit de spanning tussen herinnering, emotie en beeld. Door lagen verf en materiaal op elkaar te stapelen, probeer ik de gelaagdheid van ervaring zichtbaar te maken. Voor Vitrien wil ik experimenteren met hoe schilderkunst zich verhoudt tot de vitrine: de grens tussen binnen en buiten, tussen intiem en publiek."
+            data-lang-en="My work emerges from the tension between memory, emotion and image. By layering paint and material, I attempt to make the layeredness of experience visible. For Vitrien, I want to experiment with how painting relates to the shop window: the threshold between inside and outside, intimacy and publicness.">
+            Mijn werk ontstaat uit de spanning tussen herinnering, emotie en beeld...
           </p>
         </article>
       </div>
@@ -135,7 +129,9 @@
     <!-- ============ TERUGLINK ============ -->
     <section>
       <div class="container">
-        <a class="mono-link" href="../../index.html#kunstenaars" data-lang-nl="← terug naar alle kunstenaars" data-lang-en="← back to all artists">← terug naar alle kunstenaars</a>
+        <a class="mono-link" href="../../index.html#kunstenaars"
+           data-lang-nl="← terug naar alle kunstenaars"
+           data-lang-en="← back to all artists">← terug naar alle kunstenaars</a>
       </div>
     </section>
   </main>
