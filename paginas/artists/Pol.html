@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -17,50 +16,50 @@
 <body>
   <!-- ============ HEADER ============ -->
   <header>
-  <nav class="nav" aria-label="Hoofdnavigatie">
-    <!-- Logo -->
-    <a href="../../" class="brand" aria-label="VITRIEN — Home">
-      <img src="../../assets/img/logo.png" alt="Vitrien logo">
-    </a>
+    <nav class="nav" aria-label="Hoofdnavigatie">
+      <!-- Logo -->
+      <a href="../../" class="brand" aria-label="VITRIEN — Home">
+        <img src="../../assets/img/logo.png" alt="Vitrien logo">
+      </a>
 
-    <!-- Desktop menu -->
-    <div class="menu" role="menubar">
-      <a href="../../index.html#over" data-lang-nl="Over" data-lang-en="About">Over</a>
-      <a href="../../index.html#locaties" data-lang-nl="Data & locaties" data-lang-en="Dates & Venues">Data & locaties</a>
-      <a href="../../index.html#opencall" data-lang-nl="Open call" data-lang-en="Open call">Open call</a>
-      <a href="../../index.html#kunstenaars" data-lang-nl="Kunstenaars" data-lang-en="Artists">Kunstenaars</a>
-      <a href="../../index.html#lov" data-lang-nl="LOV2030" data-lang-en="LOV2030">LOV2030</a>
-      <a href="../../index.html#contact" data-lang-nl="Contact" data-lang-en="Contact">Contact</a>
+      <!-- Desktop menu -->
+      <div class="menu" role="menubar">
+        <a href="../../index.html#over" data-lang-nl="Over" data-lang-en="About">Over</a>
+        <a href="../../index.html#locaties" data-lang-nl="Data & locaties" data-lang-en="Dates & Venues">Data & locaties</a>
+        <a href="../../index.html#opencall" data-lang-nl="Open call" data-lang-en="Open call">Open call</a>
+        <a href="../../index.html#kunstenaars" data-lang-nl="Kunstenaars" data-lang-en="Artists">Kunstenaars</a>
+        <a href="../../index.html#lov" data-lang-nl="LOV2030" data-lang-en="LOV2030">LOV2030</a>
+        <a href="../../index.html#contact" data-lang-nl="Contact" data-lang-en="Contact">Contact</a>
+      </div>
+
+      <!-- Desktop taal-switch -->
+      <div class="lang-switch desktop-only" aria-label="Taalwissel">
+        <button onclick="setLang('nl')" class="active" data-lang="nl">NL</button> |
+        <button onclick="setLang('en')" data-lang="en">EN</button>
+      </div>
+
+      <!-- Hamburger -->
+      <button class="burger" aria-label="Open menu" onclick="toggleDrawer()">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <!-- Mobile drawer -->
+    <div class="drawer" id="drawer" aria-hidden="true">
+      <a href="../../index.html#over" data-lang-nl="Over" data-lang-en="About" onclick="toggleDrawer()">Over</a>
+      <a href="../../index.html#locaties" data-lang-nl="Data & locaties" data-lang-en="Dates & Venues" onclick="toggleDrawer()">Data & locaties</a>
+      <a href="../../index.html#opencall" data-lang-nl="Open call" data-lang-en="Open call" onclick="toggleDrawer()">Open call</a>
+      <a href="../../index.html#kunstenaars" data-lang-nl="Kunstenaars" data-lang-en="Artists" onclick="toggleDrawer()">Kunstenaars</a>
+      <a href="../../index.html#lov" data-lang-nl="LOV2030" data-lang-en="LOV2030" onclick="toggleDrawer()">LOV2030</a>
+      <a href="../../index.html#contact" data-lang-nl="Contact" data-lang-en="Contact" onclick="toggleDrawer()">Contact</a>
+
+      <!-- Mobile taal-switch -->
+      <div class="lang-switch mobile-only" aria-label="Taalwissel">
+        <button onclick="setLang('nl')" class="active" data-lang="nl">NL</button> |
+        <button onclick="setLang('en')" data-lang="en">EN</button>
+      </div>
     </div>
-
-    <!-- Desktop taal-switch -->
-    <div class="lang-switch desktop-only" aria-label="Taalwissel">
-      <button onclick="setLang('nl')" class="active" data-lang="nl">NL</button> |
-      <button onclick="setLang('en')" data-lang="en">EN</button>
-    </div>
-
-    <!-- Hamburger -->
-    <button class="burger" aria-label="Open menu" onclick="toggleDrawer()">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
-
-  <!-- Mobile drawer -->
-  <div class="drawer" id="drawer" aria-hidden="true">
-    <a href="../../index.html#over" data-lang-nl="Over" data-lang-en="About" onclick="toggleDrawer()">Over</a>
-    <a href="../../index.html#locaties" data-lang-nl="Data & locaties" data-lang-en="Dates & Venues" onclick="toggleDrawer()">Data & locaties</a>
-    <a href="../../index.html#opencall" data-lang-nl="Open call" data-lang-en="Open call" onclick="toggleDrawer()">Open call</a>
-    <a href="../../index.html#kunstenaars" data-lang-nl="Kunstenaars" data-lang-en="Artists" onclick="toggleDrawer()">Kunstenaars</a>
-    <a href="../../index.html#lov" data-lang-nl="LOV2030" data-lang-en="LOV2030" onclick="toggleDrawer()">LOV2030</a>
-    <a href="../../index.html#contact" data-lang-nl="Contact" data-lang-en="Contact" onclick="toggleDrawer()">Contact</a>
-
-    <!-- Mobile taal-switch -->
-    <div class="lang-switch mobile-only" aria-label="Taalwissel">
-      <button onclick="setLang('nl')" class="active" data-lang="nl">NL</button> |
-      <button onclick="setLang('en')" data-lang="en">EN</button>
-    </div>
-  </div>
-</header>
+  </header>
 
   <main id="top">
     <!-- ============ HERO ============ -->
@@ -68,8 +67,10 @@
       <div class="container">
         <div class="meta" data-lang-nl="Kunstenaar" data-lang-en="Artist">Kunstenaar</div>
         <h1>Pol Olivier</h1>
-        <p class="lead" data-lang-nl="Schilderkunst • Beeldhouwkunst • Installatie" data-lang-en="Painting • Sculpture • Installation">
-          Schilderkunst • Beeldhouwkunst • Installatie
+        <p class="lead"
+           data-lang-nl="Schilderkunst • Sculptuur • Installatie"
+           data-lang-en="Painting • Sculpture • Installation">
+          Schilderkunst • Sculptuur • Installatie
         </p>
       </div>
     </section>
@@ -78,7 +79,9 @@
     <section>
       <div class="container">
         <p class="meta" style="margin-top:-8px">
-          <a class="mono-link" href="../../index.html#kunstenaars" data-lang-nl="← terug naar overzicht" data-lang-en="← back to overview">← terug naar overzicht</a>
+          <a class="mono-link" href="../../index.html#kunstenaars"
+             data-lang-nl="← terug naar overzicht"
+             data-lang-en="← back to overview">← terug naar overzicht</a>
         </p>
       </div>
     </section>
@@ -88,22 +91,24 @@
       <div class="container grid two-col">
         <article>
           <div class="meta" data-lang-nl="Biografie" data-lang-en="Biography">Biografie</div>
-          <p data-lang-nl="Pol Olivier (°1985) ontwikkelt een praktijk die balanceert tussen schilderkunst, sculptuur en installatie. Zijn werk is geworteld in materiaalonderzoek en experimenteert met hoe oppervlak, structuur en ruimte een verhaal kunnen dragen. Door te spelen met schaal en contrasten creëert hij werelden waarin kwetsbaarheid en monumentaliteit samenkomen."
-             data-lang-en="Pol Olivier (b. 1985) develops a practice that balances between painting, sculpture and installation. His work is rooted in material research and experiments with how surface, structure and space can carry meaning. By playing with scale and contrasts, he creates worlds where fragility and monumentality converge.">
-            Pol Olivier (°1985) ontwikkelt een praktijk die balanceert tussen schilderkunst, sculptuur en installatie...
+          <p
+            data-lang-nl="Pol Olivier werkt multidisciplinair met schilderkunst, sculptuur en ruimtelijke installaties. In zijn praktijk onderzoekt hij intimiteit, familiebanden en de ruimte tussen mensen. Met poëtische materialen en tactiele vormen zoekt hij naar momenten van nabijheid en frictie, en hoe persoonlijke verhalen zich vertalen in collectieve beelden."
+            data-lang-en="Pol Olivier works across painting, sculpture and spatial installations. His practice explores intimacy, family ties and the spaces between people. Using poetic materials and tactile forms, he seeks moments of closeness and friction, and how personal narratives translate into collective images.">
+            Pol Olivier werkt multidisciplinair met schilderkunst, sculptuur en ruimtelijke installaties...
           </p>
           <div class="meta" style="margin-top:20px" data-lang-nl="Praktisch" data-lang-en="Practical">Praktisch</div>
           <p>
-            Website: <a class="mono-link" href="#" target="_blank" rel="noopener">https://pololivier.com/</a><br>
-            Contact: <a class="mono-link" href="mailto:pol.olivier@email.com">pol.olivier@email.com</a>
+            Website: <a class="mono-link" href="#" target="_blank" rel="noopener">https://pol-olivier.example</a><br>
+            Contact: <a class="mono-link" href="mailto:pol.olivier@example.com">pol.olivier@example.com</a>
           </p>
         </article>
 
         <article>
           <div class="meta" data-lang-nl="Artist statement" data-lang-en="Artist statement">Artist statement</div>
-          <p data-lang-nl="Mijn werk onderzoekt hoe materialen een emotionele lading kunnen dragen. Door verf, steen en metaal in dialoog te brengen, ontstaan installaties die de toeschouwer uitnodigen om traag te kijken en zich te verhouden tot de fysieke aanwezigheid van het object. Ik wil de grens tussen tastbaarheid en betekenis verkennen."
-             data-lang-en="My work investigates how materials can carry an emotional charge. By bringing paint, stone and metal into dialogue, I create installations that invite viewers to look slowly and engage with the physical presence of the object. I aim to explore the boundary between tangibility and meaning.">
-            Mijn werk onderzoekt hoe materialen een emotionele lading kunnen dragen...
+          <p
+            data-lang-nl="Mijn werk vertrekt vanuit relaties: broer, geliefde, vriend. Ik bouw scènes waarin kwetsbaarheid en monumentaliteit elkaar kruisen. Door alledaagse materialen te hercomponeren, maak ik het intieme zichtbaar in de publieke ruimte. Elk werk is een poging om ‘tussenruimte’ te verbeelden — een plek waar verlangen, herinnering en zorg elkaar ontmoeten."
+            data-lang-en="My work starts from relationships: brother, lover, friend. I construct scenes where fragility and monumentality intersect. By recomposing everyday materials, I make intimacy visible in public space. Each work attempts to render the ‘in-between’—a place where desire, memory and care meet.">
+            Mijn werk vertrekt vanuit relaties: broer, geliefde, vriend...
           </p>
         </article>
       </div>
@@ -136,7 +141,9 @@
     <!-- ============ TERUGLINK ============ -->
     <section>
       <div class="container">
-        <a class="mono-link" href="../../index.html#kunstenaars" data-lang-nl="← terug naar alle kunstenaars" data-lang-en="← back to all artists">← terug naar alle kunstenaars</a>
+        <a class="mono-link" href="../../index.html#kunstenaars"
+           data-lang-nl="← terug naar alle kunstenaars"
+           data-lang-en="← back to all artists">← terug naar alle kunstenaars</a>
       </div>
     </section>
   </main>
