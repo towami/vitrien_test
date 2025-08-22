@@ -1,1 +1,374 @@
 
+   <section id="data">
+  <div class="container">
+    <div class="meta" data-lang-nl="Data & locaties" data-lang-en="Dates & Venues">Data & locaties</div>
+    <h2 data-lang-nl="Data" data-lang-en="Dates">Data</h2>
+
+<!-- CTA: route + booklet + audio -->
+<div class="btn-row route-tools">
+  <!-- ROUTE (Google Maps met waypoints) -->
+  <a
+    class="btn btn-primary"
+    target="_blank" rel="noopener"
+    data-lang-nl="Route"
+    data-lang-en="Route"
+    href="https://www.google.com/maps/dir/?api=1&origin=Leuven%20Station&destination=Bondgenotenlaan%20145%2C%203000%20Leuven&waypoints=Bondgenotenlaan%2054%2C%203000%20Leuven|Bondgenotenlaan%2021%2C%203000%20Leuven|Rector%20De%20Somerplein%2011%2C%203000%20Leuven|Bondgenotenlaan%2047%2C%203000%20Leuven|Bondgenotenlaan%2081%2C%203000%20Leuven|Bondgenotenlaan%20131%2C%203000%20Leuven">
+    Route
+  </a>
+
+  <!-- BOEKJE (PDF) -->
+  <a
+    class="btn btn-outline"
+    target="_blank" rel="noopener"
+    data-lang-nl="Boekje"
+    data-lang-en="Booklet"
+    href="assets/booklet/vitrien-boekje.pdf">
+    Boekje
+  </a>
+
+  <!-- AUDIO GUIDE (naar aparte pagina of anker) -->
+  <a
+    class="btn btn-outline"
+    data-lang-nl="Audio"
+    data-lang-en="Audio"
+    href="paginas/audioguide.html">
+    Audio
+  </a>
+</div>
+
+    <!------------- terug over de data --------->
+    
+    <ul class="dates-list">
+      <li>
+        <strong data-lang-nl="Opening:" data-lang-en="Opening:">Opening:</strong>
+        <span data-lang-nl="zaterdag 13 september" data-lang-en="Saturday 13 September">zaterdag 13 september</span>
+      </li>
+      <li>
+        <strong data-lang-nl="Tentoonstelling:" data-lang-en="Exhibition:">Tentoonstelling:</strong>
+        <span data-lang-nl="13/9 – 5/10, doorlopend zichtbaar in de vitrines"
+              data-lang-en="13/9 – 5/10, continuously on view in shop windows">
+          13/9 – 5/10, doorlopend zichtbaar in de vitrines
+        </span>
+      </li>
+    </ul>
+
+    <p class="lead-small"
+       data-lang-nl="Kom naar onze feestelijke opening. RSVP en we zetten je op de guestlist voor een gratis drankje."
+       data-lang-en="Join our festive opening. RSVP to be added to the guestlist and enjoy a free drink.">
+      Kom naar onze feestelijke opening. RSVP en we zetten je op de guestlist voor een gratis drankje.
+    </p>
+
+    <div class="btn-row">
+      <button class="btn btn-primary"
+              onclick="openProgram()"
+              data-lang-nl="Programma opening"
+              data-lang-en="Opening programme">
+        Programma opening
+      </button>
+
+      <a class="btn btn-outline"
+         href="mailto:hallo@vitrien.be?subject=RSVP%20Vitrien%20Opening%2013%2F9&body=Hallo%20Vitrien%2C%0A%0AIk%20RSVP%20voor%20de%20opening%20op%2013%2F9.%20Naam%3A%20_____%0AAantal%20personen%3A%20_____%0A%0ABedankt!"
+         data-lang-nl="RSVP"
+         data-lang-en="RSVP">
+        RSVP
+      </a>
+    </div>
+
+    <!-- Verborgen programma (klapt open via de knop) -->
+    <details id="opening-program" class="program-details">
+      <summary data-lang-nl="Programma (13/9)" data-lang-en="Programme (13/9)">Programma (13/9)</summary>
+      <div class="program-schedule">
+        <div class="program-block">
+          <time>15:00</time>
+          <div>
+            <strong data-lang-nl="Deuren open" data-lang-en="Doors open">Deuren open</strong><br>
+            <span data-lang-nl="Expo start in de vitrines" data-lang-en="Exhibition starts in the windows">Expo start in de vitrines</span>
+          </div>
+        </div>
+
+        <div class="program-block">
+          <time>15:30</time>
+          <div>
+            <strong data-lang-nl="Welkom & speeches" data-lang-en="Welcome & speeches">Welkom & speeches</strong><br>
+            <span data-lang-nl="Intro kunstenaars & performances" data-lang-en="Intro to artists & performances">Intro kunstenaars & performances</span>
+          </div>
+        </div>
+
+        <div class="program-block">
+          <time>15:50</time>
+          <div>
+            <strong>Performance — Niels Poiz</strong>
+          </div>
+        </div>
+
+        <div class="program-block">
+          <time>16:30 & 18:00</time>
+          <div>
+            <strong data-lang-nl="Rondleidingen" data-lang-en="Guided tours">Rondleidingen</strong>
+          </div>
+        </div>
+
+        <div class="program-block">
+          <time>19:30</time>
+          <div>
+            <strong data-lang-nl="Speeches" data-lang-en="Speeches">Speeches</strong>
+          </div>
+        </div>
+
+        <div class="program-block">
+          <time>19:50</time>
+          <div>
+            <strong>Performance — Camille Lemille</strong>
+          </div>
+        </div>
+
+        <div class="program-block">
+          <time>20:30</time>
+          <div>
+            <strong data-lang-nl="Avondtour & DJ" data-lang-en="Evening tour & DJ">Avondtour & DJ</strong>
+          </div>
+        </div>
+      </div>
+    </details>
+  </div>
+</section>
+
+
+<!-- ===============================
+     vanaf hier staat het locatiegrid
+================================= -->
+      
+    
+    <section id="locaties">
+      <div class="container">
+        <div class="meta" data-lang-nl="Data & locaties" data-lang-en="Dates & Venues">Data & locaties</div>
+        <h2 data-lang-nl="Locaties" data-lang-en="Venues">Locaties</h2>
+        
+        <div class="locations-grid">
+          <!-- 1) Wear Store -->
+          <article class="location-card">
+            <h3 class="location-name">Wear Store</h3>
+            <p class="location-address">Bondgenotenlaan 54</p>
+            <p class="location-city">3000 Leuven</p>
+            <p><a class="mono-link" href="https://wear-store.be/pages/our-stores" target="_blank" rel="noopener">Website</a></p>
+          </article>
+        
+          <!-- 2) 30CC Schouwburg -->
+          <article class="location-card">
+            <h3 class="location-name">30CC Schouwburg</h3>
+            <p class="location-address">Bondgenotenlaan 21</p>
+            <p class="location-city">3000 Leuven</p>
+            <p><a class="mono-link" href="https://www.30cc.be/nl" target="_blank" rel="noopener">Website</a></p>
+          </article>
+        
+          <!-- 3) Folie Leuven -->
+          <article class="location-card">
+            <h3 class="location-name">Folie Leuven</h3>
+            <p class="location-address">Rector De Somerplein 11</p>
+            <p class="location-city">3000 Leuven</p>
+            <p><a class="mono-link" href="https://www.instagram.com/foliefashionleuven/" target="_blank" rel="noopener">Website</a></p>
+          </article>
+        
+          <!-- 4) De Slegte Leuven -->
+          <article class="location-card">
+            <h3 class="location-name">De Slegte Leuven</h3>
+            <p class="location-address">Bondgenotenlaan 47</p>
+            <p class="location-city">3000 Leuven</p>
+            <p><a class="mono-link" href="https://www.deslegte.com/leuven/" target="_blank" rel="noopener">Website</a></p>
+          </article>
+        
+          <!-- 5) Huis Delsart -->
+          <article class="location-card">
+            <h3 class="location-name">Huis Delsart</h3>
+            <p class="location-address">Bondgenotenlaan 81</p>
+            <p class="location-city">3000 Leuven</p>
+            <p><a class="mono-link" href="https://www.huisdelsart.be/" target="_blank" rel="noopener">Website</a></p>
+          </article>
+        
+          <!-- 6) Apotheek De Bond -->
+          <article class="location-card">
+            <h3 class="location-name">Apotheek De Bond</h3>
+            <p class="location-address">Bondgenotenlaan 131</p>
+            <p class="location-city">3000 Leuven</p>
+            <p><a class="mono-link" href="https://antverpia.be/pharmacies/antverpia-leuven/" target="_blank" rel="noopener">Website</a></p>
+          </article>
+        
+          <!-- 7) Vip Concept -->
+          <article class="location-card">
+            <h3 class="location-name">Vip Concept</h3>
+            <p class="location-address">Bondgenotenlaan 145</p>
+            <p class="location-city">3000 Leuven</p>
+            <p><a class="mono-link" href="https://www.instagram.com/vipconceptleuven/?hl=en" target="_blank" rel="noopener">Website</a></p>
+          </article>
+        
+          <!-- 8–10) Placeholders -->
+          <article class="location-card">
+            <h3 class="location-name" data-lang-nl="Juttu" data-lang-en="Juttu">Jutto</h3>
+              <p class="location-address">Bondgenotenlaan 61</p>
+            <p class="location-city">3000 Leuven</p>
+            <p><a class="mono-link" href="https://www.juttu.be/nl/winkels/leuven.html" target="_blank" rel="noopener">Website</a></p>
+          </article>
+        
+         <article class="location-card">
+            <h3 class="location-name">De Plantrekkers</h3>
+            <p class="location-address">Bondgenotenlaan 90</p>
+            <p class="location-city">3000 Leuven</p>
+            <p><a class="mono-link" href="https://deplantrekkers.com/" target="_blank" rel="noopener">Website</a></p>
+          </article>
+        
+          <article class="location-card">
+            <h3 class="location-name" data-lang-nl="Locatie volgt" data-lang-en="Venue tba">Locatie volgt</h3>
+            <p class="location-address" data-lang-nl="Adres volgt" data-lang-en="Address tba">Adres volgt</p>
+            <p class="location-city">3000 Leuven</p>
+            <p><span class="mono-link" style="opacity:.6">Website</span></p>
+          </article>
+        </div>
+      </div>
+    </section>
+      
+
+
+    <!-- ===============================
+         KUNSTENAARS
+    ================================= -->
+  <!-- ===============================
+     KUNSTENAARS
+================================= -->
+<section id="kunstenaars">
+  <div class="container">
+    <div class="meta" data-lang-nl="Kunstenaars" data-lang-en="Artists">Kunstenaars</div>
+    <h2 data-lang-nl="Deelnemende kunstenaars" data-lang-en="Participating artists">Deelnemende kunstenaars</h2>
+
+    <div class="modules artists-grid">
+      <!-- Jason -->
+      <figure class="module">
+        <img src="assets/img/artists/Jason.jpg" alt="Werk van Jason Slabbynck">
+        <figcaption class="caption">
+          <strong>Jason Slabbynck</strong><br>
+          <span data-lang-nl="Architect-kunstenaar van site-specifieke constructies met herkenbare materialen. Paviljoens die spanningsvelden tussen vorm en materie oproepen en uitnodigen tot dialoog."
+                data-lang-en="Architect-artist creating site-specific constructions with recognizable materials. Pavilions that trigger tensions between form and matter and invite dialogue.">
+            Architect-kunstenaar van site-specifieke constructies met herkenbare materialen. Paviljoens die spanningsvelden tussen vorm en materie oproepen en uitnodigen tot dialoog.
+          </span>
+          <a class="mono-link" href="paginas/artists/Jason.html" data-lang-nl="Lees meer" data-lang-en="Read more">Lees meer</a>
+        </figcaption>
+      </figure>
+
+      <!-- Shailey -->
+      <figure class="module">
+        <img src="assets/img/artists/Shailey.jpg" alt="Werk van Shailey Shah">
+        <figcaption class="caption">
+          <strong>Shailey Shah</strong><br>
+          <span data-lang-nl="Multidisciplinair: video, sculptuur, schilderkunst, installaties. Onderzoekt identiteit, gender en haar multiculturele achtergrond via materiaal en vorm."
+                data-lang-en="Multidisciplinary: video, sculpture, painting, installations. Explores identity, gender and her multicultural background through material and form.">
+            Multidisciplinair: video, sculptuur, schilderkunst, installaties. Onderzoekt identiteit, gender en haar multiculturele achtergrond via materiaal en vorm.
+          </span>
+          <a class="mono-link" href="paginas/artists/Shailey.html" data-lang-nl="Lees meer" data-lang-en="Read more">Lees meer</a>
+        </figcaption>
+      </figure>
+
+      <!-- Alice -->
+      <figure class="module">
+        <img src="assets/img/artists/Alice.jpg" alt="Werk van Alice Leens">
+        <figcaption class="caption">
+          <strong>Alice Leens</strong><br>
+          <span data-lang-nl="Ontsluit de innerlijke structuur van garen en textiel. Van lijn naar volume, waar ambacht en symboliek samenkomen."
+                data-lang-en="Reveals the inner structure of yarn and textiles. From line to volume, where craft and symbolism converge.">
+            Ontsluit de innerlijke structuur van garen en textiel. Van lijn naar volume, waar ambacht en symboliek samenkomen.
+          </span>
+          <a class="mono-link" href="paginas/artists/Alice.html" data-lang-nl="Lees meer" data-lang-en="Read more">Lees meer</a>
+        </figcaption>
+      </figure>
+
+      <!-- Camille -->
+      <figure class="module">
+        <img src="assets/img/artists/Camille.jpg" alt="Werk van Camille Lemille">
+        <figcaption class="caption">
+          <strong>Camille Lemille</strong><br>
+          <span data-lang-nl="Performance, drukwerk en AV. Taal en dagelijkse documenten als bron voor politieke en poëtische interventies."
+                data-lang-en="Performance, print and AV. Language and everyday documents as a source for political and poetic interventions.">
+            Performance, drukwerk en AV. Taal en dagelijkse documenten als bron voor politieke en poëtische interventies.
+          </span>
+          <a class="mono-link" href="paginas/artists/Camille.html" data-lang-nl="Lees meer" data-lang-en="Read more">Lees meer</a>
+        </figcaption>
+      </figure>
+
+      <!-- Carole -->
+      <figure class="module">
+        <img src="assets/img/artists/Carole.jpg" alt="Werk van Carole Louis">
+        <figcaption class="caption">
+          <strong>Carole Louis</strong><br>
+          <span data-lang-nl="Tragikomische installaties en performances die sociale structuren en clichés fileteren met speelse esthetiek."
+                data-lang-en="Tragicomic installations and performances that dissect social structures and clichés with playful aesthetics.">
+            Tragikomische installaties en performances die sociale structuren en clichés fileteren met speelse esthetiek.
+          </span>
+          <a class="mono-link" href="paginas/artists/Carole.html" data-lang-nl="Lees meer" data-lang-en="Read more">Lees meer</a>
+        </figcaption>
+      </figure>
+
+      <!-- Jonathan -->
+      <figure class="module">
+        <img src="assets/img/artists/Jonathan.jpg" alt="Werk van Jonathan Van de Wal">
+        <figcaption class="caption">
+          <strong>Jonathan Van de Wal</strong><br>
+          <span data-lang-nl="Schilder en assemblage-maker. Ruimtelijke interventies, beïnvloed door Broodthaers en alledaagse objecten."
+                data-lang-en="Painter and assembler. Spatial interventions, influenced by Broodthaers and everyday objects.">
+            Schilder en assemblage-maker. Ruimtelijke interventies, beïnvloed door Broodthaers en alledaagse objecten.
+          </span>
+          <a class="mono-link" href="paginas/artists/Jonathan.html" data-lang-nl="Lees meer" data-lang-en="Read more">Lees meer</a>
+        </figcaption>
+      </figure>
+
+      <!-- Pol -->
+      <figure class="module">
+        <img src="assets/img/artists/Pol.jpg" alt="Werk van Pol Olivier">
+        <figcaption class="caption">
+          <strong>Pol Olivier</strong><br>
+          <span data-lang-nl="Intieme portretten en sculpturen rond familie, met focus op de ruimte tussen mensen."
+                data-lang-en="Intimate portraits and sculptures about family, focusing on the space between people.">
+            Intieme portretten en sculpturen rond familie, met focus op de ruimte tussen mensen.
+          </span>
+          <a class="mono-link" href="paginas/artists/Pol.html" data-lang-nl="Lees meer" data-lang-en="Read more">Lees meer</a>
+        </figcaption>
+      </figure>
+
+      <!-- Nora -->
+      <figure class="module">
+        <img src="assets/img/artists/Nora.jpg" alt="Werk van Nora Mahammed">
+        <figcaption class="caption">
+          <strong>Nora Mahammed</strong><br>
+          <span data-lang-nl="Poëtische, zintuiglijke installaties op het snijvlak van scenografie en architectuur."
+                data-lang-en="Poetic, sensory installations at the intersection of scenography and architecture.">
+            Poëtische, zintuiglijke installaties op het snijvlak van scenografie en architectuur.
+          </span>
+          <a class="mono-link" href="paginas/artists/Nora.html" data-lang-nl="Lees meer" data-lang-en="Read more">Lees meer</a>
+        </figcaption>
+      </figure>
+
+      <!-- Jente -->
+      <figure class="module">
+        <img src="assets/img/artists/Jente.jpg" alt="Werk van Jente Waerzeggers">
+        <figcaption class="caption">
+          <strong>Jente Waerzeggers</strong><br>
+          <span data-lang-nl="Fotograaf/muzikant. Ruwe, directe snapshots van de Belgische muziek- en kunstscene."
+                data-lang-en="Photographer/musician. Raw, direct snapshots of the Belgian music and art scene.">
+            Fotograaf/muzikant. Ruwe, directe snapshots van de Belgische muziek- en kunstscene.
+          </span>
+          <a class="mono-link" href="paginas/artists/Jente.html" data-lang-nl="Lees meer" data-lang-en="Read more">Lees meer</a>
+        </figcaption>
+      </figure>
+
+      <!-- Niels -->
+      <figure class="module">
+        <img src="assets/img/artists/Niels.jpg" alt="Werk van Niels Poiz">
+        <figcaption class="caption">
+          <strong>Niels Poiz</strong><br>
+          <span data-lang-nl="Taal, performance en editie. Identiteit en popcultuur via appropriation en narratieve installaties."
+                data-lang-en="Language, performance and edition. Identity and pop culture through appropriation and narrative installations.">
+            Taal, performance en editie. Identiteit en popcultuur via appropriation en narratieve installaties.
+          </span>
+          <a class="mono-link" href="paginas/artists/Niels.html" data-lang-nl="Lees meer" data-lang-en="Read more">Lees meer</a>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
