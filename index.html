@@ -98,50 +98,15 @@
         DATA & LOCATIES
     ================================= -->
 
-    <!-- ===============================
-     info over de data
+ <!-- ===============================
+     DATA
 ================================= -->
-      
-
-   <section id="data">
+<section id="data">
   <div class="container">
     <div class="meta" data-lang-nl="Data & locaties" data-lang-en="Dates & Venues">Data & locaties</div>
     <h2 data-lang-nl="Data" data-lang-en="Dates">Data</h2>
 
-<!-- CTA: route + booklet + audio -->
-<div class="btn-row route-tools">
-  <!-- ROUTE (Google Maps met waypoints) -->
-  <a
-    class="btn btn-primary"
-    target="_blank" rel="noopener"
-    data-lang-nl="Route"
-    data-lang-en="Route"
-    href="https://www.google.com/maps/dir/?api=1&origin=Leuven%20Station&destination=Bondgenotenlaan%20145%2C%203000%20Leuven&waypoints=Bondgenotenlaan%2054%2C%203000%20Leuven|Bondgenotenlaan%2021%2C%203000%20Leuven|Rector%20De%20Somerplein%2011%2C%203000%20Leuven|Bondgenotenlaan%2047%2C%203000%20Leuven|Bondgenotenlaan%2081%2C%203000%20Leuven|Bondgenotenlaan%20131%2C%203000%20Leuven">
-    Route
-  </a>
-
-  <!-- BOEKJE (PDF) -->
-  <a
-    class="btn btn-outline"
-    target="_blank" rel="noopener"
-    data-lang-nl="Boekje"
-    data-lang-en="Booklet"
-    href="assets/booklet/vitrien-boekje.pdf">
-    Boekje
-  </a>
-
-  <!-- AUDIO GUIDE (naar aparte pagina of anker) -->
-  <a
-    class="btn btn-outline"
-    data-lang-nl="Audio"
-    data-lang-en="Audio"
-    href="paginas/audioguide.html">
-    Audio
-  </a>
-</div>
-
-    <!------------- terug over de data --------->
-    
+    <!-- Kerninfo -->
     <ul class="dates-list">
       <li>
         <strong data-lang-nl="Opening:" data-lang-en="Opening:">Opening:</strong>
@@ -149,36 +114,73 @@
       </li>
       <li>
         <strong data-lang-nl="Tentoonstelling:" data-lang-en="Exhibition:">Tentoonstelling:</strong>
-        <span data-lang-nl="13/9 – 5/10, doorlopend zichtbaar in de vitrines"
-              data-lang-en="13/9 – 5/10, continuously on view in shop windows">
-          13/9 – 5/10, doorlopend zichtbaar in de vitrines
-        </span>
+        <span
+          data-lang-nl="13/9 – 5/10, doorlopend zichtbaar in de vitrines"
+          data-lang-en="13/9 – 5/10, continuously on view in shop windows"
+        >13/9 – 5/10, doorlopend zichtbaar in de vitrines</span>
       </li>
     </ul>
 
+    <!-- Opening copy -->
     <p class="lead-small"
        data-lang-nl="Kom naar onze feestelijke opening. RSVP en we zetten je op de guestlist voor een gratis drankje."
        data-lang-en="Join our festive opening. RSVP to be added to the guestlist and enjoy a free drink.">
       Kom naar onze feestelijke opening. RSVP en we zetten je op de guestlist voor een gratis drankje.
     </p>
 
-    <div class="btn-row">
-      <button class="btn btn-primary"
-              onclick="openProgram()"
-              data-lang-nl="Programma opening"
-              data-lang-en="Opening programme">
-        Programma opening
-      </button>
-
-      <a class="btn btn-outline"
-         href="mailto:hallo@vitrien.be?subject=RSVP%20Vitrien%20Opening%2013%2F9&body=Hallo%20Vitrien%2C%0A%0AIk%20RSVP%20voor%20de%20opening%20op%2013%2F9.%20Naam%3A%20_____%0AAantal%20personen%3A%20_____%0A%0ABedankt!"
+    <!-- Belangrijkste CTA's: RSVP + Programma -->
+    <div class="btn-row highlight">
+      <a class="btn btn-primary"
          data-lang-nl="RSVP"
-         data-lang-en="RSVP">
+         data-lang-en="RSVP"
+         href="mailto:hallo@vitrien.be?subject=RSVP%20Vitrien%20Opening%2013%2F9&body=Hallo%20Vitrien%2C%0A%0AIk%20RSVP%20voor%20de%20opening%20op%2013%2F9.%20Naam%3A%20_____%0AAantal%20personen%3A%20_____%0A%0ABedankt!">
         RSVP
+      </a>
+
+      <button class="btn btn-outline"
+              data-lang-nl="Programma"
+              data-lang-en="Programme"
+              onclick="
+                const d = document.getElementById('opening-program');
+                if (d) {
+                  d.open = true;
+                  d.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+              ">
+        Programma
+      </button>
+    </div>
+
+    <!-- Praktische tools: Route + Boekje + Audio -->
+    <div class="btn-row route-tools">
+      <a
+        class="btn btn-small"
+        target="_blank" rel="noopener"
+        data-lang-nl="Route"
+        data-lang-en="Route"
+        href="https://www.google.com/maps/dir/?api=1&origin=Leuven%20Station&destination=Bondgenotenlaan%20145%2C%203000%20Leuven&waypoints=Bondgenotenlaan%2054%2C%203000%20Leuven|Bondgenotenlaan%2021%2C%203000%20Leuven|Rector%20De%20Somerplein%2011%2C%203000%20Leuven|Bondgenotenlaan%2047%2C%203000%20Leuven|Bondgenotenlaan%2081%2C%203000%20Leuven|Bondgenotenlaan%20131%2C%203000%20Leuven">
+        Route
+      </a>
+
+      <a
+        class="btn btn-small"
+        target="_blank" rel="noopener"
+        data-lang-nl="Boekje"
+        data-lang-en="Booklet"
+        href="assets/booklet/vitrien-boekje.pdf">
+        Boekje
+      </a>
+
+      <a
+        class="btn btn-small"
+        data-lang-nl="Audio"
+        data-lang-en="Audio"
+        href="paginas/audioguide.html">
+        Audio
       </a>
     </div>
 
-    <!-- Verborgen programma (klapt open via de knop) -->
+    <!-- Programma (uitklap) -->
     <details id="opening-program" class="program-details">
       <summary data-lang-nl="Programma (13/9)" data-lang-en="Programme (13/9)">Programma (13/9)</summary>
       <div class="program-schedule">
@@ -200,37 +202,27 @@
 
         <div class="program-block">
           <time>15:50</time>
-          <div>
-            <strong>Performance — Niels Poiz</strong>
-          </div>
+          <div><strong>Performance — Niels Poiz</strong></div>
         </div>
 
         <div class="program-block">
           <time>16:30 & 18:00</time>
-          <div>
-            <strong data-lang-nl="Rondleidingen" data-lang-en="Guided tours">Rondleidingen</strong>
-          </div>
+          <div><strong data-lang-nl="Rondleidingen" data-lang-en="Guided tours">Rondleidingen</strong></div>
         </div>
 
         <div class="program-block">
           <time>19:30</time>
-          <div>
-            <strong data-lang-nl="Speeches" data-lang-en="Speeches">Speeches</strong>
-          </div>
+          <div><strong data-lang-nl="Speeches" data-lang-en="Speeches">Speeches</strong></div>
         </div>
 
         <div class="program-block">
           <time>19:50</time>
-          <div>
-            <strong>Performance — Camille Lemille</strong>
-          </div>
+          <div><strong>Performance — Camille Lemille</strong></div>
         </div>
 
         <div class="program-block">
           <time>20:30</time>
-          <div>
-            <strong data-lang-nl="Avondtour & DJ" data-lang-en="Evening tour & DJ">Avondtour & DJ</strong>
-          </div>
+          <div><strong data-lang-nl="Avondtour & DJ" data-lang-en="Evening tour & DJ">Avondtour & DJ</strong></div>
         </div>
       </div>
     </details>
