@@ -1,104 +1,166 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Audioguide Vitrien</title>
-  <link rel="stylesheet" href="../style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title data-lang-nl="Audiogids — VITRIEN" data-lang-en="Audio Guide — VITRIEN">Audiogids — VITRIEN</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="../assets/css/styles.css">
   <style>
-    body {
-      font-family: 'EB Garamond', serif;
-      margin: 0;
-      padding: 0;
-      background: #fdfdfb;
+    /* Minimal extra styling voor de audiolijst (leunt aan bij modules) */
+    .audio-list { display: grid; gap: 24px; }
+    .audio-stop {
+      border: 1px solid var(--border, #e5e5e5);
+      border-radius: 12px;
+      padding: 16px;
+      background: #fff;
     }
-    .audioguide-container {
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 1rem;
+    .audio-stop h3 { margin: 0 0 8px; font-size: 1.1rem; }
+    .audio-stop .mini { color: var(--muted, #666); font-family: "IBM Plex Mono", monospace; font-size: 0.9rem; }
+    .audio-stop img {
+      width: 100%; height: 220px; object-fit: cover; border-radius: 8px; margin: 12px 0;
     }
-    h1 {
-      font-family: 'Roboto', sans-serif;
-      font-size: 2rem;
-      text-transform: uppercase;
-      margin-bottom: 2rem;
-      text-align: center;
-    }
-    .stop {
-      margin-bottom: 2rem;
-      border-bottom: 1px solid #ddd;
-      padding-bottom: 1.5rem;
-    }
-    .stop img {
-      width: 100%;
-      max-height: 250px;
-      object-fit: cover;
-      border-radius: 8px;
-      margin-bottom: 0.8rem;
-    }
-    .stop h2 {
-      font-family: 'Roboto', sans-serif;
-      font-size: 1.2rem;
-      margin: 0.2rem 0;
-    }
-    .stop p {
-      margin: 0.5rem 0 1rem;
-      font-size: 1rem;
-    }
-    audio {
-      width: 100%;
-      margin-top: 0.5rem;
-    }
+    .audio-stop p { margin: 8px 0 12px; }
+    .backline { margin-top: 16px; }
   </style>
 </head>
 <body>
-  <div class="audioguide-container">
-    <h1>Audioguide</h1>
+  <!-- ============ HEADER (zelfde structuur als home) ============ -->
+  <header>
+    <nav class="nav" aria-label="Hoofdnavigatie">
+      <a href="../index.html#top" class="brand">
+        <img src="../assets/img/logo.png" alt="Vitrien logo">
+      </a>
 
-    <!-- Stop 1 -->
-    <div class="stop">
-      <h2>Stop 1 — 30CC Schouwburg (Nora Mahammed)</h2>
-      <img src="../assets/img/artists/Nora.jpg" alt="Werk van Nora Mahammed">
-      <p>Poëtische, zintuiglijke installaties op het snijvlak van scenografie en architectuur.</p>
-      <audio controls>
-        <source src="../assets/audio/nora.mp3" type="audio/mpeg">
-        Je browser ondersteunt geen audio.
-      </audio>
+      <div class="menu" role="menubar">
+        <a href="../index.html#over" data-lang-nl="Over" data-lang-en="About">Over</a>
+        <a href="../index.html#data" data-lang-nl="Data & locaties" data-lang-en="Dates & Venues">Data & locaties</a>
+        <a href="../index.html#opencall" data-lang-nl="Open call" data-lang-en="Open call">Open call</a>
+        <a href="../index.html#kunstenaars" data-lang-nl="Kunstenaars" data-lang-en="Artists">Kunstenaars</a>
+        <a href="../index.html#lov" data-lang-nl="LOV2030" data-lang-en="LOV2030">LOV2030</a>
+        <a href="../index.html#contact" data-lang-nl="Contact" data-lang-en="Contact">Contact</a>
+      </div>
+
+      <div class="lang-switch desktop-only" aria-label="Taalwissel">
+        <button onclick="setLang('nl')" class="active">NL</button> |
+        <button onclick="setLang('en')">EN</button>
+      </div>
+
+      <button class="burger" aria-label="Open menu" onclick="toggleDrawer()"><span></span><span></span><span></span></button>
+    </nav>
+
+    <div class="drawer" id="drawer" aria-hidden="true">
+      <a href="../index.html#over" onclick="toggleDrawer()" data-lang-nl="Over" data-lang-en="About">Over</a>
+      <a href="../index.html#data" onclick="toggleDrawer()" data-lang-nl="Data & locaties" data-lang-en="Dates & Venues">Data & locaties</a>
+      <a href="../index.html#opencall" onclick="toggleDrawer()" data-lang-nl="Open call" data-lang-en="Open call">Open call</a>
+      <a href="../index.html#kunstenaars" onclick="toggleDrawer()" data-lang-nl="Kunstenaars" data-lang-en="Artists">Kunstenaars</a>
+      <a href="../index.html#lov" onclick="toggleDrawer()" data-lang-nl="LOV2030" data-lang-en="LOV2030">LOV2030</a>
+      <a href="../index.html#contact" onclick="toggleDrawer()" data-lang-nl="Contact" data-lang-en="Contact">Contact</a>
+
+      <div class="lang-switch mobile-only" aria-label="Taalwissel">
+        <button onclick="setLang('nl')" class="active">NL</button> |
+        <button onclick="setLang('en')">EN</button>
+      </div>
     </div>
+  </header>
 
-    <!-- Stop 2 -->
-    <div class="stop">
-      <h2>Stop 2 — Huis Delsart (Alice Leens)</h2>
-      <img src="../assets/img/artists/Alice.jpg" alt="Werk van Alice Leens">
-      <p>Ontsluit de innerlijke structuur van garen en textiel, waar ambacht en symboliek samenkomen.</p>
-      <audio controls>
-        <source src="../assets/audio/alice.mp3" type="audio/mpeg">
-        Je browser ondersteunt geen audio.
-      </audio>
+  <main id="top">
+    <!-- ============ HERO / Titel ============ -->
+    <section class="hero" style="min-height:auto; padding:60px 0 20px">
+      <div class="container">
+        <div class="meta" data-lang-nl="Audiogids" data-lang-en="Audio Guide">Audiogids</div>
+        <h1 data-lang-nl="Audiogids" data-lang-en="Audio Guide">Audiogids</h1>
+        <p class="lead" data-lang-nl="Gebruik je smartphone als audiogids. Speel per stop het fragment af."
+           data-lang-en="Use your smartphone as an audio guide. Play each stop as you go.">
+          Gebruik je smartphone als audiogids. Speel per stop het fragment af.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ Stops ============ -->
+    <section>
+      <div class="container">
+        <div class="audio-list">
+
+          <!-- Stop 1 — 30CC / Nora -->
+          <article class="audio-stop">
+            <div class="mini" data-lang-nl="Stop 1 — 30CC Schouwburg" data-lang-en="Stop 1 — 30CC Schouwburg">Stop 1 — 30CC Schouwburg</div>
+            <h3>Nora Mahammed</h3>
+            <img src="../assets/img/artists/Nora.jpg" alt="Werk van Nora Mahammed">
+            <p data-lang-nl="Poëtische, zintuiglijke installaties op het snijvlak van scenografie en architectuur."
+               data-lang-en="Poetic, sensory installations at the intersection of scenography and architecture.">
+              Poëtische, zintuiglijke installaties op het snijvlak van scenografie en architectuur.
+            </p>
+            <audio controls preload="metadata">
+              <source src="../assets/audio/nora.mp3" type="audio/mpeg">
+            </audio>
+          </article>
+
+          <!-- Stop 2 — Huis Delsart / Alice -->
+          <article class="audio-stop">
+            <div class="mini" data-lang-nl="Stop 2 — Huis Delsart" data-lang-en="Stop 2 — Huis Delsart">Stop 2 — Huis Delsart</div>
+            <h3>Alice Leens</h3>
+            <img src="../assets/img/artists/Alice.jpg" alt="Werk van Alice Leens">
+            <p data-lang-nl="Van lijn naar volume: textiel waar ambacht en symboliek samenkomen."
+               data-lang-en="From line to volume: textiles where craft and symbolism converge.">
+              Van lijn naar volume: textiel waar ambacht en symboliek samenkomen.
+            </p>
+            <audio controls preload="metadata">
+              <source src="../assets/audio/alice.mp3" type="audio/mpeg">
+            </audio>
+          </article>
+
+          <!-- Stop 3 — Vip Concept / Jente -->
+          <article class="audio-stop">
+            <div class="mini" data-lang-nl="Stop 3 — Vip Concept" data-lang-en="Stop 3 — Vip Concept">Stop 3 — Vip Concept</div>
+            <h3>Jente Waerzeggers</h3>
+            <img src="../assets/img/artists/Jente.jpg" alt="Werk van Jente Waerzeggers">
+            <p data-lang-nl="Ruwe, directe snapshots van de Belgische muziek- en kunstscene."
+               data-lang-en="Raw, direct snapshots of the Belgian music and art scene.">
+              Ruwe, directe snapshots van de Belgische muziek- en kunstscene.
+            </p>
+            <audio controls preload="metadata">
+              <source src="../assets/audio/jente.mp3" type="audio/mpeg">
+            </audio>
+          </article>
+
+          <!-- Stop 4 — Juttu / Pol -->
+          <article class="audio-stop">
+            <div class="mini" data-lang-nl="Stop 4 — Juttu" data-lang-en="Stop 4 — Juttu">Stop 4 — Juttu</div>
+            <h3>Pol Olivier</h3>
+            <img src="../assets/img/artists/Pol.jpg" alt="Werk van Pol Olivier">
+            <p data-lang-nl="Intieme portretten en sculpturen rond familie en nabijheid."
+               data-lang-en="Intimate portraits and sculptures about family and closeness.">
+              Intieme portretten en sculpturen rond familie en nabijheid.
+            </p>
+            <audio controls preload="metadata">
+              <source src="../assets/audio/pol.mp3" type="audio/mpeg">
+            </audio>
+          </article>
+
+        </div>
+
+        <p class="backline">
+          <a class="mono-link" href="../index.html#data" data-lang-nl="← terug naar route & data" data-lang-en="← back to route & dates">← terug naar route & data</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>© <span id="year"></span> Vitrien — Leuven</div>
+      <a class="mono-link" href="#top" data-lang-nl="Naar boven" data-lang-en="Back to top">Naar boven</a>
     </div>
+  </footer>
 
-    <!-- Stop 3 -->
-    <div class="stop">
-      <h2>Stop 3 — Vip Concept (Jente Waerzeggers)</h2>
-      <img src="../assets/img/artists/Jente.jpg" alt="Werk van Jente Waerzeggers">
-      <p>Fotograaf/muzikant. Ruwe snapshots van de Belgische muziek- en kunstscene.</p>
-      <audio controls>
-        <source src="../assets/audio/jente.mp3" type="audio/mpeg">
-        Je browser ondersteunt geen audio.
-      </audio>
-    </div>
-
-    <!-- Stop 4 -->
-    <div class="stop">
-      <h2>Stop 4 — Juttu (Pol Olivier)</h2>
-      <img src="../assets/img/artists/Pol.jpg" alt="Werk van Pol Olivier">
-      <p>Intieme portretten en sculpturen rond familie, met focus op de ruimte tussen mensen.</p>
-      <audio controls>
-        <source src="../assets/audio/pol.mp3" type="audio/mpeg">
-        Je browser ondersteunt geen audio.
-      </audio>
-    </div>
-
-  </div>
+  <!-- Scripts -->
+  <script src="../assets/js/app.js" defer></script>
 </body>
 </html>
