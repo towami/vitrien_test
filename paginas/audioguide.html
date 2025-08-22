@@ -1,376 +1,263 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title data-lang-nl="Audioguide — VITRIEN" data-lang-en="Audio guide — VITRIEN">Audioguide — VITRIEN</title>
 
-   <section id="data">
-  <div class="container">
-    <div class="meta" data-lang-nl="Data & locaties" data-lang-en="Dates & Venues">Data & locaties</div>
-    <h2 data-lang-nl="Data" data-lang-en="Dates">Data</h2>
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
+  <!-- Global styles -->
+  <link rel="stylesheet" href="../assets/css/styles.css">
 
-    
-    <ul class="dates-list">
-      <li>
-        <strong data-lang-nl="Opening:" data-lang-en="Opening:">Opening:</strong>
-        <span data-lang-nl="zaterdag 13 september" data-lang-en="Saturday 13 September">zaterdag 13 september</span>
-      </li>
-      <li>
-        <strong data-lang-nl="Tentoonstelling:" data-lang-en="Exhibition:">Tentoonstelling:</strong>
-        <span data-lang-nl="13/9 – 5/10, doorlopend zichtbaar in de vitrines"
-              data-lang-en="13/9 – 5/10, continuously on view in shop windows">
-          13/9 – 5/10, doorlopend zichtbaar in de vitrines
-        </span>
-      </li>
-    </ul>
-
-    <p class="lead-small"
-       data-lang-nl="Kom naar onze feestelijke opening. RSVP en we zetten je op de guestlist voor een gratis drankje."
-       data-lang-en="Join our festive opening. RSVP to be added to the guestlist and enjoy a free drink.">
-      Kom naar onze feestelijke opening. RSVP en we zetten je op de guestlist voor een gratis drankje.
-    </p>
-
-    <div class="btn-row">
-      <button class="btn btn-primary"
-              onclick="openProgram()"
-              data-lang-nl="Programma opening"
-              data-lang-en="Opening programme">
-        Programma opening
-      </button>
-
-      <a class="btn btn-outline"
-         href="mailto:hallo@vitrien.be?subject=RSVP%20Vitrien%20Opening%2013%2F9&body=Hallo%20Vitrien%2C%0A%0AIk%20RSVP%20voor%20de%20opening%20op%2013%2F9.%20Naam%3A%20_____%0AAantal%20personen%3A%20_____%0A%0ABedankt!"
-         data-lang-nl="RSVP"
-         data-lang-en="RSVP">
-        RSVP
+  <!-- Minimal extra styles for the audio list -->
+  <style>
+    .audio-hero { padding: 48px 0 16px; }
+    .audio-list {
+      display: grid;
+      gap: 16px;
+      margin-top: 12px;
+    }
+    .stop-card {
+      display: grid;
+      grid-template-columns: 88px 1fr auto;
+      gap: 12px;
+      align-items: center;
+      padding: 12px;
+      border: 1px solid var(--border, #e6e6e6);
+      border-radius: 12px;
+      background: #fff;
+    }
+    .stop-card img {
+      width: 88px; height: 88px; object-fit: cover; border-radius: 8px;
+      background: #f2f2f2;
+    }
+    .stop-meta { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: .85rem; opacity: .7; }
+    .stop-title { font-weight: 600; }
+    .stop-desc { margin-top: 4px; }
+    .play-btn {
+      appearance: none; border: 1px solid #111; background: #fff; border-radius: 999px;
+      padding: 8px 14px; font-family: "IBM Plex Mono", ui-monospace, monospace; cursor: pointer;
+    }
+    .play-btn[aria-pressed="true"] { background: #111; color: #fff; }
+    .now-playing {
+      font-family: "IBM Plex Mono", ui-monospace, monospace;
+      font-size: .75rem; opacity: .7; margin-top: 4px;
+    }
+    /* Small screens first; enhance layout on wider screens */
+    @media (min-width: 720px) {
+      .stop-card { grid-template-columns: 120px 1fr auto; padding: 16px; }
+      .stop-card img { width: 120px; height: 120px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header (zelfde structuur als de site) -->
+  <header>
+    <nav class="nav" aria-label="Hoofdnavigatie">
+      <a href="../index.html#top" class="brand">
+        <img src="../assets/img/logo.png" alt="Vitrien logo" />
       </a>
-    </div>
 
-<!-- CTA: route + booklet + audio -->
-<div class="btn-row route-tools">
-  <!-- ROUTE (Google Maps met waypoints) -->
-  <a
-    class="btn btn-primary"
-    target="_blank" rel="noopener"
-    data-lang-nl="Route"
-    data-lang-en="Route"
-    href="https://www.google.com/maps/dir/?api=1&origin=Leuven%20Station&destination=Bondgenotenlaan%20145%2C%203000%20Leuven&waypoints=Bondgenotenlaan%2054%2C%203000%20Leuven|Bondgenotenlaan%2021%2C%203000%20Leuven|Rector%20De%20Somerplein%2011%2C%203000%20Leuven|Bondgenotenlaan%2047%2C%203000%20Leuven|Bondgenotenlaan%2081%2C%203000%20Leuven|Bondgenotenlaan%20131%2C%203000%20Leuven">
-    Route
-  </a>
-
-  <!-- BOEKJE (PDF) -->
-  <a
-    class="btn btn-outline"
-    target="_blank" rel="noopener"
-    data-lang-nl="Boekje"
-    data-lang-en="Booklet"
-    href="assets/booklet/vitrien-boekje.pdf">
-    Boekje
-  </a>
-
-  <!-- AUDIO GUIDE (naar aparte pagina of anker) -->
-  <a
-    class="btn btn-outline"
-    data-lang-nl="Audio"
-    data-lang-en="Audio"
-    href="paginas/audioguide.html">
-    Audio
-  </a>
-</div>
-
-    <!------------- terug over de data --------->
-     
-    <!-- Verborgen programma (klapt open via de knop) -->
-    <details id="opening-program" class="program-details">
-      <summary data-lang-nl="Programma (13/9)" data-lang-en="Programme (13/9)">Programma (13/9)</summary>
-      <div class="program-schedule">
-        <div class="program-block">
-          <time>15:00</time>
-          <div>
-            <strong data-lang-nl="Deuren open" data-lang-en="Doors open">Deuren open</strong><br>
-            <span data-lang-nl="Expo start in de vitrines" data-lang-en="Exhibition starts in the windows">Expo start in de vitrines</span>
-          </div>
-        </div>
-
-        <div class="program-block">
-          <time>15:30</time>
-          <div>
-            <strong data-lang-nl="Welkom & speeches" data-lang-en="Welcome & speeches">Welkom & speeches</strong><br>
-            <span data-lang-nl="Intro kunstenaars & performances" data-lang-en="Intro to artists & performances">Intro kunstenaars & performances</span>
-          </div>
-        </div>
-
-        <div class="program-block">
-          <time>15:50</time>
-          <div>
-            <strong>Performance — Niels Poiz</strong>
-          </div>
-        </div>
-
-        <div class="program-block">
-          <time>16:30 & 18:00</time>
-          <div>
-            <strong data-lang-nl="Rondleidingen" data-lang-en="Guided tours">Rondleidingen</strong>
-          </div>
-        </div>
-
-        <div class="program-block">
-          <time>19:30</time>
-          <div>
-            <strong data-lang-nl="Speeches" data-lang-en="Speeches">Speeches</strong>
-          </div>
-        </div>
-
-        <div class="program-block">
-          <time>19:50</time>
-          <div>
-            <strong>Performance — Camille Lemille</strong>
-          </div>
-        </div>
-
-        <div class="program-block">
-          <time>20:30</time>
-          <div>
-            <strong data-lang-nl="Avondtour & DJ" data-lang-en="Evening tour & DJ">Avondtour & DJ</strong>
-          </div>
-        </div>
+      <div class="menu" role="menubar">
+        <a href="../index.html#over" data-lang-nl="Over" data-lang-en="About">Over</a>
+        <a href="../index.html#data" data-lang-nl="Data & locaties" data-lang-en="Dates & Venues">Data & locaties</a>
+        <a href="../index.html#opencall" data-lang-nl="Open call" data-lang-en="Open call">Open call</a>
+        <a href="../index.html#kunstenaars" data-lang-nl="Kunstenaars" data-lang-en="Artists">Kunstenaars</a>
+        <a href="../index.html#lov" data-lang-nl="LOV2030" data-lang-en="LOV2030">LOV2030</a>
+        <a href="../index.html#contact" data-lang-nl="Contact" data-lang-en="Contact">Contact</a>
       </div>
-    </details>
-  </div>
-</section>
 
+      <div class="lang-switch desktop-only" aria-label="Taalwissel">
+        <button onclick="setLang('nl')" class="active">NL</button> |
+        <button onclick="setLang('en')">EN</button>
+      </div>
 
-<!-- ===============================
-     vanaf hier staat het locatiegrid
-================================= -->
-      
-    
-    <section id="locaties">
+      <button class="burger" aria-label="Open menu" onclick="toggleDrawer()">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <div class="drawer" id="drawer" aria-hidden="true">
+      <a href="../index.html#over" onclick="toggleDrawer()" data-lang-nl="Over" data-lang-en="About">Over</a>
+      <a href="../index.html#data" onclick="toggleDrawer()" data-lang-nl="Data & locaties" data-lang-en="Dates & Venues">Data & locaties</a>
+      <a href="../index.html#opencall" onclick="toggleDrawer()" data-lang-nl="Open call" data-lang-en="Open call">Open call</a>
+      <a href="../index.html#kunstenaars" onclick="toggleDrawer()" data-lang-nl="Kunstenaars" data-lang-en="Artists">Kunstenaars</a>
+      <a href="../index.html#lov" onclick="toggleDrawer()" data-lang-nl="LOV2030" data-lang-en="LOV2030">LOV2030</a>
+      <a href="../index.html#contact" onclick="toggleDrawer()" data-lang-nl="Contact" data-lang-en="Contact">Contact</a>
+      <div class="lang-switch mobile-only" aria-label="Taalwissel">
+        <button onclick="setLang('nl')" class="active">NL</button> |
+        <button onclick="setLang('en')">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="audio-hero">
       <div class="container">
-        <div class="meta" data-lang-nl="Data & locaties" data-lang-en="Dates & Venues">Data & locaties</div>
-        <h2 data-lang-nl="Locaties" data-lang-en="Venues">Locaties</h2>
-        
-        <div class="locations-grid">
-          <!-- 1) Wear Store -->
-          <article class="location-card">
-            <h3 class="location-name">Wear Store</h3>
-            <p class="location-address">Bondgenotenlaan 54</p>
-            <p class="location-city">3000 Leuven</p>
-            <p><a class="mono-link" href="https://wear-store.be/pages/our-stores" target="_blank" rel="noopener">Website</a></p>
-          </article>
-        
-          <!-- 2) 30CC Schouwburg -->
-          <article class="location-card">
-            <h3 class="location-name">30CC Schouwburg</h3>
-            <p class="location-address">Bondgenotenlaan 21</p>
-            <p class="location-city">3000 Leuven</p>
-            <p><a class="mono-link" href="https://www.30cc.be/nl" target="_blank" rel="noopener">Website</a></p>
-          </article>
-        
-          <!-- 3) Folie Leuven -->
-          <article class="location-card">
-            <h3 class="location-name">Folie Leuven</h3>
-            <p class="location-address">Rector De Somerplein 11</p>
-            <p class="location-city">3000 Leuven</p>
-            <p><a class="mono-link" href="https://www.instagram.com/foliefashionleuven/" target="_blank" rel="noopener">Website</a></p>
-          </article>
-        
-          <!-- 4) De Slegte Leuven -->
-          <article class="location-card">
-            <h3 class="location-name">De Slegte Leuven</h3>
-            <p class="location-address">Bondgenotenlaan 47</p>
-            <p class="location-city">3000 Leuven</p>
-            <p><a class="mono-link" href="https://www.deslegte.com/leuven/" target="_blank" rel="noopener">Website</a></p>
-          </article>
-        
-          <!-- 5) Huis Delsart -->
-          <article class="location-card">
-            <h3 class="location-name">Huis Delsart</h3>
-            <p class="location-address">Bondgenotenlaan 81</p>
-            <p class="location-city">3000 Leuven</p>
-            <p><a class="mono-link" href="https://www.huisdelsart.be/" target="_blank" rel="noopener">Website</a></p>
-          </article>
-        
-          <!-- 6) Apotheek De Bond -->
-          <article class="location-card">
-            <h3 class="location-name">Apotheek De Bond</h3>
-            <p class="location-address">Bondgenotenlaan 131</p>
-            <p class="location-city">3000 Leuven</p>
-            <p><a class="mono-link" href="https://antverpia.be/pharmacies/antverpia-leuven/" target="_blank" rel="noopener">Website</a></p>
-          </article>
-        
-          <!-- 7) Vip Concept -->
-          <article class="location-card">
-            <h3 class="location-name">Vip Concept</h3>
-            <p class="location-address">Bondgenotenlaan 145</p>
-            <p class="location-city">3000 Leuven</p>
-            <p><a class="mono-link" href="https://www.instagram.com/vipconceptleuven/?hl=en" target="_blank" rel="noopener">Website</a></p>
-          </article>
-        
-          <!-- 8–10) Placeholders -->
-          <article class="location-card">
-            <h3 class="location-name" data-lang-nl="Juttu" data-lang-en="Juttu">Jutto</h3>
-              <p class="location-address">Bondgenotenlaan 61</p>
-            <p class="location-city">3000 Leuven</p>
-            <p><a class="mono-link" href="https://www.juttu.be/nl/winkels/leuven.html" target="_blank" rel="noopener">Website</a></p>
-          </article>
-        
-         <article class="location-card">
-            <h3 class="location-name">De Plantrekkers</h3>
-            <p class="location-address">Bondgenotenlaan 90</p>
-            <p class="location-city">3000 Leuven</p>
-            <p><a class="mono-link" href="https://deplantrekkers.com/" target="_blank" rel="noopener">Website</a></p>
-          </article>
-        
-          <article class="location-card">
-            <h3 class="location-name" data-lang-nl="Locatie volgt" data-lang-en="Venue tba">Locatie volgt</h3>
-            <p class="location-address" data-lang-nl="Adres volgt" data-lang-en="Address tba">Adres volgt</p>
-            <p class="location-city">3000 Leuven</p>
-            <p><span class="mono-link" style="opacity:.6">Website</span></p>
-          </article>
-        </div>
+        <div class="meta" data-lang-nl="Audioguide" data-lang-en="Audio guide">Audioguide</div>
+        <h1 data-lang-nl="Luister en wandel" data-lang-en="Listen & walk">Luister en wandel</h1>
+        <p class="lead" data-lang-nl="Gebruik je telefoon als gids. Elke stop: 1 foto, 1 zin, 1 play."
+           data-lang-en="Use your phone as a guide. Each stop: 1 image, 1 line, 1 play.">
+          Gebruik je telefoon als gids. Elke stop: 1 foto, 1 zin, 1 play.
+        </p>
       </div>
     </section>
-      
 
+    <!-- Lijst met stops -->
+    <section>
+      <div class="container">
+        <ol class="audio-list">
+          <!-- STOP 1 -->
+          <li class="stop-card">
+            <img src="../assets/img/audioguide/stop1.jpg" alt="Stop 1 — werkbeeld" loading="lazy">
+            <div>
+              <div class="stop-meta" data-lang-nl="Stop 1" data-lang-en="Stop 1">Stop 1</div>
+              <div class="stop-title">Wear Store — Vitrine</div>
+              <p class="stop-desc"
+                 data-lang-nl="Een paviljoenachtig knooppunt dat de straat ritme geeft."
+                 data-lang-en="A pavilion-like node that sets a rhythm to the street.">
+                Een paviljoenachtig knooppunt dat de straat ritme geeft.
+              </p>
+              <audio preload="none" src="../assets/audio/stop1.mp3"></audio>
+              <div class="now-playing" hidden data-lang-nl="Afspelen..." data-lang-en="Playing...">Afspelen...</div>
+            </div>
+            <button class="play-btn" aria-pressed="false" aria-label="Play stop 1"
+                    data-lang-nl="Play" data-lang-en="Play">Play</button>
+          </li>
 
-    <!-- ===============================
-         KUNSTENAARS
-    ================================= -->
-  <!-- ===============================
-     KUNSTENAARS
-================================= -->
-<section id="kunstenaars">
-  <div class="container">
-    <div class="meta" data-lang-nl="Kunstenaars" data-lang-en="Artists">Kunstenaars</div>
-    <h2 data-lang-nl="Deelnemende kunstenaars" data-lang-en="Participating artists">Deelnemende kunstenaars</h2>
+          <!-- STOP 2 -->
+          <li class="stop-card">
+            <img src="../assets/img/audioguide/stop2.jpg" alt="Stop 2 — werkbeeld" loading="lazy">
+            <div>
+              <div class="stop-meta" data-lang-nl="Stop 2" data-lang-en="Stop 2">Stop 2</div>
+              <div class="stop-title">30CC Schouwburg</div>
+              <p class="stop-desc"
+                 data-lang-nl="Een zichtbare verbinding die de logica van het gebouw openvouwt."
+                 data-lang-en="A visible joint that unfolds the building’s logic.">
+                Een zichtbare verbinding die de logica van het gebouw openvouwt.
+              </p>
+              <audio preload="none" src="../assets/audio/stop2.mp3"></audio>
+              <div class="now-playing" hidden data-lang-nl="Afspelen..." data-lang-en="Playing...">Afspelen...</div>
+            </div>
+            <button class="play-btn" aria-pressed="false" aria-label="Play stop 2"
+                    data-lang-nl="Play" data-lang-en="Play">Play</button>
+          </li>
 
-    <div class="modules artists-grid">
-      <!-- Jason -->
-      <figure class="module">
-        <img src="assets/img/artists/Jason.jpg" alt="Werk van Jason Slabbynck">
-        <figcaption class="caption">
-          <strong>Jason Slabbynck</strong><br>
-          <span data-lang-nl="Architect-kunstenaar van site-specifieke constructies met herkenbare materialen. Paviljoens die spanningsvelden tussen vorm en materie oproepen en uitnodigen tot dialoog."
-                data-lang-en="Architect-artist creating site-specific constructions with recognizable materials. Pavilions that trigger tensions between form and matter and invite dialogue.">
-            Architect-kunstenaar van site-specifieke constructies met herkenbare materialen. Paviljoens die spanningsvelden tussen vorm en materie oproepen en uitnodigen tot dialoog.
-          </span>
-          <a class="mono-link" href="paginas/artists/Jason.html" data-lang-nl="Lees meer" data-lang-en="Read more">Lees meer</a>
-        </figcaption>
-      </figure>
+          <!-- STOP 3 -->
+          <li class="stop-card">
+            <img src="../assets/img/audioguide/stop3.jpg" alt="Stop 3 — werkbeeld" loading="lazy">
+            <div>
+              <div class="stop-meta" data-lang-nl="Stop 3" data-lang-en="Stop 3">Stop 3</div>
+              <div class="stop-title">Folie Leuven</div>
+              <p class="stop-desc"
+                 data-lang-nl="Een ritmische herhaling die de winkelruit tot podium maakt."
+                 data-lang-en="A rhythmic repetition turning the shop window into a stage.">
+                Een ritmische herhaling die de winkelruit tot podium maakt.
+              </p>
+              <audio preload="none" src="../assets/audio/stop3.mp3"></audio>
+              <div class="now-playing" hidden data-lang-nl="Afspelen..." data-lang-en="Playing...">Afspelen...</div>
+            </div>
+            <button class="play-btn" aria-pressed="false" aria-label="Play stop 3"
+                    data-lang-nl="Play" data-lang-en="Play">Play</button>
+          </li>
+        </ol>
 
-      <!-- Shailey -->
-      <figure class="module">
-        <img src="assets/img/artists/Shailey.jpg" alt="Werk van Shailey Shah">
-        <figcaption class="caption">
-          <strong>Shailey Shah</strong><br>
-          <span data-lang-nl="Multidisciplinair: video, sculptuur, schilderkunst, installaties. Onderzoekt identiteit, gender en haar multiculturele achtergrond via materiaal en vorm."
-                data-lang-en="Multidisciplinary: video, sculpture, painting, installations. Explores identity, gender and her multicultural background through material and form.">
-            Multidisciplinair: video, sculptuur, schilderkunst, installaties. Onderzoekt identiteit, gender en haar multiculturele achtergrond via materiaal en vorm.
-          </span>
-          <a class="mono-link" href="paginas/artists/Shailey.html" data-lang-nl="Lees meer" data-lang-en="Read more">Lees meer</a>
-        </figcaption>
-      </figure>
+        <!-- Optioneel: link naar route & booklet, klein en niet dominant -->
+        <p class="meta" style="margin-top:16px">
+          <a class="mono-link" href="https://www.google.com/maps/dir/?api=1&origin=Leuven%20Station&destination=Bondgenotenlaan%20145%2C%203000%20Leuven"
+             target="_blank" rel="noopener"
+             data-lang-nl="↗ Route op Google Maps" data-lang-en="↗ Route on Google Maps">↗ Route op Google Maps</a>
+          &nbsp;•&nbsp;
+          <a class="mono-link" href="../assets/booklet/vitrien-boekje.pdf" target="_blank" rel="noopener"
+             data-lang-nl="↗ Boekje (PDF)" data-lang-en="↗ Booklet (PDF)">↗ Boekje (PDF)</a>
+        </p>
+      </div>
+    </section>
+  </main>
 
-      <!-- Alice -->
-      <figure class="module">
-        <img src="assets/img/artists/Alice.jpg" alt="Werk van Alice Leens">
-        <figcaption class="caption">
-          <strong>Alice Leens</strong><br>
-          <span data-lang-nl="Ontsluit de innerlijke structuur van garen en textiel. Van lijn naar volume, waar ambacht en symboliek samenkomen."
-                data-lang-en="Reveals the inner structure of yarn and textiles. From line to volume, where craft and symbolism converge.">
-            Ontsluit de innerlijke structuur van garen en textiel. Van lijn naar volume, waar ambacht en symboliek samenkomen.
-          </span>
-          <a class="mono-link" href="paginas/artists/Alice.html" data-lang-nl="Lees meer" data-lang-en="Read more">Lees meer</a>
-        </figcaption>
-      </figure>
-
-      <!-- Camille -->
-      <figure class="module">
-        <img src="assets/img/artists/Camille.jpg" alt="Werk van Camille Lemille">
-        <figcaption class="caption">
-          <strong>Camille Lemille</strong><br>
-          <span data-lang-nl="Performance, drukwerk en AV. Taal en dagelijkse documenten als bron voor politieke en poëtische interventies."
-                data-lang-en="Performance, print and AV. Language and everyday documents as a source for political and poetic interventions.">
-            Performance, drukwerk en AV. Taal en dagelijkse documenten als bron voor politieke en poëtische interventies.
-          </span>
-          <a class="mono-link" href="paginas/artists/Camille.html" data-lang-nl="Lees meer" data-lang-en="Read more">Lees meer</a>
-        </figcaption>
-      </figure>
-
-      <!-- Carole -->
-      <figure class="module">
-        <img src="assets/img/artists/Carole.jpg" alt="Werk van Carole Louis">
-        <figcaption class="caption">
-          <strong>Carole Louis</strong><br>
-          <span data-lang-nl="Tragikomische installaties en performances die sociale structuren en clichés fileteren met speelse esthetiek."
-                data-lang-en="Tragicomic installations and performances that dissect social structures and clichés with playful aesthetics.">
-            Tragikomische installaties en performances die sociale structuren en clichés fileteren met speelse esthetiek.
-          </span>
-          <a class="mono-link" href="paginas/artists/Carole.html" data-lang-nl="Lees meer" data-lang-en="Read more">Lees meer</a>
-        </figcaption>
-      </figure>
-
-      <!-- Jonathan -->
-      <figure class="module">
-        <img src="assets/img/artists/Jonathan.jpg" alt="Werk van Jonathan Van de Wal">
-        <figcaption class="caption">
-          <strong>Jonathan Van de Wal</strong><br>
-          <span data-lang-nl="Schilder en assemblage-maker. Ruimtelijke interventies, beïnvloed door Broodthaers en alledaagse objecten."
-                data-lang-en="Painter and assembler. Spatial interventions, influenced by Broodthaers and everyday objects.">
-            Schilder en assemblage-maker. Ruimtelijke interventies, beïnvloed door Broodthaers en alledaagse objecten.
-          </span>
-          <a class="mono-link" href="paginas/artists/Jonathan.html" data-lang-nl="Lees meer" data-lang-en="Read more">Lees meer</a>
-        </figcaption>
-      </figure>
-
-      <!-- Pol -->
-      <figure class="module">
-        <img src="assets/img/artists/Pol.jpg" alt="Werk van Pol Olivier">
-        <figcaption class="caption">
-          <strong>Pol Olivier</strong><br>
-          <span data-lang-nl="Intieme portretten en sculpturen rond familie, met focus op de ruimte tussen mensen."
-                data-lang-en="Intimate portraits and sculptures about family, focusing on the space between people.">
-            Intieme portretten en sculpturen rond familie, met focus op de ruimte tussen mensen.
-          </span>
-          <a class="mono-link" href="paginas/artists/Pol.html" data-lang-nl="Lees meer" data-lang-en="Read more">Lees meer</a>
-        </figcaption>
-      </figure>
-
-      <!-- Nora -->
-      <figure class="module">
-        <img src="assets/img/artists/Nora.jpg" alt="Werk van Nora Mahammed">
-        <figcaption class="caption">
-          <strong>Nora Mahammed</strong><br>
-          <span data-lang-nl="Poëtische, zintuiglijke installaties op het snijvlak van scenografie en architectuur."
-                data-lang-en="Poetic, sensory installations at the intersection of scenography and architecture.">
-            Poëtische, zintuiglijke installaties op het snijvlak van scenografie en architectuur.
-          </span>
-          <a class="mono-link" href="paginas/artists/Nora.html" data-lang-nl="Lees meer" data-lang-en="Read more">Lees meer</a>
-        </figcaption>
-      </figure>
-
-      <!-- Jente -->
-      <figure class="module">
-        <img src="assets/img/artists/Jente.jpg" alt="Werk van Jente Waerzeggers">
-        <figcaption class="caption">
-          <strong>Jente Waerzeggers</strong><br>
-          <span data-lang-nl="Fotograaf/muzikant. Ruwe, directe snapshots van de Belgische muziek- en kunstscene."
-                data-lang-en="Photographer/musician. Raw, direct snapshots of the Belgian music and art scene.">
-            Fotograaf/muzikant. Ruwe, directe snapshots van de Belgische muziek- en kunstscene.
-          </span>
-          <a class="mono-link" href="paginas/artists/Jente.html" data-lang-nl="Lees meer" data-lang-en="Read more">Lees meer</a>
-        </figcaption>
-      </figure>
-
-      <!-- Niels -->
-      <figure class="module">
-        <img src="assets/img/artists/Niels.jpg" alt="Werk van Niels Poiz">
-        <figcaption class="caption">
-          <strong>Niels Poiz</strong><br>
-          <span data-lang-nl="Taal, performance en editie. Identiteit en popcultuur via appropriation en narratieve installaties."
-                data-lang-en="Language, performance and edition. Identity and pop culture through appropriation and narrative installations.">
-            Taal, performance en editie. Identiteit en popcultuur via appropriation en narratieve installaties.
-          </span>
-          <a class="mono-link" href="paginas/artists/Niels.html" data-lang-nl="Lees meer" data-lang-en="Read more">Lees meer</a>
-        </figcaption>
-      </figure>
+  <footer>
+    <div class="footer-inner">
+      <div>© <span id="year"></span> Vitrien — Leuven</div>
+      <a class="mono-link" href="#top" data-lang-nl="Naar boven" data-lang-en="Back to top">Naar boven</a>
     </div>
-  </div>
-</section>
+  </footer>
+
+  <!-- Site scripts -->
+  <script src="../assets/js/app.js" defer></script>
+
+  <!-- Tiny player logic: één track tegelijk, duidelijke play/pause -->
+  <script>
+    (function() {
+      function setBtnText(btn, key) {
+        const t = btn.getAttribute('data-lang-' + (localStorage.getItem('vitrien_lang') || 'nl'));
+        btn.textContent = (key === 'play') ? (btn.dataset.langPlay || t || 'Play')
+                                           : (btn.dataset.langPause || (btn.getAttribute('data-lang-' + (localStorage.getItem('vitrien_lang') || 'nl')) === 'Play' ? 'Pause' : 'Pauze'));
+      }
+
+      const cards = document.querySelectorAll('.stop-card');
+      let current = null;
+
+      cards.forEach(card => {
+        const audio = card.querySelector('audio');
+        const btn   = card.querySelector('.play-btn');
+        const flag  = card.querySelector('.now-playing');
+
+        // init label per taal
+        btn.dataset.langPlay = btn.getAttribute('data-lang-nl') || 'Play';
+        btn.dataset.langPause = (btn.getAttribute('data-lang-nl') === 'Play') ? 'Pauze' : 'Pauze';
+
+        btn.addEventListener('click', () => {
+          // pauzeer ander
+          if (current && current !== audio) {
+            current.pause();
+          }
+
+          if (audio.paused) {
+            audio.play().catch(()=>{});
+          } else {
+            audio.pause();
+          }
+        });
+
+        audio.addEventListener('play', () => {
+          // reset andere kaarten
+          document.querySelectorAll('.stop-card').forEach(c => {
+            if (c !== card) {
+              const a = c.querySelector('audio');
+              const b = c.querySelector('.play-btn');
+              const f = c.querySelector('.now-playing');
+              if (!a.paused) a.pause();
+              if (b) { b.setAttribute('aria-pressed', 'false'); b.textContent = b.dataset.langPlay || 'Play'; }
+              if (f) f.hidden = true;
+            }
+          });
+
+          current = audio;
+          btn.setAttribute('aria-pressed','true');
+          btn.textContent = btn.dataset.langPause || 'Pauze';
+          flag.hidden = false;
+        });
+
+        audio.addEventListener('pause', () => {
+          if (current === audio) current = null;
+          btn.setAttribute('aria-pressed','false');
+          btn.textContent = btn.dataset.langPlay || 'Play';
+          flag.hidden = true;
+        });
+
+        audio.addEventListener('ended', () => {
+          btn.setAttribute('aria-pressed','false');
+          btn.textContent = btn.dataset.langPlay || 'Play';
+          flag.hidden = true;
+          current = null;
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
