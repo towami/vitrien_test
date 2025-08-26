@@ -17,9 +17,12 @@
   <!-- ============ HEADER ============ -->
   <header>
     <nav class="nav" aria-label="Hoofdnavigatie">
+      <!-- Logo -->
       <a href="../../" class="brand" aria-label="VITRIEN — Home">
         <img src="../../assets/img/logo.png" alt="Vitrien logo">
       </a>
+
+      <!-- Desktop menu -->
       <div class="menu" role="menubar">
         <a href="../../index.html#over" data-lang-nl="Over" data-lang-en="About">Over</a>
         <a href="../../index.html#locaties" data-lang-nl="Data & locaties" data-lang-en="Dates & Venues">Data & locaties</a>
@@ -28,14 +31,20 @@
         <a href="../../index.html#lov" data-lang-nl="LOV2030" data-lang-en="LOV2030">LOV2030</a>
         <a href="../../index.html#contact" data-lang-nl="Contact" data-lang-en="Contact">Contact</a>
       </div>
+
+      <!-- Desktop taal-switch -->
       <div class="lang-switch desktop-only" aria-label="Taalwissel">
         <button onclick="setLang('nl')" class="active" data-lang="nl">NL</button> |
         <button onclick="setLang('en')" data-lang="en">EN</button>
       </div>
+
+      <!-- Hamburger -->
       <button class="burger" aria-label="Open menu" onclick="toggleDrawer()">
         <span></span><span></span><span></span>
       </button>
     </nav>
+
+    <!-- Mobile drawer -->
     <div class="drawer" id="drawer" aria-hidden="true">
       <a href="../../index.html#over" data-lang-nl="Over" data-lang-en="About" onclick="toggleDrawer()">Over</a>
       <a href="../../index.html#locaties" data-lang-nl="Data & locaties" data-lang-en="Dates & Venues" onclick="toggleDrawer()">Data & locaties</a>
@@ -43,6 +52,8 @@
       <a href="../../index.html#kunstenaars" data-lang-nl="Kunstenaars" data-lang-en="Artists" onclick="toggleDrawer()">Kunstenaars</a>
       <a href="../../index.html#lov" data-lang-nl="LOV2030" data-lang-en="LOV2030" onclick="toggleDrawer()">LOV2030</a>
       <a href="../../index.html#contact" data-lang-nl="Contact" data-lang-en="Contact" onclick="toggleDrawer()">Contact</a>
+
+      <!-- Mobile taal-switch -->
       <div class="lang-switch mobile-only" aria-label="Taalwissel">
         <button onclick="setLang('nl')" class="active" data-lang="nl">NL</button> |
         <button onclick="setLang('en')" data-lang="en">EN</button>
@@ -57,9 +68,9 @@
         <div class="meta" data-lang-nl="Kunstenaar" data-lang-en="Artist">Kunstenaar</div>
         <h1>Camille Lemille</h1>
         <p class="lead"
-           data-lang-nl="Schilderkunst • Installatie • Mixed media"
-           data-lang-en="Painting • Installation • Mixed media">
-          Schilderkunst • Installatie • Mixed media
+           data-lang-nl="Performance • Drukwerk • Audiovisueel"
+           data-lang-en="Performance • Print • Audiovisual">
+          Performance • Drukwerk • Audiovisueel
         </p>
       </div>
     </section>
@@ -68,9 +79,7 @@
     <section>
       <div class="container">
         <p class="meta" style="margin-top:-8px">
-          <a class="mono-link" href="../../index.html#kunstenaars"
-             data-lang-nl="← terug naar overzicht"
-             data-lang-en="← back to overview">← terug naar overzicht</a>
+          <a class="mono-link" href="../../index.html#kunstenaars" data-lang-nl="← terug naar overzicht" data-lang-en="← back to overview">← terug naar overzicht</a>
         </p>
       </div>
     </section>
@@ -81,47 +90,45 @@
         <article>
           <div class="meta" data-lang-nl="Biografie" data-lang-en="Biography">Biografie</div>
           <p
-            data-lang-nl="Camille Lemille is een Belgische beeldend kunstenaar die werkt met schilderijen en installaties. Haar werk onderzoekt de wisselwerking tussen kwetsbaarheid en kracht, en zoekt vaak de grens op tussen figuratie en abstractie. Met gelaagde beelden die vertrekken uit persoonlijke observaties en verhalen, creëert ze een intiem maar universeel visueel vocabulaire."
-            data-lang-en="Camille Lemille is a Belgian visual artist working with paintings and installations. Her work explores the interplay between vulnerability and strength, often at the edge of figuration and abstraction. Through layered images rooted in personal stories and observations, she creates a visual language that is both intimate and universal.">
-            Camille Lemille is een Belgische beeldend kunstenaar...
+            data-lang-nl="Camille Lemille werkt op het snijvlak van performance, drukwerk en audiovisueel. Ze vertrekt vaak vanuit taal en alledaagse documenten — bonnen, formulieren, berichten — om de poëzie en de politiek ervan bloot te leggen. In haar praktijk worden papieren sporen weerbarstige scripts: materiaal om te manipuleren, te herhalen en te laten resoneren in de publieke ruimte."
+            data-lang-en="Camille Lemille operates at the intersection of performance, print and audiovisual media. She often starts from language and everyday documents — receipts, forms, messages — to reveal their poetic and political layers. In her practice, paper traces become resistant scripts: material to manipulate, repeat and make resonate in public space."
+          >
+            Camille Lemille werkt op het snijvlak van performance, drukwerk en audiovisueel…
           </p>
+
           <div class="meta" style="margin-top:20px" data-lang-nl="Praktisch" data-lang-en="Practical">Praktisch</div>
           <p>
-            Contact: <a class="mono-link" href="mailto:camille@example.com">camille@example.com</a>
+            <!-- Vervang door echte website/mail zodra beschikbaar -->
+            Website: <a class="mono-link" href="#" target="_blank" rel="noopener">—</a><br>
+            Contact: <a class="mono-link" href="mailto:—">—</a>
           </p>
         </article>
 
         <article>
           <div class="meta" data-lang-nl="Artist statement" data-lang-en="Artist statement">Artist statement</div>
           <p
-            data-lang-nl="Mijn werk ontstaat uit de spanning tussen herinnering, emotie en beeld. Door lagen verf en materiaal op elkaar te stapelen, probeer ik de gelaagdheid van ervaring zichtbaar te maken. Voor Vitrien wil ik experimenteren met hoe schilderkunst zich verhoudt tot de vitrine: de grens tussen binnen en buiten, tussen intiem en publiek."
-            data-lang-en="My work emerges from the tension between memory, emotion and image. By layering paint and material, I attempt to make the layeredness of experience visible. For Vitrien, I want to experiment with how painting relates to the shop window: the threshold between inside and outside, intimacy and publicness.">
-            Mijn werk ontstaat uit de spanning tussen herinnering, emotie en beeld...
+            data-lang-nl="Ik gebruik taal als performatief materiaal. Door officiële documenten, handleidingen en alledaagse communicatie te hercomponeren, ontstaan scores die zowel speels als kritisch zijn. Ik ben geïnteresseerd in de verschuiving van betekenis wanneer tekst een gebeurtenis wordt: wat gebeurt er als we lezen met het lichaam, en luisteren met de ogen?"
+            data-lang-en="I use language as performative material. By recomposing official documents, manuals and everyday communication, I create scores that are both playful and critical. I am interested in the shift of meaning when text becomes an event: what happens when we read with the body and listen with our eyes?"
+          >
+            Ik gebruik taal als performatief materiaal…
           </p>
         </article>
       </div>
     </section>
 
-    <!-- ============ GALLERY ============ -->
+    <!-- ============ GALLERY (pas aantal/bestandsnamen aan) ============ -->
     <section>
       <div class="container">
         <div class="meta" data-lang-nl="Werk" data-lang-en="Work">Werk</div>
         <div class="grid gallery">
-          <figure class="module">
-            <img src="../../assets/img/artists/Camille1.jpg" alt="Werk — Camille Lemille">
-          </figure>
-          <figure class="module">
-            <img src="../../assets/img/artists/Camille2.jpg" alt="Werk — Camille Lemille">
-          </figure>
-          <figure class="module">
-            <img src="../../assets/img/artists/Camille3.jpg" alt="Werk — Camille Lemille">
-          </figure>
-          <figure class="module">
-            <img src="../../assets/img/artists/Camille4.jpg" alt="Werk — Camille Lemille">
-          </figure>
-          <figure class="module">
-            <img src="../../assets/img/artists/Camille5.jpg" alt="Werk — Camille Lemille">
-          </figure>
+          <figure class="module"><img src="../../assets/img/artists/Camille/Camille1.jpg" alt="Werk — Camille Lemille"></figure>
+          <figure class="module"><img src="../../assets/img/artists/Camille/Camille2.jpg" alt="Werk — Camille Lemille"></figure>
+          <figure class="module"><img src="../../assets/img/artists/Camille/Camille3.jpg" alt="Werk — Camille Lemille"></figure>
+          <figure class="module"><img src="../../assets/img/artists/Camille/Camille4.jpg" alt="Werk — Camille Lemille"></figure>
+          <figure class="module"><img src="../../assets/img/artists/Camille/Camille5.jpg" alt="Werk — Camille Lemille"></figure>
+          <figure class="module"><img src="../../assets/img/artists/Camille/Camille6.jpg" alt="Werk — Camille Lemille"></figure>
+          <figure class="module"><img src="../../assets/img/artists/Camille/Camille7.jpg" alt="Werk — Camille Lemille"></figure>
+          <figure class="module"><img src="../../assets/img/artists/Camille/Camille8.jpg" alt="Werk — Camille Lemille"></figure>
         </div>
       </div>
     </section>
@@ -129,13 +136,12 @@
     <!-- ============ TERUGLINK ============ -->
     <section>
       <div class="container">
-        <a class="mono-link" href="../../index.html#kunstenaars"
-           data-lang-nl="← terug naar alle kunstenaars"
-           data-lang-en="← back to all artists">← terug naar alle kunstenaars</a>
+        <a class="mono-link" href="../../index.html#kunstenaars" data-lang-nl="← terug naar alle kunstenaars" data-lang-en="← back to all artists">← terug naar alle kunstenaars</a>
       </div>
     </section>
   </main>
 
+  <!-- ============ FOOTER ============ -->
   <footer>
     <div class="footer-inner">
       <div>© <span id="year"></span> Vitrien — Leuven</div>
@@ -144,5 +150,9 @@
   </footer>
 
   <script src="../../assets/js/app.js" defer></script>
+  <script>
+    // Jaar in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
