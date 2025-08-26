@@ -2,186 +2,184 @@
 <html lang="nl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>VITRIEN — Team</title>
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..700;1,400..700&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
+  <!-- FONTS (gelijk aan home) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+
+  <!-- Globale stylesheet -->
+  <link rel="stylesheet" href="../assets/css/styles.css"/>
 
   <style>
-    :root{
-      --bg:#ffffff;
-      --fg:#0a0a0a;
-      --muted:#6b6b6b;
-      --border:#e8e8e8;
-      --soft:#fafafa;
+    /* Mini-aanvulling op je globale styles — gebruikt je design tokens */
+    .team-intro { max-width: 68ch; margin: 10px 0 26px; }
+    .team-list { border-top: 1px solid var(--line); }
+    details.team-member { border-bottom: 1px solid var(--line); background: #fff; }
+    summary.team-name {
+      list-style: none; cursor: pointer; user-select: none; outline: none;
+      display: grid; grid-template-columns: 1fr auto; align-items: center;
+      gap: 12px; padding: 16px 0; margin: 0;
+      font-size: 16px; line-height: 1.4;
     }
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);}
-    body{font-family:"EB Garamond",serif; line-height:1.55;}
+    summary.team-name::-webkit-details-marker { display: none; }
+    .name-wrap { display: flex; gap: 8px; align-items: baseline; }
+    .years { color: var(--muted); font-size: 14px; font-family: var(--ff-sans); }
 
-    /* Header (optioneel aanpassen aan je site) */
-    header{
-      position:sticky; top:0; z-index:10;
-      display:flex; align-items:center; justify-content:space-between;
-      padding:14px 20px; border-bottom:1px solid var(--border); background:var(--bg);
+    /* Plus/Minus indicator in IBM Plex Mono */
+    summary.team-name::after {
+      content: "+"; font-family: var(--ff-mono); font-size: 14px; letter-spacing: .08em;
     }
-    .brand{
-      font-family:Roboto,system-ui,sans-serif; font-weight:700; letter-spacing:.08em;
-      text-transform:uppercase; text-decoration:none; color:var(--fg);
-    }
-    nav a{
-      font-family:"EB Garamond",serif; color:var(--fg); text-decoration:none; margin-left:18px;
-    }
-    .container{max-width:960px; margin:0 auto; padding:28px 20px 80px;}
+    details[open] > summary.team-name::after { content: "–"; }
 
-    /* Meta + headings */
-    .meta{
-      font-family:Roboto,system-ui,sans-serif; text-transform:uppercase; letter-spacing:.12em;
-      font-size:.8rem; color:var(--muted); margin-top:6px;
-    }
-    h1,h2{
-      font-family:Roboto,system-ui,sans-serif; text-transform:uppercase; letter-spacing:.06em;
-      margin:12px 0 8px;
-    }
-    h1{ font-size:clamp(1.6rem,1.1rem + 2vw,2.4rem); }
+    .team-content { padding: 0 0 16px; }
+    .team-bio { margin: 0; font-size: 16px; line-height: 1.6; }
 
-    /* Lead */
-    .lead{ max-width:68ch; margin:10px 0 26px; }
-
-    /* Accordion list */
-    .team-list{ border-top:1px solid var(--border); }
-    details.team-member{ border-bottom:1px solid var(--border); background:transparent; }
-    summary.team-name{
-      list-style:none; cursor:pointer; user-select:none; outline:none;
-      display:flex; align-items:center; justify-content:space-between; gap:12px;
-      padding:18px 0; margin:0;
-      font-family:"EB Garamond",serif; font-size:1.125rem; line-height:1.3;
-    }
-    summary.team-name::-webkit-details-marker{ display:none; }
-    .name-wrap{ display:flex; gap:8px; align-items:baseline; }
-    .years{ color:var(--muted); font-size:.95rem; }
-
-    /* Plus/Minus indicator */
-    summary.team-name::after{
-      content:"+"; font-family:Roboto,system-ui,sans-serif; font-weight:700;
-    }
-    details[open] > summary.team-name::after{ content:"–"; }
-
-    .team-content{ padding:0 0 18px; }
-    .team-bio{ margin:0; }
-
-    /* Subtle open animation */
-    @media (prefers-reduced-motion:no-preference){
-      .team-content{ animation:slide .18s ease-out; }
-      @keyframes slide{ from{opacity:0; transform:translateY(-4px);} to{opacity:1; transform:none;} }
-      details[open]{ background:var(--soft); }
-    }
-
-    footer{
-      border-top:1px solid var(--border); color:var(--muted);
-      padding:22px 20px; font-size:.95rem;
+    @media (prefers-reduced-motion: no-preference) {
+      .team-content { animation: teamSlide .18s ease-out; }
+      @keyframes teamSlide { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
+      details[open] { background: #fafafa; }
     }
   </style>
 </head>
 <body>
-
+  <!-- HEADER (zelfde structuur als home) -->
   <header>
-    <a class="brand" href="/index.html">Vitrien</a>
-    <nav>
-      <a href="/#over" data-lang-nl="Over" data-lang-en="About">Over</a>
-      <a href="/programma" data-lang-nl="Programma" data-lang-en="Programme">Programma</a>
-      <a href="/team" aria-current="page" data-lang-nl="Team" data-lang-en="Team">Team</a>
-      <a href="/contact" data-lang-nl="Contact" data-lang-en="Contact">Contact</a>
+    <nav class="nav" aria-label="Hoofdnavigatie">
+      <a href="../index.html#top" class="brand">
+        <img src="../assets/img/logo.png" alt="Vitrien logo">
+      </a>
+
+      <div class="menu" role="menubar">
+        <a href="../index.html#over" data-lang-nl="Over" data-lang-en="About">Over</a>
+        <a href="../index.html#locaties" data-lang-nl="Data & locaties" data-lang-en="Dates & Venues">Data & locaties</a>
+        <a href="../index.html#opencall" data-lang-nl="Open call" data-lang-en="Open call">Open call</a>
+        <a href="../index.html#kunstenaars" data-lang-nl="Kunstenaars" data-lang-en="Artists">Kunstenaars</a>
+        <a href="../index.html#lov" data-lang-nl="LOV2030" data-lang-en="LOV2030">LOV2030</a>
+        <a href="../index.html#contact" data-lang-nl="Contact" data-lang-en="Contact">Contact</a>
+      </div>
+
+      <!-- Desktop taal-switch -->
+      <div class="lang-switch desktop-only" aria-label="Taalwissel">
+        <button onclick="setLang('nl')" class="active">NL</button> |
+        <button onclick="setLang('en')">EN</button>
+      </div>
+
+      <button class="burger" aria-label="Open menu" onclick="toggleDrawer()">
+        <span></span><span></span><span></span>
+      </button>
     </nav>
+
+    <!-- Drawer (mobile) -->
+    <div class="drawer" id="drawer" aria-hidden="true">
+      <a href="../index.html#over" data-lang-nl="Over" data-lang-en="About" onclick="toggleDrawer()">Over</a>
+      <a href="../index.html#locaties" data-lang-nl="Data & locaties" data-lang-en="Dates & Venues" onclick="toggleDrawer()">Data & locaties</a>
+      <a href="../index.html#opencall" data-lang-nl="Open call" data-lang-en="Open call" onclick="toggleDrawer()">Open call</a>
+      <a href="../index.html#kunstenaars" data-lang-nl="Kunstenaars" data-lang-en="Artists" onclick="toggleDrawer()">Kunstenaars</a>
+      <a href="../index.html#lov" data-lang-nl="LOV2030" data-lang-en="LOV2030" onclick="toggleDrawer()">LOV2030</a>
+      <a href="../index.html#contact" data-lang-nl="Contact" data-lang-en="Contact" onclick="toggleDrawer()">Contact</a>
+
+      <div class="lang-switch mobile-only" aria-label="Taalwissel">
+        <button onclick="setLang('nl')" class="active">NL</button> |
+        <button onclick="setLang('en')">EN</button>
+      </div>
+    </div>
   </header>
 
-  <main class="container">
-    <div class="meta" data-lang-nl="Team" data-lang-en="Team">Team</div>
-    <h1 data-lang-nl="Ontmoet het team" data-lang-en="Meet the team">Ontmoet het team</h1>
+  <main id="top">
+    <section class="container" style="padding:80px 20px">
+      <div class="meta" data-lang-nl="Team" data-lang-en="Team">Team</div>
+      <h2 data-lang-nl="Ontmoet het team" data-lang-en="Meet the team">Ontmoet het team</h2>
 
-    <!-- Jouw gekozen zin -->
-    <p class="lead">
-      Vitrien bestaat door het werk van Aya, Joseph, Thomas, Arthur en Judith, en door de onmisbare steun van Georgy, vrienden, familie &amp; vrijwilligers.
-    </p>
+      <p class="team-intro">
+        Vitrien bestaat door het werk van Aya, Joseph, Thomas, Arthur en Judith, en door de onmisbare steun van Georgy, vrienden, familie &amp; vrijwilligers.
+      </p>
 
-    <div class="team-list" role="list">
-      <!-- Aya -->
-      <details class="team-member" id="aya" role="listitem">
-        <summary class="team-name" aria-controls="aya-content" aria-expanded="false">
-          <span class="name-wrap"><strong>Aya Koné</strong> <span class="years">(1996)</span></span>
-        </summary>
-        <div id="aya-content" class="team-content">
-          <p class="team-bio">
-            Aya Koné is een interdisciplinair kunstenaar die werkt tussen Leuven en Duitsland. Haar praktijk beweegt zich tussen beeldhouwkunst, installatie en materiaalkunde en onderzoekt hoe cultureel geheugen wordt gevormd door breuk, herstel en herhaling. Ze gebruikt rituele objecten, architectuur en levende materialen zoals mycelium, aarde en bioplastics om veranderende erfenissen zichtbaar te maken. Via een onderzoeksgedreven methode waarin schrijven, sculptuur en materiële transformatie samenkomen, verkent ze thema’s van traditie, vertaling, verlies en vernieuwing binnen hedendaagse culturele contexten.
-          </p>
-        </div>
-      </details>
+      <div class="team-list" role="list">
+        <!-- Aya -->
+        <details class="team-member" id="aya" role="listitem">
+          <summary class="team-name" aria-controls="aya-content" aria-expanded="false">
+            <span class="name-wrap"><strong>Aya Koné</strong> <span class="years">(1996)</span></span>
+          </summary>
+          <div id="aya-content" class="team-content">
+            <p class="team-bio">
+              Aya Koné is een interdisciplinair kunstenaar die werkt tussen Leuven en Duitsland. Haar praktijk beweegt zich tussen beeldhouwkunst, installatie en materiaalkunde en onderzoekt hoe cultureel geheugen wordt gevormd door breuk, herstel en herhaling. Ze gebruikt rituele objecten, architectuur en levende materialen zoals mycelium, aarde en bioplastics om veranderende erfenissen zichtbaar te maken. Via een onderzoeksgedreven methode waarin schrijven, sculptuur en materiële transformatie samenkomen, verkent ze thema’s van traditie, vertaling, verlies en vernieuwing binnen hedendaagse culturele contexten.
+            </p>
+          </div>
+        </details>
 
-      <!-- Joseph -->
-      <details class="team-member" id="joseph" role="listitem">
-        <summary class="team-name" aria-controls="joseph-content" aria-expanded="false">
-          <span class="name-wrap"><strong>Joseph Thabang Palframan</strong> <span class="years">(1997)</span></span>
-        </summary>
-        <div id="joseph-content" class="team-content">
-          <p class="team-bio">
-            Joseph Thabang Palframan is een kunstenaar geboren in Windhoek, Namibië, en woont en werkt in België. Opgegroeid tussen Zuidelijk Afrika en Europa put hij inspiratie uit democratie, hood culture en muziekvideo’s om mogelijke toekomstige representaties te onderzoeken. Zijn praktijk richt zich op het zichtbaar maken van verstoringen en tegenstellingen, waarbij ook de donkere kanten van realiteit en psyche een plaats krijgen. Hij schuift deze thema’s naar voren zonder hun complexiteit te verliezen, steeds balancerend tussen licht en schaduw.
-          </p>
-        </div>
-      </details>
+        <!-- Joseph -->
+        <details class="team-member" id="joseph" role="listitem">
+          <summary class="team-name" aria-controls="joseph-content" aria-expanded="false">
+            <span class="name-wrap"><strong>Joseph Thabang Palframan</strong> <span class="years">(1997)</span></span>
+          </summary>
+          <div id="joseph-content" class="team-content">
+            <p class="team-bio">
+              Joseph Thabang Palframan is een kunstenaar geboren in Windhoek, Namibië, en woont en werkt in België. Opgegroeid tussen Zuidelijk Afrika en Europa put hij inspiratie uit democratie, hood culture en muziekvideo’s om mogelijke toekomstige representaties te onderzoeken. Zijn praktijk richt zich op het zichtbaar maken van verstoringen en tegenstellingen, waarbij ook de donkere kanten van realiteit en psyche een plaats krijgen. Hij schuift deze thema’s naar voren zonder hun complexiteit te verliezen, steeds balancerend tussen licht en schaduw.
+            </p>
+          </div>
+        </details>
 
-      <!-- Thomas -->
-      <details class="team-member" id="thomas" role="listitem">
-        <summary class="team-name" aria-controls="thomas-content" aria-expanded="false">
-          <span class="name-wrap"><strong>Thomas De Paepe</strong> <span class="years">(2000)</span></span>
-        </summary>
-        <div id="thomas-content" class="team-content">
-          <p class="team-bio">
-            Thomas De Paepe studeerde Sociologie en Cultuurmanagement en is actief op het snijvlak van kunst, stedelijke ontwikkeling en technologie. Hij werkte mee aan uiteenlopende projecten in de cultuursector, van onderzoek bij Kunstenpunt tot jurylid bij de Antwerpse Modeacademie. Zijn interesses lopen van duurzaamheid en stedelijke transities tot mode, design en digitale innovatie. Met zijn oog voor vormgeving en analytische aanpak onderzoekt hij hoe ideeën vertaald kunnen worden in sterke visuele concepten en toepasbare strategieën.
-          </p>
-        </div>
-      </details>
+        <!-- Thomas -->
+        <details class="team-member" id="thomas" role="listitem">
+          <summary class="team-name" aria-controls="thomas-content" aria-expanded="false">
+            <span class="name-wrap"><strong>Thomas De Paepe</strong> <span class="years">(2000)</span></span>
+          </summary>
+          <div id="thomas-content" class="team-content">
+            <p class="team-bio">
+              Thomas De Paepe studeerde Sociologie en Cultuurmanagement en is actief op het snijvlak van kunst, stedelijke ontwikkeling en technologie. Hij werkte mee aan uiteenlopende projecten in de cultuursector, van onderzoek bij Kunstenpunt tot jurylid bij de Antwerpse Modeacademie. Zijn interesses lopen van duurzaamheid en stedelijke transities tot mode, design en digitale innovatie. Met zijn oog voor vormgeving en analytische aanpak onderzoekt hij hoe ideeën vertaald kunnen worden in sterke visuele concepten en toepasbare strategieën.
+            </p>
+          </div>
+        </details>
 
-      <!-- Arthur -->
-      <details class="team-member" id="arthur" role="listitem">
-        <summary class="team-name" aria-controls="arthur-content" aria-expanded="false">
-          <span class="name-wrap"><strong>Arthur Moens</strong> <span class="years">(2002)</span></span>
-        </summary>
-        <div id="arthur-content" class="team-content">
-          <p class="team-bio">
-            Arthur Moens studeert Kunstwetenschappen aan de Universiteit Gent en volgt binnenkort een uitwisselingsjaar aan de Universiteit van Bologna. In 2023 ondersteunde hij Joseph Palframan bij de tentoonstelling <em>Beyond the Vanishing Point</em> en in 2024–2025 nam hij deel aan het Louvain Vague programma van STUK. Zijn interesse gaat uit naar hedendaagse kunst na 1945, onderzoeksgedreven tentoonstellingen en hoe curatoriële strategieën kritisch kunnen omgaan met epistemisch geweld binnen artistieke praktijken en hun presentaties.
-          </p>
-        </div>
-      </details>
+        <!-- Arthur -->
+        <details class="team-member" id="arthur" role="listitem">
+          <summary class="team-name" aria-controls="arthur-content" aria-expanded="false">
+            <span class="name-wrap"><strong>Arthur Moens</strong> <span class="years">(2002)</span></span>
+          </summary>
+          <div id="arthur-content" class="team-content">
+            <p class="team-bio">
+              Arthur Moens studeert Kunstwetenschappen aan de Universiteit Gent en volgt binnenkort een uitwisselingsjaar aan de Universiteit van Bologna. In 2023 ondersteunde hij Joseph Palframan bij de tentoonstelling <em>Beyond the Vanishing Point</em> en in 2024–2025 nam hij deel aan het Louvain Vague programma van STUK. Zijn interesse gaat uit naar hedendaagse kunst na 1945, onderzoeksgedreven tentoonstellingen en hoe curatoriële strategieën kritisch kunnen omgaan met epistemisch geweld binnen artistieke praktijken en hun presentaties.
+            </p>
+          </div>
+        </details>
 
-      <!-- Judith -->
-      <details class="team-member" id="judith" role="listitem">
-        <summary class="team-name" aria-controls="judith-content" aria-expanded="false">
-          <span class="name-wrap"><strong>Judith Caeyers</strong> <span class="years">(1996)</span></span>
-        </summary>
-        <div id="judith-content" class="team-content">
-          <p class="team-bio">
-            Judith Caeyers is een Belgische architect en ontwerper met ervaring bij bureaus zoals Sculp[IT] en DMOA Architecten. Daarnaast was ze de afgelopen vier jaar verantwoordelijk voor de werking van Kruul, een eventlocatie in Leuven. Haar praktijk verbindt disciplines: van interieurs en tijdelijke installaties tot brunchconcepten en websites. Ze denkt in ervaringen en systemen die logisch en menselijk aanvoelen, en zoekt daarbij steeds naar de essentie — slim en esthetisch vertaald. Haar werk beweegt zich tussen steen en pixels, structuur en experiment. Inspiratie haalt ze uit plekken over de hele wereld, eettafels en buiten de lijntjes kleuren.
-          </p>
-        </div>
-      </details>
-    </div>
+        <!-- Judith -->
+        <details class="team-member" id="judith" role="listitem">
+          <summary class="team-name" aria-controls="judith-content" aria-expanded="false">
+            <span class="name-wrap"><strong>Judith Caeyers</strong> <span class="years">(1996)</span></span>
+          </summary>
+          <div id="judith-content" class="team-content">
+            <p class="team-bio">
+              Judith Caeyers is een Belgische architect en ontwerper met ervaring bij bureaus zoals Sculp[IT] en DMOA Architecten. Daarnaast was ze de afgelopen vier jaar verantwoordelijk voor de werking van Kruul, een eventlocatie in Leuven. Haar praktijk verbindt disciplines: van interieurs en tijdelijke installaties tot brunchconcepten en websites. Ze denkt in ervaringen en systemen die logisch en menselijk aanvoelen, en zoekt daarbij steeds naar de essentie — slim en esthetisch vertaald. Haar werk beweegt zich tussen steen en pixels, structuur en experiment. Inspiratie haalt ze uit plekken over de hele wereld, eettafels en buiten de lijntjes kleuren.
+            </p>
+          </div>
+        </details>
+      </div>
+    </section>
   </main>
 
+  <!-- FOOTER (zelfde stijl) -->
   <footer>
-    <div class="container">
-      <a href="/#over">Over</a> · <a href="/index.html">Home</a>
+    <div class="footer-inner">
+      <div>© <span id="year"></span> Gepruts met pixels door Judith Caeyers &amp; Thomas De Paepe</div>
+      <a href="#top" data-lang-nl="Naar boven" data-lang-en="Back to top">Naar boven</a>
     </div>
   </footer>
 
+  <!-- Zelfde scripts als op home -->
+  <script src="../assets/js/app.js" defer></script>
   <script>
+    // Jaar in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
     // a11y: aria-expanded sync bij open/dicht
     document.querySelectorAll('details.team-member > summary.team-name').forEach(s => {
       const details = s.parentElement;
       const set = () => s.setAttribute('aria-expanded', details.open ? 'true' : 'false');
-      details.addEventListener('toggle', set);
-      set();
+      details.addEventListener('toggle', set); set();
     });
 
     // Open juiste member via hash (#aya, #joseph, #thomas, #arthur, #judith)
