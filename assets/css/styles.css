@@ -227,6 +227,35 @@ header {
 }
 
 /* ===============================
+teampagina
+================================ */
+/* TEAM (matcht globale look & feel) */
+#team .team-intro { max-width: 68ch; margin: 10px 0 18px; }
+
+#team .team-name {
+  /* gebruikt .mono-link stijl voor consistentie */
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+#team .team-bio {
+  display: none;
+  margin-top: 12px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  background: #fff;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+/* zachte open-animatie, zoals elders */
+@media (prefers-reduced-motion: no-preference) {
+  #team .team-bio.is-open { animation: teamFade .18s ease-out; }
+  @keyframes teamFade { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
+}
+
+
+/* ===============================
    Data & locaties grid
 ================================ */
 
