@@ -14,15 +14,12 @@
   <link rel="stylesheet" href="../../assets/css/styles.css">
 </head>
 <body>
-  <!-- ============ HEADER ============ -->
+  <!-- HEADER -->
   <header>
     <nav class="nav" aria-label="Hoofdnavigatie">
-      <!-- Logo -->
       <a href="../../" class="brand" aria-label="VITRIEN — Home">
         <img src="../../assets/img/logo.png" alt="Vitrien logo">
       </a>
-
-      <!-- Desktop menu -->
       <div class="menu" role="menubar">
         <a href="../../index.html#over" data-lang-nl="Over" data-lang-en="About">Over</a>
         <a href="../../index.html#locaties" data-lang-nl="Data & locaties" data-lang-en="Dates & Venues">Data & locaties</a>
@@ -31,29 +28,19 @@
         <a href="../../index.html#lov" data-lang-nl="LOV2030" data-lang-en="LOV2030">LOV2030</a>
         <a href="../../index.html#contact" data-lang-nl="Contact" data-lang-en="Contact">Contact</a>
       </div>
-
-      <!-- Desktop taal-switch -->
       <div class="lang-switch desktop-only" aria-label="Taalwissel">
         <button onclick="setLang('nl')" class="active" data-lang="nl">NL</button> |
         <button onclick="setLang('en')" data-lang="en">EN</button>
       </div>
-
-      <!-- Hamburger -->
-      <button class="burger" aria-label="Open menu" onclick="toggleDrawer()">
-        <span></span><span></span><span></span>
-      </button>
+      <button class="burger" aria-label="Open menu" onclick="toggleDrawer()"><span></span><span></span><span></span></button>
     </nav>
-
-    <!-- Mobile drawer -->
     <div class="drawer" id="drawer" aria-hidden="true">
-      <a href="../../index.html#over" data-lang-nl="Over" data-lang-en="About" onclick="toggleDrawer()">Over</a>
-      <a href="../../index.html#locaties" data-lang-nl="Data & locaties" data-lang-en="Dates & Venues" onclick="toggleDrawer()">Data & locaties</a>
-      <a href="../../index.html#opencall" data-lang-nl="Open call" data-lang-en="Open call" onclick="toggleDrawer()">Open call</a>
-      <a href="../../index.html#kunstenaars" data-lang-nl="Kunstenaars" data-lang-en="Artists" onclick="toggleDrawer()">Kunstenaars</a>
-      <a href="../../index.html#lov" data-lang-nl="LOV2030" data-lang-en="LOV2030" onclick="toggleDrawer()">LOV2030</a>
-      <a href="../../index.html#contact" data-lang-nl="Contact" data-lang-en="Contact" onclick="toggleDrawer()">Contact</a>
-
-      <!-- Mobile taal-switch -->
+      <a href="../../index.html#over" onclick="toggleDrawer()" data-lang-nl="Over" data-lang-en="About">Over</a>
+      <a href="../../index.html#locaties" onclick="toggleDrawer()" data-lang-nl="Data & locaties" data-lang-en="Dates & Venues">Data & locaties</a>
+      <a href="../../index.html#opencall" onclick="toggleDrawer()" data-lang-nl="Open call" data-lang-en="Open call">Open call</a>
+      <a href="../../index.html#kunstenaars" onclick="toggleDrawer()" data-lang-nl="Kunstenaars" data-lang-en="Artists">Kunstenaars</a>
+      <a href="../../index.html#lov" onclick="toggleDrawer()" data-lang-nl="LOV2030" data-lang-en="LOV2030">LOV2030</a>
+      <a href="../../index.html#contact" onclick="toggleDrawer()" data-lang-nl="Contact" data-lang-en="Contact">Contact</a>
       <div class="lang-switch mobile-only" aria-label="Taalwissel">
         <button onclick="setLang('nl')" class="active" data-lang="nl">NL</button> |
         <button onclick="setLang('en')" data-lang="en">EN</button>
@@ -62,59 +49,54 @@
   </header>
 
   <main id="top">
-    <!-- ============ HERO ============ -->
+    <!-- HERO -->
     <section class="hero" style="min-height:auto; padding:60px 0 20px">
       <div class="container">
         <div class="meta" data-lang-nl="Kunstenaar" data-lang-en="Artist">Kunstenaar</div>
         <h1>Nora Mahammed</h1>
-        <p class="lead"
-           data-lang-nl="Poëtische, zintuiglijke installaties • Scenografie & architectuur"
-           data-lang-en="Poetic, sensory installations • Scenography & architecture">
-          Poëtische, zintuiglijke installaties • Scenografie &amp; architectuur
+        <p class="lead" data-lang-nl="Installatie • Scenografie • Architectuur" data-lang-en="Installation • Scenography • Architecture">
+          Installatie • Scenografie • Architectuur
         </p>
       </div>
     </section>
 
-    <!-- ============ BREADCRUMB ============ -->
+    <!-- BREADCRUMB -->
     <section>
       <div class="container">
         <p class="meta" style="margin-top:-8px">
-          <a class="mono-link" href="../../index.html#kunstenaars"
-             data-lang-nl="← terug naar overzicht"
-             data-lang-en="← back to overview">← terug naar overzicht</a>
+          <a class="mono-link" href="../../index.html#kunstenaars" data-lang-nl="← terug naar overzicht" data-lang-en="← back to overview">← terug naar overzicht</a>
         </p>
       </div>
     </section>
 
-    <!-- ============ BIO + STATEMENT ============ -->
+    <!-- BIO + STATEMENT -->
     <section>
       <div class="container grid two-col">
         <article>
           <div class="meta" data-lang-nl="Biografie" data-lang-en="Biography">Biografie</div>
-          <p
-            data-lang-nl="Nora Mahammed maakt poëtische, zintuiglijke installaties op het snijvlak van scenografie en architectuur. Haar werk nodigt uit tot traag kijken en lichamelijke ervaring: materialen, schaal en ritme sturen de perceptie van ruimte en tijd. Binnen de publieke sfeer onderzoekt ze hoe tijdelijke ingrepen beweging, aandacht en ontmoeting kunnen organiseren."
-            data-lang-en="Nora Mahammed creates poetic, sensory installations situated between scenography and architecture. Her work invites slow looking and embodied experience: materials, scale and rhythm guide the perception of space and time. In public contexts she explores how temporary interventions can choreograph movement, attention and encounter.">
-            Nora Mahammed maakt poëtische, zintuiglijke installaties op het snijvlak van scenografie en architectuur...
+          <p data-lang-nl="Nora Mahammed is een kunstenaar en ontwerper die werkt op het snijvlak van scenografie, architectuur en installaties. Haar praktijk is poëtisch en zintuiglijk, vaak spelend met ruimte, materiaal en herinnering. Ze onderzoekt hoe tijdelijke constellaties emoties oproepen en het publiek uitnodigen om trager te kijken en te ervaren."
+             data-lang-en="Nora Mahammed is an artist and designer working at the intersection of scenography, architecture and installations. Her practice is poetic and sensory, often playing with space, material and memory. She explores how temporary constellations evoke emotions and invite audiences to look and experience more slowly.">
+            Nora Mahammed is een kunstenaar en ontwerper...
           </p>
-
           <div class="meta" style="margin-top:20px" data-lang-nl="Praktisch" data-lang-en="Practical">Praktisch</div>
           <p>
-            Contact via Vitrien: <a class="mono-link" href="mailto:hallo@vitrien.be">hallo@vitrien.be</a>
+            Contact: <a class="mono-link" href="mailto:nora.mahammed@gmail.com">nora.mahammed@gmail.com</a><br>
+            Instagram: <a class="mono-link" href="https://www.instagram.com/yini.lab" target="_blank" rel="noopener">@yini.lab</a>,
+            <a class="mono-link" href="https://www.instagram.com/nora.borabora" target="_blank" rel="noopener">@nora.borabora</a>
           </p>
         </article>
 
         <article>
           <div class="meta" data-lang-nl="Artist statement" data-lang-en="Artist statement">Artist statement</div>
-          <p
-            data-lang-nl="Ik vertrek vanuit ruimte als ervaring. Door licht, textiel, structuur en trajecten te moduleren, ontstaat een scenografie die niet alleen gezien wordt, maar ook wordt belopen, beluisterd en gevoeld. Ik interesseer me voor momenten waarop architectuur tijdelijk zacht wordt en de toeschouwer medemaker van de ruimte."
-            data-lang-en="I start from space as experience. By modulating light, textile, structure and paths, a scenography emerges that is not only seen, but also walked, listened to and felt. I am interested in moments when architecture temporarily softens and the viewer becomes a co-maker of space.">
-            Ik vertrek vanuit ruimte als ervaring...
+          <p data-lang-nl="Mijn werk balanceert tussen architectuur en poëzie. Ik creëer tijdelijke constellaties die spelen met licht, materiaal en ruimte, en het publiek uitnodigen om traag te kijken, te voelen en te luisteren. Elke installatie is een oefening in aandacht en aanwezigheid."
+             data-lang-en="My work balances between architecture and poetry. I create temporary constellations that play with light, material and space, inviting audiences to look, feel and listen slowly. Each installation is an exercise in attention and presence.">
+            Mijn werk balanceert tussen architectuur en poëzie...
           </p>
         </article>
       </div>
     </section>
 
-    <!-- ============ GALLERY (9 beelden) ============ -->
+    <!-- GALLERY (6 beelden) -->
     <section>
       <div class="container">
         <div class="meta" data-lang-nl="Werk" data-lang-en="Work">Werk</div>
@@ -129,27 +111,25 @@
       </div>
     </section>
 
-    <!-- ============ TERUGLINK ============ -->
+    <!-- BACKLINK -->
     <section>
       <div class="container">
-        <a class="mono-link" href="../../index.html#kunstenaars"
-           data-lang-nl="← terug naar alle kunstenaars"
-           data-lang-en="← back to all artists">← terug naar alle kunstenaars</a>
+        <a class="mono-link" href="../../index.html#kunstenaars" data-lang-nl="← terug naar alle kunstenaars" data-lang-en="← back to all artists">← terug naar alle kunstenaars</a>
       </div>
     </section>
   </main>
 
-  <!-- ============ FOOTER ============ -->
+  <!-- FOOTER -->
   <footer>
     <div class="footer-inner">
-      <div>© Webdesign door Judith Caeyers & Thomas De Paepe</div>
+      <div>© <span id="year"></span> Vitrien — Leuven</div>
       <a class="mono-link" href="#top" data-lang-nl="Naar boven" data-lang-en="Back to top">Naar boven</a>
     </div>
   </footer>
 
   <script src="../../assets/js/app.js" defer></script>
   <script>
-    // Jaar in footer
+    // Jaar automatisch
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
