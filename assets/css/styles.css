@@ -232,14 +232,17 @@ teampagina
 /* TEAM (matcht globale look & feel) */
 #team .team-intro { max-width: 68ch; margin: 10px 0 18px; }
 
-#team .team-name {
-  font-family: inherit;      /* neemt het lettertype van de lopende tekst over */
-  font-weight: inherit;      /* neemt hetzelfde gewicht als de tekst */
-  font-size: inherit;        /* neemt de grootte van de tekst */
+#team .team-name{
+  font-family: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+  text-transform: none;
   text-decoration: underline;
   text-underline-offset: 3px;
-  cursor: pointer;           /* blijft wel klikbaar */
+  cursor: pointer;
 }
+#team .team-name:hover{ text-decoration-thickness: 2px; }
+
 
 
 #team .team-bio {
