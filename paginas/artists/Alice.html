@@ -17,12 +17,10 @@
   <!-- ============ HEADER ============ -->
   <header>
     <nav class="nav" aria-label="Hoofdnavigatie">
-      <!-- Logo -->
       <a href="../../" class="brand" aria-label="VITRIEN — Home">
         <img src="../../assets/img/logo.png" alt="Vitrien logo">
       </a>
 
-      <!-- Desktop menu -->
       <div class="menu" role="menubar">
         <a href="../../index.html#over" data-lang-nl="Over" data-lang-en="About">Over</a>
         <a href="../../index.html#locaties" data-lang-nl="Data & locaties" data-lang-en="Dates & Venues">Data & locaties</a>
@@ -32,13 +30,11 @@
         <a href="../../index.html#contact" data-lang-nl="Contact" data-lang-en="Contact">Contact</a>
       </div>
 
-      <!-- Desktop taal-switch -->
       <div class="lang-switch desktop-only" aria-label="Taalwissel">
         <button onclick="setLang('nl')" class="active" data-lang="nl">NL</button> |
         <button onclick="setLang('en')" data-lang="en">EN</button>
       </div>
 
-      <!-- Hamburger -->
       <button class="burger" aria-label="Open menu" onclick="toggleDrawer()">
         <span></span><span></span><span></span>
       </button>
@@ -46,14 +42,13 @@
 
     <!-- Mobile drawer -->
     <div class="drawer" id="drawer" aria-hidden="true">
-      <a href="../../index.html#over" onclick="toggleDrawer()" data-lang-nl="Over" data-lang-en="About">Over</a>
-      <a href="../../index.html#locaties" onclick="toggleDrawer()" data-lang-nl="Data & locaties" data-lang-en="Dates & Venues">Data & locaties</a>
-      <a href="../../index.html#opencall" onclick="toggleDrawer()" data-lang-nl="Open call" data-lang-en="Open call">Open call</a>
-      <a href="../../index.html#kunstenaars" onclick="toggleDrawer()" data-lang-nl="Kunstenaars" data-lang-en="Artists">Kunstenaars</a>
-      <a href="../../index.html#lov" onclick="toggleDrawer()" data-lang-nl="LOV2030" data-lang-en="LOV2030">LOV2030</a>
-      <a href="../../index.html#contact" onclick="toggleDrawer()" data-lang-nl="Contact" data-lang-en="Contact">Contact</a>
+      <a href="../../index.html#over" data-lang-nl="Over" data-lang-en="About" onclick="toggleDrawer()">Over</a>
+      <a href="../../index.html#locaties" data-lang-nl="Data & locaties" data-lang-en="Dates & Venues" onclick="toggleDrawer()">Data & locaties</a>
+      <a href="../../index.html#opencall" data-lang-nl="Open call" data-lang-en="Open call" onclick="toggleDrawer()">Open call</a>
+      <a href="../../index.html#kunstenaars" data-lang-nl="Kunstenaars" data-lang-en="Artists" onclick="toggleDrawer()">Kunstenaars</a>
+      <a href="../../index.html#lov" data-lang-nl="LOV2030" data-lang-en="LOV2030" onclick="toggleDrawer()">LOV2030</a>
+      <a href="../../index.html#contact" data-lang-nl="Contact" data-lang-en="Contact" onclick="toggleDrawer()">Contact</a>
 
-      <!-- Mobile taal-switch -->
       <div class="lang-switch mobile-only" aria-label="Taalwissel">
         <button onclick="setLang('nl')" class="active" data-lang="nl">NL</button> |
         <button onclick="setLang('en')" data-lang="en">EN</button>
@@ -134,4 +129,22 @@
     <!-- ============ TERUGLINK ============ -->
     <section>
       <div class="container">
-        <a class="mono-link" href="../../index.html#kunstenaars" data-lang-nl="← terug naar alle kunstenaars" data-lang-en="← back to all artists">← terug naar all
+        <a class="mono-link" href="../../index.html#kunstenaars" data-lang-nl="← terug naar alle kunstenaars" data-lang-en="← back to all artists">← terug naar alle kunstenaars</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    <div class="footer-inner">
+      <div>© <span id="year"></span> Vitrien — Leuven</div>
+      <a class="mono-link" href="#top" data-lang-nl="Naar boven" data-lang-en="Back to top">Naar boven</a>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/app.js" defer></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
