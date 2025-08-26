@@ -16,39 +16,50 @@
 <body>
   <!-- ============ HEADER ============ -->
   <header>
-  <nav class="nav" aria-label="Hoofdnavigatie">
-    <a href="../../" class="brand" aria-label="VITRIEN — Home">
-      <img src="../../assets/img/logo.png" alt="Vitrien logo">
-    </a>
-    <div class="menu" role="menubar">
-      <a href="../../index.html#over" data-lang-nl="Over" data-lang-en="About">Over</a>
-      <a href="../../index.html#locaties" data-lang-nl="Data & locaties" data-lang-en="Dates & Venues">Data & locaties</a>
-      <a href="../../index.html#opencall" data-lang-nl="Open call" data-lang-en="Open call">Open call</a>
-      <a href="../../index.html#kunstenaars" data-lang-nl="Kunstenaars" data-lang-en="Artists">Kunstenaars</a>
-      <a href="../../index.html#lov" data-lang-nl="LOV2030" data-lang-en="LOV2030">LOV2030</a>
-      <a href="../../index.html#contact" data-lang-nl="Contact" data-lang-en="Contact">Contact</a>
+    <nav class="nav" aria-label="Hoofdnavigatie">
+      <!-- Logo -->
+      <a href="../../" class="brand" aria-label="VITRIEN — Home">
+        <img src="../../assets/img/logo.png" alt="Vitrien logo">
+      </a>
+
+      <!-- Desktop menu -->
+      <div class="menu" role="menubar">
+        <a href="../../index.html#over" data-lang-nl="Over" data-lang-en="About">Over</a>
+        <a href="../../index.html#locaties" data-lang-nl="Data & locaties" data-lang-en="Dates & Venues">Data & locaties</a>
+        <a href="../../index.html#opencall" data-lang-nl="Open call" data-lang-en="Open call">Open call</a>
+        <a href="../../index.html#kunstenaars" data-lang-nl="Kunstenaars" data-lang-en="Artists">Kunstenaars</a>
+        <a href="../../index.html#lov" data-lang-nl="LOV2030" data-lang-en="LOV2030">LOV2030</a>
+        <a href="../../index.html#contact" data-lang-nl="Contact" data-lang-en="Contact">Contact</a>
+      </div>
+
+      <!-- Desktop taal-switch -->
+      <div class="lang-switch desktop-only" aria-label="Taalwissel">
+        <button onclick="setLang('nl')" class="active" data-lang="nl">NL</button> |
+        <button onclick="setLang('en')" data-lang="en">EN</button>
+      </div>
+
+      <!-- Hamburger -->
+      <button class="burger" aria-label="Open menu" onclick="toggleDrawer()">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <!-- Mobile drawer -->
+    <div class="drawer" id="drawer" aria-hidden="true">
+      <a href="../../index.html#over" data-lang-nl="Over" data-lang-en="About" onclick="toggleDrawer()">Over</a>
+      <a href="../../index.html#locaties" data-lang-nl="Data & locaties" data-lang-en="Dates & Venues" onclick="toggleDrawer()">Data & locaties</a>
+      <a href="../../index.html#opencall" data-lang-nl="Open call" data-lang-en="Open call" onclick="toggleDrawer()">Open call</a>
+      <a href="../../index.html#kunstenaars" data-lang-nl="Kunstenaars" data-lang-en="Artists" onclick="toggleDrawer()">Kunstenaars</a>
+      <a href="../../index.html#lov" data-lang-nl="LOV2030" data-lang-en="LOV2030" onclick="toggleDrawer()">LOV2030</a>
+      <a href="../../index.html#contact" data-lang-nl="Contact" data-lang-en="Contact" onclick="toggleDrawer()">Contact</a>
+
+      <!-- Mobile taal-switch -->
+      <div class="lang-switch mobile-only" aria-label="Taalwissel">
+        <button onclick="setLang('nl')" class="active" data-lang="nl">NL</button> |
+        <button onclick="setLang('en')" data-lang="en">EN</button>
+      </div>
     </div>
-    <div class="lang-switch desktop-only" aria-label="Taalwissel">
-      <button onclick="setLang('nl')" class="active" data-lang="nl">NL</button> |
-      <button onclick="setLang('en')" data-lang="en">EN</button>
-    </div>
-    <button class="burger" aria-label="Open menu" onclick="toggleDrawer()">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
-  <div class="drawer" id="drawer" aria-hidden="true">
-    <a href="../../index.html#over" data-lang-nl="Over" data-lang-en="About" onclick="toggleDrawer()">Over</a>
-    <a href="../../index.html#locaties" data-lang-nl="Data & locaties" data-lang-en="Dates & Venues" onclick="toggleDrawer()">Data & locaties</a>
-    <a href="../../index.html#opencall" data-lang-nl="Open call" data-lang-en="Open call" onclick="toggleDrawer()">Open call</a>
-    <a href="../../index.html#kunstenaars" data-lang-nl="Kunstenaars" data-lang-en="Artists" onclick="toggleDrawer()">Kunstenaars</a>
-    <a href="../../index.html#lov" data-lang-nl="LOV2030" data-lang-en="LOV2030" onclick="toggleDrawer()">LOV2030</a>
-    <a href="../../index.html#contact" data-lang-nl="Contact" data-lang-en="Contact" onclick="toggleDrawer()">Contact</a>
-    <div class="lang-switch mobile-only" aria-label="Taalwissel">
-      <button onclick="setLang('nl')" class="active" data-lang="nl">NL</button> |
-      <button onclick="setLang('en')" data-lang="en">EN</button>
-    </div>
-  </div>
-</header>
+  </header>
 
   <main id="top">
     <!-- ============ HERO ============ -->
@@ -56,8 +67,10 @@
       <div class="container">
         <div class="meta" data-lang-nl="Kunstenaar" data-lang-en="Artist">Kunstenaar</div>
         <h1>Nora Mahammed</h1>
-        <p class="lead" data-lang-nl="Interieurarchitectuur • Installatie • Ruimtelijke kunst" data-lang-en="Interior architecture • Installation • Spatial art">
-          Interieurarchitectuur • Installatie • Ruimtelijke kunst
+        <p class="lead"
+           data-lang-nl="Poëtische, zintuiglijke installaties • Scenografie & architectuur"
+           data-lang-en="Poetic, sensory installations • Scenography & architecture">
+          Poëtische, zintuiglijke installaties • Scenografie &amp; architectuur
         </p>
       </div>
     </section>
@@ -66,7 +79,9 @@
     <section>
       <div class="container">
         <p class="meta" style="margin-top:-8px">
-          <a class="mono-link" href="../../index.html#kunstenaars" data-lang-nl="← terug naar overzicht" data-lang-en="← back to overview">← terug naar overzicht</a>
+          <a class="mono-link" href="../../index.html#kunstenaars"
+             data-lang-nl="← terug naar overzicht"
+             data-lang-en="← back to overview">← terug naar overzicht</a>
         </p>
       </div>
     </section>
@@ -76,47 +91,40 @@
       <div class="container grid two-col">
         <article>
           <div class="meta" data-lang-nl="Biografie" data-lang-en="Biography">Biografie</div>
-          <p data-lang-nl="Nora Mahammed is interieurarchitect en beeldend kunstenaar, gevestigd in Brussel. In haar werk transformeert ze ruimtes tot poëtische, immersieve omgevingen. Door scenografie, architectuur en tactiele kunst te verweven, creëert ze zintuiglijke landschappen die herinnering, zachtheid en emotionele resonantie oproepen. Haar installaties functioneren vaak als portalen: plekken die uitnodigen tot rust, reflectie en herverbinding met lichaam en het onzichtbare."
-             data-lang-en="Nora Mahammed is an interior architect and visual artist based in Brussels. She transforms spaces into poetic and immersive environments. Blending scenography, architecture, and tactile art, she creates sensory landscapes that evoke memory, softness, and emotional resonance. Her installations often function as portals: spaces that invite calm, reflection, and reconnection with the body and the invisible.">
-            Nora Mahammed is interieurarchitect en beeldend kunstenaar...
+          <p
+            data-lang-nl="Nora Mahammed maakt poëtische, zintuiglijke installaties op het snijvlak van scenografie en architectuur. Haar werk nodigt uit tot traag kijken en lichamelijke ervaring: materialen, schaal en ritme sturen de perceptie van ruimte en tijd. Binnen de publieke sfeer onderzoekt ze hoe tijdelijke ingrepen beweging, aandacht en ontmoeting kunnen organiseren."
+            data-lang-en="Nora Mahammed creates poetic, sensory installations situated between scenography and architecture. Her work invites slow looking and embodied experience: materials, scale and rhythm guide the perception of space and time. In public contexts she explores how temporary interventions can choreograph movement, attention and encounter.">
+            Nora Mahammed maakt poëtische, zintuiglijke installaties op het snijvlak van scenografie en architectuur...
           </p>
+
           <div class="meta" style="margin-top:20px" data-lang-nl="Praktisch" data-lang-en="Practical">Praktisch</div>
           <p>
-            Instagram: <a class="mono-link" href="https://instagram.com/yini.lab" target="_blank">@yini.lab</a> & 
-            <a class="mono-link" href="https://instagram.com/nora.borabora" target="_blank">@nora.borabora</a>
+            Contact via Vitrien: <a class="mono-link" href="mailto:hallo@vitrien.be">hallo@vitrien.be</a>
           </p>
         </article>
 
         <article>
           <div class="meta" data-lang-nl="Artist statement" data-lang-en="Artist statement">Artist statement</div>
-          <p data-lang-nl="Mijn installaties zijn zintuiglijke landschappen die functioneren als liefdesspreuken en sensoriële sanctuaria. Projecten zoals *Heart Capsule* en *Remember* nodigen uit tot vertraging, verstilling en verbinding met het lichaam en de onzichtbare lagen van het bestaan. Door licht, textuur en klank in te zetten, creëer ik plekken die tijd doen vervagen en herinnering lichamelijk activeren. Mijn werk wil intimiteit en zachtheid ruimte geven en de bezoeker leiden naar iets diepers, ongeziens en tijdloos."
-             data-lang-en="My installations are sensory landscapes that function as love spells and sensory sanctuaries. Projects such as *Heart Capsule* and *Remember* invite slowing down, stillness, and reconnection with the body and the invisible layers of existence. Through the use of light, texture, and sound, I create spaces where time dissolves and memory is awakened in the body. My work aims to hold space for intimacy and softness, guiding visitors toward something deeper, unseen, and timeless.">
-            Mijn installaties zijn zintuiglijke landschappen die functioneren als liefdesspreuken...
+          <p
+            data-lang-nl="Ik vertrek vanuit ruimte als ervaring. Door licht, textiel, structuur en trajecten te moduleren, ontstaat een scenografie die niet alleen gezien wordt, maar ook wordt belopen, beluisterd en gevoeld. Ik interesseer me voor momenten waarop architectuur tijdelijk zacht wordt en de toeschouwer medemaker van de ruimte."
+            data-lang-en="I start from space as experience. By modulating light, textile, structure and paths, a scenography emerges that is not only seen, but also walked, listened to and felt. I am interested in moments when architecture temporarily softens and the viewer becomes a co-maker of space.">
+            Ik vertrek vanuit ruimte als ervaring...
           </p>
         </article>
       </div>
     </section>
 
-    <!-- ============ GALLERY ============ -->
+    <!-- ============ GALLERY (9 beelden) ============ -->
     <section>
       <div class="container">
         <div class="meta" data-lang-nl="Werk" data-lang-en="Work">Werk</div>
         <div class="grid gallery">
-          <figure class="module">
-            <img src="../../assets/img/artists/Nora1.jpg" alt="Werk — Nora Mahammed">
-          </figure>
-          <figure class="module">
-            <img src="../../assets/img/artists/Nora2.jpg" alt="Werk — Nora Mahammed">
-          </figure>
-          <figure class="module">
-            <img src="../../assets/img/artists/Nora3.jpg" alt="Werk — Nora Mahammed">
-          </figure>
-          <figure class="module">
-            <img src="../../assets/img/artists/Nora4.jpg" alt="Werk — Nora Mahammed">
-          </figure>
-          <figure class="module">
-            <img src="../../assets/img/artists/Nora5.jpg" alt="Werk — Nora Mahammed">
-          </figure>
+          <figure class="module"><img src="../../assets/img/artists/Nora/Nora1.jpg" alt="Werk — Nora Mahammed"></figure>
+          <figure class="module"><img src="../../assets/img/artists/Nora/Nora2.jpg" alt="Werk — Nora Mahammed"></figure>
+          <figure class="module"><img src="../../assets/img/artists/Nora/Nora3.jpg" alt="Werk — Nora Mahammed"></figure>
+          <figure class="module"><img src="../../assets/img/artists/Nora/Nora4.jpg" alt="Werk — Nora Mahammed"></figure>
+          <figure class="module"><img src="../../assets/img/artists/Nora/Nora5.jpg" alt="Werk — Nora Mahammed"></figure>
+          <figure class="module"><img src="../../assets/img/artists/Nora/Nora6.jpg" alt="Werk — Nora Mahammed"></figure>
         </div>
       </div>
     </section>
@@ -124,18 +132,25 @@
     <!-- ============ TERUGLINK ============ -->
     <section>
       <div class="container">
-        <a class="mono-link" href="../../index.html#kunstenaars" data-lang-nl="← terug naar alle kunstenaars" data-lang-en="← back to all artists">← terug naar alle kunstenaars</a>
+        <a class="mono-link" href="../../index.html#kunstenaars"
+           data-lang-nl="← terug naar alle kunstenaars"
+           data-lang-en="← back to all artists">← terug naar alle kunstenaars</a>
       </div>
     </section>
   </main>
 
+  <!-- ============ FOOTER ============ -->
   <footer>
     <div class="footer-inner">
-      <div>© <span id="year"></span> Vitrien — Leuven</div>
+      <div>© <span id="year"></span> Webdesign door Judith Caeyers & Thomas De Paepe</div>
       <a class="mono-link" href="#top" data-lang-nl="Naar boven" data-lang-en="Back to top">Naar boven</a>
     </div>
   </footer>
 
   <script src="../../assets/js/app.js" defer></script>
+  <script>
+    // Jaar in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
