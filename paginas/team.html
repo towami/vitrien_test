@@ -1,94 +1,210 @@
-<section id="team">
-  <div class="container">
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VITRIEN — Team</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..700;1,400..700&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#ffffff;
+      --fg:#0a0a0a;
+      --muted:#6b6b6b;
+      --border:#e8e8e8;
+      --soft:#fafafa;
+    }
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);}
+    body{font-family:"EB Garamond",serif; line-height:1.55;}
+
+    /* Layout */
+    header{
+      position:sticky; top:0; z-index:10;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 20px; border-bottom:1px solid var(--border); background:var(--bg);
+    }
+    .brand{
+      font-family:Roboto,system-ui,sans-serif; font-weight:700; letter-spacing:.08em;
+      text-transform:uppercase; text-decoration:none; color:var(--fg);
+    }
+    nav a{
+      font-family:"EB Garamond",serif; color:var(--fg); text-decoration:none; margin-left:18px;
+    }
+    .container{max-width:960px; margin:0 auto; padding:28px 20px 80px;}
+
+    /* Meta + headings */
+    .meta{
+      font-family:Roboto,system-ui,sans-serif; text-transform:uppercase; letter-spacing:.12em;
+      font-size:.8rem; color:var(--muted); margin-top:6px;
+    }
+    h1,h2{
+      font-family:Roboto,system-ui,sans-serif; text-transform:uppercase; letter-spacing:.06em;
+      margin:12px 0 8px;
+    }
+    h1{ font-size:clamp(1.6rem,1.1rem + 2vw,2.4rem); }
+    .lead{ max-width:62ch; margin:10px 0 26px; }
+
+    /* Button link (optional reuse) */
+    .button{
+      display:inline-block; border:1px solid var(--fg); border-radius:999px;
+      padding:10px 14px; text-decoration:none; color:var(--fg);
+    }
+
+    /* Team list (accordion using <details>) */
+    .team-list{ border-top:1px solid var(--border); }
+    details.team-member{ border-bottom:1px solid var(--border); background:transparent; }
+    summary.team-name{
+      list-style:none; cursor:pointer; user-select:none; outline:none;
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      padding:18px 0; margin:0;
+      font-family:"EB Garamond",serif; font-size:1.125rem; line-height:1.3;
+    }
+    summary.team-name::-webkit-details-marker{ display:none; }
+    .name-wrap{ display:flex; gap:8px; align-items:baseline; }
+    .years{ color:var(--muted); font-size:.95rem; }
+
+    /* Plus/Minus indicator */
+    summary.team-name::after{
+      content:"+"; font-family:Roboto,system-ui,sans-serif; font-weight:700;
+    }
+    details[open] > summary.team-name::after{ content:"–"; }
+
+    .team-content{ padding:0 0 18px; }
+    .team-bio{ margin:0; }
+
+    /* Subtle open animation */
+    @media (prefers-reduced-motion:no-preference){
+      .team-content{ animation:slide .18s ease-out; }
+      @keyframes slide{ from{opacity:0; transform:translateY(-4px);} to{opacity:1; transform:none;} }
+      details[open]{ background:var(--soft); }
+    }
+
+    footer{
+      border-top:1px solid var(--border); color:var(--muted);
+      padding:22px 20px; font-size:.95rem;
+    }
+    a{text-underline-offset:2px;}
+  </style>
+</head>
+<body>
+
+  <header>
+    <a class="brand" href="/index.html">Vitrien</a>
+    <nav>
+      <a href="/#over" data-lang-nl="Over" data-lang-en="About">Over</a>
+      <a href="/programma" data-lang-nl="Programma" data-lang-en="Programme">Programma</a>
+      <a href="/team" aria-current="page" data-lang-nl="Team" data-lang-en="Team">Team</a>
+      <a href="/contact" data-lang-nl="Contact" data-lang-en="Contact">Contact</a>
+    </nav>
+  </header>
+
+  <main class="container">
     <div class="meta" data-lang-nl="Team" data-lang-en="Team">Team</div>
-    <h2 data-lang-nl="Ontmoet het team" data-lang-en="Meet the team">Ontmoet het team</h2>
+    <h1 data-lang-nl="Ontmoet het team" data-lang-en="Meet the team">Ontmoet het team</h1>
 
-    <div class="team-list">
+    <p class="lead"
+       data-lang-nl="Vitrien wordt met veel liefde gerund door Judith, Georgy, Joseph en Arthur, en daarnaast nog ondersteund door talloze andere mensen, vrienden, familie & vrijwilligers."
+       data-lang-en="Vitrien is lovingly run by Judith, Georgy, Joseph and Arthur, and supported by countless others — friends, family & volunteers.">
+      Vitrien wordt met veel liefde gerund door Judith, Georgy, Joseph en Arthur, en daarnaast nog ondersteund door talloze andere mensen, vrienden, familie & vrijwilligers.
+    </p>
 
-      <div class="team-member">
-        <button class="team-name">Aya Koné (1996)</button>
-        <div class="team-bio">
-          Aya Koné is een interdisciplinair kunstenaar die werkt tussen Leuven en Duitsland. 
-          Haar praktijk beweegt zich tussen beeldhouwkunst, installatie en materiaalkunde en onderzoekt hoe cultureel geheugen wordt gevormd door breuk, herstel en herhaling. 
-          Ze gebruikt rituele objecten, architectuur en levende materialen zoals mycelium, aarde en bioplastics om veranderende erfenissen zichtbaar te maken. 
-          Via een onderzoeksgedreven methode waarin schrijven, sculptuur en materiële transformatie samenkomen, verkent ze thema’s van traditie, vertaling, verlies en vernieuwing binnen hedendaagse culturele contexten.
+    <div class="team-list" role="list">
+      <!-- Aya -->
+      <details class="team-member" id="aya" role="listitem">
+        <summary class="team-name" aria-controls="aya-content" aria-expanded="false">
+          <span class="name-wrap"><strong>Aya Koné</strong> <span class="years">(1996)</span></span>
+        </summary>
+        <div id="aya-content" class="team-content">
+          <p class="team-bio">
+            Aya Koné is een interdisciplinair kunstenaar die werkt tussen Leuven en Duitsland. Haar praktijk beweegt zich tussen beeldhouwkunst, installatie en materiaalkunde en onderzoekt hoe cultureel geheugen wordt gevormd door breuk, herstel en herhaling. Ze gebruikt rituele objecten, architectuur en levende materialen zoals mycelium, aarde en bioplastics om veranderende erfenissen zichtbaar te maken. Via een onderzoeksgedreven methode waarin schrijven, sculptuur en materiële transformatie samenkomen, verkent ze thema’s van traditie, vertaling, verlies en vernieuwing binnen hedendaagse culturele contexten.
+          </p>
         </div>
-      </div>
+      </details>
 
-      <div class="team-member">
-        <button class="team-name">Joseph Thabang Palframan (1997)</button>
-        <div class="team-bio">
-          Joseph Thabang Palframan is een kunstenaar geboren in Windhoek, Namibië, en woont en werkt in België. 
-          Opgegroeid tussen Zuidelijk Afrika en Europa put hij inspiratie uit democratie, hood culture en muziekvideo’s om mogelijke toekomstige representaties te onderzoeken. 
-          Zijn praktijk richt zich op het zichtbaar maken van verstoringen en tegenstellingen, waarbij ook de donkere kanten van realiteit en psyche een plaats krijgen. 
-          Hij schuift deze thema’s naar voren zonder hun complexiteit te verliezen, steeds balancerend tussen licht en schaduw.
+      <!-- Joseph -->
+      <details class="team-member" id="joseph" role="listitem">
+        <summary class="team-name" aria-controls="joseph-content" aria-expanded="false">
+          <span class="name-wrap"><strong>Joseph Thabang Palframan</strong> <span class="years">(1997)</span></span>
+        </summary>
+        <div id="joseph-content" class="team-content">
+          <p class="team-bio">
+            Joseph Thabang Palframan is een kunstenaar geboren in Windhoek, Namibië, en woont en werkt in België. Opgegroeid tussen Zuidelijk Afrika en Europa put hij inspiratie uit democratie, hood culture en muziekvideo’s om mogelijke toekomstige representaties te onderzoeken. Zijn praktijk richt zich op het zichtbaar maken van verstoringen en tegenstellingen, waarbij ook de donkere kanten van realiteit en psyche een plaats krijgen. Hij schuift deze thema’s naar voren zonder hun complexiteit te verliezen, steeds balancerend tussen licht en schaduw.
+          </p>
         </div>
-      </div>
+      </details>
 
-      <div class="team-member">
-        <button class="team-name">Thomas De Paepe (2000)</button>
-        <div class="team-bio">
-          Thomas De Paepe studeerde Sociologie en Cultuurmanagement en is actief op het snijvlak van kunst, stedelijke ontwikkeling en technologie. 
-          Hij werkte mee aan uiteenlopende projecten in de cultuursector, van onderzoek bij Kunstenpunt tot jurylid bij de Antwerpse Modeacademie. 
-          Zijn interesses lopen van duurzaamheid en stedelijke transities tot mode, design en digitale innovatie. 
-          Met zijn oog voor vormgeving en analytische aanpak onderzoekt hij hoe ideeën vertaald kunnen worden in sterke visuele concepten en toepasbare strategieën.
+      <!-- Thomas -->
+      <details class="team-member" id="thomas" role="listitem">
+        <summary class="team-name" aria-controls="thomas-content" aria-expanded="false">
+          <span class="name-wrap"><strong>Thomas De Paepe</strong> <span class="years">(2000)</span></span>
+        </summary>
+        <div id="thomas-content" class="team-content">
+          <p class="team-bio">
+            Thomas De Paepe studeerde Sociologie en Cultuurmanagement en is actief op het snijvlak van kunst, stedelijke ontwikkeling en technologie. Hij werkte mee aan uiteenlopende projecten in de cultuursector, van onderzoek bij Kunstenpunt tot jurylid bij de Antwerpse Modeacademie. Zijn interesses lopen van duurzaamheid en stedelijke transities tot mode, design en digitale innovatie. Met zijn oog voor vormgeving en analytische aanpak onderzoekt hij hoe ideeën vertaald kunnen worden in sterke visuele concepten en toepasbare strategieën.
+          </p>
         </div>
-      </div>
+      </details>
 
-      <div class="team-member">
-        <button class="team-name">Judith Caeyers (1996)</button>
-        <div class="team-bio">
-          Judith Caeyers is een Belgische architect en ontwerper met ervaring bij bureaus zoals Sculp[IT] en DMOA Architecten. 
-          Daarnaast was ze de afgelopen vier jaar verantwoordelijk voor de werking van Kruul, een eventlocatie in Leuven. 
-          Haar praktijk verbindt disciplines: van interieurs en tijdelijke installaties tot brunchconcepten en websites. 
-          Ze denkt in ervaringen en systemen die logisch en menselijk aanvoelen, en zoekt daarbij steeds naar de essentie — slim en esthetisch vertaald. 
-          Haar werk beweegt zich tussen steen en pixels, structuur en experiment. Inspiratie haalt ze uit plekken over de hele wereld, eettafels en buiten de lijntjes kleuren.
+      <!-- Judith -->
+      <details class="team-member" id="judith" role="listitem">
+        <summary class="team-name" aria-controls="judith-content" aria-expanded="false">
+          <span class="name-wrap"><strong>Judith Caeyers</strong> <span class="years">(1996)</span></span>
+        </summary>
+        <div id="judith-content" class="team-content">
+          <p class="team-bio">
+            Judith Caeyers is een Belgische architect en ontwerper met ervaring bij bureaus zoals Sculp[IT] en DMOA Architecten. Daarnaast was ze de afgelopen vier jaar verantwoordelijk voor de werking van Kruul, een eventlocatie in Leuven. Haar praktijk verbindt disciplines: van interieurs en tijdelijke installaties tot brunchconcepten en websites. Ze denkt in ervaringen en systemen die logisch en menselijk aanvoelen, en zoekt daarbij steeds naar de essentie — slim en esthetisch vertaald. Haar werk beweegt zich tussen steen en pixels, structuur en experiment. Inspiratie haalt ze uit plekken over de hele wereld, eettafels en buiten de lijntjes kleuren.
+          </p>
         </div>
-      </div>
+      </details>
 
-      <div class="team-member">
-        <button class="team-name">Arthur Moens (2002)</button>
-        <div class="team-bio">
-          Arthur Moens studeert Kunstwetenschappen aan de Universiteit Gent en volgt binnenkort een uitwisselingsjaar aan de Universiteit van Bologna. 
-          In 2023 ondersteunde hij Joseph Palframan bij de tentoonstelling <em>Beyond the Vanishing Point</em> en in 2024–2025 nam hij deel aan het Louvain Vague programma van STUK. 
-          Zijn interesse gaat uit naar hedendaagse kunst na 1945, onderzoeksgedreven tentoonstellingen en hoe curatoriële strategieën kritisch kunnen omgaan met epistemisch geweld binnen artistieke praktijken en hun presentaties.
+      <!-- Arthur -->
+      <details class="team-member" id="arthur" role="listitem">
+        <summary class="team-name" aria-controls="arthur-content" aria-expanded="false">
+          <span class="name-wrap"><strong>Arthur Moens</strong> <span class="years">(2002)</span></span>
+        </summary>
+        <div id="arthur-content" class="team-content">
+          <p class="team-bio">
+            Arthur Moens studeert Kunstwetenschappen aan de Universiteit Gent en volgt binnenkort een uitwisselingsjaar aan de Universiteit van Bologna. In 2023 ondersteunde hij Joseph Palframan bij de tentoonstelling <em>Beyond the Vanishing Point</em> en in 2024–2025 nam hij deel aan het Louvain Vague programma van STUK. Zijn interesse gaat uit naar hedendaagse kunst na 1945, onderzoeksgedreven tentoonstellingen en hoe curatoriële strategieën kritisch kunnen omgaan met epistemisch geweld binnen artistieke praktijken en hun presentaties.
+          </p>
         </div>
-      </div>
-
+      </details>
     </div>
-  </div>
-</section>
+  </main>
 
-<style>
-  .team-name {
-    display: block;
-    width: 100%;
-    text-align: left;
-    font-family: Roboto, sans-serif;
-    font-size: 1.1rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    background: none;
-    border: none;
-    padding: 0.5em 0;
-    cursor: pointer;
-  }
-  .team-bio {
-    display: none;
-    font-family: "EB Garamond", serif;
-    font-size: 1rem;
-    margin-bottom: 1em;
-  }
-  .team-member.active .team-bio {
-    display: block;
-  }
-</style>
+  <footer>
+    <div class="container">
+      <span data-lang-nl="Terug naar" data-lang-en="Back to"></span>
+      <a href="/#over" class="back" data-lang-nl="Over" data-lang-en="About">Over</a>
+      ·
+      <a href="/index.html" class="back" data-lang-nl="Home" data-lang-en="Home">Home</a>
+    </div>
+  </footer>
 
-<script>
-  document.querySelectorAll('.team-name').forEach(button => {
-    button.addEventListener('click', () => {
-      const member = button.parentElement;
-      member.classList.toggle('active');
+  <script>
+    // Improve a11y state for aria-expanded on <summary>
+    document.querySelectorAll('details.team-member > summary.team-name').forEach(s => {
+      const details = s.parentElement;
+      const set = () => s.setAttribute('aria-expanded', details.open ? 'true' : 'false');
+      details.addEventListener('toggle', set);
+      set();
     });
-  });
-</script>
+
+    // Open the correct member if URL has a #hash
+    function openFromHash(){
+      if(location.hash){
+        const target = document.querySelector(location.hash);
+        if(target && target.tagName.toLowerCase() === 'details'){
+          target.setAttribute('open','');
+          target.scrollIntoView({behavior:'smooth', block:'start'});
+        }
+      }
+    }
+    window.addEventListener('hashchange', openFromHash);
+    openFromHash();
+  </script>
+</body>
+</html>
