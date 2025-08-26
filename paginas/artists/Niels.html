@@ -16,39 +16,42 @@
 <body>
   <!-- ============ HEADER ============ -->
   <header>
-  <nav class="nav" aria-label="Hoofdnavigatie">
-    <a href="../../" class="brand" aria-label="VITRIEN — Home">
-      <img src="../../assets/img/logo.png" alt="Vitrien logo">
-    </a>
-    <div class="menu" role="menubar">
-      <a href="../../index.html#over" data-lang-nl="Over" data-lang-en="About">Over</a>
-      <a href="../../index.html#locaties" data-lang-nl="Data & locaties" data-lang-en="Dates & Venues">Data & locaties</a>
-      <a href="../../index.html#opencall" data-lang-nl="Open call" data-lang-en="Open call">Open call</a>
-      <a href="../../index.html#kunstenaars" data-lang-nl="Kunstenaars" data-lang-en="Artists">Kunstenaars</a>
-      <a href="../../index.html#lov" data-lang-nl="LOV2030" data-lang-en="LOV2030">LOV2030</a>
-      <a href="../../index.html#contact" data-lang-nl="Contact" data-lang-en="Contact">Contact</a>
+    <nav class="nav" aria-label="Hoofdnavigatie">
+      <a href="../../" class="brand" aria-label="VITRIEN — Home">
+        <img src="../../assets/img/logo.png" alt="Vitrien logo">
+      </a>
+      <div class="menu" role="menubar">
+        <a href="../../index.html#over" data-lang-nl="Over" data-lang-en="About">Over</a>
+        <a href="../../index.html#locaties" data-lang-nl="Data & locaties" data-lang-en="Dates & Venues">Data & locaties</a>
+        <a href="../../index.html#opencall" data-lang-nl="Open call" data-lang-en="Open call">Open call</a>
+        <a href="../../index.html#kunstenaars" data-lang-nl="Kunstenaars" data-lang-en="Artists">Kunstenaars</a>
+        <a href="../../index.html#lov" data-lang-nl="LOV2030" data-lang-en="LOV2030">LOV2030</a>
+        <a href="../../index.html#contact" data-lang-nl="Contact" data-lang-en="Contact">Contact</a>
+      </div>
+      <div class="lang-switch desktop-only" aria-label="Taalwissel">
+        <button onclick="setLang('nl')" class="active" data-lang="nl">NL</button> |
+        <button onclick="setLang('en')" data-lang="en">EN</button>
+      </div>
+      <button class="burger" aria-label="Open menu" onclick="toggleDrawer()">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <!-- Mobile drawer -->
+    <div class="drawer" id="drawer" aria-hidden="true">
+      <a href="../../index.html#over" onclick="toggleDrawer()" data-lang-nl="Over" data-lang-en="About">Over</a>
+      <a href="../../index.html#locaties" onclick="toggleDrawer()" data-lang-nl="Data & locaties" data-lang-en="Dates & Venues">Data & locaties</a>
+      <a href="../../index.html#opencall" onclick="toggleDrawer()" data-lang-nl="Open call" data-lang-en="Open call">Open call</a>
+      <a href="../../index.html#kunstenaars" onclick="toggleDrawer()" data-lang-nl="Kunstenaars" data-lang-en="Artists">Kunstenaars</a>
+      <a href="../../index.html#lov" onclick="toggleDrawer()" data-lang-nl="LOV2030" data-lang-en="LOV2030">LOV2030</a>
+      <a href="../../index.html#contact" onclick="toggleDrawer()" data-lang-nl="Contact" data-lang-en="Contact">Contact</a>
+
+      <div class="lang-switch mobile-only" aria-label="Taalwissel">
+        <button onclick="setLang('nl')" class="active" data-lang="nl">NL</button> |
+        <button onclick="setLang('en')" data-lang="en">EN</button>
+      </div>
     </div>
-    <div class="lang-switch desktop-only" aria-label="Taalwissel">
-      <button onclick="setLang('nl')" class="active" data-lang="nl">NL</button> |
-      <button onclick="setLang('en')" data-lang="en">EN</button>
-    </div>
-    <button class="burger" aria-label="Open menu" onclick="toggleDrawer()">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
-  <div class="drawer" id="drawer" aria-hidden="true">
-    <a href="../../index.html#over" data-lang-nl="Over" data-lang-en="About" onclick="toggleDrawer()">Over</a>
-    <a href="../../index.html#locaties" data-lang-nl="Data & locaties" data-lang-en="Dates & Venues" onclick="toggleDrawer()">Data & locaties</a>
-    <a href="../../index.html#opencall" data-lang-nl="Open call" data-lang-en="Open call" onclick="toggleDrawer()">Open call</a>
-    <a href="../../index.html#kunstenaars" data-lang-nl="Kunstenaars" data-lang-en="Artists" onclick="toggleDrawer()">Kunstenaars</a>
-    <a href="../../index.html#lov" data-lang-nl="LOV2030" data-lang-en="LOV2030" onclick="toggleDrawer()">LOV2030</a>
-    <a href="../../index.html#contact" data-lang-nl="Contact" data-lang-en="Contact" onclick="toggleDrawer()">Contact</a>
-    <div class="lang-switch mobile-only" aria-label="Taalwissel">
-      <button onclick="setLang('nl')" class="active" data-lang="nl">NL</button> |
-      <button onclick="setLang('en')" data-lang="en">EN</button>
-    </div>
-  </div>
-</header>
+  </header>
 
   <main id="top">
     <!-- ============ HERO ============ -->
@@ -76,56 +79,40 @@
       <div class="container grid two-col">
         <article>
           <div class="meta" data-lang-nl="Biografie" data-lang-en="Biography">Biografie</div>
-          <p data-lang-nl="Niels Poiz (°1991, Torhout) woont en werkt in Brussel. Hij behaalde een MFA aan LUCA School of Arts (Brussel) en een Post-Master Arts & Design aan Sint-Lucas Antwerpen. Sindsdien exposeerde hij internationaal in solo- en groepstentoonstellingen, performancemanifestaties en Art Book Fairs. Zijn werk richt zich op taal, narratie en communicatie, met aandacht voor sociaal-politieke, culturele, identiteits- en genderkwesties. Naast zijn eigen praktijk is Poiz actief als programmator van het Brussels Queer Zine Fest en gastdocent. Momenteel werkt hij vanuit MAX Collective in Brussel."
-             data-lang-en="Niels Poiz (b. 1991, Torhout) lives and works in Brussels. He holds an MFA from LUCA School of Arts (Brussels) and a Post-Master in Arts & Design from Sint-Lucas Antwerp. Since then, he has exhibited internationally in solo and group shows, performance festivals and Art Book Fairs. His work focuses on language, narration and communication, addressing socio-political, cultural, identity and gender issues. Besides his artistic practice, Poiz is active as a programmer of the Brussels Queer Zine Fest and guest lecturer. He currently works from MAX Collective in Brussels.">
+          <p data-lang-nl="Niels Poiz (°1991, Torhout) woont en werkt in Brussel. Hij behaalde een MFA aan LUCA School of Arts (Brussel) en een Post-Master Arts & Design aan Sint-Lucas Antwerpen. Sindsdien exposeerde hij internationaal in solo- en groepstentoonstellingen, performancemanifestaties en Art Book Fairs. Zijn werk richt zich op taal, narratie en communicatie, met aandacht voor sociaal-politieke, culturele, identiteits- en genderkwesties. Naast zijn eigen praktijk is Poiz actief als curator, programmator van het Brussels Queer Zine Fest en gastdocent. Momenteel werkt hij vanuit MAX Collective in Brussel."
+             data-lang-en="Niels Poiz (b. 1991, Torhout) lives and works in Brussels. He holds an MFA from LUCA School of Arts (Brussels) and a Post-Master in Arts & Design from Sint-Lucas Antwerp. He has exhibited internationally in solo and group shows, performance events and Art Book Fairs. His work focuses on language, narration and communication, addressing socio-political, cultural, identity and gender issues. Besides his artistic practice, Poiz is active as a curator, programmer of the Brussels Queer Zine Fest and guest lecturer. He currently works from MAX Collective in Brussels.">
             Niels Poiz (°1991, Torhout) woont en werkt in Brussel...
           </p>
           <div class="meta" style="margin-top:20px" data-lang-nl="Praktisch" data-lang-en="Practical">Praktisch</div>
           <p>
             Email: <a class="mono-link" href="mailto:poizniels@gmail.com">poizniels@gmail.com</a><br>
-            Instagram: <a class="mono-link" href="https://instagram.com/niels_poiz" target="_blank">@niels_poiz</a><br>
+            Instagram: <a class="mono-link" href="https://instagram.com/niels_poiz" target="_blank" rel="noopener">@niels_poiz</a>
           </p>
         </article>
 
         <article>
           <div class="meta" data-lang-nl="Artist statement" data-lang-en="Artist statement">Artist statement</div>
           <p data-lang-nl="De artistieke praktijk van Poiz focust op schrijven en taal via narratie, vertaling en appropriation van tekst. Hij gebruikt fragmenten uit populaire cultuur, cybercultuur, media en muziek, die hij verweeft met eigen teksten. Woorden worden losgemaakt van hun oorspronkelijke betekenis en krijgen een nieuwe lading in performances, installaties, prints, video’s en micro-edities. Door dit spel met taal bevraagt Poiz communicatie, identiteit en de spanning tussen individu en maatschappij. Zijn werk vertaalt persoonlijke verhalen en universele vraagstukken in fysieke ruimte en benadrukt de kracht en fragiliteit van taal."
-             data-lang-en="Poiz’s artistic practice focuses on writing and language through narration, translation and textual appropriation. Using fragments from popular culture, cyber culture, media and music, interwoven with his own writing, he detaches words from their original meaning and recharges them in performances, installations, prints, videos and micro-editions. Through this play with language, Poiz questions communication, identity and the tension between the individual and society. His work translates personal narratives and universal issues into physical space, underlining the power and fragility of language.">
-            De artistieke praktijk van Poiz focust op schrijven en taal via narratie, vertaling en appropriation van tekst...
+             data-lang-en="Poiz’s artistic practice focuses on writing and language through narration, translation and textual appropriation. Using fragments from popular culture, cyber culture, media and music interwoven with his own writing, he detaches words from their original meaning and recharges them in performances, installations, prints, videos and micro-editions. Through this play with language, Poiz questions communication, identity and the tension between the individual and society. His work translates personal narratives and universal issues into physical space, underlining the power and fragility of language.">
+            De artistieke praktijk van Poiz focust op schrijven en taal...
           </p>
         </article>
       </div>
     </section>
 
-    <!-- ============ GALLERY ============ -->
+    <!-- ============ GALLERY (8 beelden) ============ -->
     <section>
       <div class="container">
         <div class="meta" data-lang-nl="Werk" data-lang-en="Work">Werk</div>
         <div class="grid gallery">
-          <figure class="module">
-            <img src="../../assets/img/artists/Niels/Niels1.jpeg" alt="Werk — Niels Poiz">
-          </figure>
-          <figure class="module">
-            <img src="../../assets/img/artists/Niels/Niels2.jpeg" alt="Werk — Niels Poiz">
-          </figure>
-          <figure class="module">
-            <img src="../../assets/img/artists/Niels/Niels3.jpeg" alt="Werk — Niels Poiz">
-          </figure>
-          <figure class="module">
-            <img src="../../assets/img/artists/Niels/Niels4.jpeg" alt="Werk — Niels Poiz">
-          </figure>
-          <figure class="module">
-            <img src="../../assets/img/artists/Niels/Niels5.jpeg" alt="Werk — Niels Poiz">
-          </figure>
-            <figure class="module">
-            <img src="../../assets/img/artists/Niels/Niels6.jpeg" alt="Werk — Niels Poiz">
-          </figure>
-            <figure class="module">
-            <img src="../../assets/img/artists/Niels/Niels7.jpeg" alt="Werk — Niels Poiz">
-          </figure>
-            <figure class="module">
-            <img src="../../assets/img/artists/Niels/Niels8.jpeg" alt="Werk — Niels Poiz">
-          </figure>
+          <figure class="module"><img src="../../assets/img/artists/Niels/Niels1.jpeg" alt="Werk — Niels Poiz 1"></figure>
+          <figure class="module"><img src="../../assets/img/artists/Niels/Niels2.jpeg" alt="Werk — Niels Poiz 2"></figure>
+          <figure class="module"><img src="../../assets/img/artists/Niels/Niels3.jpeg" alt="Werk — Niels Poiz 3"></figure>
+          <figure class="module"><img src="../../assets/img/artists/Niels/Niels4.jpeg" alt="Werk — Niels Poiz 4"></figure>
+          <figure class="module"><img src="../../assets/img/artists/Niels/Niels5.jpeg" alt="Werk — Niels Poiz 5"></figure>
+          <figure class="module"><img src="../../assets/img/artists/Niels/Niels6.jpeg" alt="Werk — Niels Poiz 6"></figure>
+          <figure class="module"><img src="../../assets/img/artists/Niels/Niels7.jpeg" alt="Werk — Niels Poiz 7"></figure>
+          <figure class="module"><img src="../../assets/img/artists/Niels/Niels8.jpeg" alt="Werk — Niels Poiz 8"></figure>
         </div>
       </div>
     </section>
@@ -138,17 +125,17 @@
     </section>
   </main>
 
+  <!-- ============ FOOTER ============ -->
   <footer>
-  <div class="footer-inner">
-    <div>© Webdesign door 
-      <a href="https://www.judithcaeyers.be" target="_blank">Judith Caeyers</a> & 
-      <a href="https://www.instagram.com/thomas_de_paepe_/" target="_blank">Thomas De Paepe</a>
+    <div class="footer-inner">
+      <div>© <span id="year"></span> Vitrien — Leuven</div>
+      <a class="mono-link" href="#top" data-lang-nl="Naar boven" data-lang-en="Back to top">Naar boven</a>
     </div>
-    <a class="mono-link" href="#top" data-lang-nl="Naar boven" data-lang-en="Back to top">Naar boven</a>
-  </div>
-</footer>
-
+  </footer>
 
   <script src="../../assets/js/app.js" defer></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
