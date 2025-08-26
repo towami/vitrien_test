@@ -139,26 +139,39 @@
 
     <!-- Belangrijkste CTA's: RSVP + Programma -->
     <div class="btn-row highlight">
-      <a class="btn btn-primary"
-         data-lang-nl="RSVP"
-         data-lang-en="RSVP"
-         href="mailto:hallo@vitrien.be?subject=RSVP%20Vitrien%20Opening%2013%2F9&body=Hallo%20Vitrien%2C%0A%0AIk%20RSVP%20voor%20de%20opening%20op%2013%2F9.%20Naam%3A%20_____%0AAantal%20personen%3A%20_____%0A%0ABedankt!">
-        RSVP
-      </a>
+  <!-- Standaard RSVP via Google Form -->
+  <a class="btn btn-primary"
+     data-lang-nl="RSVP"
+     data-lang-en="RSVP"
+     target="_blank" rel="noopener"
+     href="https://docs.google.com/forms/d/e/1FAIpQLSdnD-OshN4ijDl0gKYerNZdRwX97XpKCOniuFbs9MNBRxLmLQ/viewform?usp=dialog">
+    RSVP
+  </a>
 
-      <button class="btn btn-outline"
-              data-lang-nl="Programma"
-              data-lang-en="Programme"
-              onclick="
-                const d = document.getElementById('opening-program');
-                if (d) {
-                  d.open = true;
-                  d.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-              ">
-        Programma
-      </button>
-    </div>
+  <!-- Fallback: oude mailto (blijft in code maar niet zichtbaar) -->
+  <!--
+  <a class="btn btn-primary"
+     data-lang-nl="RSVP"
+     data-lang-en="RSVP"
+     href="mailto:hallo@vitrien.be?subject=RSVP%20Vitrien%20Opening%2013%2F9&body=Hallo%20Vitrien%2C%0A%0AIk%20RSVP%20voor%20de%20opening%20op%2013%2F9.%20Naam%3A%20_____%0AAantal%20personen%3A%20_____%0A%0ABedankt!">
+    RSVP (fallback)
+  </a>
+  -->
+
+  <button class="btn btn-outline"
+          data-lang-nl="Programma"
+          data-lang-en="Programme"
+          onclick="
+            const d = document.getElementById('opening-program');
+            if (d) {
+              d.open = true;
+              d.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          ">
+    Programma
+  </button>
+</div>
+
 
     <!-- Praktische tools: Route + Boekje + Audio -->
     <div class="btn-row route-tools">
