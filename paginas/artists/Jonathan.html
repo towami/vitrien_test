@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="nl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Jonathan van Wal — VITRIEN</title>
+  <title>Jonathan Van de Wal — VITRIEN</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,66 +14,53 @@
   <link rel="stylesheet" href="../../assets/css/styles.css">
 </head>
 <body>
-  <!-- ============ HEADER ============ -->
+  <!-- HEADER -->
   <header>
-  <nav class="nav" aria-label="Hoofdnavigatie">
-    <!-- Logo -->
-    <a href="../../" class="brand" aria-label="VITRIEN — Home">
-      <img src="../../assets/img/logo.png" alt="Vitrien logo">
-    </a>
-
-    <!-- Desktop menu -->
-    <div class="menu" role="menubar">
-      <a href="../../index.html#over" data-lang-nl="Over" data-lang-en="About">Over</a>
-      <a href="../../index.html#locaties" data-lang-nl="Data & locaties" data-lang-en="Dates & Venues">Data & locaties</a>
-      <a href="../../index.html#opencall" data-lang-nl="Open call" data-lang-en="Open call">Open call</a>
-      <a href="../../index.html#kunstenaars" data-lang-nl="Kunstenaars" data-lang-en="Artists">Kunstenaars</a>
-      <a href="../../index.html#lov" data-lang-nl="LOV2030" data-lang-en="LOV2030">LOV2030</a>
-      <a href="../../index.html#contact" data-lang-nl="Contact" data-lang-en="Contact">Contact</a>
+    <nav class="nav" aria-label="Hoofdnavigatie">
+      <a href="../../" class="brand" aria-label="VITRIEN — Home">
+        <img src="../../assets/img/logo.png" alt="Vitrien logo">
+      </a>
+      <div class="menu" role="menubar">
+        <a href="../../index.html#over" data-lang-nl="Over" data-lang-en="About">Over</a>
+        <a href="../../index.html#locaties" data-lang-nl="Data & locaties" data-lang-en="Dates & Venues">Data & locaties</a>
+        <a href="../../index.html#opencall" data-lang-nl="Open call" data-lang-en="Open call">Open call</a>
+        <a href="../../index.html#kunstenaars" data-lang-nl="Kunstenaars" data-lang-en="Artists">Kunstenaars</a>
+        <a href="../../index.html#lov" data-lang-nl="LOV2030" data-lang-en="LOV2030">LOV2030</a>
+        <a href="../../index.html#contact" data-lang-nl="Contact" data-lang-en="Contact">Contact</a>
+      </div>
+      <div class="lang-switch desktop-only" aria-label="Taalwissel">
+        <button onclick="setLang('nl')" class="active" data-lang="nl">NL</button> |
+        <button onclick="setLang('en')" data-lang="en">EN</button>
+      </div>
+      <button class="burger" aria-label="Open menu" onclick="toggleDrawer()"><span></span><span></span><span></span></button>
+    </nav>
+    <div class="drawer" id="drawer" aria-hidden="true">
+      <a href="../../index.html#over" onclick="toggleDrawer()">Over</a>
+      <a href="../../index.html#locaties" onclick="toggleDrawer()">Data & locaties</a>
+      <a href="../../index.html#opencall" onclick="toggleDrawer()">Open call</a>
+      <a href="../../index.html#kunstenaars" onclick="toggleDrawer()">Kunstenaars</a>
+      <a href="../../index.html#lov" onclick="toggleDrawer()">LOV2030</a>
+      <a href="../../index.html#contact" onclick="toggleDrawer()">Contact</a>
+      <div class="lang-switch mobile-only">
+        <button onclick="setLang('nl')" class="active">NL</button> |
+        <button onclick="setLang('en')">EN</button>
+      </div>
     </div>
-
-    <!-- Desktop taal-switch -->
-    <div class="lang-switch desktop-only" aria-label="Taalwissel">
-      <button onclick="setLang('nl')" class="active" data-lang="nl">NL</button> |
-      <button onclick="setLang('en')" data-lang="en">EN</button>
-    </div>
-
-    <!-- Hamburger -->
-    <button class="burger" aria-label="Open menu" onclick="toggleDrawer()">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
-
-  <!-- Mobile drawer -->
-  <div class="drawer" id="drawer" aria-hidden="true">
-    <a href="../../index.html#over" data-lang-nl="Over" data-lang-en="About" onclick="toggleDrawer()">Over</a>
-    <a href="../../index.html#locaties" data-lang-nl="Data & locaties" data-lang-en="Dates & Venues" onclick="toggleDrawer()">Data & locaties</a>
-    <a href="../../index.html#opencall" data-lang-nl="Open call" data-lang-en="Open call" onclick="toggleDrawer()">Open call</a>
-    <a href="../../index.html#kunstenaars" data-lang-nl="Kunstenaars" data-lang-en="Artists" onclick="toggleDrawer()">Kunstenaars</a>
-    <a href="../../index.html#lov" data-lang-nl="LOV2030" data-lang-en="LOV2030" onclick="toggleDrawer()">LOV2030</a>
-    <a href="../../index.html#contact" data-lang-nl="Contact" data-lang-en="Contact" onclick="toggleDrawer()">Contact</a>
-
-    <!-- Mobile taal-switch -->
-    <div class="lang-switch mobile-only" aria-label="Taalwissel">
-      <button onclick="setLang('nl')" class="active" data-lang="nl">NL</button> |
-      <button onclick="setLang('en')" data-lang="en">EN</button>
-    </div>
-  </div>
-</header>
+  </header>
 
   <main id="top">
-    <!-- ============ HERO ============ -->
+    <!-- HERO -->
     <section class="hero" style="min-height:auto; padding:60px 0 20px">
       <div class="container">
         <div class="meta" data-lang-nl="Kunstenaar" data-lang-en="Artist">Kunstenaar</div>
-        <h1>Jonathan van Wal</h1>
-        <p class="lead" data-lang-nl="Beeldend kunstenaar • Sculptuur • Installatie" data-lang-en="Visual artist • Sculpture • Installation">
-          Beeldend kunstenaar • Sculptuur • Installatie
+        <h1>Jonathan Van de Wal</h1>
+        <p class="lead" data-lang-nl="Schilder • Assemblage • Installatie" data-lang-en="Painting • Assemblage • Installation">
+          Schilder • Assemblage • Installatie
         </p>
       </div>
     </section>
 
-    <!-- ============ BREADCRUMB ============ -->
+    <!-- BREADCRUMB -->
     <section>
       <div class="container">
         <p class="meta" style="margin-top:-8px">
@@ -83,57 +69,56 @@
       </div>
     </section>
 
-    <!-- ============ BIO + STATEMENT ============ -->
+    <!-- BIO + STATEMENT -->
     <section>
       <div class="container grid two-col">
         <article>
           <div class="meta" data-lang-nl="Biografie" data-lang-en="Biography">Biografie</div>
-          <p data-lang-nl="Jonathan van Wal (°1987) onderzoekt de rol van sculptuur in de hedendaagse samenleving. Zijn werk vertrekt vanuit alledaagse materialen en transformeert ze tot monumentale installaties die spelen met ruimte, licht en perceptie. Door zijn achtergrond in architectuur en beeldende kunst weet hij functionele structuren te vertalen naar poëtische vormen."
-             data-lang-en="Jonathan van Wal (b. 1987) investigates the role of sculpture in contemporary society. His work starts from everyday materials and transforms them into monumental installations that play with space, light and perception. With a background in architecture and visual arts, he translates functional structures into poetic forms.">
-            Jonathan van Wal (°1987) onderzoekt de rol van sculptuur in de hedendaagse samenleving...
+          <p data-lang-nl="Het leven zelf, als inspiratie, staat aan de basis van Jonathan Van de Wal zijn praktijk. JVDW maakt naast schilderijen ook assemblages. Zijn fascinaties met objecten en materialen vullen zijn praktijk aan. Alledaagse materialen herstellen zijn blik op, en zijn geloof in, de kunst."
+             data-lang-en="Life itself, as inspiration, forms the basis of Jonathan Van de Wal’s practice. Besides paintings, JVDW also creates assemblages. His fascination with objects and materials shapes his practice. Everyday materials restore his gaze upon, and his belief in, art.">
+            Het leven zelf, als inspiratie, staat aan de basis van Jonathan Van de Wal zijn praktijk...
           </p>
+
           <div class="meta" style="margin-top:20px" data-lang-nl="Praktisch" data-lang-en="Practical">Praktisch</div>
           <p>
-            Website: <a class="mono-link" href="#" target="_blank" rel="noopener">https://jonathanvanwal.com/</a><br>
-            Contact: <a class="mono-link" href="mailto:jonathan.vanwal@email.com">jonathan.vanwal@email.com</a>
+            Contact: <a class="mono-link" href="mailto:jonathan.vandewal@gmail.com">jonathan.vandewal@gmail.com</a>
           </p>
         </article>
 
         <article>
           <div class="meta" data-lang-nl="Artist statement" data-lang-en="Artist statement">Artist statement</div>
-          <p data-lang-nl="Mijn werk verkent de grens tussen object en ruimte. Door sculpturen te bouwen die tegelijk zwaar en licht lijken, wil ik de toeschouwer confronteren met de fysieke en mentale impact van vorm. Elk werk is een uitnodiging om anders te bewegen en te kijken."
-             data-lang-en="My work explores the boundary between object and space. By creating sculptures that appear both heavy and light, I aim to confront viewers with the physical and mental impact of form. Each piece is an invitation to move and perceive differently.">
-            Mijn werk verkent de grens tussen object en ruimte...
+          <p>
+            Questions, answers and questions?
           </p>
+          <ul>
+            <li>◦ Is the worm safer sleeping?<br>✓ Ask me Tomorrow morning</li>
+            <li>◦ What does meaning mean?<br>✓ The enigma</li>
+            <li>◦ Is it meaning or is it the absence of it?<br>✓ Take a deep breath it Will be worth a while, it’ll hurt a mile</li>
+            <li>◦ Why is blue?<br>✓ A wise man once Said nothing</li>
+            <li>◦ What would you be without the sea?<br>✓ A monk</li>
+            <li>◦ Do you paint or do you write?<br>✓ I don’t know, ask somebody else. Maybe Marcel could answer</li>
+            <li>◦ What if the screeching of the sirens is so enchantingly beautiful?<br>✓ Who can blame them for it? Which mast can I tie myself to and where is the wax?</li>
+            <li>◦ What shall we love if not the enigma?</li>
+          </ul>
         </article>
       </div>
     </section>
 
-    <!-- ============ GALLERY ============ -->
+    <!-- GALLERY -->
     <section>
       <div class="container">
         <div class="meta" data-lang-nl="Werk" data-lang-en="Work">Werk</div>
         <div class="grid gallery">
-          <figure class="module">
-            <img src="../../assets/img/artists/Jonathan1.jpg" alt="Werk — Jonathan van Wal">
-          </figure>
-          <figure class="module">
-            <img src="../../assets/img/artists/Jonathan2.jpg" alt="Werk — Jonathan van Wal">
-          </figure>
-          <figure class="module">
-            <img src="../../assets/img/artists/Jonathan3.jpg" alt="Werk — Jonathan van Wal">
-          </figure>
-          <figure class="module">
-            <img src="../../assets/img/artists/Jonathan4.jpg" alt="Werk — Jonathan van Wal">
-          </figure>
-          <figure class="module">
-            <img src="../../assets/img/artists/Jonathan5.jpg" alt="Werk — Jonathan van Wal">
-          </figure>
+          <figure class="module"><img src="../../assets/img/artists/Jonathan/Jonathan1.jpg" alt="Werk — Jonathan Van de Wal"></figure>
+          <figure class="module"><img src="../../assets/img/artists/Jonathan/Jonathan2.jpg" alt="Werk — Jonathan Van de Wal"></figure>
+          <figure class="module"><img src="../../assets/img/artists/Jonathan/Jonathan3.jpg" alt="Werk — Jonathan Van de Wal"></figure>
+          <figure class="module"><img src="../../assets/img/artists/Jonathan/Jonathan4.jpg" alt="Werk — Jonathan Van de Wal"></figure>
+          <figure class="module"><img src="../../assets/img/artists/Jonathan/Jonathan5.jpg" alt="Werk — Jonathan Van de Wal"></figure>
         </div>
       </div>
     </section>
 
-    <!-- ============ TERUGLINK ============ -->
+    <!-- BACKLINK -->
     <section>
       <div class="container">
         <a class="mono-link" href="../../index.html#kunstenaars" data-lang-nl="← terug naar alle kunstenaars" data-lang-en="← back to all artists">← terug naar alle kunstenaars</a>
@@ -141,6 +126,7 @@
     </section>
   </main>
 
+  <!-- FOOTER -->
   <footer>
     <div class="footer-inner">
       <div>© <span id="year"></span> Vitrien — Leuven</div>
@@ -149,5 +135,8 @@
   </footer>
 
   <script src="../../assets/js/app.js" defer></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
