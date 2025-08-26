@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Shailey — VITRIEN</title>
+  <title>Shailey Shah — VITRIEN</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,66 +14,53 @@
   <link rel="stylesheet" href="../../assets/css/styles.css">
 </head>
 <body>
-  <!-- ============ HEADER ============ -->
+  <!-- HEADER -->
   <header>
-  <nav class="nav" aria-label="Hoofdnavigatie">
-    <!-- Logo -->
-    <a href="../../" class="brand" aria-label="VITRIEN — Home">
-      <img src="../../assets/img/logo.png" alt="Vitrien logo">
-    </a>
-
-    <!-- Desktop menu -->
-    <div class="menu" role="menubar">
-      <a href="../../index.html#over" data-lang-nl="Over" data-lang-en="About">Over</a>
-      <a href="../../index.html#locaties" data-lang-nl="Data & locaties" data-lang-en="Dates & Venues">Data & locaties</a>
-      <a href="../../index.html#opencall" data-lang-nl="Open call" data-lang-en="Open call">Open call</a>
-      <a href="../../index.html#kunstenaars" data-lang-nl="Kunstenaars" data-lang-en="Artists">Kunstenaars</a>
-      <a href="../../index.html#lov" data-lang-nl="LOV2030" data-lang-en="LOV2030">LOV2030</a>
-      <a href="../../index.html#contact" data-lang-nl="Contact" data-lang-en="Contact">Contact</a>
+    <nav class="nav" aria-label="Hoofdnavigatie">
+      <a href="../../" class="brand" aria-label="VITRIEN — Home">
+        <img src="../../assets/img/logo.png" alt="Vitrien logo">
+      </a>
+      <div class="menu" role="menubar">
+        <a href="../../index.html#over" data-lang-nl="Over" data-lang-en="About">Over</a>
+        <a href="../../index.html#locaties" data-lang-nl="Data & locaties" data-lang-en="Dates & Venues">Data & locaties</a>
+        <a href="../../index.html#opencall" data-lang-nl="Open call" data-lang-en="Open call">Open call</a>
+        <a href="../../index.html#kunstenaars" data-lang-nl="Kunstenaars" data-lang-en="Artists">Kunstenaars</a>
+        <a href="../../index.html#lov" data-lang-nl="LOV2030" data-lang-en="LOV2030">LOV2030</a>
+        <a href="../../index.html#contact" data-lang-nl="Contact" data-lang-en="Contact">Contact</a>
+      </div>
+      <div class="lang-switch desktop-only" aria-label="Taalwissel">
+        <button onclick="setLang('nl')" class="active" data-lang="nl">NL</button> |
+        <button onclick="setLang('en')" data-lang="en">EN</button>
+      </div>
+      <button class="burger" aria-label="Open menu" onclick="toggleDrawer()"><span></span><span></span><span></span></button>
+    </nav>
+    <div class="drawer" id="drawer" aria-hidden="true">
+      <a href="../../index.html#over" onclick="toggleDrawer()" data-lang-nl="Over" data-lang-en="About">Over</a>
+      <a href="../../index.html#locaties" onclick="toggleDrawer()" data-lang-nl="Data & locaties" data-lang-en="Dates & Venues">Data & locaties</a>
+      <a href="../../index.html#opencall" onclick="toggleDrawer()" data-lang-nl="Open call" data-lang-en="Open call">Open call</a>
+      <a href="../../index.html#kunstenaars" onclick="toggleDrawer()" data-lang-nl="Kunstenaars" data-lang-en="Artists">Kunstenaars</a>
+      <a href="../../index.html#lov" onclick="toggleDrawer()" data-lang-nl="LOV2030" data-lang-en="LOV2030">LOV2030</a>
+      <a href="../../index.html#contact" onclick="toggleDrawer()" data-lang-nl="Contact" data-lang-en="Contact">Contact</a>
+      <div class="lang-switch mobile-only" aria-label="Taalwissel">
+        <button onclick="setLang('nl')" class="active" data-lang="nl">NL</button> |
+        <button onclick="setLang('en')" data-lang="en">EN</button>
+      </div>
     </div>
-
-    <!-- Desktop taal-switch -->
-    <div class="lang-switch desktop-only" aria-label="Taalwissel">
-      <button onclick="setLang('nl')" class="active" data-lang="nl">NL</button> |
-      <button onclick="setLang('en')" data-lang="en">EN</button>
-    </div>
-
-    <!-- Hamburger -->
-    <button class="burger" aria-label="Open menu" onclick="toggleDrawer()">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
-
-  <!-- Mobile drawer -->
-  <div class="drawer" id="drawer" aria-hidden="true">
-    <a href="../../index.html#over" data-lang-nl="Over" data-lang-en="About" onclick="toggleDrawer()">Over</a>
-    <a href="../../index.html#locaties" data-lang-nl="Data & locaties" data-lang-en="Dates & Venues" onclick="toggleDrawer()">Data & locaties</a>
-    <a href="../../index.html#opencall" data-lang-nl="Open call" data-lang-en="Open call" onclick="toggleDrawer()">Open call</a>
-    <a href="../../index.html#kunstenaars" data-lang-nl="Kunstenaars" data-lang-en="Artists" onclick="toggleDrawer()">Kunstenaars</a>
-    <a href="../../index.html#lov" data-lang-nl="LOV2030" data-lang-en="LOV2030" onclick="toggleDrawer()">LOV2030</a>
-    <a href="../../index.html#contact" data-lang-nl="Contact" data-lang-en="Contact" onclick="toggleDrawer()">Contact</a>
-
-    <!-- Mobile taal-switch -->
-    <div class="lang-switch mobile-only" aria-label="Taalwissel">
-      <button onclick="setLang('nl')" class="active" data-lang="nl">NL</button> |
-      <button onclick="setLang('en')" data-lang="en">EN</button>
-    </div>
-  </div>
-</header>
+  </header>
 
   <main id="top">
-    <!-- ============ HERO ============ -->
+    <!-- HERO -->
     <section class="hero" style="min-height:auto; padding:60px 0 20px">
       <div class="container">
         <div class="meta" data-lang-nl="Kunstenaar" data-lang-en="Artist">Kunstenaar</div>
-        <h1>Shailey</h1>
-        <p class="lead" data-lang-nl="Schilderkunst • Mixed media • Installatie" data-lang-en="Painting • Mixed media • Installation">
-          Schilderkunst • Mixed media • Installatie
+        <h1>Shailey Shah</h1>
+        <p class="lead" data-lang-nl="Multidisciplinair • Video • Schilderkunst • Installatie" data-lang-en="Multidisciplinary • Video • Painting • Installation">
+          Multidisciplinair • Video • Schilderkunst • Installatie
         </p>
       </div>
     </section>
 
-    <!-- ============ BREADCRUMB ============ -->
+    <!-- BREADCRUMB -->
     <section>
       <div class="container">
         <p class="meta" style="margin-top:-8px">
@@ -82,57 +69,55 @@
       </div>
     </section>
 
-    <!-- ============ BIO + STATEMENT ============ -->
+    <!-- BIO + STATEMENT -->
     <section>
       <div class="container grid two-col">
         <article>
           <div class="meta" data-lang-nl="Biografie" data-lang-en="Biography">Biografie</div>
-          <p data-lang-nl="Shailey (°1990) werkt op het snijvlak van schilderkunst, mixed media en installatie. In haar werk onderzoekt ze hoe persoonlijke verhalen en collectieve herinneringen zich verweven met de materiële wereld. Haar composities balanceren tussen abstractie en figuratie, waarbij textuur en kleur dragers worden van emotie en geheugen."
-             data-lang-en="Shailey (°1990) works at the intersection of painting, mixed media and installation. Her work explores how personal stories and collective memories intertwine with the material world. Her compositions balance between abstraction and figuration, where texture and color become carriers of emotion and memory.">
-            Shailey (°1990) werkt op het snijvlak van schilderkunst, mixed media en installatie...
+          <p data-lang-nl="Shailey Shah (°1997, Antwerpen) is een multidisciplinaire kunstenaar die werkt met video, sculptuur, schilderkunst en installaties. Ze onderzoekt natuur, kleur, vorm, genderrollen en de complexiteit van haar multiculturele achtergrond als vrouw met Indiase roots. Ze studeerde Beeldhouwkunst aan de KASK Antwerpen en aan NABA Milaan. Haar werk put uit persoonlijke ervaringen en verkent sociale en politieke thema’s, vaak via experiment met onconventionele materialen."
+             data-lang-en="Shailey Shah (°1997, Antwerp) is a multidisciplinary artist working with video, sculpture, painting, and installations. She explores nature, colour, form, gender roles, and the complexities of her multicultural upbringing as a woman of Indian heritage. She studied Sculpture at the Royal Academy of Fine Arts Antwerp and at NABA Milan. Her practice draws from personal experiences and explores social and political issues, often through experimentation with unconventional materials.">
+            Shailey Shah (°1997, Antwerpen) is een multidisciplinaire kunstenaar...
           </p>
           <div class="meta" style="margin-top:20px" data-lang-nl="Praktisch" data-lang-en="Practical">Praktisch</div>
           <p>
-            Website: <a class="mono-link" href="#" target="_blank" rel="noopener">https://shailey.com/</a><br>
-            Contact: <a class="mono-link" href="mailto:shailey@email.com">shailey@email.com</a>
+            Contact: <a class="mono-link" href="mailto:shaileyshah97@gmail.com">shaileyshah97@gmail.com</a>
           </p>
         </article>
 
         <article>
           <div class="meta" data-lang-nl="Artist statement" data-lang-en="Artist statement">Artist statement</div>
-          <p data-lang-nl="Mijn werk probeert een dialoog te creëren tussen het intieme en het publieke. Door lagen verf, objecten en ruimte te combineren, ontstaan installaties die de kijker uitnodigen om stil te staan bij de fragiele grens tussen herinnering en verbeelding."
-             data-lang-en="My work seeks to create a dialogue between the intimate and the public. By combining layers of paint, objects and space, I create installations that invite viewers to pause and reflect on the fragile boundary between memory and imagination.">
-            Mijn werk probeert een dialoog te creëren tussen het intieme en het publieke...
+          <p data-lang-nl="Mijn werk onderzoekt hoe persoonlijke verhalen, herinneringen en maatschappelijke structuren zichtbaar gemaakt kunnen worden. Via schilderijen, installaties en keramiek reflecteer ik op thema’s als identiteit, feminisme en verbondenheid. Ik gebruik materialen op onconventionele manieren om nieuwe betekenissen en ervaringen te creëren."
+             data-lang-en="My work explores how personal narratives, memories, and social structures can be made visible. Through paintings, installations, and ceramics, I reflect on themes such as identity, feminism, and connection. I use materials in unconventional ways to create new meanings and experiences.">
+            Mijn werk onderzoekt hoe persoonlijke verhalen en maatschappelijke structuren zichtbaar gemaakt kunnen worden...
           </p>
         </article>
       </div>
     </section>
 
-    <!-- ============ GALLERY ============ -->
+    <!-- GALLERY -->
     <section>
       <div class="container">
         <div class="meta" data-lang-nl="Werk" data-lang-en="Work">Werk</div>
         <div class="grid gallery">
-          <figure class="module">
-            <img src="../../assets/img/artists/Shailey1.jpg" alt="Werk — Shailey">
-          </figure>
-          <figure class="module">
-            <img src="../../assets/img/artists/Shailey2.jpg" alt="Werk — Shailey">
-          </figure>
-          <figure class="module">
-            <img src="../../assets/img/artists/Shailey3.jpg" alt="Werk — Shailey">
-          </figure>
-          <figure class="module">
-            <img src="../../assets/img/artists/Shailey4.jpg" alt="Werk — Shailey">
-          </figure>
-          <figure class="module">
-            <img src="../../assets/img/artists/Shailey5.jpg" alt="Werk — Shailey">
-          </figure>
+          <figure class="module"><img src="../../assets/img/artists/Shailey/shailey1.jpeg" alt="Werk — Shailey Shah"></figure>
+          <figure class="module"><img src="../../assets/img/artists/Shailey/shailey2.jpeg" alt="Werk — Shailey Shah"></figure>
+          <figure class="module"><img src="../../assets/img/artists/Shailey/shailey3.jpeg" alt="Werk — Shailey Shah"></figure>
+          <figure class="module"><img src="../../assets/img/artists/Shailey/shailey4.jpeg" alt="Werk — Shailey Shah"></figure>
+          <figure class="module"><img src="../../assets/img/artists/Shailey/shailey5.jpeg" alt="Werk — Shailey Shah"></figure>
+          <figure class="module"><img src="../../assets/img/artists/Shailey/shailey6.jpeg" alt="Werk — Shailey Shah"></figure>
+          <figure class="module"><img src="../../assets/img/artists/Shailey/shailey7.jpeg" alt="Werk — Shailey Shah"></figure>
+          <figure class="module"><img src="../../assets/img/artists/Shailey/shailey8.jpeg" alt="Werk — Shailey Shah"></figure>
+          <figure class="module"><img src="../../assets/img/artists/Shailey/shailey9.jpeg" alt="Werk — Shailey Shah"></figure>
+          <figure class="module"><img src="../../assets/img/artists/Shailey/shailey10.jpeg" alt="Werk — Shailey Shah"></figure>
+          <figure class="module"><img src="../../assets/img/artists/Shailey/shailey11.jpeg" alt="Werk — Shailey Shah"></figure>
+          <figure class="module"><img src="../../assets/img/artists/Shailey/shailey12.jpeg" alt="Werk — Shailey Shah"></figure>
+          <figure class="module"><img src="../../assets/img/artists/Shailey/shailey13.jpeg" alt="Werk — Shailey Shah"></figure>
         </div>
       </div>
     </section>
 
-    <!-- ============ TERUGLINK ============ -->
+
+    <!-- BACKLINK -->
     <section>
       <div class="container">
         <a class="mono-link" href="../../index.html#kunstenaars" data-lang-nl="← terug naar alle kunstenaars" data-lang-en="← back to all artists">← terug naar alle kunstenaars</a>
