@@ -1,117 +1,207 @@
-<section>
-  <div class="container">
-    <div class="audio-list">
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title data-lang-nl="Audiogids — VITRIEN" data-lang-en="Audio Guide — VITRIEN">Audiogids — VITRIEN</title>
 
-      <!-- Stop 1 -->
-      <article class="audio-stop">
-        <div class="mini">Stop 1 — [Locatie 1]</div>
-        <h3>[Kunstenaar 1]</h3>
-        <img src="../assets/img/artists/placeholder.jpg" alt="Werk van [Kunstenaar 1]">
-        <p>[Korte beschrijving NL/EN van het werk]</p>
-        <audio controls preload="metadata">
-          <source src="../assets/audio/placeholder1.mp3" type="audio/mpeg">
-        </audio>
-      </article>
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-      <!-- Stop 2 -->
-      <article class="audio-stop">
-        <div class="mini">Stop 2 — [Locatie 2]</div>
-        <h3>[Kunstenaar 2]</h3>
-        <img src="../assets/img/artists/placeholder.jpg" alt="Werk van [Kunstenaar 2]">
-        <p>[Korte beschrijving NL/EN van het werk]</p>
-        <audio controls preload="metadata">
-          <source src="../assets/audio/placeholder2.mp3" type="audio/mpeg">
-        </audio>
-      </article>
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <style>
+    /* Extra styling voor de audiolijst (leunt aan bij modules) */
+    .audio-list { display: grid; gap: 24px; }
+    .audio-stop {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 16px;
+      background: #fff;
+    }
+    .audio-stop h3 { margin: 0 0 8px; font-size: 1.1rem; }
+    .audio-stop .mini { color: var(--muted); font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 0.9rem; }
+    .audio-stop img {
+      width: 100%; height: 220px; object-fit: cover; border-radius: 8px; margin: 12px 0;
+    }
+    .audio-stop p { margin: 8px 0 12px; }
+    .backline { margin-top: 16px; }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <nav class="nav" aria-label="Hoofdnavigatie">
+      <a href="../index.html#top" class="brand">
+        <img src="../assets/img/logo.png" alt="Vitrien logo">
+      </a>
 
-      <!-- Stop 3 -->
-      <article class="audio-stop">
-        <div class="mini">Stop 3 — [Locatie 3]</div>
-        <h3>[Kunstenaar 3]</h3>
-        <img src="../assets/img/artists/placeholder.jpg" alt="Werk van [Kunstenaar 3]">
-        <p>[Korte beschrijving NL/EN van het werk]</p>
-        <audio controls preload="metadata">
-          <source src="../assets/audio/placeholder3.mp3" type="audio/mpeg">
-        </audio>
-      </article>
+      <div class="menu" role="menubar">
+        <a href="../index.html#over" data-lang-nl="Over" data-lang-en="About">Over</a>
+        <a href="../index.html#data" data-lang-nl="Data & locaties" data-lang-en="Dates & Venues">Data & locaties</a>
+        <a href="../index.html#opencall" data-lang-nl="Open call" data-lang-en="Open call">Open call</a>
+        <a href="../index.html#kunstenaars" data-lang-nl="Kunstenaars" data-lang-en="Artists">Kunstenaars</a>
+        <a href="../index.html#lov" data-lang-nl="LOV2030" data-lang-en="LOV2030">LOV2030</a>
+        <a href="../index.html#contact" data-lang-nl="Contact" data-lang-en="Contact">Contact</a>
+      </div>
 
-      <!-- Stop 4 -->
-      <article class="audio-stop">
-        <div class="mini">Stop 4 — [Locatie 4]</div>
-        <h3>[Kunstenaar 4]</h3>
-        <img src="../assets/img/artists/placeholder.jpg" alt="Werk van [Kunstenaar 4]">
-        <p>[Korte beschrijving NL/EN van het werk]</p>
-        <audio controls preload="metadata">
-          <source src="../assets/audio/placeholder4.mp3" type="audio/mpeg">
-        </audio>
-      </article>
+      <div class="lang-switch desktop-only" aria-label="Taalwissel">
+        <button onclick="setLang('nl')" class="active">NL</button> |
+        <button onclick="setLang('en')">EN</button>
+      </div>
 
-      <!-- Stop 5 -->
-      <article class="audio-stop">
-        <div class="mini">Stop 5 — [Locatie 5]</div>
-        <h3>[Kunstenaar 5]</h3>
-        <img src="../assets/img/artists/placeholder.jpg" alt="Werk van [Kunstenaar 5]">
-        <p>[Korte beschrijving NL/EN van het werk]</p>
-        <audio controls preload="metadata">
-          <source src="../assets/audio/placeholder5.mp3" type="audio/mpeg">
-        </audio>
-      </article>
+      <button class="burger" aria-label="Open menu" onclick="toggleDrawer()"><span></span><span></span><span></span></button>
+    </nav>
 
-      <!-- Stop 6 -->
-      <article class="audio-stop">
-        <div class="mini">Stop 6 — [Locatie 6]</div>
-        <h3>[Kunstenaar 6]</h3>
-        <img src="../assets/img/artists/placeholder.jpg" alt="Werk van [Kunstenaar 6]">
-        <p>[Korte beschrijving NL/EN van het werk]</p>
-        <audio controls preload="metadata">
-          <source src="../assets/audio/placeholder6.mp3" type="audio/mpeg">
-        </audio>
-      </article>
+    <div class="drawer" id="drawer" aria-hidden="true">
+      <a href="../index.html#over" onclick="toggleDrawer()" data-lang-nl="Over" data-lang-en="About">Over</a>
+      <a href="../index.html#data" onclick="toggleDrawer()" data-lang-nl="Data & locaties" data-lang-en="Dates & Venues">Data & locaties</a>
+      <a href="../index.html#opencall" onclick="toggleDrawer()" data-lang-nl="Open call" data-lang-en="Open call">Open call</a>
+      <a href="../index.html#kunstenaars" onclick="toggleDrawer()" data-lang-nl="Kunstenaars" data-lang-en="Artists">Kunstenaars</a>
+      <a href="../index.html#lov" onclick="toggleDrawer()" data-lang-nl="LOV2030" data-lang-en="LOV2030">LOV2030</a>
+      <a href="../index.html#contact" onclick="toggleDrawer()" data-lang-nl="Contact" data-lang-en="Contact">Contact</a>
 
-      <!-- Stop 7 -->
-      <article class="audio-stop">
-        <div class="mini">Stop 7 — [Locatie 7]</div>
-        <h3>[Kunstenaar 7]</h3>
-        <img src="../assets/img/artists/placeholder.jpg" alt="Werk van [Kunstenaar 7]">
-        <p>[Korte beschrijving NL/EN van het werk]</p>
-        <audio controls preload="metadata">
-          <source src="../assets/audio/placeholder7.mp3" type="audio/mpeg">
-        </audio>
-      </article>
-
-      <!-- Stop 8 -->
-      <article class="audio-stop">
-        <div class="mini">Stop 8 — [Locatie 8]</div>
-        <h3>[Kunstenaar 8]</h3>
-        <img src="../assets/img/artists/placeholder.jpg" alt="Werk van [Kunstenaar 8]">
-        <p>[Korte beschrijving NL/EN van het werk]</p>
-        <audio controls preload="metadata">
-          <source src="../assets/audio/placeholder8.mp3" type="audio/mpeg">
-        </audio>
-      </article>
-
-      <!-- Stop 9 -->
-      <article class="audio-stop">
-        <div class="mini">Stop 9 — [Locatie 9]</div>
-        <h3>[Kunstenaar 9]</h3>
-        <img src="../assets/img/artists/placeholder.jpg" alt="Werk van [Kunstenaar 9]">
-        <p>[Korte beschrijving NL/EN van het werk]</p>
-        <audio controls preload="metadata">
-          <source src="../assets/audio/placeholder9.mp3" type="audio/mpeg">
-        </audio>
-      </article>
-
-      <!-- Stop 10 -->
-      <article class="audio-stop">
-        <div class="mini">Stop 10 — [Locatie 10]</div>
-        <h3>[Kunstenaar 10]</h3>
-        <img src="../assets/img/artists/placeholder.jpg" alt="Werk van [Kunstenaar 10]">
-        <p>[Korte beschrijving NL/EN van het werk]</p>
-        <audio controls preload="metadata">
-          <source src="../assets/audio/placeholder10.mp3" type="audio/mpeg">
-        </audio>
-      </article>
-
+      <div class="lang-switch mobile-only" aria-label="Taalwissel">
+        <button onclick="setLang('nl')" class="active">NL</button> |
+        <button onclick="setLang('en')">EN</button>
+      </div>
     </div>
-  </div>
-</section>
+  </header>
+
+  <!-- MAIN -->
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero" style="min-height:auto; padding:60px 0 12px">
+      <div class="container">
+        <div class="meta" data-lang-nl="Audiogids" data-lang-en="Audio Guide">Audiogids</div>
+        <h1 data-lang-nl="Audiogids" data-lang-en="Audio Guide">Audiogids</h1>
+        <p class="lead" 
+           data-lang-nl="Kijk niet alleen met je ogen. Laat de stemmen de vitrines openbreken en de kunst dichterbij brengen."
+           data-lang-en="Don’t just look with your eyes. Let the voices break open the windows and bring the art closer.">
+          Kijk niet alleen met je ogen. Laat de stemmen de vitrines openbreken en de kunst dichterbij brengen.
+        </p>
+
+        <!-- Tools -->
+        <div class="btn-row route-tools">
+          <a class="btn btn-small"
+             target="_blank" rel="noopener"
+             data-lang-nl="Route" data-lang-en="Route"
+             href="https://www.google.com/maps/dir/?api=1&origin=Leuven%20Station&destination=Bondgenotenlaan%20145%2C%203000%20Leuven&waypoints=Bondgenotenlaan%2054%2C%203000%20Leuven|Bondgenotenlaan%2021%2C%203000%20Leuven|Rector%20De%20Somerplein%2011%2C%203000%20Leuven|Bondgenotenlaan%2047%2C%203000%20Leuven|Bondgenotenlaan%2081%2C%203000%20Leuven|Bondgenotenlaan%20131%2C%203000%20Leuven">
+            Route
+          </a>
+          <a class="btn btn-small"
+             target="_blank" rel="noopener"
+             data-lang-nl="Boekje" data-lang-en="Booklet"
+             href="../assets/booklet/vitrien-boekje.pdf">
+            Boekje
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- STOPS -->
+    <section>
+      <div class="container">
+        <div class="audio-list">
+
+          <!-- 10 placeholders -->
+          <article class="audio-stop">
+            <div class="mini">Stop 1 — [Locatie 1]</div>
+            <h3>[Kunstenaar 1]</h3>
+            <img src="../assets/img/artists/placeholder.jpg" alt="Werk van [Kunstenaar 1]">
+            <p>[Korte beschrijving NL/EN van het werk]</p>
+            <audio controls preload="metadata">
+              <source src="../assets/audio/placeholder1.mp3" type="audio/mpeg">
+            </audio>
+          </article>
+
+          <article class="audio-stop">
+            <div class="mini">Stop 2 — [Locatie 2]</div>
+            <h3>[Kunstenaar 2]</h3>
+            <img src="../assets/img/artists/placeholder.jpg" alt="Werk van [Kunstenaar 2]">
+            <p>[Korte beschrijving NL/EN van het werk]</p>
+            <audio controls preload="metadata">
+              <source src="../assets/audio/placeholder2.mp3" type="audio/mpeg">
+            </audio>
+          </article>
+
+          <article class="audio-stop">
+            <div class="mini">Stop 3 — [Locatie 3]</div>
+            <h3>[Kunstenaar 3]</h3>
+            <img src="../assets/img/artists/placeholder.jpg" alt="Werk van [Kunstenaar 3]">
+            <p>[Korte beschrijving NL/EN van het werk]</p>
+            <audio controls preload="metadata">
+              <source src="../assets/audio/placeholder3.mp3" type="audio/mpeg">
+            </audio>
+          </article>
+
+          <article class="audio-stop">
+            <div class="mini">Stop 4 — [Locatie 4]</div>
+            <h3>[Kunstenaar 4]</h3>
+            <img src="../assets/img/artists/placeholder.jpg" alt="Werk van [Kunstenaar 4]">
+            <p>[Korte beschrijving NL/EN van het werk]</p>
+            <audio controls preload="metadata">
+              <source src="../assets/audio/placeholder4.mp3" type="audio/mpeg">
+            </audio>
+          </article>
+
+          <article class="audio-stop">
+            <div class="mini">Stop 5 — [Locatie 5]</div>
+            <h3>[Kunstenaar 5]</h3>
+            <img src="../assets/img/artists/placeholder.jpg" alt="Werk van [Kunstenaar 5]">
+            <p>[Korte beschrijving NL/EN van het werk]</p>
+            <audio controls preload="metadata">
+              <source src="../assets/audio/placeholder5.mp3" type="audio/mpeg">
+            </audio>
+          </article>
+
+          <article class="audio-stop">
+            <div class="mini">Stop 6 — [Locatie 6]</div>
+            <h3>[Kunstenaar 6]</h3>
+            <img src="../assets/img/artists/placeholder.jpg" alt="Werk van [Kunstenaar 6]">
+            <p>[Korte beschrijving NL/EN van het werk]</p>
+            <audio controls preload="metadata">
+              <source src="../assets/audio/placeholder6.mp3" type="audio/mpeg">
+            </audio>
+          </article>
+
+          <article class="audio-stop">
+            <div class="mini">Stop 7 — [Locatie 7]</div>
+            <h3>[Kunstenaar 7]</h3>
+            <img src="../assets/img/artists/placeholder.jpg" alt="Werk van [Kunstenaar 7]">
+            <p>[Korte beschrijving NL/EN van het werk]</p>
+            <audio controls preload="metadata">
+              <source src="../assets/audio/placeholder7.mp3" type="audio/mpeg">
+            </audio>
+          </article>
+
+          <article class="audio-stop">
+            <div class="mini">Stop 8 — [Locatie 8]</div>
+            <h3>[Kunstenaar 8]</h3>
+            <img src="../assets/img/artists/placeholder.jpg" alt="Werk van [Kunstenaar 8]">
+            <p>[Korte beschrijving NL/EN van het werk]</p>
+            <audio controls preload="metadata">
+              <source src="../assets/audio/placeholder8.mp3" type="audio/mpeg">
+            </audio>
+          </article>
+
+          <article class="audio-stop">
+            <div class="mini">Stop 9 — [Locatie 9]</div>
+            <h3>[Kunstenaar 9]</h3>
+            <img src="../assets/img/artists/placeholder.jpg" alt="Werk van [Kunstenaar 9]">
+            <p>[Korte beschrijving NL/EN van het werk]</p>
+            <audio controls preload="metadata">
+              <source src="../assets/audio/placeholder9.mp3" type="audio/mpeg">
+            </audio>
+          </article>
+
+          <article class="audio-stop">
+            <div class="mini">Stop 10 — [Locatie 10]</div>
+            <h3>[Kunstenaar 10]</h3>
+            <img src="../assets/img/artists/placeholder.jpg" alt="Werk van [Kunstenaar 10]">
+            <p>[Korte beschrijving NL/EN van het werk]</p>
+            <audio controls preload="metadata">
+              <source src="../assets/audio/placeholder10.mp3" type="audio/mpeg">
+            </audio
