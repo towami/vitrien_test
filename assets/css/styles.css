@@ -233,10 +233,14 @@ teampagina
 #team .team-intro { max-width: 68ch; margin: 10px 0 18px; }
 
 #team .team-name {
-  /* gebruikt .mono-link stijl voor consistentie */
+  font-family: inherit;      /* neemt het lettertype van de lopende tekst over */
+  font-weight: inherit;      /* neemt hetzelfde gewicht als de tekst */
+  font-size: inherit;        /* neemt de grootte van de tekst */
   text-decoration: underline;
   text-underline-offset: 3px;
+  cursor: pointer;           /* blijft wel klikbaar */
 }
+
 
 #team .team-bio {
   display: none;
