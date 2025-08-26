@@ -46,12 +46,12 @@
 
     <!-- Mobile drawer -->
     <div class="drawer" id="drawer" aria-hidden="true">
-      <a href="../../index.html#over" data-lang-nl="Over" data-lang-en="About" onclick="toggleDrawer()">Over</a>
-      <a href="../../index.html#locaties" data-lang-nl="Data & locaties" data-lang-en="Dates & Venues" onclick="toggleDrawer()">Data & locaties</a>
-      <a href="../../index.html#opencall" data-lang-nl="Open call" data-lang-en="Open call" onclick="toggleDrawer()">Open call</a>
-      <a href="../../index.html#kunstenaars" data-lang-nl="Kunstenaars" data-lang-en="Artists" onclick="toggleDrawer()">Kunstenaars</a>
-      <a href="../../index.html#lov" data-lang-nl="LOV2030" data-lang-en="LOV2030" onclick="toggleDrawer()">LOV2030</a>
-      <a href="../../index.html#contact" data-lang-nl="Contact" data-lang-en="Contact" onclick="toggleDrawer()">Contact</a>
+      <a href="../../index.html#over" onclick="toggleDrawer()" data-lang-nl="Over" data-lang-en="About">Over</a>
+      <a href="../../index.html#locaties" onclick="toggleDrawer()" data-lang-nl="Data & locaties" data-lang-en="Dates & Venues">Data & locaties</a>
+      <a href="../../index.html#opencall" onclick="toggleDrawer()" data-lang-nl="Open call" data-lang-en="Open call">Open call</a>
+      <a href="../../index.html#kunstenaars" onclick="toggleDrawer()" data-lang-nl="Kunstenaars" data-lang-en="Artists">Kunstenaars</a>
+      <a href="../../index.html#lov" onclick="toggleDrawer()" data-lang-nl="LOV2030" data-lang-en="LOV2030">LOV2030</a>
+      <a href="../../index.html#contact" onclick="toggleDrawer()" data-lang-nl="Contact" data-lang-en="Contact">Contact</a>
 
       <!-- Mobile taal-switch -->
       <div class="lang-switch mobile-only" aria-label="Taalwissel">
@@ -96,7 +96,7 @@
 
           <div class="meta" style="margin-top:20px" data-lang-nl="Praktisch" data-lang-en="Practical">Praktisch</div>
           <p>
-            Website: <a class="mono-link" href="#" target="_blank" rel="noopener">https://www.instagram.com/alice_leens/</a><br>
+            Website: <a class="mono-link" href="https://www.instagram.com/alice_leens/" target="_blank" rel="noopener">instagram.com/alice_leens</a><br>
             Contact: <a class="mono-link" href="mailto:aliceleens@gmail.com">aliceleens@gmail.com</a>
           </p>
         </article>
@@ -113,20 +113,20 @@
       </div>
     </section>
 
-    <!-- ============ GALLERY (9 beelden) ============ -->
+    <!-- ============ GALLERY (9 beelden .jpeg) ============ -->
     <section>
       <div class="container">
         <div class="meta" data-lang-nl="Werk" data-lang-en="Work">Werk</div>
         <div class="grid gallery">
-          <figure class="module"><img src="../../assets/img/artists/Alice/Alice1.jpg" alt="Werk — Alice Leens"></figure>
-          <figure class="module"><img src="../../assets/img/artists/Alice/Alice2.jpg" alt="Werk — Alice Leens"></figure>
-          <figure class="module"><img src="../../assets/img/artists/Alice/Alice3.jpg" alt="Werk — Alice Leens"></figure>
-          <figure class="module"><img src="../../assets/img/artists/Alice/Alice4.jpg" alt="Werk — Alice Leens"></figure>
-          <figure class="module"><img src="../../assets/img/artists/Alice/Alice5.jpg" alt="Werk — Alice Leens"></figure>
-          <figure class="module"><img src="../../assets/img/artists/Alice/Alice6.jpg" alt="Werk — Alice Leens"></figure>
-          <figure class="module"><img src="../../assets/img/artists/Alice/Alice7.jpg" alt="Werk — Alice Leens"></figure>
-          <figure class="module"><img src="../../assets/img/artists/Alice/Alice8.jpg" alt="Werk — Alice Leens"></figure>
-          <figure class="module"><img src="../../assets/img/artists/Alice/Alice9.jpg" alt="Werk — Alice Leens"></figure>
+          <figure class="module"><img src="../../assets/img/artists/Alice/Alice1.jpeg" alt="Werk — Alice Leens"></figure>
+          <figure class="module"><img src="../../assets/img/artists/Alice/Alice2.jpeg" alt="Werk — Alice Leens"></figure>
+          <figure class="module"><img src="../../assets/img/artists/Alice/Alice3.jpeg" alt="Werk — Alice Leens"></figure>
+          <figure class="module"><img src="../../assets/img/artists/Alice/Alice4.jpeg" alt="Werk — Alice Leens"></figure>
+          <figure class="module"><img src="../../assets/img/artists/Alice/Alice5.jpeg" alt="Werk — Alice Leens"></figure>
+          <figure class="module"><img src="../../assets/img/artists/Alice/Alice6.jpeg" alt="Werk — Alice Leens"></figure>
+          <figure class="module"><img src="../../assets/img/artists/Alice/Alice7.jpeg" alt="Werk — Alice Leens"></figure>
+          <figure class="module"><img src="../../assets/img/artists/Alice/Alice8.jpeg" alt="Werk — Alice Leens"></figure>
+          <figure class="module"><img src="../../assets/img/artists/Alice/Alice9.jpeg" alt="Werk — Alice Leens"></figure>
         </div>
       </div>
     </section>
@@ -134,23 +134,4 @@
     <!-- ============ TERUGLINK ============ -->
     <section>
       <div class="container">
-        <a class="mono-link" href="../../index.html#kunstenaars" data-lang-nl="← terug naar alle kunstenaars" data-lang-en="← back to all artists">← terug naar alle kunstenaars</a>
-      </div>
-    </section>
-  </main>
-
-  <!-- ============ FOOTER ============ -->
-  <footer>
-    <div class="footer-inner">
-      <div>© <span id="year"></span> Vitrien — Leuven</div>
-      <a class="mono-link" href="#top" data-lang-nl="Naar boven" data-lang-en="Back to top">Naar boven</a>
-    </div>
-  </footer>
-
-  <script src="../../assets/js/app.js" defer></script>
-  <script>
-    // Jaar in footer
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-</body>
-</html>
+        <a class="mono-link" href="../../index.html#kunstenaars" data-lang-nl="← terug naar alle kunstenaars" data-lang-en="← back to all artists">← terug naar all
