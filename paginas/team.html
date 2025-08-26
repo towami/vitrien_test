@@ -21,7 +21,7 @@
     html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);}
     body{font-family:"EB Garamond",serif; line-height:1.55;}
 
-    /* Layout */
+    /* Header (optioneel aanpassen aan je site) */
     header{
       position:sticky; top:0; z-index:10;
       display:flex; align-items:center; justify-content:space-between;
@@ -46,15 +46,11 @@
       margin:12px 0 8px;
     }
     h1{ font-size:clamp(1.6rem,1.1rem + 2vw,2.4rem); }
-    .lead{ max-width:62ch; margin:10px 0 26px; }
 
-    /* Button link (optional reuse) */
-    .button{
-      display:inline-block; border:1px solid var(--fg); border-radius:999px;
-      padding:10px 14px; text-decoration:none; color:var(--fg);
-    }
+    /* Lead */
+    .lead{ max-width:68ch; margin:10px 0 26px; }
 
-    /* Team list (accordion using <details>) */
+    /* Accordion list */
     .team-list{ border-top:1px solid var(--border); }
     details.team-member{ border-bottom:1px solid var(--border); background:transparent; }
     summary.team-name{
@@ -87,7 +83,6 @@
       border-top:1px solid var(--border); color:var(--muted);
       padding:22px 20px; font-size:.95rem;
     }
-    a{text-underline-offset:2px;}
   </style>
 </head>
 <body>
@@ -106,10 +101,9 @@
     <div class="meta" data-lang-nl="Team" data-lang-en="Team">Team</div>
     <h1 data-lang-nl="Ontmoet het team" data-lang-en="Meet the team">Ontmoet het team</h1>
 
-    <p class="lead"
-       data-lang-nl="Vitrien wordt met veel liefde gerund door Judith, Georgy, Joseph en Arthur, en daarnaast nog ondersteund door talloze andere mensen, vrienden, familie & vrijwilligers."
-       data-lang-en="Vitrien is lovingly run by Judith, Georgy, Joseph and Arthur, and supported by countless others — friends, family & volunteers.">
-      Vitrien wordt met veel liefde gerund door Judith, Georgy, Joseph en Arthur, en daarnaast nog ondersteund door talloze andere mensen, vrienden, familie & vrijwilligers.
+    <!-- Jouw gekozen zin -->
+    <p class="lead">
+      Vitrien bestaat door het werk van Aya, Joseph, Thomas, Arthur en Judith, en door de onmisbare steun van Georgy, vrienden, familie &amp; vrijwilligers.
     </p>
 
     <div class="team-list" role="list">
@@ -149,18 +143,6 @@
         </div>
       </details>
 
-      <!-- Judith -->
-      <details class="team-member" id="judith" role="listitem">
-        <summary class="team-name" aria-controls="judith-content" aria-expanded="false">
-          <span class="name-wrap"><strong>Judith Caeyers</strong> <span class="years">(1996)</span></span>
-        </summary>
-        <div id="judith-content" class="team-content">
-          <p class="team-bio">
-            Judith Caeyers is een Belgische architect en ontwerper met ervaring bij bureaus zoals Sculp[IT] en DMOA Architecten. Daarnaast was ze de afgelopen vier jaar verantwoordelijk voor de werking van Kruul, een eventlocatie in Leuven. Haar praktijk verbindt disciplines: van interieurs en tijdelijke installaties tot brunchconcepten en websites. Ze denkt in ervaringen en systemen die logisch en menselijk aanvoelen, en zoekt daarbij steeds naar de essentie — slim en esthetisch vertaald. Haar werk beweegt zich tussen steen en pixels, structuur en experiment. Inspiratie haalt ze uit plekken over de hele wereld, eettafels en buiten de lijntjes kleuren.
-          </p>
-        </div>
-      </details>
-
       <!-- Arthur -->
       <details class="team-member" id="arthur" role="listitem">
         <summary class="team-name" aria-controls="arthur-content" aria-expanded="false">
@@ -172,20 +154,29 @@
           </p>
         </div>
       </details>
+
+      <!-- Judith -->
+      <details class="team-member" id="judith" role="listitem">
+        <summary class="team-name" aria-controls="judith-content" aria-expanded="false">
+          <span class="name-wrap"><strong>Judith Caeyers</strong> <span class="years">(1996)</span></span>
+        </summary>
+        <div id="judith-content" class="team-content">
+          <p class="team-bio">
+            Judith Caeyers is een Belgische architect en ontwerper met ervaring bij bureaus zoals Sculp[IT] en DMOA Architecten. Daarnaast was ze de afgelopen vier jaar verantwoordelijk voor de werking van Kruul, een eventlocatie in Leuven. Haar praktijk verbindt disciplines: van interieurs en tijdelijke installaties tot brunchconcepten en websites. Ze denkt in ervaringen en systemen die logisch en menselijk aanvoelen, en zoekt daarbij steeds naar de essentie — slim en esthetisch vertaald. Haar werk beweegt zich tussen steen en pixels, structuur en experiment. Inspiratie haalt ze uit plekken over de hele wereld, eettafels en buiten de lijntjes kleuren.
+          </p>
+        </div>
+      </details>
     </div>
   </main>
 
   <footer>
     <div class="container">
-      <span data-lang-nl="Terug naar" data-lang-en="Back to"></span>
-      <a href="/#over" class="back" data-lang-nl="Over" data-lang-en="About">Over</a>
-      ·
-      <a href="/index.html" class="back" data-lang-nl="Home" data-lang-en="Home">Home</a>
+      <a href="/#over">Over</a> · <a href="/index.html">Home</a>
     </div>
   </footer>
 
   <script>
-    // Improve a11y state for aria-expanded on <summary>
+    // a11y: aria-expanded sync bij open/dicht
     document.querySelectorAll('details.team-member > summary.team-name').forEach(s => {
       const details = s.parentElement;
       const set = () => s.setAttribute('aria-expanded', details.open ? 'true' : 'false');
@@ -193,7 +184,7 @@
       set();
     });
 
-    // Open the correct member if URL has a #hash
+    // Open juiste member via hash (#aya, #joseph, #thomas, #arthur, #judith)
     function openFromHash(){
       if(location.hash){
         const target = document.querySelector(location.hash);
