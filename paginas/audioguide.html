@@ -12,8 +12,9 @@
 
   <!-- Stylesheet -->
   <link rel="stylesheet" href="../assets/css/styles.css">
+
+  <!-- Pagina-specifiek (compact) -->
   <style>
-    /* Extra styling voor de audiolijst (leunt aan bij modules) */
     .audio-list { display: grid; gap: 24px; }
     .audio-stop {
       border: 1px solid var(--line);
@@ -27,6 +28,10 @@
       width: 100%; height: 220px; object-fit: cover; border-radius: 8px; margin: 12px 0;
     }
     .audio-stop p { margin: 8px 0 12px; }
+    .audio-stop.is-highlight {
+      outline: 2px solid var(--line);
+      box-shadow: 0 6px 20px rgba(0,0,0,.08);
+    }
     .backline { margin-top: 16px; }
   </style>
 </head>
@@ -106,8 +111,8 @@
       <div class="container">
         <div class="audio-list">
 
-          <!-- 10 placeholders -->
-          <article class="audio-stop">
+          <!-- 10 placeholders met ankers -->
+          <article class="audio-stop" id="stop-1">
             <div class="mini">Stop 1 — [Locatie 1]</div>
             <h3>[Kunstenaar 1]</h3>
             <img src="../assets/img/artists/placeholder.jpg" alt="Werk van [Kunstenaar 1]">
@@ -117,7 +122,7 @@
             </audio>
           </article>
 
-          <article class="audio-stop">
+          <article class="audio-stop" id="stop-2">
             <div class="mini">Stop 2 — [Locatie 2]</div>
             <h3>[Kunstenaar 2]</h3>
             <img src="../assets/img/artists/placeholder.jpg" alt="Werk van [Kunstenaar 2]">
@@ -127,7 +132,7 @@
             </audio>
           </article>
 
-          <article class="audio-stop">
+          <article class="audio-stop" id="stop-3">
             <div class="mini">Stop 3 — [Locatie 3]</div>
             <h3>[Kunstenaar 3]</h3>
             <img src="../assets/img/artists/placeholder.jpg" alt="Werk van [Kunstenaar 3]">
@@ -137,7 +142,7 @@
             </audio>
           </article>
 
-          <article class="audio-stop">
+          <article class="audio-stop" id="stop-4">
             <div class="mini">Stop 4 — [Locatie 4]</div>
             <h3>[Kunstenaar 4]</h3>
             <img src="../assets/img/artists/placeholder.jpg" alt="Werk van [Kunstenaar 4]">
@@ -147,7 +152,7 @@
             </audio>
           </article>
 
-          <article class="audio-stop">
+          <article class="audio-stop" id="stop-5">
             <div class="mini">Stop 5 — [Locatie 5]</div>
             <h3>[Kunstenaar 5]</h3>
             <img src="../assets/img/artists/placeholder.jpg" alt="Werk van [Kunstenaar 5]">
@@ -157,7 +162,7 @@
             </audio>
           </article>
 
-          <article class="audio-stop">
+          <article class="audio-stop" id="stop-6">
             <div class="mini">Stop 6 — [Locatie 6]</div>
             <h3>[Kunstenaar 6]</h3>
             <img src="../assets/img/artists/placeholder.jpg" alt="Werk van [Kunstenaar 6]">
@@ -167,7 +172,7 @@
             </audio>
           </article>
 
-          <article class="audio-stop">
+          <article class="audio-stop" id="stop-7">
             <div class="mini">Stop 7 — [Locatie 7]</div>
             <h3>[Kunstenaar 7]</h3>
             <img src="../assets/img/artists/placeholder.jpg" alt="Werk van [Kunstenaar 7]">
@@ -177,7 +182,7 @@
             </audio>
           </article>
 
-          <article class="audio-stop">
+          <article class="audio-stop" id="stop-8">
             <div class="mini">Stop 8 — [Locatie 8]</div>
             <h3>[Kunstenaar 8]</h3>
             <img src="../assets/img/artists/placeholder.jpg" alt="Werk van [Kunstenaar 8]">
@@ -187,7 +192,7 @@
             </audio>
           </article>
 
-          <article class="audio-stop">
+          <article class="audio-stop" id="stop-9">
             <div class="mini">Stop 9 — [Locatie 9]</div>
             <h3>[Kunstenaar 9]</h3>
             <img src="../assets/img/artists/placeholder.jpg" alt="Werk van [Kunstenaar 9]">
@@ -197,11 +202,59 @@
             </audio>
           </article>
 
-          <article class="audio-stop">
+          <article class="audio-stop" id="stop-10">
             <div class="mini">Stop 10 — [Locatie 10]</div>
             <h3>[Kunstenaar 10]</h3>
             <img src="../assets/img/artists/placeholder.jpg" alt="Werk van [Kunstenaar 10]">
             <p>[Korte beschrijving NL/EN van het werk]</p>
             <audio controls preload="metadata">
               <source src="../assets/audio/placeholder10.mp3" type="audio/mpeg">
-            </audio
+            </audio>
+          </article>
+
+        </div>
+
+        <p class="backline">
+          <a class="mono-link" href="../index.html#data" data-lang-nl="← terug naar route & data" data-lang-en="← back to route & dates">← terug naar route & data</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div>© <span id="year"></span> Vitrien — Leuven</div>
+      <a class="mono-link" href="#top" data-lang-nl="Naar boven" data-lang-en="Back to top">Naar boven</a>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../assets/js/app.js" defer></script>
+  <script>
+    // Jaar in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Hash-ankers: highlight & scroll naar juiste stop
+    function highlightStopFromHash() {
+      document.querySelectorAll('.audio-stop.is-highlight').forEach(el => el.classList.remove('is-highlight'));
+      const id = location.hash && location.hash.replace('#','');
+      if (!id) return;
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.classList.add('is-highlight');
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    window.addEventListener('hashchange', highlightStopFromHash);
+    document.addEventListener('DOMContentLoaded', () => {
+      // Optioneel: ?lang=nl/en uit URL toepassen als setLang bestaat
+      const params = new URLSearchParams(location.search);
+      const lang = params.get('lang');
+      if (lang && typeof window.setLang === 'function') setLang(lang);
+
+      highlightStopFromHash();
+    });
+  </script>
+</body>
+</html>
