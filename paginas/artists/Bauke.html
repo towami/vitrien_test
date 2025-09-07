@@ -1,1 +1,170 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bauke Driessens — VITRIEN</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+</head>
+<body>
+  <!-- ============ HEADER ============ -->
+  <header>
+    <nav class="nav" aria-label="Hoofdnavigatie">
+      <!-- Logo -->
+      <a href="../../index.html" class="brand" aria-label="VITRIEN — Home">
+        <img src="../../assets/img/logo.png" alt="Vitrien logo">
+      </a>
+
+      <!-- Desktop menu -->
+      <div class="menu" role="menubar">
+        <a href="../../index.html#over" data-lang-nl="Over" data-lang-en="About">Over</a>
+        <a href="../../index.html#locaties" data-lang-nl="Data & locaties" data-lang-en="Dates & Venues">Data & locaties</a>
+        <a href="../../index.html#opencall" data-lang-nl="Open call" data-lang-en="Open call">Open call</a>
+        <a href="../../index.html#kunstenaars" data-lang-nl="Kunstenaars" data-lang-en="Artists">Kunstenaars</a>
+        <a href="../../index.html#lov" data-lang-nl="LOV2030" data-lang-en="LOV2030">LOV2030</a>
+        <a href="../../index.html#contact" data-lang-nl="Contact" data-lang-en="Contact">Contact</a>
+      </div>
+
+      <!-- Desktop taal-switch -->
+      <div class="lang-switch desktop-only" aria-label="Taalwissel">
+        <button onclick="setLang('nl')" class="active" data-lang="nl">NL</button> |
+        <button onclick="setLang('en')" data-lang="en">EN</button>
+      </div>
+
+      <!-- Hamburger -->
+      <button class="burger" aria-label="Open menu" onclick="toggleDrawer()">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <!-- Mobile drawer -->
+    <div class="drawer" id="drawer" aria-hidden="true">
+      <a href="../../index.html#over" data-lang-nl="Over" data-lang-en="About" onclick="toggleDrawer()">Over</a>
+      <a href="../../index.html#locaties" data-lang-nl="Data & locaties" data-lang-en="Dates & Venues" onclick="toggleDrawer()">Data & locaties</a>
+      <a href="../../index.html#opencall" data-lang-nl="Open call" data-lang-en="Open call" onclick="toggleDrawer()">Open call</a>
+      <a href="../../index.html#kunstenaars" data-lang-nl="Kunstenaars" data-lang-en="Artists" onclick="toggleDrawer()">Kunstenaars</a>
+      <a href="../../index.html#lov" data-lang-nl="LOV2030" data-lang-en="LOV2030" onclick="toggleDrawer()">LOV2030</a>
+      <a href="../../index.html#contact" data-lang-nl="Contact" data-lang-en="Contact" onclick="toggleDrawer()">Contact</a>
+
+      <!-- Mobile taal-switch -->
+      <div class="lang-switch mobile-only" aria-label="Taalwissel">
+        <button onclick="setLang('nl')" class="active" data-lang="nl">NL</button> |
+        <button onclick="setLang('en')" data-lang="en">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- ============ HERO ============ -->
+    <section class="hero" style="min-height:auto; padding:60px 0 20px">
+      <div class="container">
+        <div class="meta" data-lang-nl="Kunstenaar" data-lang-en="Artist">Kunstenaar</div>
+        <h1>Bauke Driessens</h1>
+        <p class="lead"
+           data-lang-nl="Schilderkunst • Installatie • Ruimtelijke interventie"
+           data-lang-en="Painting • Installation • Spatial intervention">
+          Schilderkunst • Installatie • Ruimtelijke interventie
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ BREADCRUMB ============ -->
+    <section>
+      <div class="container">
+        <p class="meta" style="margin-top:-8px">
+          <a class="mono-link" href="../../index.html#kunstenaars"
+             data-lang-nl="← terug naar overzicht" data-lang-en="← back to overview">← terug naar overzicht</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ BIO + STATEMENT ============ -->
+    <section>
+      <div class="container grid two-col">
+        <article>
+          <div class="meta" data-lang-nl="Biografie" data-lang-en="Biography">Biografie</div>
+          <p
+            data-lang-nl="Bauke Driessens onderzoekt hoe we grenzen creëren, ervaren en laten vervagen — in architectuur, in de openbare ruimte en in ons dagelijks kijken. Met transparante dragers, gelaagde verf en modulaire raamkaders maakt ze werken die scharnieren tussen binnen en buiten. Haar achtergrond in scenografisch en ruimtelijk denken resoneert in het maakproces: constructie en deconstructie lopen in elkaar over en maken onderliggende structuren zichtbaar."
+            data-lang-en="Bauke Driessens investigates how we create, experience, and blur boundaries—across architecture, public space, and everyday looking. Using transparent supports, layered paint, and modular window frames, she creates works that hinge between interior and exterior. Her background in scenographic and spatial thinking resonates in the making: construction and deconstruction flow into each other, revealing underlying structures."
+          >
+            Bauke Driessens onderzoekt hoe we grenzen creëren, ervaren en laten vervagen — in architectuur, in de openbare ruimte en in ons dagelijks kijken.
+          </p>
+
+          <div class="meta" style="margin-top:20px" data-lang-nl="Praktisch" data-lang-en="Practical">Praktisch</div>
+          <p>
+            <span data-lang-nl="Website" data-lang-en="Website">Website</span>:
+            <span class="mono-link">—</span>
+          </p>
+          <p>
+            <span data-lang-nl="Contact" data-lang-en="Contact">Contact</span>:
+            <span class="mono-link">—</span>
+          </p>
+        </article>
+
+        <article>
+          <div class="meta" data-lang-nl="Artist statement" data-lang-en="Artist statement">Artist statement</div>
+          <p
+            data-lang-nl="‘Window of Fading Boundaries’ vormt een kern in mijn praktijk: drie raamkaders, gebaseerd op de maatvoering van een huiselijke gevel, worden dragers voor een zesluik van schilderingen op transparant doek. Niet alle beelden tonen zich tegelijk. De doorkijk en het wisselende licht maken de constructie zichtbaar en activeren het snijvlak tussen binnen en buiten. Ik gebruik het knooppunt — het zichtbare verbindingspunt — als plek waar spanning, ritme en betekenis samenkomen."
+            data-lang-en="‘Window of Fading Boundaries’ encapsulates my practice: three window frames, scaled from a domestic façade, carry a six-panel painting on transparent canvas. Not all images reveal themselves at once. Sightlines and shifting light expose the construction and activate the threshold between interior and exterior. I use the node — the visible joint — as the place where tension, rhythm, and meaning converge."
+          >
+            ‘Window of Fading Boundaries’ vormt een kern in mijn praktijk: drie raamkaders, gebaseerd op de maatvoering van een huiselijke gevel, worden dragers voor een zesluik van schilderingen op transparant doek.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ GALLERY ============ -->
+    <section>
+      <div class="container">
+        <div class="meta" data-lang-nl="Werk" data-lang-en="Work">Werk</div>
+        <div class="grid gallery">
+          <!-- Vervang de bestandsnamen door jouw echte assets -->
+          <figure class="module">
+            <img src="../../assets/img/artists/Bauke/bauke1.jpg" alt="Werk — Bauke Driessens">
+          </figure>
+          <figure class="module">
+            <img src="../../assets/img/artists/Bauke/bauke2.jpg" alt="Werk — Bauke Driessens">
+          </figure>
+          <figure class="module">
+            <img src="../../assets/img/artists/Bauke/bauke3.jpg" alt="Werk — Bauke Driessens">
+          </figure>
+          <figure class="module">
+            <img src="../../assets/img/artists/Bauke/bauke4.jpg" alt="Werk — Bauke Driessens">
+          </figure>
+          <figure class="module">
+            <img src="../../assets/img/artists/Bauke/bauke5.jpg" alt="Werk — Bauke Driessens">
+          </figure>
+          <figure class="module">
+            <img src="../../assets/img/artists/Bauke/bauke6.jpg" alt="Werk — Bauke Driessens">
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TERUGLINK ============ -->
+    <section>
+      <div class="container">
+        <a class="mono-link" href="../../index.html#kunstenaars"
+           data-lang-nl="← terug naar alle kunstenaars" data-lang-en="← back to all artists">← terug naar alle kunstenaars</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>© <span id="year"></span> Webdesign door Judith Caeyers & Thomas De Paepe </div>
+      <a href="#top" data-lang-nl="Naar boven" data-lang-en="Back to top">Naar boven</a>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/app.js" defer></script>
+</body>
+</html>
 
