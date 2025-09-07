@@ -25,7 +25,11 @@
     .audio-stop h3 { margin: 0 0 8px; font-size: 1.1rem; }
     .audio-stop .mini { color: var(--muted); font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 0.9rem; }
     .audio-stop img {
-      width: 100%; height: 300px; object-fit: cover; border-radius: 8px; margin: 12px 0;
+      width: 100%;
+      height: 300px;             /* grotere hoogte */
+      object-fit: cover;
+      border-radius: 8px;
+      margin: 12px 0;
     }
     .audio-stop p { margin: 8px 0 12px; }
     .audio-stop.is-highlight {
@@ -33,6 +37,15 @@
       box-shadow: 0 6px 20px rgba(0,0,0,.08);
     }
     .backline { margin-top: 16px; }
+
+    /* extra duidelijkheid per stop */
+    .stops-index { display:flex; flex-wrap:wrap; gap:8px; margin: 8px 0 20px; }
+    .stops-index a { border:1px solid var(--line); border-radius:999px; padding:6px 10px; font-family:"IBM Plex Mono", ui-monospace, monospace; text-decoration:none; }
+    .stop-head { display:flex; flex-wrap:wrap; gap:8px 12px; align-items:center; margin-bottom:10px; }
+    .badge { display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px; border-radius:50%; border:1px solid var(--line); font-weight:500; }
+    .addr { color: var(--muted); }
+    .btn-mini { border:1px solid var(--line); border-radius:8px; padding:6px 10px; font-size:.9rem; text-decoration:none; }
+    .btn-mini:hover { background:#f7f7f7; }
   </style>
 </head>
 <body>
@@ -82,7 +95,7 @@
       <div class="container">
         <div class="meta" data-lang-nl="Audiogids" data-lang-en="Audio Guide">Audiogids</div>
         <h1 data-lang-nl="Audiogids" data-lang-en="Audio Guide">Audiogids</h1>
-        <p class="lead" 
+        <p class="lead"
            data-lang-nl="Kijk niet alleen met je ogen. Laat de stemmen de vitrines openbreken en de kunst dichterbij brengen."
            data-lang-en="Don’t just look with your eyes. Let the voices break open the windows and bring the art closer.">
           Kijk niet alleen met je ogen. Laat de stemmen de vitrines openbreken en de kunst dichterbij brengen.
@@ -109,11 +122,29 @@
     <!-- STOPS -->
     <section>
       <div class="container">
-        <div class="audio-list">
+        <!-- Snelkoppelingen -->
+        <nav class="stops-index" aria-label="Snel naar stop">
+          <a href="#stop-1">1 Apotheek De Bond</a>
+          <a href="#stop-2">2 Delen Bank</a>
+          <a href="#stop-3">3 Vip Concept</a>
+          <a href="#stop-4">4 Huis Delsart</a>
+          <a href="#stop-5">5 Juttu</a>
+          <a href="#stop-6">6 Wear Store</a>
+          <a href="#stop-7">7 De Slegte</a>
+          <a href="#stop-8">8 30CC Schouwburg</a>
+          <a href="#stop-9">9 Folie Dameskleding</a>
+          <a href="#stop-10">10 Bushalte De Lijn</a>
+        </nav>
 
+        <div class="audio-list">
           <!-- 1 -->
           <article class="audio-stop" id="stop-1">
-            <div class="mini">Stop 1 — Apotheek De Bond</div>
+            <div class="stop-head">
+              <span class="badge">1</span>
+              <strong>Apotheek De Bond</strong>
+              <span class="addr">Bondgenotenlaan 131, 3000 Leuven</span>
+              <a class="btn-mini" target="_blank" rel="noopener" href="https://www.google.com/maps?q=Bondgenotenlaan+131,+3000+Leuven">Open in Maps</a>
+            </div>
             <h3>Shailey Shah — <em>Dream Catcher</em></h3>
             <img src="../assets/img/artists/Shailey/Shailey13.jpeg" alt="Werk van Shailey Shah">
             <p
@@ -121,175 +152,4 @@
               data-lang-en="Ceramic sculptures become dreamscapes: each form embodies an individual dream, tethered to a cloud-like structure. Between the fleeting and the weighty lies a field of memories, desires, and fresh possibilities.">
               Keramische sculpturen worden droomwerelden: elke vorm belichaamt een individuele droom, verbonden aan een wolkvorm.
             </p>
-            <audio controls preload="metadata">
-              <source src="../assets/audio/Shailey_nl.mp3" type="audio/mpeg">
-              <source src="../assets/audio/Shailey_en.mp3" type="audio/mpeg">
-            </audio>
-          </article>
-
-          <!-- 2 -->
-          <article class="audio-stop" id="stop-2">
-            <div class="mini">Stop 2 — Delen Bank</div>
-            <h3>Bauke Driessens — <em>Window of Fading Boundaries</em></h3>
-            <img src="../assets/img/artists/Bauke.jpg" alt="Werk van Bauke Driessens">
-            <p
-              data-lang-nl="Drie raamkaders met transparant doek laten binnen en buiten in elkaar overlopen. Omdat de panelen aan beide zijden zijn beschilderd, toont het werk zich nooit in één oogopslag — percep­tie, constructie en deconstructie blijven in beweging."
-              data-lang-en="Three window frames with transparent fabric let inside and outside bleed into each other. Painted on both sides, the work never reveals itself at once—perception, construction and deconstruction stay in motion.">
-              Raamkaders met transparant doek laten binnen en buiten in elkaar overvloeien; het werk onthult zich gefaseerd en houdt je blik in beweging.
-            </p>
-            <audio controls preload="metadata">
-              <source src="../assets/audio/Bauke_nl.mp3" type="audio/mpeg">
-              <source src="../assets/audio/Bauke_en.mp3" type="audio/mpeg">
-            </audio>
-          </article>
-
-          <!-- 3 -->
-          <article class="audio-stop" id="stop-3">
-            <div class="mini">Stop 3 — Vip Concept</div>
-            <h3>Jente Waerzeggers — <em>Window Lickin’ Good</em></h3>
-            <img src="../assets/img/artists/Jente/jente5.jpeg" alt="Werk van Jente Waerzeggers">
-            <p
-              data-lang-nl="Rauwe, directe beelden uit de muziek- en kunstscene verschijnen als lichtbakken in de etalage. Het werk speelt met de grens tussen commercie en kunst en nodigt uit om blijven te kijken."
-              data-lang-en="Raw, direct images from the music and art scene appear as lightboxes in the window. The work toys with the line between commerce and art and invites lingering attention.">
-              Ruwe lichtbakken balanceren tussen straatbeeld en kunstpresentatie; een speels-radicale blik op wat we tonen en zien.
-            </p>
-            <audio controls preload="metadata">
-              <source src="../assets/audio/Jente_nl.mp3" type="audio/mpeg">
-              <source src="../assets/audio/Jente_en.mp3" type="audio/mpeg">
-            </audio>
-          </article>
-
-          <!-- 4 -->
-          <article class="audio-stop" id="stop-4">
-            <div class="mini">Stop 4 — Huis Delsart</div>
-            <h3>Nora Mahammed — <em>Heart Capsule</em></h3>
-            <img src="../assets/img/artists/Nora/Nora2.jpg" alt="Werk van Nora Mahammed">
-            <p
-              data-lang-nl="Een zintuiglijke ruimte als liefdevolle capsule: textuur, kleur, geluid en vorm vertragen de tijd en openen het lichaam voor gevoel. Een plek voor aanwezigheid, resonantie en zachte transformatie."
-              data-lang-en="A sensory space as a loving capsule: texture, color, sound and form slow time and reopen the body to feeling. A site for presence, resonance, and gentle transformation.">
-              Een intieme installatieruimte die uitnodigt tot verstilling en herverbinding met je innerlijke kind en verwondering.
-            </p>
-            <audio controls preload="metadata">
-              <source src="../assets/audio/Nora_nl.mp3" type="audio/mpeg">
-              <source src="../assets/audio/Nora_en.mp3" type="audio/mpeg">
-            </audio>
-          </article>
-
-          <!-- 5 -->
-          <article class="audio-stop" id="stop-5">
-            <div class="mini">Stop 5 — Juttu</div>
-            <h3>Pol Olivier Matanda — <em>When Alone, the Stars Are Between Us</em></h3>
-            <img src="../assets/img/artists/Pol/Pol12.jpeg" alt="Werk van Pol Olivier Matanda">
-            <p
-              data-lang-nl="Papier en suiker ontmoeten elkaar in fragiele constellaties over intimiteit en herinnering. Het vluchtige wordt tastbaar en laat, ondanks het vervagen van details, een blijvende afdruk achter."
-              data-lang-en="Paper and sugar meet in fragile constellations about intimacy and remembrance. The ephemeral becomes tangible and, even as details fade, leaves a lasting imprint.">
-              Een poëtische verkenning van nabijheid: hoe liefde standhoudt terwijl herinneringen verschuiven.
-            </p>
-            <audio controls preload="metadata">
-              <source src="../assets/audio/Pol_nl.mp3" type="audio/mpeg">
-              <source src="../assets/audio/Pol_en.mp3" type="audio/mpeg">
-            </audio>
-          </article>
-
-          <!-- 6 -->
-          <article class="audio-stop" id="stop-6">
-            <div class="mini">Stop 6 — Wear Store</div>
-            <h3>Jason Slabbynck — <em>Tray Tower</em></h3>
-            <img src="../assets/img/artists/Jason/jason11.jpg" alt="Werk van Jason Slabbynck">
-            <p
-              data-lang-nl="Een toren van gerecycleerde metalen dienbladen draait traag achter het raam: huiselijk en monumentaal tegelijk. Herkenning slaat om in vervreemding en zet aan tot kijken zonder belofte van inhoud."
-              data-lang-en="A tower of recycled metal trays turns slowly behind the glass: at once domestic and monumental. Familiarity slips into estrangement, inviting looking without the promise of content.">
-              Een stille verstoring in de winkelstraat die bevraagt wat we tonen, bewaren en verwachten.
-            </p>
-            <audio controls preload="metadata">
-              <source src="../assets/audio/Jason_nl.mp3" type="audio/mpeg">
-              <source src="../assets/audio/Jason_en.mp3" type="audio/mpeg">
-            </audio>
-          </article>
-
-          <!-- 7 -->
-          <article class="audio-stop" id="stop-7">
-            <div class="mini">Stop 7 — De Slegte</div>
-            <h3>Jonathan Van de Wal — <em>Questions, answers and questions?</em></h3>
-            <img src="../assets/img/artists/Jonathan/Jonathan3.jpg" alt="Werk van Jonathan Van de Wal">
-            <p
-              data-lang-nl="Schilderingen en assemblages die vragen stapelen in plaats van ze te sluiten. Tussen humor en mysterie ontvouwt zich een eigen logica die betekenis oprekt."
-              data-lang-en="Paintings and assemblages that stack questions rather than close them. Between humor and mystery, an internal logic stretches what ‘meaning’ can be.">
-              Een speelse, poëtische uitnodiging om te dwalen in het enigma.
-            </p>
-            <audio controls preload="metadata">
-              <source src="../assets/audio/Jonathan_nl.mp3" type="audio/mpeg">
-              <source src="../assets/audio/Jonathan_en.mp3" type="audio/mpeg">
-            </audio>
-          </article>
-
-          <!-- 8 -->
-          <article class="audio-stop" id="stop-8">
-            <div class="mini">Stop 8 — 30CC Schouwburg</div>
-            <h3>Camille Lemille — <em>Graphic Scores</em></h3>
-            <img src="../assets/img/artists/Camille/Camille1.jpg" alt="Werk van Camille Lemille">
-            <p
-              data-lang-nl="Luisteren naar de stad en haar klanklandschappen vertalen naar grafische partituren. De publieke ruimte wordt een archief van ritmes, technologieën en begroetingen in een specifiek moment."
-              data-lang-en="Listening to the city and transcribing its soundscapes into graphic scores. Public space becomes an archive of rhythms, technologies, and greetings in a specific moment.">
-              Een uitnodiging om je eigen stad opnieuw te horen, voorbij het visuele.
-            </p>
-            <audio controls preload="metadata">
-              <source src="../assets/audio/Camille_nl.mp3" type="audio/mpeg">
-              <source src="../assets/audio/Camille_en.mp3" type="audio/mpeg">
-            </audio>
-          </article>
-
-          <!-- 9 -->
-          <article class="audio-stop" id="stop-9">
-            <div class="mini">Stop 9 — Folie Dameskleding</div>
-            <h3>Niels Poiz — <em>Collage-installatie</em></h3>
-            <img src="../assets/img/artists/Niels/Niels2.jpeg" alt="Werk van Niels Poiz">
-            <p
-              data-lang-nl="Taal, popsongs en dagboekfragmenten vormen een collage die verhaallijnen opent en meteen weer ondermijnt. Originelen mengen zich met reproducties; niets staat definitief vast."
-              data-lang-en="Language, pop songs and diary fragments form a collage that opens narrative threads only to unravel them. Originals mix with reproductions; nothing settles for long.">
-              Een kwetsbare, steeds verschuivende beeldtaal over identiteit en popcultuur.
-            </p>
-            <audio controls preload="metadata">
-              <source src="../assets/audio/Niels_nl.mp3" type="audio/mpeg">
-              <source src="../assets/audio/Niels_en.mp3" type="audio/mpeg">
-            </audio>
-          </article>
-
-          <!-- 10 -->
-          <article class="audio-stop" id="stop-10">
-            <div class="mini">Stop 10 — Bushalte De Lijn</div>
-            <h3>Camille Lemille — <em>Bus Stop Score</em></h3>
-            <img src="../assets/img/artists/Camille/Camille3.jpg" alt="Werk van Camille Lemille">
-            <p
-              data-lang-nl="Een partituur voor de bushalte: transactiegeluiden, motoren, begroetingen en stiltes weven een momentopname. Luisteren wordt een manier om de stad te lezen."
-              data-lang-en="A score for the bus stop: transaction beeps, engines, greetings and silences weave a snapshot in time. Listening becomes a way to read the city.">
-              Publieke ruimte als instrument — en jij als luisteraar.
-            </p>
-            <audio controls preload="metadata">
-              <source src="../assets/audio/Camille2_nl.mp3" type="audio/mpeg">
-              <source src="../assets/audio/Camille2_en.mp3" type="audio/mpeg">
-            </audio>
-          </article>
-
-        </div>
-
-        <p class="backline">
-          <a class="mono-link" href="../index.html#data" data-lang-nl="← terug naar route & data" data-lang-en="← back to route & dates">← terug naar route & data</a>
-        </p>
-      </div>
-    </section>
-  </main>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-inner">
-      <div>© <span id="year"></span> Webdesign door Judith Caeyers & Thomas De Paepe </div>
-      <a href="#top" data-lang-nl="Naar boven" data-lang-en="Back to top">Naar boven</a>
-    </div>
-  </footer>
-
-  <!-- Scripts -->
-  <script src="../assets/js/app.js" defer></script>
-  <script>
-    // Jaar in footer
-    document.getElementById('year').textContent = new Date().
+            <audio controls pre
