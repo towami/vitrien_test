@@ -38,15 +38,56 @@
     }
     .backline { margin-top: 16px; }
 
-
-    /* extra duidelijkheid per stop */
-    .stops-index { display:flex; flex-wrap:wrap; gap:8px; margin: 8px 0 20px; }
-    .stops-index a { border:1px solid var(--line); border-radius:999px; padding:6px 10px; font-family:"IBM Plex Mono", ui-monospace, monospace; text-decoration:none; }
+    /* Stop-kop */
     .stop-head { display:flex; flex-wrap:wrap; gap:8px 12px; align-items:center; margin-bottom:10px; }
     .badge { display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px; border-radius:50%; border:1px solid var(--line); font-weight:500; }
     .addr { color: var(--muted); }
     .btn-mini { border:1px solid var(--line); border-radius:8px; padding:6px 10px; font-size:.9rem; text-decoration:none; }
     .btn-mini:hover { background:#f7f7f7; }
+
+    /* Nieuwe “Spring direct naar jouw stop” sectie */
+    .jump-to-stops { margin: 32px 0; text-align: center; }
+    .jump-to-stops .meta {
+      font-family: "IBM Plex Mono", ui-monospace, monospace;
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+    .stops-nav {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .stops-nav a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      text-decoration: none;
+      font-family: "IBM Plex Mono", ui-monospace, monospace;
+      font-size: 0.9rem;
+      color: inherit;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .stops-nav a:hover {
+      background: #f7f7f7;
+      border-color: #999;
+    }
+    .stops-nav .badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 1px solid var(--line);
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
   </style>
 </head>
 <body>
@@ -123,19 +164,25 @@
     <!-- STOPS -->
     <section>
       <div class="container">
-        <!-- Snelkoppelingen -->
-        <nav class="stops-index" aria-label="Snel naar stop">
-          <a href="#stop-1">1 Apotheek De Bond</a>
-          <a href="#stop-2">2 Delen Bank</a>
-          <a href="#stop-3">3 Vip Concept</a>
-          <a href="#stop-4">4 Huis Delsart</a>
-          <a href="#stop-5">5 Juttu</a>
-          <a href="#stop-6">6 Wear Store</a>
-          <a href="#stop-7">7 De Slegte</a>
-          <a href="#stop-8">8 30CC Schouwburg</a>
-          <a href="#stop-9">9 Folie Dameskleding</a>
-          <a href="#stop-10">10 Bushalte De Lijn</a>
-        </nav>
+
+        <!-- Nieuwe snelkoppelingen -->
+        <div class="jump-to-stops">
+          <div class="meta" data-lang-nl="Spring direct naar jouw stop" data-lang-en="Scroll directly to your stop">
+            Spring direct naar jouw stop
+          </div>
+          <nav class="stops-nav" aria-label="Snel naar stop">
+            <a href="#stop-1"><span class="badge">1</span> Apotheek De Bond</a>
+            <a href="#stop-2"><span class="badge">2</span> Delen Bank</a>
+            <a href="#stop-3"><span class="badge">3</span> Vip Concept</a>
+            <a href="#stop-4"><span class="badge">4</span> Huis Delsart</a>
+            <a href="#stop-5"><span class="badge">5</span> Juttu</a>
+            <a href="#stop-6"><span class="badge">6</span> Wear Store</a>
+            <a href="#stop-7"><span class="badge">7</span> De Slegte</a>
+            <a href="#stop-8"><span class="badge">8</span> 30CC Schouwburg</a>
+            <a href="#stop-9"><span class="badge">9</span> Folie Dameskleding</a>
+            <a href="#stop-10"><span class="badge">10</span> Bushalte De Lijn</a>
+          </nav>
+        </div>
 
         <div class="audio-list">
           <!-- 1 -->
@@ -383,11 +430,9 @@
 
     window.addEventListener('hashchange', highlightStopFromHash);
     document.addEventListener('DOMContentLoaded', () => {
-      // Optioneel: ?lang=nl/en uit URL toepassen als setLang bestaat
       const params = new URLSearchParams(location.search);
       const lang = params.get('lang');
       if (lang && typeof window.setLang === 'function') setLang(lang);
-
       highlightStopFromHash();
     });
   </script>
