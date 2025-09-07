@@ -431,58 +431,53 @@
   </script>
 
   <!-- Audio meeschakelen met taal (en positie bewaren) -->
-  <script>
-    (function () {
+ <script>
+  (function () {
+    function setAudioLanguage(lang) {
+      document.querySelectorAll('.audio-stop audio').forEach(player => {
+        const sources = Array.from(player.querySelectorAll('source[data-lang]'));
+        if (!sources.length) return;
+
+        const preferred = sources.find(s => s.dataset.lang === lang) || sources[0];
+        if (!preferred) return;
+
+        const newSrc = preferred.getAttribute('src');
+        const wasPlaying = !player.paused && !player.ended;
+        const t = player.currentTime || 0;
+
+        // Als dezelfde bron al actief is, enkel afspelen hernemen
+        const current = player.currentSrc || player.src || '';
+        if (current && (current === new URL(newSrc, location.href).href)) {
+          if (wasPlaying) player.play().catch(()=>{});
+          return;
+        }
+
+        player.pause();
+        player.src = newSrc;
+        player.load();
+        player.addEventListener('loadedmetadata', function onMeta() {
+          player.removeEventListener('loadedmetadata', onMeta);
+          try { if (t > 0 && t < (player.duration || Infinity)) player.currentTime = t; } catch(e) {}
+          if (wasPlaying) player.play().catch(()=>{});
+        });
+      });
+    }
+
+    // Wacht tot ALLES klaar is (deferred scripts incl.)
+    window.addEventListener('load', () => {
       const originalSetLang = window.setLang;
 
-      function setAudioLanguage(lang) {
-        document.querySelectorAll('.audio-stop audio').forEach(player => {
-          const sources = Array.from(player.querySelectorAll('source[data-lang]'));
-          if (!sources.length) return;
-
-          const preferred = sources.find(s => s.dataset.lang === lang) || sources[0];
-          if (!preferred) return;
-
-          const newSrc = preferred.getAttribute('src');
-          const wasPlaying = !player.paused && !player.ended;
-          const t = player.currentTime || 0;
-
-          // Als de huidige src al overeenkomt, enkel afspelen hernemen
-          const current = player.currentSrc || player.src || '';
-          if (current.endsWith(newSrc)) {
-            if (wasPlaying) player.play().catch(()=>{});
-            return;
-          }
-
-          player.pause();
-          player.src = newSrc;
-          player.load();
-
-          // Probeer dezelfde tijdspositie te bewaren
-          player.addEventListener('loadedmetadata', function onMeta() {
-            player.removeEventListener('loadedmetadata', onMeta);
-            try { if (t > 0 && t < player.duration) player.currentTime = t; } catch(e) {}
-            if (wasPlaying) player.play().catch(()=>{});
-          });
-        });
-      }
-
+      // Patch setLang NA dat app.js het heeft gezet
       window.setLang = function (lang) {
         if (typeof originalSetLang === 'function') originalSetLang(lang);
         setAudioLanguage(lang);
       };
 
-      document.addEventListener('DOMContentLoaded', () => {
-        const initial = document.documentElement.getAttribute('lang') || 'nl';
-        setAudioLanguage(initial);
-        // URL lang fallback
-        setTimeout(() => {
-          const params = new URLSearchParams(location.search);
-          const urlLang = params.get('lang');
-          if (urlLang) setAudioLanguage(urlLang);
-        }, 0);
-      });
-    })();
-  </script>
-</body>
-</html>
+      // Initiale taal bepalen: <html lang> of ?lang=...
+      const params = new URLSearchParams(location.search);
+      const urlLang = params.get('lang');
+      const initial = urlLang || document.documentElement.getAttribute('lang') || 'nl';
+      setAudioLanguage(initial);
+    });
+  })();
+</script>
