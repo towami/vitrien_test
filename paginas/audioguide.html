@@ -3,58 +3,49 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title data-lang-nl="Audiogids — VITRIEN" data-lang-en="Audio Guide — VITRIEN">Audiogids — VITRIEN</title>
+  <title>Audiogids — VITRIEN</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-  <!-- Stylesheet -->
+  <!-- Site stylesheet -->
   <link rel="stylesheet" href="../assets/css/styles.css">
 
-  <!-- Pagina-specifiek -->
   <style>
-    /* Linkse uitlijning in hero */
+    /* keep the hero left-aligned like the rest of the site */
     .hero .container { text-align: left; }
 
-    .audio-list { display: grid; gap: 24px; }
+    /* compact, clean cards */
+    .audio-list { display: grid; gap: 32px; }
     .audio-stop {
       border: 1px solid var(--line);
       border-radius: 12px;
-      padding: 16px;
+      padding: 20px;
       background: #fff;
     }
-    .audio-stop h3 { margin: 0 0 8px; font-size: 1.1rem; }
-    .audio-stop .mini { color: var(--muted); font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 0.9rem; }
-    .audio-stop img {
-      width: 100%;
-      height: 300px;
-      object-fit: cover;
-      border-radius: 8px;
-      margin: 12px 0;
-    }
-    .audio-stop p { margin: 8px 0 12px; }
-    .audio-stop.is-highlight {
-      outline: 2px solid var(--line);
-      box-shadow: 0 6px 20px rgba(0,0,0,.08);
-    }
-    .backline { margin-top: 16px; }
-
-    /* Stop-kop */
-    .stop-head { display:flex; flex-wrap:wrap; gap:8px 12px; align-items:center; margin-bottom:10px; }
-    .badge { display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px; border-radius:50%; border:1px solid var(--line); font-weight:500; }
+    .stop-head { display:flex; flex-wrap:wrap; gap:12px; align-items:center; margin-bottom:10px; }
     .addr { color: var(--muted); }
     .btn-mini { border:1px solid var(--line); border-radius:8px; padding:6px 10px; font-size:.9rem; text-decoration:none; }
     .btn-mini:hover { background:#f7f7f7; }
 
-    /* Snel naar stop: links uitgelijnd, volle containerbreedte */
-    .jump-to-stops { margin: 24px 0; text-align: left; }
+    .audio-stop h3 { margin: 6px 0 8px; font-size: 1.1rem; }
+    .audio-stop img {
+      width: 100%; height: 300px; object-fit: cover;
+      border-radius: 8px; margin: 12px 0;
+    }
+    .audio-stop p { margin: 8px 0 12px; }
+    .audio-duo { display: grid; gap: 10px; margin-top: 8px; }
+    .audio-duo strong { display:inline-block; margin-bottom:4px; }
+
+    /* simple jump list (no badges) */
+    .jump-to-stops { margin: 24px 0; }
     .jump-to-stops .meta {
       font-family: "IBM Plex Mono", ui-monospace, monospace;
       font-size: 0.95rem;
       color: var(--muted);
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
     .stops-nav {
       display: grid;
@@ -62,9 +53,7 @@
       gap: 10px;
     }
     .stops-nav a {
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      display: block;
       padding: 8px 12px;
       border: 1px solid var(--line);
       border-radius: 8px;
@@ -75,31 +64,8 @@
       transition: background 0.2s, border-color 0.2s;
     }
     .stops-nav a:hover { background: #f7f7f7; border-color: #999; }
-    .stops-nav .badge {
-      display: inline-flex; align-items:center; justify-content:center;
-      width: 22px; height: 22px; border-radius: 50%;
-      border: 1px solid var(--line); font-size: 0.75rem; font-weight: 500;
-    }
 
-    /* Twee-speler lay-out */
-    .audio-dual {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      align-items: start;
-    }
-    @media (max-width: 720px) {
-      .audio-dual { grid-template-columns: 1fr; }
-    }
-    .audio-dual .label {
-      margin: 0 0 6px;
-      font-family: "IBM Plex Mono", ui-monospace, monospace;
-      font-size: .9rem;
-      color: var(--muted);
-    }
-
-    /* Extra ruimte tussen knoppen en eerste audio-stop */
-    .jump-to-stops + .audio-list { margin-top: 10px; }
+    .backline { margin-top: 16px; }
   </style>
 </head>
 <body>
@@ -111,47 +77,24 @@
       </a>
 
       <div class="menu" role="menubar">
-        <a href="../index.html#over" data-lang-nl="Over" data-lang-en="About">Over</a>
-        <a href="../index.html#data" data-lang-nl="Data & locaties" data-lang-en="Dates & Venues">Data & locaties</a>
-        <a href="../index.html#opencall" data-lang-nl="Open call" data-lang-en="Open call">Open call</a>
-        <a href="../index.html#kunstenaars" data-lang-nl="Kunstenaars" data-lang-en="Artists">Kunstenaars</a>
-        <a href="../index.html#lov" data-lang-nl="LOV2030" data-lang-en="LOV2030">LOV2030</a>
-        <a href="../index.html#contact" data-lang-nl="Contact" data-lang-en="Contact">Contact</a>
+        <a href="../index.html#over">Over</a>
+        <a href="../index.html#data">Data & locaties</a>
+        <a href="../index.html#opencall">Open call</a>
+        <a href="../index.html#kunstenaars">Kunstenaars</a>
+        <a href="../index.html#lov">LOV2030</a>
+        <a href="../index.html#contact">Contact</a>
       </div>
-
-      <div class="lang-switch desktop-only" aria-label="Taalwissel">
-        <button onclick="setLang('nl')" class="active">NL</button> |
-        <button onclick="setLang('en')">EN</button>
-      </div>
-
-      <button class="burger" aria-label="Open menu" onclick="toggleDrawer()"><span></span><span></span><span></span></button>
     </nav>
-
-    <div class="drawer" id="drawer" aria-hidden="true">
-      <a href="../index.html#over" onclick="toggleDrawer()" data-lang-nl="Over" data-lang-en="About">Over</a>
-      <a href="../index.html#data" onclick="toggleDrawer()" data-lang-nl="Data & locaties" data-lang-en="Dates & Venues">Data & locaties</a>
-      <a href="../index.html#opencall" onclick="toggleDrawer()" data-lang-nl="Open call" data-lang-en="Open call">Open call</a>
-      <a href="../index.html#kunstenaars" onclick="toggleDrawer()" data-lang-nl="Kunstenaars" data-lang-en="Artists">Kunstenaars</a>
-      <a href="../index.html#lov" onclick="toggleDrawer()" data-lang-nl="LOV2030" data-lang-en="LOV2030">LOV2030</a>
-      <a href="../index.html#contact" onclick="toggleDrawer()" data-lang-nl="Contact" data-lang-en="Contact">Contact</a>
-
-      <div class="lang-switch mobile-only" aria-label="Taalwissel">
-        <button onclick="setLang('nl')" class="active">NL</button> |
-        <button onclick="setLang('en')">EN</button>
-      </div>
-    </div>
   </header>
 
   <!-- MAIN -->
   <main id="top">
     <!-- HERO -->
-    <section class="hero" style="min-height:auto; padding:60px 0 12px">
+    <section class="hero" style="min-height:auto; padding:60px 0 20px">
       <div class="container">
-        <div class="meta" data-lang-nl="Audiogids" data-lang-en="Audio Guide">Audiogids</div>
-        <h1 data-lang-nl="Audiogids" data-lang-en="Audio Guide">Audiogids</h1>
-        <p class="lead"
-           data-lang-nl="Kijk niet alleen met je ogen. Laat de stemmen de vitrines openbreken en de kunst dichterbij brengen."
-           data-lang-en="Don’t just look with your eyes. Let the voices break open the windows and bring the art closer.">
+        <div class="meta">Audiogids</div>
+        <h1>Audiogids</h1>
+        <p class="lead">
           Kijk niet alleen met je ogen. Laat de stemmen de vitrines openbreken en de kunst dichterbij brengen.
         </p>
 
@@ -159,14 +102,10 @@
         <div class="btn-row route-tools">
           <a class="btn btn-small"
              target="_blank" rel="noopener"
-             data-lang-nl="Route" data-lang-en="Route"
              href="https://www.google.com/maps/dir/?api=1&origin=Leuven%20Station&destination=Rector%20De%20Somerplein%2011%2C%203000%20Leuven&waypoints=Bondgenotenlaan%20131%2C%203000%20Leuven|Bondgenotenlaan%20140%2C%203000%20Leuven|Bondgenotenlaan%20145%2C%203000%20Leuven|Bondgenotenlaan%2081%2C%203000%20Leuven|Bondgenotenlaan%2061%2C%203000%20Leuven|Bondgenotenlaan%2054%2C%203000%20Leuven|Bondgenotenlaan%2047%2C%203000%20Leuven|Bondgenotenlaan%2021%2C%203000%20Leuven|Rector%20De%20Somerplein%2011%2C%203000%20Leuven">
             Route
           </a>
-          <a class="btn btn-small"
-             target="_blank" rel="noopener"
-             data-lang-nl="Boekje" data-lang-en="Booklet"
-             href="../assets/booklet/vitrien-boekje.pdf">
+          <a class="btn btn-small" target="_blank" rel="noopener" href="../assets/booklet/vitrien-boekje.pdf">
             Boekje
           </a>
         </div>
@@ -176,22 +115,20 @@
     <!-- STOPS -->
     <section>
       <div class="container">
-        <!-- Snelkoppelingen -->
+        <!-- Jump list -->
         <div class="jump-to-stops">
-          <div class="meta" data-lang-nl="Scroll direct naar jouw stop" data-lang-en="Scroll directly to your stop">
-            Scroll direct naar jouw stop
-          </div>
+          <div class="meta">Scroll direct naar jouw stop</div>
           <nav class="stops-nav" aria-label="Snel naar stop">
-            <a href="#stop-1"><span class="badge">1</span> Apotheek De Bond</a>
-            <a href="#stop-2"><span class="badge">2</span> Delen Bank</a>
-            <a href="#stop-3"><span class="badge">3</span> Vip Concept</a>
-            <a href="#stop-4"><span class="badge">4</span> Huis Delsart</a>
-            <a href="#stop-5"><span class="badge">5</span> Juttu</a>
-            <a href="#stop-6"><span class="badge">6</span> Wear Store</a>
-            <a href="#stop-7"><span class="badge">7</span> De Slegte</a>
-            <a href="#stop-8"><span class="badge">8</span> 30CC Schouwburg</a>
-            <a href="#stop-9"><span class="badge">9</span> Folie Dameskleding</a>
-            <a href="#stop-10"><span class="badge">10</span> Bushalte De Lijn</a>
+            <a href="#stop-1">Apotheek De Bond</a>
+            <a href="#stop-2">Delen Bank</a>
+            <a href="#stop-3">Vip Concept</a>
+            <a href="#stop-4">Huis Delsart</a>
+            <a href="#stop-5">Juttu</a>
+            <a href="#stop-6">Wear Store</a>
+            <a href="#stop-7">De Slegte</a>
+            <a href="#stop-8">30CC Schouwburg</a>
+            <a href="#stop-9">Folie Dameskleding</a>
+            <a href="#stop-10">Bushalte De Lijn</a>
           </nav>
         </div>
 
@@ -199,276 +136,216 @@
           <!-- 1 -->
           <article class="audio-stop" id="stop-1">
             <div class="stop-head">
-              <span class="badge">1</span>
               <strong>Apotheek De Bond</strong>
               <span class="addr">Bondgenotenlaan 131, 3000 Leuven</span>
               <a class="btn-mini" target="_blank" rel="noopener" href="https://www.google.com/maps?q=Bondgenotenlaan+131,+3000+Leuven">Open in Maps</a>
             </div>
             <h3>Shailey Shah — <em>Dream Catcher</em></h3>
             <img src="../assets/img/artists/Shailey/Shailey13.jpeg" alt="Werk van Shailey Shah">
-            <p
-              data-lang-nl="Keramische sculpturen worden droomwerelden: elke vorm belichaamt een individuele droom, verbonden aan een wolkvorm. Tussen het vluchtige en het gewichtige ligt een veld van herinneringen, verlangens en nieuwe mogelijkheden."
-              data-lang-en="Ceramic sculptures become dreamscapes: each form embodies an individual dream, tethered to a cloud-like structure. Between the fleeting and the weighty lies a field of memories, desires, and fresh possibilities.">
-              Keramische sculpturen worden droomwerelden: elke vorm belichaamt een individuele droom, verbonden aan een wolkvorm.
+            <p><strong>Nederlands</strong><br>
+              Keramische sculpturen worden droomwerelden: elke vorm belichaamt een individuele droom, verbonden aan een wolkvorm. Tussen het vluchtige en het gewichtige ligt een veld van herinneringen, verlangens en nieuwe mogelijkheden.
             </p>
-            <div class="audio-dual">
-              <div>
-                <p class="label">Nederlands</p>
-                <audio controls preload="metadata" src="../assets/audio/Shailey_nl.mp3"></audio>
-              </div>
-              <div>
-                <p class="label">English</p>
-                <audio controls preload="metadata" src="../assets/audio/Shailey_en.mp3"></audio>
-              </div>
+            <p><strong>English</strong><br>
+              Ceramic sculptures become dreamscapes: each form embodies an individual dream, tethered to a cloud-like structure. Between the fleeting and the weighty lies a field of memories, desires, and fresh possibilities.
+            </p>
+            <div class="audio-duo">
+              <div><strong>Nederlands:</strong> <audio controls><source src="../assets/audio/Shailey_nl.mp3" type="audio/mpeg"></audio></div>
+              <div><strong>English:</strong> <audio controls><source src="../assets/audio/Shailey_en.mp3" type="audio/mpeg"></audio></div>
             </div>
           </article>
 
           <!-- 2 -->
           <article class="audio-stop" id="stop-2">
             <div class="stop-head">
-              <span class="badge">2</span>
               <strong>Delen Bank</strong>
               <span class="addr">Bondgenotenlaan 140, 3000 Leuven</span>
               <a class="btn-mini" target="_blank" rel="noopener" href="https://www.google.com/maps?q=Bondgenotenlaan+140,+3000+Leuven">Open in Maps</a>
             </div>
             <h3>Bauke Driessens — <em>Window of Fading Boundaries</em></h3>
             <img src="../assets/img/artists/Bauke.jpg" alt="Werk van Bauke Driessens">
-            <p
-              data-lang-nl="Drie raamkaders met transparant doek laten binnen en buiten in elkaar overlopen. Omdat de panelen aan beide zijden zijn beschilderd, toont het werk zich nooit in één oogopslag — perceptie, constructie en deconstructie blijven in beweging."
-              data-lang-en="Three window frames with transparent fabric let inside and outside bleed into each other. Painted on both sides, the work never reveals itself at once—perception, construction and deconstruction stay in motion.">
-              Raamkaders met transparant doek laten binnen en buiten in elkaar overvloeien; het werk onthult zich gefaseerd en houdt je blik in beweging.
+            <p><strong>Nederlands</strong><br>
+              Drie raamkaders met transparant doek laten binnen en buiten in elkaar overlopen. Omdat de panelen aan beide zijden zijn beschilderd, toont het werk zich nooit in één oogopslag — perceptie, constructie en deconstructie blijven in beweging.
             </p>
-            <div class="audio-dual">
-              <div>
-                <p class="label">Nederlands</p>
-                <audio controls preload="metadata" src="../assets/audio/Bauke_nl.mp3"></audio>
-              </div>
-              <div>
-                <p class="label">English</p>
-                <audio controls preload="metadata" src="../assets/audio/Bauke_en.mp3"></audio>
-              </div>
+            <p><strong>English</strong><br>
+              Three window frames with transparent fabric let inside and outside bleed into each other. Painted on both sides, the work never reveals itself at once—perception, construction and deconstruction stay in motion.
+            </p>
+            <div class="audio-duo">
+              <div><strong>Nederlands:</strong> <audio controls><source src="../assets/audio/Bauke_nl.mp3" type="audio/mpeg"></audio></div>
+              <div><strong>English:</strong> <audio controls><source src="../assets/audio/Bauke_en.mp3" type="audio/mpeg"></audio></div>
             </div>
           </article>
 
           <!-- 3 -->
           <article class="audio-stop" id="stop-3">
             <div class="stop-head">
-              <span class="badge">3</span>
               <strong>Vip Concept</strong>
               <span class="addr">Bondgenotenlaan 145, 3000 Leuven</span>
               <a class="btn-mini" target="_blank" rel="noopener" href="https://www.google.com/maps?q=Bondgenotenlaan+145,+3000+Leuven">Open in Maps</a>
             </div>
             <h3>Jente Waerzeggers — <em>Window Lickin’ Good</em></h3>
             <img src="../assets/img/artists/Jente/jente5.jpeg" alt="Werk van Jente Waerzeggers">
-            <p
-              data-lang-nl="Rauwe, directe beelden uit de muziek- en kunstscene verschijnen als lichtbakken in de etalage. Het werk speelt met de grens tussen commercie en kunst en nodigt uit om blijven te kijken."
-              data-lang-en="Raw, direct images from the music and art scene appear as lightboxes in the window. The work toys with the line between commerce and art and invites lingering attention.">
-              Ruwe lichtbakken balanceren tussen straatbeeld en kunstpresentatie; een speels-radicale blik op wat we tonen en zien.
+            <p><strong>Nederlands</strong><br>
+              Ruwe, directe beelden uit de muziek- en kunstscene verschijnen als lichtbakken in de etalage. Het werk speelt met de grens tussen commercie en kunst en nodigt uit om te blijven kijken.
             </p>
-            <div class="audio-dual">
-              <div>
-                <p class="label">Nederlands</p>
-                <audio controls preload="metadata" src="../assets/audio/Jente_nl.mp3"></audio>
-              </div>
-              <div>
-                <p class="label">English</p>
-                <audio controls preload="metadata" src="../assets/audio/Jente_en.mp3"></audio>
-              </div>
+            <p><strong>English</strong><br>
+              Raw, direct images from the music and art scene appear as lightboxes in the window. The work toys with the line between commerce and art and invites lingering attention.
+            </p>
+            <div class="audio-duo">
+              <div><strong>Nederlands:</strong> <audio controls><source src="../assets/audio/Jente_nl.mp3" type="audio/mpeg"></audio></div>
+              <div><strong>English:</strong> <audio controls><source src="../assets/audio/Jente_en.mp3" type="audio/mpeg"></audio></div>
             </div>
           </article>
 
           <!-- 4 -->
           <article class="audio-stop" id="stop-4">
             <div class="stop-head">
-              <span class="badge">4</span>
               <strong>Huis Delsart</strong>
               <span class="addr">Bondgenotenlaan 81, 3000 Leuven</span>
               <a class="btn-mini" target="_blank" rel="noopener" href="https://www.google.com/maps?q=Bondgenotenlaan+81,+3000+Leuven">Open in Maps</a>
             </div>
             <h3>Nora Mahammed — <em>Heart Capsule</em></h3>
             <img src="../assets/img/artists/Nora/Nora2.jpg" alt="Werk van Nora Mahammed">
-            <p
-              data-lang-nl="Een zintuiglijke ruimte als liefdevolle capsule: textuur, kleur, geluid en vorm vertragen de tijd en openen het lichaam voor gevoel. Een plek voor aanwezigheid, resonantie en zachte transformatie."
-              data-lang-en="A sensory space as a loving capsule: texture, color, sound and form slow time and reopen the body to feeling. A site for presence, resonance, and gentle transformation.">
-              Een intieme installatieruimte die uitnodigt tot verstilling en herverbinding met je innerlijke kind en verwondering.
+            <p><strong>Nederlands</strong><br>
+              Een zintuiglijke ruimte als liefdevolle capsule: textuur, kleur, geluid en vorm vertragen de tijd en openen het lichaam voor gevoel. Een plek voor aanwezigheid, resonantie en zachte transformatie.
             </p>
-            <div class="audio-dual">
-              <div>
-                <p class="label">Nederlands</p>
-                <audio controls preload="metadata" src="../assets/audio/Nora_nl.mp3"></audio>
-              </div>
-              <div>
-                <p class="label">English</p>
-                <audio controls preload="metadata" src="../assets/audio/Nora_en.mp3"></audio>
-              </div>
+            <p><strong>English</strong><br>
+              A sensory space as a loving capsule: texture, color, sound and form slow time and reopen the body to feeling. A site for presence, resonance, and gentle transformation.
+            </p>
+            <div class="audio-duo">
+              <div><strong>Nederlands:</strong> <audio controls><source src="../assets/audio/Nora_nl.mp3" type="audio/mpeg"></audio></div>
+              <div><strong>English:</strong> <audio controls><source src="../assets/audio/Nora_en.mp3" type="audio/mpeg"></audio></div>
             </div>
           </article>
 
           <!-- 5 -->
           <article class="audio-stop" id="stop-5">
             <div class="stop-head">
-              <span class="badge">5</span>
               <strong>Juttu</strong>
               <span class="addr">Bondgenotenlaan 61, 3000 Leuven</span>
               <a class="btn-mini" target="_blank" rel="noopener" href="https://www.google.com/maps?q=Bondgenotenlaan+61,+3000+Leuven">Open in Maps</a>
             </div>
             <h3>Pol Olivier Matanda — <em>When Alone, the Stars Are Between Us</em></h3>
             <img src="../assets/img/artists/Pol/Pol12.jpeg" alt="Werk van Pol Olivier Matanda">
-            <p
-              data-lang-nl="Papier en suiker ontmoeten elkaar in fragiele constellaties over intimiteit en herinnering. Het vluchtige wordt tastbaar en laat, ondanks het vervagen van details, een blijvende afdruk achter."
-              data-lang-en="Paper and sugar meet in fragile constellations about intimacy and remembrance. The ephemeral becomes tangible and, even as details fade, leaves a lasting imprint.">
-              Een poëtische verkenning van nabijheid: hoe liefde standhoudt terwijl herinneringen verschuiven.
+            <p><strong>Nederlands</strong><br>
+              Papier en suiker ontmoeten elkaar in fragiele constellaties over intimiteit en herinnering. Het vluchtige wordt tastbaar en laat, ondanks het vervagen van details, een blijvende afdruk achter.
             </p>
-            <div class="audio-dual">
-              <div>
-                <p class="label">Nederlands</p>
-                <audio controls preload="metadata" src="../assets/audio/Pol_nl.mp3"></audio>
-              </div>
-              <div>
-                <p class="label">English</p>
-                <audio controls preload="metadata" src="../assets/audio/Pol_en.mp3"></audio>
-              </div>
+            <p><strong>English</strong><br>
+              Paper and sugar meet in fragile constellations about intimacy and remembrance. The ephemeral becomes tangible and, even as details fade, leaves a lasting imprint.
+            </p>
+            <div class="audio-duo">
+              <div><strong>Nederlands:</strong> <audio controls><source src="../assets/audio/Pol_nl.mp3" type="audio/mpeg"></audio></div>
+              <div><strong>English:</strong> <audio controls><source src="../assets/audio/Pol_en.mp3" type="audio/mpeg"></audio></div>
             </div>
           </article>
 
           <!-- 6 -->
           <article class="audio-stop" id="stop-6">
             <div class="stop-head">
-              <span class="badge">6</span>
               <strong>Wear Store</strong>
               <span class="addr">Bondgenotenlaan 54, 3000 Leuven</span>
               <a class="btn-mini" target="_blank" rel="noopener" href="https://www.google.com/maps?q=Bondgenotenlaan+54,+3000+Leuven">Open in Maps</a>
             </div>
             <h3>Jason Slabbynck — <em>Tray Tower</em></h3>
             <img src="../assets/img/artists/Jason/jason11.jpg" alt="Werk van Jason Slabbynck">
-            <p
-              data-lang-nl="Een toren van gerecycleerde metalen dienbladen draait traag achter het raam: huiselijk en monumentaal tegelijk. Herkenning slaat om in vervreemding en zet aan tot kijken zonder belofte van inhoud."
-              data-lang-en="A tower of recycled metal trays turns slowly behind the glass: at once domestic and monumental. Familiarity slips into estrangement, inviting looking without the promise of content.">
-              Een stille verstoring in de winkelstraat die bevraagt wat we tonen, bewaren en verwachten.
+            <p><strong>Nederlands</strong><br>
+              Een toren van gerecycleerde metalen dienbladen draait traag achter het raam: huiselijk en monumentaal tegelijk. Herkenning slaat om in vervreemding en zet aan tot kijken zonder belofte van inhoud.
             </p>
-            <div class="audio-dual">
-              <div>
-                <p class="label">Nederlands</p>
-                <audio controls preload="metadata" src="../assets/audio/Jason_nl.mp3"></audio>
-              </div>
-              <div>
-                <p class="label">English</p>
-                <audio controls preload="metadata" src="../assets/audio/Jason_en.mp3"></audio>
-              </div>
+            <p><strong>English</strong><br>
+              A tower of recycled metal trays turns slowly behind the glass: at once domestic and monumental. Familiarity slips into estrangement, inviting looking without the promise of content.
+            </p>
+            <div class="audio-duo">
+              <div><strong>Nederlands:</strong> <audio controls><source src="../assets/audio/Jason_nl.mp3" type="audio/mpeg"></audio></div>
+              <div><strong>English:</strong> <audio controls><source src="../assets/audio/Jason_en.mp3" type="audio/mpeg"></audio></div>
             </div>
           </article>
 
           <!-- 7 -->
           <article class="audio-stop" id="stop-7">
             <div class="stop-head">
-              <span class="badge">7</span>
               <strong>De Slegte</strong>
               <span class="addr">Bondgenotenlaan 47, 3000 Leuven</span>
               <a class="btn-mini" target="_blank" rel="noopener" href="https://www.google.com/maps?q=Bondgenotenlaan+47,+3000+Leuven">Open in Maps</a>
             </div>
             <h3>Jonathan Van de Wal — <em>Questions, answers and questions?</em></h3>
             <img src="../assets/img/artists/Jonathan/Jonathan3.jpg" alt="Werk van Jonathan Van de Wal">
-            <p
-              data-lang-nl="Schilderingen en assemblages die vragen stapelen in plaats van ze te sluiten. Tussen humor en mysterie ontvouwt zich een eigen logica die betekenis oprekt."
-              data-lang-en="Paintings and assemblages that stack questions rather than close them. Between humor and mystery, an internal logic stretches what ‘meaning’ can be.">
-              Een speelse, poëtische uitnodiging om te dwalen in het enigma.
+            <p><strong>Nederlands</strong><br>
+              Schilderingen en assemblages die vragen stapelen in plaats van ze te sluiten. Tussen humor en mysterie ontvouwt zich een eigen logica die betekenis oprekt.
             </p>
-            <div class="audio-dual">
-              <div>
-                <p class="label">Nederlands</p>
-                <audio controls preload="metadata" src="../assets/audio/Jonathan_nl.mp3"></audio>
-              </div>
-              <div>
-                <p class="label">English</p>
-                <audio controls preload="metadata" src="../assets/audio/Jonathan_en.mp3"></audio>
-              </div>
+            <p><strong>English</strong><br>
+              Paintings and assemblages that stack questions rather than close them. Between humor and mystery, an internal logic stretches what ‘meaning’ can be.
+            </p>
+            <div class="audio-duo">
+              <div><strong>Nederlands:</strong> <audio controls><source src="../assets/audio/Jonathan_nl.mp3" type="audio/mpeg"></audio></div>
+              <div><strong>English:</strong> <audio controls><source src="../assets/audio/Jonathan_en.mp3" type="audio/mpeg"></audio></div>
             </div>
           </article>
 
           <!-- 8 -->
           <article class="audio-stop" id="stop-8">
             <div class="stop-head">
-              <span class="badge">8</span>
               <strong>30CC Schouwburg</strong>
               <span class="addr">Bondgenotenlaan 21, 3000 Leuven</span>
               <a class="btn-mini" target="_blank" rel="noopener" href="https://www.google.com/maps?q=Bondgenotenlaan+21,+3000+Leuven">Open in Maps</a>
             </div>
             <h3>Camille Lemille — <em>Graphic Scores</em></h3>
             <img src="../assets/img/artists/Camille/Camille1.jpg" alt="Werk van Camille Lemille">
-            <p
-              data-lang-nl="Luisteren naar de stad en haar klanklandschappen vertalen naar grafische partituren. De publieke ruimte wordt een archief van ritmes, technologieën en begroetingen in een specifiek moment."
-              data-lang-en="Listening to the city and transcribing its soundscapes into graphic scores. Public space becomes an archive of rhythms, technologies, and greetings in a specific moment.">
-              Een uitnodiging om je eigen stad opnieuw te horen, voorbij het visuele.
+            <p><strong>Nederlands</strong><br>
+              Luisteren naar de stad en haar klanklandschappen vertalen naar grafische partituren. De publieke ruimte wordt een archief van ritmes, technologieën en begroetingen in een specifiek moment.
             </p>
-            <div class="audio-dual">
-              <div>
-                <p class="label">Nederlands</p>
-                <audio controls preload="metadata" src="../assets/audio/Camille_nl.mp3"></audio>
-              </div>
-              <div>
-                <p class="label">English</p>
-                <audio controls preload="metadata" src="../assets/audio/Camille_en.mp3"></audio>
-              </div>
+            <p><strong>English</strong><br>
+              Listening to the city and transcribing its soundscapes into graphic scores. Public space becomes an archive of rhythms, technologies, and greetings in a specific moment.
+            </p>
+            <div class="audio-duo">
+              <div><strong>Nederlands:</strong> <audio controls><source src="../assets/audio/Camille_nl.mp3" type="audio/mpeg"></audio></div>
+              <div><strong>English:</strong> <audio controls><source src="../assets/audio/Camille_en.mp3" type="audio/mpeg"></audio></div>
             </div>
           </article>
 
           <!-- 9 -->
           <article class="audio-stop" id="stop-9">
             <div class="stop-head">
-              <span class="badge">9</span>
               <strong>Folie Dameskleding</strong>
               <span class="addr">Rector De Somerplein 11, 3000 Leuven</span>
               <a class="btn-mini" target="_blank" rel="noopener" href="https://www.google.com/maps?q=Rector+De+Somerplein+11,+3000+Leuven">Open in Maps</a>
             </div>
             <h3>Niels Poiz — <em>Collage-installatie</em></h3>
             <img src="../assets/img/artists/Niels/Niels2.jpeg" alt="Werk van Niels Poiz">
-            <p
-              data-lang-nl="Taal, popsongs en dagboekfragmenten vormen een collage die verhaallijnen opent en meteen weer ondermijnt. Originelen mengen zich met reproducties; niets staat definitief vast."
-              data-lang-en="Language, pop songs and diary fragments form a collage that opens narrative threads only to unravel them. Originals mix with reproductions; nothing settles for long.">
-              Een kwetsbare, steeds verschuivende beeldtaal over identiteit en popcultuur.
+            <p><strong>Nederlands</strong><br>
+              Taal, popsongs en dagboekfragmenten vormen een collage die verhaallijnen opent en meteen weer ondermijnt. Originelen mengen zich met reproducties; niets staat definitief vast.
             </p>
-            <div class="audio-dual">
-              <div>
-                <p class="label">Nederlands</p>
-                <audio controls preload="metadata" src="../assets/audio/Niels_nl.mp3"></audio>
-              </div>
-              <div>
-                <p class="label">English</p>
-                <audio controls preload="metadata" src="../assets/audio/Niels_en.mp3"></audio>
-              </div>
+            <p><strong>English</strong><br>
+              Language, pop songs and diary fragments form a collage that opens narrative threads only to unravel them. Originals mix with reproductions; nothing settles for long.
+            </p>
+            <div class="audio-duo">
+              <div><strong>Nederlands:</strong> <audio controls><source src="../assets/audio/Niels_nl.mp3" type="audio/mpeg"></audio></div>
+              <div><strong>English:</strong> <audio controls><source src="../assets/audio/Niels_en.mp3" type="audio/mpeg"></audio></div>
             </div>
           </article>
 
           <!-- 10 -->
           <article class="audio-stop" id="stop-10">
             <div class="stop-head">
-              <span class="badge">10</span>
               <strong>Bushalte De Lijn</strong>
               <span class="addr">Rector De Somerplein, 3000 Leuven</span>
               <a class="btn-mini" target="_blank" rel="noopener" href="https://www.google.com/maps?q=Rector+De+Somerplein,+3000+Leuven">Open in Maps</a>
             </div>
             <h3>Camille Lemille — <em>Bus Stop Score</em></h3>
             <img src="../assets/img/artists/Camille/Camille3.jpg" alt="Werk van Camille Lemille">
-            <p
-              data-lang-nl="Een partituur voor de bushalte: transactiegeluiden, motoren, begroetingen en stiltes weven een momentopname. Luisteren wordt een manier om de stad te lezen."
-              data-lang-en="A score for the bus stop: transaction beeps, engines, greetings and silences weave a snapshot in time. Listening becomes a way to read the city.">
-              Publieke ruimte als instrument — en jij als luisteraar.
+            <p><strong>Nederlands</strong><br>
+              Een partituur voor de bushalte: transactiegeluiden, motoren, begroetingen en stiltes weven een momentopname. Luisteren wordt een manier om de stad te lezen.
             </p>
-            <div class="audio-dual">
-              <div>
-                <p class="label">Nederlands</p>
-                <audio controls preload="metadata" src="../assets/audio/Camille2_nl.mp3"></audio>
-              </div>
-              <div>
-                <p class="label">English</p>
-                <audio controls preload="metadata" src="../assets/audio/Camille2_en.mp3"></audio>
-              </div>
+            <p><strong>English</strong><br>
+              A score for the bus stop: transaction beeps, engines, greetings and silences weave a snapshot in time. Listening becomes a way to read the city.
+            </p>
+            <div class="audio-duo">
+              <div><strong>Nederlands:</strong> <audio controls><source src="../assets/audio/Camille2_nl.mp3" type="audio/mpeg"></audio></div>
+              <div><strong>English:</strong> <audio controls><source src="../assets/audio/Camille2_en.mp3" type="audio/mpeg"></audio></div>
             </div>
           </article>
         </div>
 
         <p class="backline">
-          <a class="mono-link" href="../index.html#data" data-lang-nl="← terug naar route & data" data-lang-en="← back to route & dates">← terug naar route & data</a>
+          <a class="mono-link" href="../index.html#data">← terug naar route & data</a>
         </p>
       </div>
     </section>
@@ -478,34 +355,12 @@
   <footer>
     <div class="footer-inner">
       <div>© <span id="year"></span> Webdesign door Judith Caeyers & Thomas De Paepe </div>
-      <a href="#top" data-lang-nl="Naar boven" data-lang-en="Back to top">Naar boven</a>
+      <a href="#top">Naar boven</a>
     </div>
   </footer>
 
-  <!-- Scripts -->
-  <script src="../assets/js/app.js" defer></script>
   <script>
-    // Jaar in footer
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Hash-ankers: highlight & scroll naar juiste stop
-    function highlightStopFromHash() {
-      document.querySelectorAll('.audio-stop.is-highlight').forEach(el => el.classList.remove('is-highlight'));
-      const id = location.hash && location.hash.replace('#','');
-      if (!id) return;
-      const el = document.getElementById(id);
-      if (!el) return;
-      el.classList.add('is-highlight');
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-
-    window.addEventListener('hashchange', highlightStopFromHash);
-    document.addEventListener('DOMContentLoaded', () => {
-      const params = new URLSearchParams(location.search);
-      const lang = params.get('lang');
-      if (lang && typeof window.setLang === 'function') setLang(lang);
-      highlightStopFromHash();
-    });
   </script>
 </body>
 </html>
